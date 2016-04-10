@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+    <!--  jqplot cdn-->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.barRenderer.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.pieRenderer.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.pointLabels.min.js"></script>
+    <script type="text/javascript" src=""></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/jquery.jqplot.min.css" />
+    <!-- jqplot cdn end-->
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js'></script>
+    <script src='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js'></script>
+    <!-- add cdn start-->
+    <link rel='stylesheet prefetch' href='http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css'>
+    <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css'>
+    <!-- add cdn end-->
+    <link href='http://fonts.googleapis.com/css?family=Share+Tech&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <!--피알첨부-->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+    <style>
+        /*버튼 쉐도우*/
+        
+        .button {
+            background-color: rgb(198, 228, 255);
+            /* Green */
+            border: none;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s;
+            /* Safari */
+            transition-duration: 0.4s;
+        }
+        
+        .button2:hover {
+            box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.24), 0 14px 42px 0 rgba(0, 0, 0, 0.19);
+        }
+        /* Style the buttons that are used to open and close the accordion panel */
+        
+        button.accordion:after {
+            content: '\02795';
+            /* Unicode character for "plus" sign (+) */
+            font-size: 13px;
+            color: #777;
+            float: right;
+            margin-left: 5px;
+        }
+        
+        button.accordion.active:after {
+            content: "\2796";
+            /* Unicode character for "minus" sign (-) */
+        }
+        
+        button.accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+        }
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        
+        button.accordion.active,
+        button.accordion:hover {
+            background-color: #ddd;
+        }
+        /* Style the accordion panel. Note: hidden by default */
+        
+        div.panel {
+            padding: 0 18px;
+            background-color: white;
+            display: none;
+        }
+        /* The "show" class is added to the accordion panel when the user clicks on one of the buttons. This will show the panel content */
+        
+        div.panel.show {
+            display: block !important;
+        }
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        
+        .row.content {
+            height: 1000px
+        }
+        /* Set gray background color and 100% height */
+        
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+        /* Set black background color, white text and some padding */
+        
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+            .row.content {
+                height: auto;
+            }
+        }
+        
+        .main {
+            padding-top: 10px;
+        }
+        
+        .navbar-item {
+            color: white;
+        }
+        
+        .nav-tabs {
+            background: black;
+        }
+        
+        .nav-sub {
+            padding: 0px;
+            background: black;
+            line-height: 1px;
+            font-size: 13px
+        }
+        
+        .progress {
+            margin: 10px;
+        }
+        /* -------------------------------- style add --------------------------------*/
+        /* 여기는 본문의 텍스트 */
+        /* 여기는 해당 페이지 좌측 메뉴 하이라이트 색깔*/
+        
+        body .nav-list>.active>a {
+            /*background-color:black;*/
+            text-align: center;
+        }
+        
+        body .nav-list>.active>a:hover {
+            background: #ffffff;
+        }
+        
+        body .nav a:hover {
+            background-color: #F7EDFA;
+        }
+        
+        #side-nav {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #side-nav:before,
+        #side-nav:after {
+            content: ' ';
+            display: table;
+        }
+        
+        #side-nav:after {
+            clear: both;
+        }
+        
+        .shareTech {
+            font-family: 'Share Tech', sans-serif;
+        }
+        /* 여기는 좌측 메뉴 바*/
+        
+        .nav-list li a {
+            height: 30px;
+            font-size: 1em;
+            line-height: 20px;
+        }
+        /* 여기는 본문의 투명도*/
+        
+        .opacity,
+        section {
+            opacity: .7;
+        }
+        
+        .h1-wrap {
+            padding: 1em 1em 5em 2em;
+            background-color: #F7EDFA;
+            margin-bottom: 1em;
+        }
+        
+        h1:first-of-type {
+            color: #5fd0eb;
+            font-size: 3em;
+            margin-top: 1em;
+            margin-left: 25%;
+        }
+        
+        .topImage {
+            display: inline-block;
+            height: auto;
+            width: 40%;
+            margin-left: 30%;
+        }
+        
+        section {
+            background-color: #F2EBF7;
+            height: auto;
+            /*프로필 등록을 위해서 section의 세로 사이즈 조정함 - 오병소 (160405 - UI 작업)*/
+            margin-bottom: 1em;
+            padding: 1em 1em .5em 1em;
+        }
+        
+        section + section {
+            height: auto/* note the section height here! */
+        }
+        
+        section + section + section {
+            height: 400px
+        }
+        
+        section h2 {
+            font-size: 3em;
+        }
+        
+        section p {
+            float: right;
+            font-size: 1.5em;
+            line-height: 1.6em;
+            width: 50%;
+        }
+        /*sub {
+          background:#A76AD9;
+          color:#fff;
+          padding:1em;
+          display:block;
+          float:right;
+          font-size:1em;
+          line-height:1.1em;
+          margin-bottom:1em;
+          margin-right:1em;
+          width:50%;
+        }*/
+        
+        sub a {
+            background: none;
+            color: #fff;
+        }
+        
+        sub a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        @media only screen and (max-width: 1200px) {
+            #side-nav,
+            .puppyWrap {
+                display: none;
+            }
+            .col-md-offset-3 {
+                margin-left: 0;
+            }
+            .col-md-9 {
+                width: 100%;
+            }
+        }
+        /* -------------------------------- style end --------------------------------*/
+    </style>
+</head>
+
+<body data-spy="scroll" data-target="#side-nav">
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">SpringJobs</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="btn-group">
+                        <!-- option button -->
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            검색방법 <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">사람</a></li>
+                            <li><a href="#">기업</a></li>
+                            <li><a href="#">사용API</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">기타</a></li>
+                        </ul>
+                    </div>
+                    <!-- option button end-->
+
+                    <div class="form-group ">
+                        <input type="text" class="form-control" placeholder="Search" size="45">
+                    </div>
+                    <button type="submit" class="btn btn-default"><strong>Search</strong></button>
+                </form>
+
+                <form class="form-inline navbar-form navbar-right">
+                    <div class="form-group">
+                        <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="exampleInputPassword3">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> <font color="A7A7A7">Remember me</font>
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-user"></span> Sign up</button>
+
+                </form>
+
+            </div>
+            <!-- /.navbar-collapse -->
+
+        </div>
+        <!-- /.container-fluid -->
+
+
+
+        <!-- sub상단바-->
+        <div class="col-md-12 nav-sub">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <ul class="nav nav-pills">
+
+
+                    <li role="presentation" class="dropdown">
+                        <a href="#" class="navbar-item">이력서등록</a>
+                        <ul id="dropdown-menu" class="dropdown-menu" role="menu">
+                            <li><a href='#'>item1</a></li>
+                            <li><a href='#'>item2</a></li>
+                            <li><a href='#'>item3</a></li>
+                        </ul>
+                    </li>
+
+                    <li role="presentation" class="dropdown">
+                        <a href="#" class="navbar-item">채용정보</a>
+                        <ul id="dropdown-menu" class="dropdown-menu" role="menu">
+                            <li><a href='#'>item1</a></li>
+                            <li><a href='#'>item2</a></li>
+                            <li><a href='#'>item3</a></li>
+                        </ul>
+                    </li>
+
+                    <li role="presentation" class="dropdown">
+                        <a href="#" class="navbar-item">프로젝트</a>
+                        <ul id="dropdown-menu" class="dropdown-menu" role="menu">
+                            <li><a href='#'>item1</a></li>
+                            <li><a href='#'>item2</a></li>
+                            <li><a href='#'>item3</a></li>
+                        </ul>
+                    </li>
+
+                    <li role="presentation" class="dropdown" style="float:right;">
+                        <a href="#" class="navbar-item">SpringJobs소개</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <!-- sub상단바 끝-->
+
+
+    <!--본문 시작-->
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-1 sidenav"></div>
+            <div class="col-md-10 text-left main">
+
+                <!-- privacy, resume, tag, url/api, portFolio~ -->
+
+
+                <div class="container">
+                    <div class="row">
+                        <div id="side-nav">
+                            <ul class="nav nav-list affix">
+                                <!--  <li><a href="#start">*Scroll Spy<br><sub>vertical height</sub></a></li>-->
+                                <li><a href="#one">개인신상</a></li>
+                                <li><a href="#two">포트폴리오</a></li>
+                                <!--<li><a href="#three">N&deg;3</a></li>
+                                <li><a href="#four">N&deg;4</a></li>-->
+                            </ul>
+                        </div>
+                        <div class="col-md-offset-2 col-md-9 content">
+
+                            <section id="one">
+                                <h2 class="shareTech">개인신상</h2>
+                                <br>
+                                <!--프로필 등록 화면의 위치 조정을 위하여 class="h1-wrap"을 주석처리하고 row로 대체함 - 오병소 (160405 - UI작업)-->
+                                <!--<div class="h1-wrap">-->
+                                <div class="row">
+                                    <div class="col-xs-2">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput" style="width:100%;">
+
+                                            <!--오른쪽 테이블과의 수평 맞춤을 위한 태그로 사용되었으나 필요 없어서 주석 처리함 - 오병소(160405- UI작업)-->
+                                            <!-- <div style="height:15px"></div>-->
+
+                                            <div class="fileinput-new thumbnail" style="width:120px;height:160px;">
+                                                <br>
+                                                <br>
+                                                <img data-src="holder.js/100%x100%" alt="파일 용량 1MB 이하 3.5cm X 4.5cm
+                                                                            jpg, gif 파일만 가능 (6개월 내 찍은 사진)">
+                                            </div>
+                                            <div class="fileinput-preview fileinput-exists thumbnail" style="width: 120px; height: 160px;"></div>
+                                            <div style="width:120px;">
+                                                <span class="btn btn-default btn-file" style="width:100%;"><span class="fileinput-new" >Select image</span><span class="fileinput-exists">Change</span>
+                                                <input type="file" name="...">
+                                                </span>
+                                                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput" style="width:100%">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-10">
+                                        <table class="table table-bordered table-striped nanum" style="width:100%;float:right;">
+                                            <tbody>
+
+                                                <tr>
+                                                    <thead>
+                                                        <td class="success"><strong>이름</strong></td>
+                                                        <td>
+
+                                                            <input class="form-control" type="text" id="formGroupInputLarge" placeholder="이름을 입력하세요.">
+                                                        </td>
+                                                        <td class="success"><strong>영문</strong></td>
+                                                        <td>
+                                                            <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex) Hong GilDong">
+                                                        </td>
+                                                    </thead>
+                                                </tr>
+                                                <tr>
+                                                    <thead>
+                                                        <td class="success"><strong>생년월일</strong></td>
+                                                        <td>
+                                                            <input class="form-control" type="date">
+                                                        </td>
+                                                        <td class="success"><strong>성별</strong></td>
+                                                        <td>
+                                                            <select class="form-control">
+                                                                <option>남성</option>
+                                                                <option>여성</option>
+                                                            </select>
+                                                        </td>
+                                                    </thead>
+                                                </tr>
+                                                <tr>
+                                                    <thead>
+                                                        <td class="success"><strong>핸드폰 번호</strong></td>
+                                                        <td>
+                                                            <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex) 82-10-9169-3846">
+                                                        </td>
+                                                        <td class="success"><strong>비상 연락처</strong></td>
+                                                        <td>
+                                                            <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex) 031-123-4567">
+                                                        </td>
+                                                    </thead>
+                                                </tr>
+                                                <tr>
+                                                    <thead>
+                                                        <td class="success"><strong>E-mail Addres</strong>s</td>
+                                                        <td>
+                                                            <input class="form-control" type="email" id="formGroupInputLarge" placeholder="ex) ygm8225@gmail.com">
+                                                        </td>
+                                                        <td class="success"><strong>주요 URL</strong></td>
+                                                        <td colspan="3">
+                                                            <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex)www.github.com/Yimkm">
+                                                        </td>
+                                                    </thead>
+                                                </tr>
+                                                <tr>
+                                                    <thead>
+                                                        <td class="success"><strong>거주지 주소</strong></td>
+                                                        <td colspan="3">
+                                                            <input class="form-control" type="text" id="formGroupInputLarge" style="width:79%">
+                                                            <button type="submit" class="btn btn-default" style="width:20%">
+                                                                <span class="glyphicon glyphicon-search"></span> 주소검색
+                                                            </button>
+                                                        </td>
+                                                    </thead>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <button type="submit" class="button button2" style="width:20%"><strong>저장</strong></button>
+                                    </div>
+                                </div>
+                                <div class="container">
+                                </div>
+
+                            </section>
+                            <!--섹션 1 끝-->
+
+
+
+                            <section id="two">
+                                <h2 class="shareTech">포트폴리오</h2>
+                                <button class="accordion">노출태그</button>
+                                <div class="panel">
+                                    <label> 태그입력</label>
+                                    <input type="text" size="70">
+                                    <button type="submit" class="btn btn-default" style="width:20%"><strong>저장</strong></button>
+                                </div>
+
+
+                                <button class="accordion">학력</button>
+                                <div class="panel">
+
+
+
+                                    <form class="form-horizontal">
+                                        <div class="form-group form-group-md">
+                                            <label class="col-md-2 control-label" for="formGroupInputMedium">학교명</label>
+                                            <div class="col-md-5">
+
+                                                <input class="form-control" type="text" id="formGroupInputLarge" placeholder="학교명을 입력하세요.">
+                                            </div>
+
+                                            <div class="input-group ">
+                                                <button type="submit" class="btn btn-default">
+                                                    <span class="glyphicon glyphicon-search"></span> Search
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-group-md">
+                                            <label class="col-md-2 control-label" for="formGroupInputMedium">전공명</label>
+                                            <div class="col-md-5">
+
+                                                <input class="form-control" type="text" id="formGroupInputLarge" placeholder="전공을 입력하세요.">
+                                            </div>
+
+                                            <div class="input-group ">
+                                                <button type="submit" class="btn btn-default">
+                                                    <span class="glyphicon glyphicon-search"></span> Search
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-group-md">
+                                            <label class="col-md-2 control-label" for="formGroupInputMedium">성적</label>
+                                            <div class="col-md-5">
+
+                                                <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex) x.x/4.0, x.x/4.5, x.x/5.0 ...">
+                                            </div>
+                                        </div>
+                                        <!--프로젝트 주제 끝-->
+                                        <div class="form-inline form-group-md form-group">
+                                            <label class="col-md-2 control-label" for="formGroupInputMedium">재학 기간</label>
+                                            <div class="col-md-3">
+                                                <input type="date" class="form-control" id="exampleInputEmail3">
+
+                                            </div>
+
+
+
+                                            <div class="col-md-3">
+                                                <input class="form-control" type="date" id="exampleInputPassword3">
+                                            </div>
+                                        </div>
+
+
+
+                                        <button type="button" class="btn btn-default" style="width:20%"><strong>저장</strong></button>
+                                        <button type="button" class="btn btn-default" style="width:20%" onclick="add_item()"><strong>추가</strong></button>
+                                    </form>
+                                    <div id="pre_set" style="display:none">
+
+                                        <br>
+
+                                        <form class="form-horizontal">
+                                            <div class="form-group form-group-md">
+                                                <label class="col-md-2 control-label" for="formGroupInputMedium">학교명</label>
+                                                <div class="col-md-5">
+
+                                                    <input class="form-control" type="text" id="formGroupInputLarge" placeholder="학교명을 입력하세요.">
+                                                </div>
+
+                                                <div class="input-group ">
+                                                    <button type="button" class="btn btn-default">
+                                                        <span class="glyphicon glyphicon-search"></span> Search
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="form-group form-group-md">
+                                                <label class="col-md-2 control-label" for="formGroupInputMedium">전공명</label>
+                                                <div class="col-md-5">
+
+                                                    <input class="form-control" type="text" id="formGroupInputLarge" placeholder="전공을 입력하세요.">
+                                                </div>
+
+                                                <div class="input-group ">
+                                                    <button type="button" class="btn btn-default">
+                                                        <span class="glyphicon glyphicon-search"></span> Search
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group form-group-md">
+                                                <label class="col-md-2 control-label" for="formGroupInputMedium">성적</label>
+                                                <div class="col-md-5">
+
+                                                    <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex) x.x/4.0, x.x/4.5, x.x/5.0 ...">
+                                                </div>
+                                            </div>
+                                            <!--프로젝트 주제 끝-->
+                                            <div class="form-inline form-group-md form-group">
+                                                <label class="col-md-2 control-label" for="formGroupInputMedium">재학 기간</label>
+                                                <div class="col-md-3">
+                                                    <input type="date" class="form-control" id="exampleInputEmail3">
+
+                                                </div>
+
+
+
+                                                <div class="col-md-3">
+                                                    <input class="form-control" type="date" id="exampleInputPassword3">
+                                                </div>
+                                            </div>
+
+
+
+                                            <button type="button" class="btn btn-default" style="width:20%"><strong>저장</strong></button>
+                                            <button type="button" class="btn btn-default" style="width:20%" onclick="add_item()"><strong>추가</strong></button>
+                                        </form>
+                                        <input type="button" value="삭제" onclick="remove_item(this)">
+                                    </div>
+                                    <div id="field"></div>
+                                    <br>
+
+                                </div>
+
+                                <button class="accordion">경력</button>
+                                <div class="panel">
+
+
+
+                                    <form class="form-horizontal">
+                                        <div class="form-group form-group-md">
+                                            <label class="col-md-2 control-label" for="formGroupInputMedium">회사명</label>
+                                            <div class="col-md-5">
+
+                                                <input class="form-control" type="text" id="formGroupInputLarge" placeholder="회사명을 입력하세요.">
+                                            </div>
+
+
+                                        </div>
+                                        <div class="form-group form-group-md">
+                                            <label class="col-md-2 control-label" for="formGroupInputMedium">부서명</label>
+                                            <div class="col-md-5">
+
+                                                <input class="form-control" type="text" id="formGroupInputLarge" placeholder="전공을 입력하세요.">
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group form-group-md">
+                                            <label class="col-md-2 control-label" for="formGroupInputMedium">급여</label>
+                                            <label class="col control-label" for="formGroupInputMedium">(단위: 원)</label>
+                                            <div class="col-md-2">
+                                                <div class="col-md">
+                                                    <input class="form-control" type="text" id="formGroupInputLarge" placeholder="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--프로젝트 주제 끝-->
+                                        <div class="form-inline form-group-md form-group">
+                                            <label class="col-md-2 control-label" for="formGroupInputMedium">재직 기간</label>
+                                            <div class="col-md-3">
+                                                <input type="date" class="form-control" id="exampleInputEmail3">
+
+                                            </div>
+                                            <div class="col-md-3">
+                                                <input class="form-control" type="date" id="exampleInputPassword3">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group form-group-md">
+                                            <label class="col-md-2 control-label" for="formGroupInputMedium">업무 기술</label>
+                                            <div class="col-md-5">
+
+                                                <input class="form-control" type="text" id="formGroupInputLarge" placeholder="업무를 간략하게 기술하세요.">
+                                            </div>
+
+                                        </div>
+
+                                        <button type="button" class="btn btn-default" style="width:20%"><strong>저장</strong></button>
+                                    </form>
+                                </div>
+
+                                <button class="accordion">보유기술</button>
+                                <div class="panel">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">Option 1</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">Option 3</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">Option 3</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">Option 3</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">Option 3</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">Option 3</label>
+
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">Option 1</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">Option 3</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">Option 3</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">Option 3</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">Option 3</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">Option 3</label>
+
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" value="">Option 1</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">Option 3</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">Option 3</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">Option 3</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">Option 3</label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">Option 3</label>
+
+                                    </div>
+                                </div>
+
+                                <button class="accordion">외국어</button>
+                                <div class="panel">
+                                    <p>Lorem ipsum...</p>
+                                </div>
+
+                                <button class="accordion">시험성적</button>
+                                <div class="panel">
+                                    <p>Lorem ipsum...</p>
+                                </div>
+
+                                <button class="accordion">프로젝트</button>
+                                <div class="panel">
+                                    <p>Lorem ipsum...</p>
+                                </div>
+
+                                <button class="accordion">자격증</button>
+                                <div class="panel">
+                                    <p>Lorem ipsum...</p>
+                                </div>
+
+                                <button class="accordion">희망하는 연락방법</button>
+                                <div class="panel">
+                                    <p>Lorem ipsum...</p>
+                                </div>
+
+
+
+
+                            </section>
+
+
+
+                            <section id="three">
+
+
+
+
+                            </section>
+                            <!--
+                            <section id="four">
+                                <h2 class="shareTech">Section 4</h2>
+                                <p>
+                                    If you're rendering trigger id elements dynamically it's best to make sure that you're setting the height of the element as well; particularly if the element height is small.
+                                </p>
+                            </section>
+                            -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-1 sidenav">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+<script>
+    //추가 및 삭제 버튼
+
+
+    function add_item() {
+        // pre_set 에 있는 내용을 읽어와서 처리..
+        var div = document.createElement('div');
+        div.innerHTML = document.getElementById('pre_set').innerHTML;
+        document.getElementById('field').appendChild(div);
+    }
+
+    function remove_item(obj) {
+        // obj.parentNode 를 이용하여 삭제
+        document.getElementById('field').removeChild(obj.parentNode);
+    }
+
+    //팝업 시작
+    var image = '<img src="img/graph.png">';
+    $('button:contains("Detail")').popover({
+        html: true
+        , trigger: 'hover'
+        , placement: 'auto right'
+        , content: image
+        , container: 'body'
+    });
+    $(document).ready(function () {
+        var line1 = [['Nissan', 4], ['Porche', 6], ['Acura', 2], ['Aston Martin', 5], ['Rolls Royce', 6]];
+    });
+    //팝업 끝
+
+    //sub 상단바 시작
+    $('.dropdown').hover(function () {
+        $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeIn();
+    }, function () {
+        $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeOut();
+    });
+    //sub 상단바 끝
+
+
+    /* Toggle between adding and removing the "active" and "show" classes when the user clicks on one of the "Section" buttons. The "active" class is used to add a background color to the current button when its belonging panel is open. The "show" class is used to open the specific accordion panel */
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function () {
+            this.classList.toggle("active");
+            this.nextElementSibling.classList.toggle("show");
+        }
+    }
+</script>
+
+<!-- -->
+
+
+<!-- -->
+
+
+</html>

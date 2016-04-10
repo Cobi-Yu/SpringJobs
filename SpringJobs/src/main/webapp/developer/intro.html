@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+  <!--  jqplot cdn-->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/jquery.jqplot.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.barRenderer.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.pieRenderer.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.pointLabels.min.js"></script>
+  <script type="text/javascript" src=""></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/jquery.jqplot.min.css" />
+  <!-- jqplot cdn end-->
+
+  <style>
+
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 1000px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+
+    .main{
+      padding-top: 100px;
+    }
+
+    .navbar-item{
+      color:white;
+    }
+    .nav-tabs{
+      background: black;
+    }
+    .nav-sub{
+      padding: 0px; 
+      background: black; 
+      line-height: 1px; 
+      font-size: 13px
+    }
+
+    .progress{
+      margin:10px;
+    }
+
+    .sidejob{
+      padding-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!--상단바 시작-->
+  <div class="navbar-fixed-top">
+    <!--첫번 상단바 시작-->
+    <nav class="navbar navbar-inverse" >
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">SpringJobs</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+          <form class="navbar-form navbar-left" role="search">
+            <div class="btn-group"><!-- option button -->
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                검색방법 <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">사람</a></li>
+                <li><a href="#">기업</a></li>
+                <li><a href="#">사용API</a></li>
+                <li class="divider"></li>
+                <li><a href="#">기타</a></li>
+              </ul>
+            </div><!-- option button end-->
+
+            <div class="form-group ">
+              <input type="text" class="form-control" placeholder="Search" size="45">
+            </div>
+            <button type="submit" class="btn btn-default"><strong>Search</strong></button>
+          </form>
+
+          <form class="form-inline navbar-form navbar-right">
+            <div class="form-group">
+              <label class="sr-only" for="exampleInputEmail3">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">   
+            </div>
+            <div class="form-group">
+              <label class="sr-only" for="exampleInputPassword3">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox"> <font color="A7A7A7">Remember me</font>
+                </label>
+              </div>  
+            </div>
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+            <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-user"></span> Sign up</button>
+
+          </form>
+
+        </div><!-- /.navbar-collapse -->
+
+      </div><!-- /.container-fluid -->
+    </nav>
+
+
+    <!-- sub상단바-->
+    <div class="col-md-12 nav-sub parent">
+      <div class="col-md-1"></div>
+      <div class="col-md-10">
+        <ul class="nav nav-pills">
+
+          <li role="presentation" class="dropdown">
+            <a href="/src/main/webapp/developer/addInfo.html" class="navbar-item">이력관리</a>
+          </li>
+
+          <li role="presentation" class="dropdown">
+            <a href="#" class="navbar-item">채용정보</a>
+          </li>
+
+          <li role="presentation" class="dropdown">
+            <a href="#" class="navbar-item">프로젝트</a>
+            <ul id = "dropdown-menu" class="dropdown-menu" role="menu">
+              <li><a href='/src/main/webapp/developer/developerProjectList.html'>프로젝트 리스트</a></li>
+              <li><a href='#'>참여중인 프로젝트</a></li>
+            </ul>
+          </li>
+
+          <li role="presentation" class="dropdown" style="float:right;">
+            <a href="#" class="navbar-item">SpringJobs소개</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <!-- sub상단바 끝-->
+  </div>
+  <!-- 상단바 완전 끝-->
+
+  <!--본문 시작-->
+  <div class="container-fluid text-center">    
+    <div class="row content">
+      <div class="col-md-1 sidenav">
+        <!--페이지 좌측 여백-->
+      </div>
+      <!--페이지 중앙 본문 시작-->
+      <div class="col-md-10 text-left main"> 
+        <!--페이지 중앙 본문 중 좌측 본문-->
+        <div class="col-md-8">
+          <!--페이지 중앙 본문 중 좌측 본문 판낼-->
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading"><h4><strong>프로젝트 요청 기업 list</strong></h4></div>
+              <div class="panel-body">
+                <div class="developer_list">
+                  <div class="alert alert-warning" role="alert">
+                    <div class="media">
+                      <div class="media-left media-middle col-md-2">
+                        <a href="#">
+                          <img class="img-circle" src="/src/main/resources/img/spring.jpg">
+                        </a>
+                      </div>
+                      <div class="col-md-10">
+                        <div class="media-body">
+                          <h4 class="media-heading">
+                            <div class="col-md-8">
+                              <strong>비트 컴퓨터 </strong>
+                            </div>
+                            <div class="col-md-4" align="right">
+                              <button id="detail1" type="button" class="btn btn-default">Detail</button>
+                            </div>
+                          </h4>
+                          <h5 class="col-md-12"><strong>Windows 10 출시 관련 마이그레이션 프로젝트를 진행합니다.</strong></h5>
+                          <div class="col-md-12" style="background-color: none">
+                            <small>프로젝트 요구사항</small>
+                            <div class = "progress ">
+                              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" style="width:40%">
+                                Spring
+                              </div>
+                              <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" style="width:10%">
+                                nodejs
+                              </div>
+                              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" style="width:20%">
+                                html/css
+                              </div>
+                              <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" style="width:20%">
+                                PHP
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="alert alert-warning" role="alert">
+                    <div class="media">
+                      <div class="media-left media-middle col-md-2">
+                        <a href="#">
+                          <img class="img-circle" src="/src/main/resources/img/spring.jpg">
+                        </a>
+                      </div>
+                      <div class="col-md-10">
+                        <div class="media-body">
+                          <h4 class="media-heading">
+                            <div class="col-md-8">
+                              <strong>비트 컴퓨터 </strong>
+                            </div>
+                            <div class="col-md-4" align="right">
+                              <button id="detail1" type="button" class="btn btn-default">Detail</button>
+                            </div>
+                          </h4>
+                          <h5 class="col-md-12"><strong>Windows 10 출시 관련 마이그레이션 프로젝트를 진행합니다.</strong></h5>
+                          <div class="col-md-12" style="background-color: none">
+                            <small>프로젝트 요구사항</small>
+                            <div class = "progress ">
+                              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" style="width:40%">
+                                Spring
+                              </div>
+                              <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" style="width:10%">
+                                nodejs
+                              </div>
+                              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" style="width:20%">
+                                html/css
+                              </div>
+                              <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" style="width:20%">
+                                PHP
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="alert alert-warning" role="alert">
+                    <div class="media">
+                      <div class="media-left media-middle col-md-2">
+                        <a href="#">
+                          <img class="img-circle" src="/src/main/resources/img/spring.jpg">
+                        </a>
+                      </div>
+                      <div class="col-md-10">
+                        <div class="media-body">
+                          <h4 class="media-heading">
+                            <div class="col-md-8">
+                              <strong>비트 컴퓨터 </strong>
+                            </div>
+                            <div class="col-md-4" align="right">
+                              <button id="detail1" type="button" class="btn btn-default">Detail</button>
+                            </div>
+                          </h4>
+                          <h5 class="col-md-12"><strong>Windows 10 출시 관련 마이그레이션 프로젝트를 진행합니다.</strong></h5>
+                          <div class="col-md-12" style="background-color: none">
+                            <small>프로젝트 요구사항</small>
+                            <div class = "progress ">
+                              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" style="width:40%">
+                                Spring
+                              </div>
+                              <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" style="width:10%">
+                                nodejs
+                              </div>
+                              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" style="width:20%">
+                                html/css
+                              </div>
+                              <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" style="width:20%">
+                                PHP
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--페이지 중앙 본문 중 좌측 본문 판넬 끝-->
+        </div>
+        <!--페이지 중앙 본문 중 좌측 본문 끝-->
+        <!--페이지 중앙 본문 중 우측 본문 시작-->
+        <div class="col-md-4 well" style="padding:0px">
+          관심가질만한 채용공고
+          <div class="col-md-12 sidejob">
+            <div class="col-md-3" style="padding:0px;">
+              <img src="/src/main/resources/img/spring.jpg" alt="..." class="img-rounded" width="100%">
+            </div>
+            <div class="col-md-9">
+              <a href="#"><strong>비트컴퓨터</strong></a>
+              <br>
+              Spring 개발 경력직 채용
+              <br>
+              <a href="#">관심기업등록</a> , <a href="#">건너뛰기</a>
+            </div>
+          </div>
+          <div class="col-md-12 sidejob">
+            <div class="col-md-3" style="padding:0px;">
+              <img src="/src/main/resources/img/spring.jpg" alt="..." class="img-rounded" width="100%">
+            </div>
+            <div class="col-md-9">
+              <a href="#"><strong>비트컴퓨터</strong></a>
+              <br>
+              Spring 개발 경력직 채용
+              <br>
+              <a href="#">관심기업등록</a> , <a href="#">건너뛰기</a>
+            </div>
+          </div>
+          <!--페이지 중앙 본문 중 우측 본문 끝-->
+        </div>
+        <div class="col-md-8">
+          <!--페이지 중앙 본문 중 좌측 본문 판낼-->
+          <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading"><h4><strong>추천 구인 list</strong></h4></div>
+              <div class="panel-body">
+                <div class="developer_list">
+                  <div class="alert alert-warning" role="alert">
+                    <div class="media">
+                      <div class="media-left media-middle col-md-2">
+                        <a href="#">
+                          <img class="img-circle" src="/src/main/resources/img/spring.jpg">
+                        </a>
+                      </div>
+                      <div class="col-md-10">
+                        <div class="media-body">
+                          <h4 class="media-heading">
+                            <div class="col-md-8">
+                              <strong>비트 컴퓨터 </strong>
+                            </div>
+                            <div class="col-md-4" align="right">
+                              <button id="detail1" type="button" class="btn btn-default">Detail</button>
+                            </div>
+                          </h4>
+                          <h5 class="col-md-12"><strong>Windows 10 출시 관련 마이그레이션 프로젝트를 진행합니다.</strong></h5>
+                          <div class="col-md-12" style="background-color: none">
+                            <small>프로젝트 요구사항</small>
+                            <div class = "progress ">
+                              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" style="width:40%">
+                                Spring
+                              </div>
+                              <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" style="width:10%">
+                                nodejs
+                              </div>
+                              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" style="width:20%">
+                                html/css
+                              </div>
+                              <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" style="width:20%">
+                                PHP
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="alert alert-warning" role="alert">
+                    <div class="media">
+                      <div class="media-left media-middle col-md-2">
+                        <a href="#">
+                          <img class="img-circle" src="/src/main/resources/img/spring.jpg">
+                        </a>
+                      </div>
+                      <div class="col-md-10">
+                        <div class="media-body">
+                          <h4 class="media-heading">
+                            <div class="col-md-8">
+                              <strong>비트 컴퓨터 </strong>
+                            </div>
+                            <div class="col-md-4" align="right">
+                              <button id="detail1" type="button" class="btn btn-default">Detail</button>
+                            </div>
+                          </h4>
+                          <h5 class="col-md-12"><strong>Windows 10 출시 관련 마이그레이션 프로젝트를 진행합니다.</strong></h5>
+                          <div class="col-md-12" style="background-color: none">
+                            <small>프로젝트 요구사항</small>
+                            <div class = "progress ">
+                              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" style="width:40%">
+                                Spring
+                              </div>
+                              <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" style="width:10%">
+                                nodejs
+                              </div>
+                              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" style="width:20%">
+                                html/css
+                              </div>
+                              <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" style="width:20%">
+                                PHP
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="alert alert-warning" role="alert">
+                    <div class="media">
+                      <div class="media-left media-middle col-md-2">
+                        <a href="#">
+                          <img class="img-circle" src="/src/main/resources/img/spring.jpg">
+                        </a>
+                      </div>
+                      <div class="col-md-10">
+                        <div class="media-body">
+                          <h4 class="media-heading">
+                            <div class="col-md-8">
+                              <strong>비트 컴퓨터 </strong>
+                            </div>
+                            <div class="col-md-4" align="right">
+                              <button id="detail1" type="button" class="btn btn-default">Detail</button>
+                            </div>
+                          </h4>
+                          <h5 class="col-md-12"><strong>Windows 10 출시 관련 마이그레이션 프로젝트를 진행합니다.</strong></h5>
+                          <div class="col-md-12" style="background-color: none">
+                            <small>프로젝트 요구사항</small>
+                            <div class = "progress ">
+                              <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" style="width:40%">
+                                Spring
+                              </div>
+                              <div class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" style="width:10%">
+                                nodejs
+                              </div>
+                              <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" style="width:20%">
+                                html/css
+                              </div>
+                              <div class="progress-bar progress-bar-primary progress-bar-striped" role="progressbar" style="width:20%">
+                                PHP
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--페이지 중앙 본문 중 좌측 본문 판넬 끝-->
+        </div>
+      </div>
+      <!--페이지 중앙 본문 끝-->
+      <div class="col-md-1 sidenav">
+        <!--페이지 우측 여백-->
+      </div>
+    </div>
+    <script>
+
+  //팝업 시작
+  var image = '<img src="/src/main/resources/img/spring.jpg">';
+  $('button:contains("Detail")').popover({html: true, trigger:'hover', placement:'auto right', content:image, container:'body'});
+  //팝업 끝
+
+
+
+  $(document).ready(function(){
+    //아래 한줄은 옆에 비어있는 공간 높이 채우기
+    $('.row.content').css('height',$('.main').height());
+    console.log($('.main').height());
+
+    //그래프 시작
+    $.jqplot.config.enablePlugins = true;
+    var s1 = [2, 6, 7, 10];
+    var ticks = ['a', 'b', 'c', 'd'];
+
+    plot1 = $.jqplot('chart1', [s1], {
+            // Only animate if we're not using excanvas (not in IE 7 or IE 8)..
+            animate: !$.jqplot.use_excanvas,
+            seriesDefaults:{
+              renderer:$.jqplot.BarRenderer,
+              pointLabels: { show: true }
+            },
+            axes: {
+              xaxis: {
+                renderer: $.jqplot.CategoryAxisRenderer,
+                ticks: ticks
+              }
+            },
+            highlighter: { show: false }
+          });
+
+    $('#chart1').bind('jqplotDataClick', 
+      function (ev, seriesIndex, pointIndex, data) {
+        $('#info1').html('series: '+seriesIndex+', point: '+pointIndex+', data: '+data);
+      }
+      );
+  });
+  //그래프 끝
+
+  //sub 상단바 시작
+  $('.dropdown').hover(function(){
+    $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeIn();
+  },function() {
+    $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeOut();
+  });
+  //sub 상단바 끝
+
+  $(window).scroll(function() { 
+    $('#notice').css('top', $(this).scrollTop());
+  });
+
+</script> 
+
+</body>
+</html>
+<!-- SVN 테스트 입니다. -->
+<!-- SVN 테스트 입니다.22222222222 -->
+<!-- SVN 테스트 입니다.3 -->
+<!-- SVN 테스트 입니다.2 -->

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!-- release v4.3.2, copyright 2014 - 2015 Kartik Visweswaran -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>프로젝트 등록 - &copy; KM</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+       
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+       
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
+        <!--파일첨부-->
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.1/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.1/js/fileinput.min.js" type="text/javascript"></script>  
+  
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 200%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+      
+      .developer_list{
+          padding-top: 5px;
+      }
+  </style>
+        
+
+        
+    </head>
+    <body>
+        
+        
+    <!--상단바 시작-->
+    <nav class="navbar navbar-inverse" >
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">SpringJobs</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          
+            
+        <form class="navbar-form navbar-left" role="search">
+            <div class="btn-group"><!-- option button -->
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                검색방법 <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">사람</a></li>
+                <li><a href="#">기업</a></li>
+                <li><a href="#">사용API</a></li>
+                <li class="divider"></li>
+                <li><a href="#">기타</a></li>
+              </ul>
+            </div><!-- option button end-->
+            
+            <div class="form-group ">
+              <input type="text" class="form-control" placeholder="Search" size="45">
+            </div>
+            <button type="submit" class="btn btn-default"><strong>Search</strong></button>
+        </form>
+            
+            <form class="form-inline navbar-form navbar-right">
+              <div class="form-group">
+                <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">   
+              </div>
+              <div class="form-group">
+                <label class="sr-only" for="exampleInputPassword3">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> <font color="A7A7A7">Remember me</font>
+                    </label>
+                </div>  
+              </div>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+                <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-user"></span> Sign in</button>
+                
+            </form>
+            
+        </div><!-- /.navbar-collapse -->
+          
+      </div><!-- /.container-fluid -->
+    </nav>
+  
+    <!--상단바 끝--> 
+    
+    
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-1 sidenav"></div><!-- 왼쪽여백-->
+    <div class="col-md-10 text-left"> <!-- 중간 메인 화면 start-->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    <br>
+       <br>
+  <form class="form-horizontal">
+  <div class="form-group form-group-md">
+    <label class="col-md-2 control-label" for="formGroupInputMedium">프로젝트 주제</label>
+    <div class="col-md-5">
+       
+      <input class="form-control" type="text" id="formGroupInputLarge" placeholder="프로젝트 주제를 입력하세요.">
+    </div>
+  </div>
+             <!--프로젝트 주제 끝-->
+  <div class="form-inline form-group-md form-group">
+     <label class="col-md-2 control-label" for="formGroupInputMedium">프로젝트 기간</label>
+  <div class="col-md-2">
+    <input type="date" class="form-control" id="exampleInputEmail3">
+  </div>
+    <div class="col-md-1">
+  <span class=" glyphicon glyphicon-minus" aria-hidden="true"></span>
+      </div>
+  <div class="col-md-2">
+    <input class="form-control" type="date" id="exampleInputPassword3">
+  </div>
+     </div>
+      <!--프로젝트기간 끝-->
+       <div class="form-inline form-group-md form-group">
+     <label class="col-md-2 control-label" for="formGroupInputMedium">요구되는 기술</label>
+  <div class="col-md">   
+   <div class="row">
+  <div class="col-md-5">
+    <div class="input-group ">
+      <input type="text" class="form-control " placeholder="Search for...">
+      <span class="input-group-btn ">
+        <!-- <button class="btn btn-default" type="button">검색</button>    -->
+      </span>    <!--검색 버튼-->
+        <div class="col-md-4"></div>
+          <div class="col-md-5">
+              
+      <input class="form-control" type="text" id="formGroupInputLarge" placeholder="">         
+    </div>    
+    </div><!-- /input-group -->
+  </div><!-- /.col-md-6 -->
+</div><!-- /.row -->   
+           </div>
+      </div>
+         <!--요구되는 기술 끝-->
+      
+        <div class="form-group form-group-md">
+    <label class="col-md-2 control-label" for="formGroupInputMedium">모집 인원</label>
+    <div class="col-md-1">
+       <select class="form-control">
+  <option>1</option>
+  <option>2</option>
+  <option>3</option>
+  <option>4</option>
+  <option>5</option>
+
+</select>
+    
+    </div>
+  </div>
+      <!--모집인원 끝-->
+         <div class="form-group form-group-md">
+    <label class="col-md-2 control-label" for="formGroupInputMedium">급여</label>
+     <label class="col control-label" for="formGroupInputMedium">(단위: 원)</label>
+    <div class="col-md-2">
+         <div class="col-md">
+      <input class="form-control" type="text" id="formGroupInputLarge" placeholder="">          
+    </div>  
+ </div></div>
+       <!--급여 끝-->
+      
+   
+        <!-- 프로젝트 상세 파일 첨부-->
+  <div class="form-group form-group-md">
+
+      <label class="col-md-2 control-label" for="formGroupInputMedium">프로젝트 모집 상세 정보</label>
+    
+        <div class="container kv-main col-md-5">
+         
+            <form enctype="multipart/form-data">
+                
+                <script>
+                $(document).on('ready', function(){$("#file-0b").fileinput();});
+                </script>
+            </form>
+
+            <form enctype="multipart/form-data">
+                <div class="form-group">
+                    <input id="file-5" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#">
+                </div>
+                  <div class="btn ">
+                 <span class="input center-block">
+       <p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+  <button type="button" class="btn btn-success btn-sm">등록</button>
+           
+  <button type="button" class="btn btn-danger btn-sm">취소</button>
+  </p>
+                      </span>  </div> 
+            </form>
+            </div>
+        </div>
+      
+        <!-- 프로젝트 상세 파일 첨부 끝-->
+      
+      
+       
+       
+          </form>
+        
+    </div> <!-- 중간 메인 화면 end-->
+    <div class="col-sm-1 sidenav"></div><!-- 오른쪽여백-->
+  </div>
+</div>
+    </body>
+	<script>
+
+    /*
+    $(".file").on('fileselect', function(event, n, l) {
+        alert('File Selected. Name: ' + l + ', Num: ' + n);
+    });
+    */
+
+	$("#file-4").fileinput({
+		uploadExtraData: {kvId: '10'}
+	});
+    $(".btn-warning").on('click', function() {
+        if ($('#file-4').attr('disabled')) {
+            $('#file-4').fileinput('enable');
+        } else {
+            $('#file-4').fileinput('disable');
+        }
+    });    
+    $(".btn-info").on('click', function() {
+        $('#file-4').fileinput('refresh', {previewClass:'bg-info'});
+    });
+    /*
+    $('#file-4').on('fileselectnone', function() {
+        alert('Huh! You selected no files.');
+    });
+    $('#file-4').on('filebrowse', function() {
+        alert('File browse clicked for #file-4');
+    });
+    */
+    $(document).ready(function() {
+        $("#test-upload").fileinput({
+            'showPreview' : false,
+            'allowedFileExtensions' : ['jpg', 'png','gif'],
+            'elErrorContainer': '#errorBlock'
+        });
+        /*
+        $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
+            alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
+        });
+        */
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+ 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    });
+	</script>
+</html>
