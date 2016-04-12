@@ -1,0 +1,135 @@
+﻿엔터티명	테이블명	속성명	컬럼명	도메인	데이터타입	키	널허용	기본값	주석
+회원	USERS	회원일련번호	UNO	일련번호	INTEGER	PK	Not Null		
+회원	USERS	회원이름	UNM	이름	VARCHAR(50)		Not Null		
+회원	USERS	회원영문이름	UENM	이름	VARCHAR(50)				
+회원	USERS	이메일	UEM	이메일	VARCHAR(40)		Not Null		
+회원	USERS	비밀번호	UPW	짧은코드	VARCHAR(20)		Not Null		
+회원	USERS	국적	UCO	짧은코드	VARCHAR(20)				
+회원	USERS	성별	USX	짧은코드	VARCHAR(20)				
+회원	USERS	인증여부	UCNF	짧은코드	VARCHAR(20)		Not Null		
+회원	USERS	생년월일	UBD	일시	DATE				
+회원	USERS	연락처	UPHO	전화번호	VARCHAR(30)				
+회원	USERS	거주지주소	UADR	주소	VARCHAR(255)				
+회원	USERS	회원주요URL	UURL	웹주소	VARCHAR(255)				
+회원	USERS	회원자기소개서	URES	본문	TEXT				
+학교	USCLS	학교일련번호	SCNO	일련번호	INTEGER	PK	Not Null		
+학교	USCLS	학교명	SCNM	이름	VARCHAR(50)		Not Null		
+학교	USCLS	학교전공명	SCMJ	이름	VARCHAR(50)		Not Null		
+학교	USCLS	학교성적	SCGR	성적	NUMBER(5,2)		Not Null		
+학교	USCLS	학교입학일	SCSD	일시	DATE		Not Null		
+학교	USCLS	학교졸업일	SCED	일시	DATE		Not Null		
+학교	USCLS	회원일련번호	UNO	일련번호	INTEGER	FK	Not Null		
+경력	UEXPS	경력일련번호	EXPNO	일련번호	INTEGER	PK	Not Null		
+경력	UEXPS	경력회사명	EXPCN	이름	VARCHAR(50)		Not Null		
+경력	UEXPS	경력부서명	EXPDN	이름	VARCHAR(50)		Not Null		
+경력	UEXPS	경력급여	EXPPY	금액	INTEGER				
+경력	UEXPS	경력입사일	EXPSD	일시	DATE		Not Null		
+경력	UEXPS	경력퇴사일	EXPED	일시	DATE		Not Null		
+경력	UEXPS	경력업무내용	EXPWC	본문	TEXT		Not Null		
+경력	UEXPS	경력직책	EXPPT	짧은코드	VARCHAR(20)				
+경력	UEXPS	회원일련번호	UNO	일련번호	INTEGER	FK	Not Null		
+기업정보	CINFOS	기업일련번호	CNO	일련번호	INTEGER	PK	Not Null		
+기업정보	CINFOS	기업분야	CCT	짧은코드	VARCHAR(20)		Not Null		
+기업정보	CINFOS	사업자번호	CRGNO	숫자	INTEGER				
+기업정보	CINFOS	회사명	CNM	이름	VARCHAR(50)		Not Null		
+기업정보	CINFOS	기업규모	CSCL	짧은코드	VARCHAR(20)				
+기업정보	CINFOS	기업위치	CLO	주소	VARCHAR(255)				
+기업정보	CINFOS	기업인원	CNPL	인원	INTEGER				
+기업정보	CINFOS	기업설명	CINT	본문	TEXT				
+구인공고	CRECS	구인일련번호	RENO	일련번호	INTEGER	PK	Not Null		
+구인공고	CRECS	채용공고제목	RETL	제목	VARCHAR(100)		Not Null		
+구인공고	CRECS	회사명	RECNM	이름	VARCHAR(50)		Not Null		
+구인공고	CRECS	주요업무	REWC	본문	TEXT		Not Null		
+구인공고	CRECS	모집인원	RENPL	인원	INTEGER		Not Null		
+구인공고	CRECS	경력여부	RECHK	여부	CHAR(1)		Not Null		
+구인공고	CRECS	경력연차	REYR	짧은코드	VARCHAR(20)				
+구인공고	CRECS	업계	REIDT	짧은코드	VARCHAR(20)		Not Null		
+구인공고	CRECS	직종	REJP	짧은코드	VARCHAR(20)		Not Null		
+구인공고	CRECS	고용형태	RETP	짧은코드	VARCHAR(20)		Not Null		
+구인공고	CRECS	급여	REPAY	금액	INTEGER				
+구인공고	CRECS	게시자	RERG	이름	VARCHAR(50)				
+구인공고	CRECS	게시일	RERD	일시	DATE		Not Null		
+구인공고	CRECS	조회수	REHTN	숫자	INTEGER				
+구인공고	CRECS	지역	REAR	주소	VARCHAR(255)		Not Null		
+구인공고	CRECS	근무형태	REWT	짧은코드	VARCHAR(20)		Not Null		
+구인공고	CRECS	기업일련번호	CNO	일련번호	INTEGER	FK	Not Null		
+기업사진	CPHOTS	사진일련번호	CPHNO	일련번호	INTEGER	PK	Not Null		
+기업사진	CPHOTS	사진	CPH	이미지	MEDIUMBLOB		Not Null		
+기업사진	CPHOTS	기업일련번호	CNO	일련번호	INTEGER	FK	Not Null		
+기업태그	CTAGS	노출태그일련번호	CEXNO	일련번호	INTEGER	PK	Not Null		
+기업태그	CTAGS	노출태그	CEXTG	태그	VARCHAR(50)		Not Null		
+기업태그	CTAGS	기업일련번호	CNO	일련번호	INTEGER	FK	Not Null		
+자격증	UCERTS	자격증일련번호	CTNO	일련번호	INTEGER	PK	Not Null		
+자격증	UCERTS	자격증명	CTNM	이름	VARCHAR(50)		Not Null		
+자격증	UCERTS	인증기관	CTAG	이름	VARCHAR(50)		Not Null		
+자격증	UCERTS	자격증번호	CTUQNO	일련번호	INTEGER		Not Null		
+자격증	UCERTS	점수	CTSC	점수	INTEGER				
+자격증	UCERTS	자격증URL	CTURL	웹주소	VARCHAR(255)				
+자격증	UCERTS	시험일	CTDY	일시	DATE				
+자격증	UCERTS	발급일	CTSD	일시	DATE				
+자격증	UCERTS	만료일	CTED	일시	DATE				
+자격증	UCERTS	회원일련번호	UNO	일련번호	INTEGER	FK	Not Null		
+외국어	ULANS	외국어일련번호	LGNO	일련번호	INTEGER	PK	Not Null		
+외국어	ULANS	외국어이름	LGNM	이름	VARCHAR(50)		Not Null		
+외국어	ULANS	외국어수준	LGLVL	본문	TEXT		Not Null		
+외국어	ULANS	회원일련번호	UNO	일련번호	INTEGER	FK	Not Null		
+보유기술	SKILLS	보유기술일련번호	SKNO	일련번호	INTEGER	PK	Not Null		
+보유기술	SKILLS	기술명	SKNM	제목	VARCHAR(100)		Not Null		
+기술연차	YSKILLS	기술연차일련번호	YSNO	일련번호	INTEGER	PK	Not Null		
+기술연차	YSKILLS	회원일련번호	UNO	일련번호	INTEGER	FK	Not Null		
+기술연차	YSKILLS	보유기술일련번호	SKNO	일련번호	INTEGER	FK	Not Null		
+기술연차	YSKILLS	기술연차	YSYR	짧은코드	VARCHAR(20)		Not Null		
+기업등록프로젝트	CPJTS	등록프로젝트일련번호	CPJNO	일련번호	INTEGER	PK	Not Null		
+기업등록프로젝트	CPJTS	이름	CPJNM	이름	VARCHAR(50)		Not Null		
+기업등록프로젝트	CPJTS	설명	CPJINT	본문	TEXT		Not Null		
+기업등록프로젝트	CPJTS	요구되는기술	CPJSK	짧은코드	VARCHAR(20)		Not Null		
+기업등록프로젝트	CPJTS	프로젝트경력여부	CPJCHK	여부	CHAR(1)		Not Null		
+기업등록프로젝트	CPJTS	프로젝트경력연차	CPJYR	짧은코드	VARCHAR(20)				
+기업등록프로젝트	CPJTS	모집인원	CPJNPL	인원	INTEGER		Not Null		
+기업등록프로젝트	CPJTS	급여최소	CPJMNP	금액	INTEGER		Not Null		
+기업등록프로젝트	CPJTS	급여최대	CPJMAP	금액	INTEGER		Not Null		
+기업등록프로젝트	CPJTS	조회수	CPJHTN	숫자	INTEGER				
+기업등록프로젝트	CPJTS	등록일	CPJRD	일시	DATE		Not Null		
+기업등록프로젝트	CPJTS	게시자	CPJRG	이름	VARCHAR(50)		Not Null		
+기업등록프로젝트	CPJTS	근무형태	CPJWT	짧은코드	VARCHAR(20)		Not Null		
+기업등록프로젝트	CPJTS	지역명	CPJAR	주소	VARCHAR(255)		Not Null		
+기업등록프로젝트	CPJTS	기업일련번호	CNO	일련번호	INTEGER	FK	Not Null		
+프로젝트경력	UPJTNO	프로젝트일련번호	PJNO	일련번호	INTEGER	PK	Not Null		
+프로젝트경력	UPJTNO	회원일련번호	UNO	일련번호	INTEGER	FK	Not Null		
+프로젝트경력	UPJTNO	프로젝트제목	PJNM	제목	VARCHAR(100)		Not Null		
+프로젝트경력	UPJTNO	프로젝트시작일	PJSD	일시	DATE		Not Null		
+프로젝트경력	UPJTNO	프로젝트종료일	PJED	일시	DATE		Not Null		
+프로젝트경력	UPJTNO	프로젝트상세설명	PJDT	본문	TEXT		Not Null		
+프로젝트경력	UPJTNO	프로젝트참여자	PJPY	이름	VARCHAR(50)				
+프로젝트정보문의게시판	PJTBDS	문의게시판일련번호	PBNO	일련번호	INTEGER	PK	Not Null		
+프로젝트정보문의게시판	PJTBDS	게시물제목	PBTL	제목	VARCHAR(100)		Not Null		
+프로젝트정보문의게시판	PJTBDS	게시물내용	PBCT	본문	TEXT		Not Null		
+프로젝트정보문의게시판	PJTBDS	게시문등록일	PBRD	일시	DATE		Not Null		
+프로젝트정보문의게시판	PJTBDS	게시문등록자	PBRG	이름	VARCHAR(50)		Not Null		
+프로젝트정보문의게시판	PJTBDS	공개여부	PBOP	여부	CHAR(1)		Not Null		
+프로젝트정보문의게시판	PJTBDS	등록프로젝트일련번호	CPJNO	일련번호	INTEGER	FK	Not Null		
+프로젝트정보문의게시판	PJTBDS	회원일련번호	UNO	일련번호	INTEGER	FK	Not Null		
+프로젝트첨부파일	CPJTATCHS	첨부파일일련번호	CPJFNO	일련번호	INTEGER	PK	Not Null		
+프로젝트첨부파일	CPJTATCHS	첨부파일	CPJFNM	이미지	MEDIUMBLOB		Not Null		
+프로젝트첨부파일	CPJTATCHS	등록프로젝트일련번호	CPJNO	일련번호	INTEGER	FK	Not Null		
+회원사진	UPHOTS	사진일련번호	PHNO	일련번호	INTEGER	PK	Not Null		
+회원사진	UPHOTS	사진	PHOT	이미지	MEDIUMBLOB		Not Null		
+회원사진	UPHOTS	회원일련번호	UNO	일련번호	INTEGER	FK	Not Null		
+회원태그	UTAGS	노출태그일련번호	UEXNO	일련번호	INTEGER	PK	Not Null		
+회원태그	UTAGS	노출태그	UEXTG	태그	VARCHAR(50)		Not Null		
+회원태그	UTAGS	회원일련번호	UNO	일련번호	INTEGER	FK	Not Null		
+구인정보첨부파일	CREATCHS	첨부파일일련번호	REFNO	일련번호	INTEGER	PK	Not Null		
+구인정보첨부파일	CREATCHS	첨부파일	REFNM	이미지	MEDIUMBLOB		Not Null		
+구인정보첨부파일	CREATCHS	구인일련번호	RENO	일련번호	INTEGER	FK	Not Null		
+구인정보필요기술	CRESKILLS	구인일련번호	RENO	일련번호	INTEGER	PFK	Not Null		
+구인정보필요기술	CRESKILLS	보유기술일련번호	SKNO	일련번호	INTEGER	PFK	Not Null		
+프로젝트필요기술	CPJTSKILLS	등록프로젝트일련번호	CPJNO	일련번호	INTEGER	PFK	Not Null		
+프로젝트필요기술	CPJTSKILLS	보유기술일련번호	SKNO	일련번호	INTEGER	PFK	Not Null		
+구인정보문의게시판	REBDS	문의게시판일련번호	RBNO	일련번호	INTEGER	PK	Not Null		
+구인정보문의게시판	REBDS	게시물제목	RBTL	제목	VARCHAR(100)		Not Null		
+구인정보문의게시판	REBDS	게시물내용	RBCT	본문	TEXT		Not Null		
+구인정보문의게시판	REBDS	게시문등록일	RBRD	일시	DATE		Not Null		
+구인정보문의게시판	REBDS	게시문등록자	RBRG	이름	VARCHAR(50)		Not Null		
+구인정보문의게시판	REBDS	공개여부	RBOP	여부	CHAR(1)		Not Null		
+구인정보문의게시판	REBDS	구인일련번호	RENO	일련번호	INTEGER	FK	Not Null		
+구인정보문의게시판	REBDS	회원일련번호	UNO	일련번호	INTEGER	FK	Not Null		

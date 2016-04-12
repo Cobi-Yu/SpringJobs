@@ -1,0 +1,1372 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>리포트</title>
+    <style type="text/css">
+        .entity{
+            border: solid 1px #7E2828;
+            margin-bottom: 20px;
+        }
+        .header{
+            background-color: #7E2828;
+            color: white;
+        }
+        .column-header{
+            background-color: #E8E8E8;
+        }
+        td{
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+    </style>
+</head>
+<body>
+<h2>내 스키마의 템플릿</h2>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">회원 (USERS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>회원일련번호(PK)</td>
+        <td>UNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회원이름</td>
+        <td>UNM</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회원영문이름</td>
+        <td>UENM</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>이메일</td>
+        <td>UEM</td>
+        <td>이메일</td>
+        <td>VARCHAR(40)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>비밀번호</td>
+        <td>UPW</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>국적</td>
+        <td>UCO</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>성별</td>
+        <td>USX</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>인증여부</td>
+        <td>UCNF</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>생년월일</td>
+        <td>UBD</td>
+        <td>일시</td>
+        <td>DATE</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>연락처</td>
+        <td>UPHO</td>
+        <td>전화번호</td>
+        <td>VARCHAR(30)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>거주지주소</td>
+        <td>UADR</td>
+        <td>주소</td>
+        <td>VARCHAR(255)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회원주요URL</td>
+        <td>UURL</td>
+        <td>웹주소</td>
+        <td>VARCHAR(255)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회원자기소개서</td>
+        <td>URES</td>
+        <td>본문</td>
+        <td>TEXT</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">학교 (USCLS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>학교일련번호(PK)</td>
+        <td>SCNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>학교명</td>
+        <td>SCNM</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>학교전공명</td>
+        <td>SCMJ</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>학교성적</td>
+        <td>SCGR</td>
+        <td>성적</td>
+        <td>NUMBER(5,2)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>학교입학일</td>
+        <td>SCSD</td>
+        <td>일시</td>
+        <td>DATE</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>학교졸업일</td>
+        <td>SCED</td>
+        <td>일시</td>
+        <td>DATE</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회원일련번호(FK)</td>
+        <td>UNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">경력 (UEXPS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>경력일련번호(PK)</td>
+        <td>EXPNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>경력회사명</td>
+        <td>EXPCN</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>경력부서명</td>
+        <td>EXPDN</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>경력급여</td>
+        <td>EXPPY</td>
+        <td>금액</td>
+        <td>INTEGER</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>경력입사일</td>
+        <td>EXPSD</td>
+        <td>일시</td>
+        <td>DATE</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>경력퇴사일</td>
+        <td>EXPED</td>
+        <td>일시</td>
+        <td>DATE</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>경력업무내용</td>
+        <td>EXPWC</td>
+        <td>본문</td>
+        <td>TEXT</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>경력직책</td>
+        <td>EXPPT</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회원일련번호(FK)</td>
+        <td>UNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">기업정보 (CINFOS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>기업일련번호(PK)</td>
+        <td>CNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>기업분야</td>
+        <td>CCT</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>사업자번호</td>
+        <td>CRGNO</td>
+        <td>숫자</td>
+        <td>INTEGER</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회사명</td>
+        <td>CNM</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>기업규모</td>
+        <td>CSCL</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>기업위치</td>
+        <td>CLO</td>
+        <td>주소</td>
+        <td>VARCHAR(255)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>기업인원</td>
+        <td>CNPL</td>
+        <td>인원</td>
+        <td>INTEGER</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>기업설명</td>
+        <td>CINT</td>
+        <td>본문</td>
+        <td>TEXT</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">구인공고 (CRECS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>구인일련번호(PK)</td>
+        <td>RENO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>채용공고제목</td>
+        <td>RETL</td>
+        <td>제목</td>
+        <td>VARCHAR(100)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회사명</td>
+        <td>RECNM</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>주요업무</td>
+        <td>REWC</td>
+        <td>본문</td>
+        <td>TEXT</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>모집인원</td>
+        <td>RENPL</td>
+        <td>인원</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>경력여부</td>
+        <td>RECHK</td>
+        <td>여부</td>
+        <td>CHAR(1)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>경력연차</td>
+        <td>REYR</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>업계</td>
+        <td>REIDT</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>직종</td>
+        <td>REJP</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>고용형태</td>
+        <td>RETP</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>급여</td>
+        <td>REPAY</td>
+        <td>금액</td>
+        <td>INTEGER</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>게시자</td>
+        <td>RERG</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>게시일</td>
+        <td>RERD</td>
+        <td>일시</td>
+        <td>DATE</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>조회수</td>
+        <td>REHTN</td>
+        <td>숫자</td>
+        <td>INTEGER</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>지역</td>
+        <td>REAR</td>
+        <td>주소</td>
+        <td>VARCHAR(255)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>근무형태</td>
+        <td>REWT</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>기업일련번호(FK)</td>
+        <td>CNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">기업사진 (CPHOTS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>사진일련번호(PK)</td>
+        <td>CPHNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>사진</td>
+        <td>CPH</td>
+        <td>이미지</td>
+        <td>MEDIUMBLOB</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>기업일련번호(FK)</td>
+        <td>CNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">기업태그 (CTAGS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>노출태그일련번호(PK)</td>
+        <td>CEXNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>노출태그</td>
+        <td>CEXTG</td>
+        <td>태그</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>기업일련번호(FK)</td>
+        <td>CNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">자격증 (UCERTS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>자격증일련번호(PK)</td>
+        <td>CTNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>자격증명</td>
+        <td>CTNM</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>인증기관</td>
+        <td>CTAG</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>자격증번호</td>
+        <td>CTUQNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>점수</td>
+        <td>CTSC</td>
+        <td>점수</td>
+        <td>INTEGER</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>자격증URL</td>
+        <td>CTURL</td>
+        <td>웹주소</td>
+        <td>VARCHAR(255)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>시험일</td>
+        <td>CTDY</td>
+        <td>일시</td>
+        <td>DATE</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>발급일</td>
+        <td>CTSD</td>
+        <td>일시</td>
+        <td>DATE</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>만료일</td>
+        <td>CTED</td>
+        <td>일시</td>
+        <td>DATE</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회원일련번호(FK)</td>
+        <td>UNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">외국어 (ULANS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>외국어일련번호(PK)</td>
+        <td>LGNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>외국어이름</td>
+        <td>LGNM</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>외국어수준</td>
+        <td>LGLVL</td>
+        <td>본문</td>
+        <td>TEXT</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회원일련번호(FK)</td>
+        <td>UNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">보유기술 (SKILLS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>보유기술일련번호(PK)</td>
+        <td>SKNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>기술명</td>
+        <td>SKNM</td>
+        <td>제목</td>
+        <td>VARCHAR(100)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">기술연차 (YSKILLS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>기술연차일련번호(PK)</td>
+        <td>YSNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회원일련번호(FK)</td>
+        <td>UNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>보유기술일련번호(FK)</td>
+        <td>SKNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>기술연차</td>
+        <td>YSYR</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">기업등록프로젝트 (CPJTS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>등록프로젝트일련번호(PK)</td>
+        <td>CPJNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>이름</td>
+        <td>CPJNM</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>설명</td>
+        <td>CPJINT</td>
+        <td>본문</td>
+        <td>TEXT</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>요구되는기술</td>
+        <td>CPJSK</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>프로젝트경력여부</td>
+        <td>CPJCHK</td>
+        <td>여부</td>
+        <td>CHAR(1)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>프로젝트경력연차</td>
+        <td>CPJYR</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>모집인원</td>
+        <td>CPJNPL</td>
+        <td>인원</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>급여최소</td>
+        <td>CPJMNP</td>
+        <td>금액</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>급여최대</td>
+        <td>CPJMAP</td>
+        <td>금액</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>조회수</td>
+        <td>CPJHTN</td>
+        <td>숫자</td>
+        <td>INTEGER</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>등록일</td>
+        <td>CPJRD</td>
+        <td>일시</td>
+        <td>DATE</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>게시자</td>
+        <td>CPJRG</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>근무형태</td>
+        <td>CPJWT</td>
+        <td>짧은코드</td>
+        <td>VARCHAR(20)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>지역명</td>
+        <td>CPJAR</td>
+        <td>주소</td>
+        <td>VARCHAR(255)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>기업일련번호(FK)</td>
+        <td>CNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">프로젝트경력 (UPJTNO)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>프로젝트일련번호(PK)</td>
+        <td>PJNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회원일련번호(FK)</td>
+        <td>UNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>프로젝트제목</td>
+        <td>PJNM</td>
+        <td>제목</td>
+        <td>VARCHAR(100)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>프로젝트시작일</td>
+        <td>PJSD</td>
+        <td>일시</td>
+        <td>DATE</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>프로젝트종료일</td>
+        <td>PJED</td>
+        <td>일시</td>
+        <td>DATE</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>프로젝트상세설명</td>
+        <td>PJDT</td>
+        <td>본문</td>
+        <td>TEXT</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>프로젝트참여자</td>
+        <td>PJPY</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">프로젝트정보문의게시판 (PJTBDS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>문의게시판일련번호(PK)</td>
+        <td>PBNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>게시물제목</td>
+        <td>PBTL</td>
+        <td>제목</td>
+        <td>VARCHAR(100)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>게시물내용</td>
+        <td>PBCT</td>
+        <td>본문</td>
+        <td>TEXT</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>게시문등록일</td>
+        <td>PBRD</td>
+        <td>일시</td>
+        <td>DATE</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>게시문등록자</td>
+        <td>PBRG</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>공개여부</td>
+        <td>PBOP</td>
+        <td>여부</td>
+        <td>CHAR(1)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>등록프로젝트일련번호(FK)</td>
+        <td>CPJNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회원일련번호(FK)</td>
+        <td>UNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">프로젝트첨부파일 (CPJTATCHS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>첨부파일일련번호(PK)</td>
+        <td>CPJFNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>첨부파일</td>
+        <td>CPJFNM</td>
+        <td>이미지</td>
+        <td>MEDIUMBLOB</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>등록프로젝트일련번호(FK)</td>
+        <td>CPJNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">회원사진 (UPHOTS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>사진일련번호(PK)</td>
+        <td>PHNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>사진</td>
+        <td>PHOT</td>
+        <td>이미지</td>
+        <td>MEDIUMBLOB</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회원일련번호(FK)</td>
+        <td>UNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">회원태그 (UTAGS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>노출태그일련번호(PK)</td>
+        <td>UEXNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>노출태그</td>
+        <td>UEXTG</td>
+        <td>태그</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회원일련번호(FK)</td>
+        <td>UNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">구인정보첨부파일 (CREATCHS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>첨부파일일련번호(PK)</td>
+        <td>REFNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>첨부파일</td>
+        <td>REFNM</td>
+        <td>이미지</td>
+        <td>MEDIUMBLOB</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>구인일련번호(FK)</td>
+        <td>RENO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">구인정보필요기술 (CRESKILLS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>구인일련번호(PFK)</td>
+        <td>RENO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>보유기술일련번호(PFK)</td>
+        <td>SKNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">프로젝트필요기술 (CPJTSKILLS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>등록프로젝트일련번호(PFK)</td>
+        <td>CPJNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>보유기술일련번호(PFK)</td>
+        <td>SKNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">구인정보문의게시판 (REBDS)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>설명</td>
+    </tr>
+    <tr>
+        <td>문의게시판일련번호(PK)</td>
+        <td>RBNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>게시물제목</td>
+        <td>RBTL</td>
+        <td>제목</td>
+        <td>VARCHAR(100)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>게시물내용</td>
+        <td>RBCT</td>
+        <td>본문</td>
+        <td>TEXT</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>게시문등록일</td>
+        <td>RBRD</td>
+        <td>일시</td>
+        <td>DATE</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>게시문등록자</td>
+        <td>RBRG</td>
+        <td>이름</td>
+        <td>VARCHAR(50)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>공개여부</td>
+        <td>RBOP</td>
+        <td>여부</td>
+        <td>CHAR(1)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>구인일련번호(FK)</td>
+        <td>RENO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회원일련번호(FK)</td>
+        <td>UNO</td>
+        <td>일련번호</td>
+        <td>INTEGER</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+</body>
+</html>

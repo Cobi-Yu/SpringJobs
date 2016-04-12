@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<model>
+    <schema logicalName="내 스키마" physicalName="MY_SCHEMA"> 
+        <!--  -->
+        <table logicalName="회원" physicalName="USERS">
+            <!--  -->
+            <column logicalName="회원일련번호(PK)" physicalName="UNO" />
+            <!--  -->
+            <column logicalName="회원이름" physicalName="UNM" />
+            <!--  -->
+            <column logicalName="회원영문이름" physicalName="UENM" />
+            <!--  -->
+            <column logicalName="이메일" physicalName="UEM" />
+            <!--  -->
+            <column logicalName="비밀번호" physicalName="UPW" />
+            <!--  -->
+            <column logicalName="국적" physicalName="UCO" />
+            <!--  -->
+            <column logicalName="성별" physicalName="USX" />
+            <!--  -->
+            <column logicalName="인증여부" physicalName="UCNF" />
+            <!--  -->
+            <column logicalName="생년월일" physicalName="UBD" />
+            <!--  -->
+            <column logicalName="연락처" physicalName="UPHO" />
+            <!--  -->
+            <column logicalName="거주지주소" physicalName="UADR" />
+            <!--  -->
+            <column logicalName="회원주요URL" physicalName="UURL" />
+            <!--  -->
+            <column logicalName="회원자기소개서" physicalName="URES" />
+        </table>
+        <!--  -->
+        <table logicalName="학교" physicalName="USCLS">
+            <!--  -->
+            <column logicalName="학교일련번호(PK)" physicalName="SCNO" />
+            <!--  -->
+            <column logicalName="학교명" physicalName="SCNM" />
+            <!--  -->
+            <column logicalName="학교전공명" physicalName="SCMJ" />
+            <!--  -->
+            <column logicalName="학교성적" physicalName="SCGR" />
+            <!--  -->
+            <column logicalName="학교입학일" physicalName="SCSD" />
+            <!--  -->
+            <column logicalName="학교졸업일" physicalName="SCED" />
+            <!--  -->
+            <column logicalName="회원일련번호(FK)" physicalName="UNO" />
+        </table>
+        <!--  -->
+        <table logicalName="경력" physicalName="UEXPS">
+            <!--  -->
+            <column logicalName="경력일련번호(PK)" physicalName="EXPNO" />
+            <!--  -->
+            <column logicalName="경력회사명" physicalName="EXPCN" />
+            <!--  -->
+            <column logicalName="경력부서명" physicalName="EXPDN" />
+            <!--  -->
+            <column logicalName="경력급여" physicalName="EXPPY" />
+            <!--  -->
+            <column logicalName="경력입사일" physicalName="EXPSD" />
+            <!--  -->
+            <column logicalName="경력퇴사일" physicalName="EXPED" />
+            <!--  -->
+            <column logicalName="경력업무내용" physicalName="EXPWC" />
+            <!--  -->
+            <column logicalName="경력직책" physicalName="EXPPT" />
+            <!--  -->
+            <column logicalName="회원일련번호(FK)" physicalName="UNO" />
+        </table>
+        <!--  -->
+        <table logicalName="기업정보" physicalName="CINFOS">
+            <!--  -->
+            <column logicalName="기업일련번호(PK)" physicalName="CNO" />
+            <!--  -->
+            <column logicalName="기업분야" physicalName="CCT" />
+            <!--  -->
+            <column logicalName="사업자번호" physicalName="CRGNO" />
+            <!--  -->
+            <column logicalName="회사명" physicalName="CNM" />
+            <!--  -->
+            <column logicalName="기업규모" physicalName="CSCL" />
+            <!--  -->
+            <column logicalName="기업위치" physicalName="CLO" />
+            <!--  -->
+            <column logicalName="기업인원" physicalName="CNPL" />
+            <!--  -->
+            <column logicalName="기업설명" physicalName="CINT" />
+        </table>
+        <!--  -->
+        <table logicalName="구인공고" physicalName="CRECS">
+            <!--  -->
+            <column logicalName="구인일련번호(PK)" physicalName="RENO" />
+            <!--  -->
+            <column logicalName="채용공고제목" physicalName="RETL" />
+            <!--  -->
+            <column logicalName="회사명" physicalName="RECNM" />
+            <!--  -->
+            <column logicalName="주요업무" physicalName="REWC" />
+            <!--  -->
+            <column logicalName="모집인원" physicalName="RENPL" />
+            <!--  -->
+            <column logicalName="경력여부" physicalName="RECHK" />
+            <!--  -->
+            <column logicalName="경력연차" physicalName="REYR" />
+            <!--  -->
+            <column logicalName="업계" physicalName="REIDT" />
+            <!--  -->
+            <column logicalName="직종" physicalName="REJP" />
+            <!--  -->
+            <column logicalName="고용형태" physicalName="RETP" />
+            <!--  -->
+            <column logicalName="급여" physicalName="REPAY" />
+            <!--  -->
+            <column logicalName="게시자" physicalName="RERG" />
+            <!--  -->
+            <column logicalName="게시일" physicalName="RERD" />
+            <!--  -->
+            <column logicalName="조회수" physicalName="REHTN" />
+            <!--  -->
+            <column logicalName="지역" physicalName="REAR" />
+            <!--  -->
+            <column logicalName="근무형태" physicalName="REWT" />
+            <!--  -->
+            <column logicalName="기업일련번호(FK)" physicalName="CNO" />
+        </table>
+        <!--  -->
+        <table logicalName="기업사진" physicalName="CPHOTS">
+            <!--  -->
+            <column logicalName="사진일련번호(PK)" physicalName="CPHNO" />
+            <!--  -->
+            <column logicalName="사진" physicalName="CPH" />
+            <!--  -->
+            <column logicalName="기업일련번호(FK)" physicalName="CNO" />
+        </table>
+        <!--  -->
+        <table logicalName="기업태그" physicalName="CTAGS">
+            <!--  -->
+            <column logicalName="노출태그일련번호(PK)" physicalName="CEXNO" />
+            <!--  -->
+            <column logicalName="노출태그" physicalName="CEXTG" />
+            <!--  -->
+            <column logicalName="기업일련번호(FK)" physicalName="CNO" />
+        </table>
+        <!--  -->
+        <table logicalName="자격증" physicalName="UCERTS">
+            <!--  -->
+            <column logicalName="자격증일련번호(PK)" physicalName="CTNO" />
+            <!--  -->
+            <column logicalName="자격증명" physicalName="CTNM" />
+            <!--  -->
+            <column logicalName="인증기관" physicalName="CTAG" />
+            <!--  -->
+            <column logicalName="자격증번호" physicalName="CTUQNO" />
+            <!--  -->
+            <column logicalName="점수" physicalName="CTSC" />
+            <!--  -->
+            <column logicalName="자격증URL" physicalName="CTURL" />
+            <!--  -->
+            <column logicalName="시험일" physicalName="CTDY" />
+            <!--  -->
+            <column logicalName="발급일" physicalName="CTSD" />
+            <!--  -->
+            <column logicalName="만료일" physicalName="CTED" />
+            <!--  -->
+            <column logicalName="회원일련번호(FK)" physicalName="UNO" />
+        </table>
+        <!--  -->
+        <table logicalName="외국어" physicalName="ULANS">
+            <!--  -->
+            <column logicalName="외국어일련번호(PK)" physicalName="LGNO" />
+            <!--  -->
+            <column logicalName="외국어이름" physicalName="LGNM" />
+            <!--  -->
+            <column logicalName="외국어수준" physicalName="LGLVL" />
+            <!--  -->
+            <column logicalName="회원일련번호(FK)" physicalName="UNO" />
+        </table>
+        <!--  -->
+        <table logicalName="보유기술" physicalName="SKILLS">
+            <!--  -->
+            <column logicalName="보유기술일련번호(PK)" physicalName="SKNO" />
+            <!--  -->
+            <column logicalName="기술명" physicalName="SKNM" />
+        </table>
+        <!--  -->
+        <table logicalName="기술연차" physicalName="YSKILLS">
+            <!--  -->
+            <column logicalName="기술연차일련번호(PK)" physicalName="YSNO" />
+            <!--  -->
+            <column logicalName="회원일련번호(FK)" physicalName="UNO" />
+            <!--  -->
+            <column logicalName="보유기술일련번호(FK)" physicalName="SKNO" />
+            <!--  -->
+            <column logicalName="기술연차" physicalName="YSYR" />
+        </table>
+        <!--  -->
+        <table logicalName="기업등록프로젝트" physicalName="CPJTS">
+            <!--  -->
+            <column logicalName="등록프로젝트일련번호(PK)" physicalName="CPJNO" />
+            <!--  -->
+            <column logicalName="이름" physicalName="CPJNM" />
+            <!--  -->
+            <column logicalName="설명" physicalName="CPJINT" />
+            <!--  -->
+            <column logicalName="요구되는기술" physicalName="CPJSK" />
+            <!--  -->
+            <column logicalName="프로젝트경력여부" physicalName="CPJCHK" />
+            <!--  -->
+            <column logicalName="프로젝트경력연차" physicalName="CPJYR" />
+            <!--  -->
+            <column logicalName="모집인원" physicalName="CPJNPL" />
+            <!--  -->
+            <column logicalName="급여최소" physicalName="CPJMNP" />
+            <!--  -->
+            <column logicalName="급여최대" physicalName="CPJMAP" />
+            <!--  -->
+            <column logicalName="조회수" physicalName="CPJHTN" />
+            <!--  -->
+            <column logicalName="등록일" physicalName="CPJRD" />
+            <!--  -->
+            <column logicalName="게시자" physicalName="CPJRG" />
+            <!--  -->
+            <column logicalName="근무형태" physicalName="CPJWT" />
+            <!--  -->
+            <column logicalName="지역명" physicalName="CPJAR" />
+            <!--  -->
+            <column logicalName="기업일련번호(FK)" physicalName="CNO" />
+        </table>
+        <!--  -->
+        <table logicalName="프로젝트경력" physicalName="UPJTNO">
+            <!--  -->
+            <column logicalName="프로젝트일련번호(PK)" physicalName="PJNO" />
+            <!--  -->
+            <column logicalName="회원일련번호(FK)" physicalName="UNO" />
+            <!--  -->
+            <column logicalName="프로젝트제목" physicalName="PJNM" />
+            <!--  -->
+            <column logicalName="프로젝트시작일" physicalName="PJSD" />
+            <!--  -->
+            <column logicalName="프로젝트종료일" physicalName="PJED" />
+            <!--  -->
+            <column logicalName="프로젝트상세설명" physicalName="PJDT" />
+            <!--  -->
+            <column logicalName="프로젝트참여자" physicalName="PJPY" />
+        </table>
+        <!--  -->
+        <table logicalName="프로젝트정보문의게시판" physicalName="PJTBDS">
+            <!--  -->
+            <column logicalName="문의게시판일련번호(PK)" physicalName="PBNO" />
+            <!--  -->
+            <column logicalName="게시물제목" physicalName="PBTL" />
+            <!--  -->
+            <column logicalName="게시물내용" physicalName="PBCT" />
+            <!--  -->
+            <column logicalName="게시문등록일" physicalName="PBRD" />
+            <!--  -->
+            <column logicalName="게시문등록자" physicalName="PBRG" />
+            <!--  -->
+            <column logicalName="공개여부" physicalName="PBOP" />
+            <!--  -->
+            <column logicalName="등록프로젝트일련번호(FK)" physicalName="CPJNO" />
+            <!--  -->
+            <column logicalName="회원일련번호(FK)" physicalName="UNO" />
+        </table>
+        <!--  -->
+        <table logicalName="프로젝트첨부파일" physicalName="CPJTATCHS">
+            <!--  -->
+            <column logicalName="첨부파일일련번호(PK)" physicalName="CPJFNO" />
+            <!--  -->
+            <column logicalName="첨부파일" physicalName="CPJFNM" />
+            <!--  -->
+            <column logicalName="등록프로젝트일련번호(FK)" physicalName="CPJNO" />
+        </table>
+        <!--  -->
+        <table logicalName="회원사진" physicalName="UPHOTS">
+            <!--  -->
+            <column logicalName="사진일련번호(PK)" physicalName="PHNO" />
+            <!--  -->
+            <column logicalName="사진" physicalName="PHOT" />
+            <!--  -->
+            <column logicalName="회원일련번호(FK)" physicalName="UNO" />
+        </table>
+        <!--  -->
+        <table logicalName="회원태그" physicalName="UTAGS">
+            <!--  -->
+            <column logicalName="노출태그일련번호(PK)" physicalName="UEXNO" />
+            <!--  -->
+            <column logicalName="노출태그" physicalName="UEXTG" />
+            <!--  -->
+            <column logicalName="회원일련번호(FK)" physicalName="UNO" />
+        </table>
+        <!--  -->
+        <table logicalName="구인정보첨부파일" physicalName="CREATCHS">
+            <!--  -->
+            <column logicalName="첨부파일일련번호(PK)" physicalName="REFNO" />
+            <!--  -->
+            <column logicalName="첨부파일" physicalName="REFNM" />
+            <!--  -->
+            <column logicalName="구인일련번호(FK)" physicalName="RENO" />
+        </table>
+        <!--  -->
+        <table logicalName="구인정보필요기술" physicalName="CRESKILLS">
+            <!--  -->
+            <column logicalName="구인일련번호(PFK)" physicalName="RENO" />
+            <!--  -->
+            <column logicalName="보유기술일련번호(PFK)" physicalName="SKNO" />
+        </table>
+        <!--  -->
+        <table logicalName="프로젝트필요기술" physicalName="CPJTSKILLS">
+            <!--  -->
+            <column logicalName="등록프로젝트일련번호(PFK)" physicalName="CPJNO" />
+            <!--  -->
+            <column logicalName="보유기술일련번호(PFK)" physicalName="SKNO" />
+        </table>
+        <!--  -->
+        <table logicalName="구인정보문의게시판" physicalName="REBDS">
+            <!--  -->
+            <column logicalName="문의게시판일련번호(PK)" physicalName="RBNO" />
+            <!--  -->
+            <column logicalName="게시물제목" physicalName="RBTL" />
+            <!--  -->
+            <column logicalName="게시물내용" physicalName="RBCT" />
+            <!--  -->
+            <column logicalName="게시문등록일" physicalName="RBRD" />
+            <!--  -->
+            <column logicalName="게시문등록자" physicalName="RBRG" />
+            <!--  -->
+            <column logicalName="공개여부" physicalName="RBOP" />
+            <!--  -->
+            <column logicalName="구인일련번호(FK)" physicalName="RENO" />
+            <!--  -->
+            <column logicalName="회원일련번호(FK)" physicalName="UNO" />
+        </table>
+    </schema>
+</model>
