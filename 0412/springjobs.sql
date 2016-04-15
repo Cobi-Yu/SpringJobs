@@ -97,7 +97,7 @@ CREATE TABLE `USCLS` (
 	`SCNO` INTEGER     NOT NULL COMMENT '학교일련번호', -- 학교일련번호
 	`SCNM` VARCHAR(50) NOT NULL COMMENT '학교명', -- 학교명
 	`SCMJ` VARCHAR(50) NOT NULL COMMENT '학교전공명', -- 학교전공명
-	`SCGR` NUMBER(5,2) NOT NULL COMMENT '학교성적', -- 학교성적
+	`SCGR` DOUBLE(5,2) NOT NULL COMMENT '학교성적', -- 학교성적
 	`SCSD` DATE        NOT NULL COMMENT '학교입학일', -- 학교입학일
 	`SCED` DATE        NOT NULL COMMENT '학교졸업일', -- 학교졸업일
 	`UNO`  INTEGER     NOT NULL COMMENT '회원일련번호' -- 회원일련번호
