@@ -1,4 +1,4 @@
-﻿-- 회원
+-- 회원
 DROP TABLE IF EXISTS `USERS` RESTRICT;
 
 -- 학교
@@ -690,3 +690,29 @@ ALTER TABLE `REBDS`
 		REFERENCES `USERS` ( -- 회원
 			`UNO` -- 회원일련번호
 		);
+
+
+
+-- auto_increment 설정 시작--
+alter table USERS modify UNO int auto_increment;
+alter table USCLS modify SCNO int auto_increment;
+alter table UEXPS modify EXPNO int auto_increment;
+alter table CINFOS modify CNO int auto_increment;
+alter table CRECS modify RENO int auto_increment;
+alter table CPHOTS modify CPHNO int auto_increment;
+alter table CTAGS modify CEXNO int auto_increment;
+alter table UCERTS modify CTNO int auto_increment;
+alter table ULANS modify LGNO int auto_increment;
+alter table SKILLS modify SKNO int auto_increment;
+alter table YSKILLS modify YSNO int auto_increment;
+alter table CPJTS modify CPJNO int auto_increment;
+alter table UPJTNO modify PJNO int auto_increment;
+alter table PJTBDS modify PBNO int auto_increment;
+alter table CPJTATCHS modify CPJFNO int auto_increment;
+alter table UPHOTS modify PHNO int auto_increment;
+alter table UTAGS modify UEXNO int auto_increment;
+alter table CREATCHS modify REFNO int auto_increment;
+alter table CRESKILLS modify RENO int auto_increment;
+alter table CPJTSKILLS modify CPJNO int auto_increment;
+alter table REBDS modify RBNO int auto_increment;
+-- auto_increment 설정 끝--
