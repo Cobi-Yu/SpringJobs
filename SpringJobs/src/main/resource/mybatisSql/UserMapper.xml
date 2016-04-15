@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserMapper">
+	<resultMap id="userSelectMap" type="com.springjobs.domain.User">
+		<result property="uno" 			column="UNO" 			jdbcType="INTEGER"/>
+		<result property="email"	column="UEM" 		jdbcType="VARCHAR" />
+		<result property="password" 	column="UPW" 		jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<!-- SQL : INSERT -->
+	<insert 	id="addUser"		parameterType="com.springjobs.domain.User" >
+	 	INSERT
+		INTO USERS(unm, uem, upw, ucnf) 
+		VALUES	 (#{unm},#{uem},#{upw},'0');
+	 </insert>
+	 
+	<select id="login" parameterType="com.springjobs.domain.User" resultType="int">
+		SELECT COUNT(*) 
+		FROM USERS 
+		WHERE uem=#{uem} and upw=#{upw};
+    </select>
+    
+	<select id="idDuplicateCheck" parameterType="com.springjobs.domain.User" resultType="int">
+		SELECT COUNT(*) 
+		FROM USERS 
+		WHERE uem=#{uem};
+    </select>
+	 
+</mapper>

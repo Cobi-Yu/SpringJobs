@@ -157,8 +157,8 @@
         <li role="presentation" class="dropdown">
           <a href="#" class="navbar-item">프로젝트</a>
           <ul id = "dropdown-menu" class="dropdown-menu" role="menu">
-            <li><a href='../company/addProject.html'>프로젝트 등록</a></li>
-            <li><a href='../company/manageProject.html'>프로젝트 관리</a></li>
+            <li><a href='/view/company/addProject/addProject.html'>프로젝트 등록</a></li>
+            <li><a href='/view/company/projectManage/projectManage.html'>프로젝트 관리</a></li>
           </ul>
         </li>
 
@@ -188,7 +188,7 @@
                     <div class="media">
                       <div class="media-left media-middle col-md-2">
                         <a href="#">
-                          <img class="img-circle" src="../resources/img/spring.jpg">
+                          <img class="img-circle" src="img/spring.jpg">
                         </a>
                       </div>
                       <div class="col-md-10">
@@ -240,7 +240,7 @@
                   <div class="media">
                     <div class="media-left media-middle col-md-2">
                       <a href="#">
-                        <img class="img-circle" src="../resources/img/spring.jpg">
+                        <img class="img-circle" src="img/spring.jpg">
                       </a>
                     </div>
                     <div class="col-md-10">
@@ -292,7 +292,7 @@
                 <div class="media">
                   <div class="media-left media-middle col-md-2">
                     <a href="#">
-                      <img class="img-circle" src="../resources/img/spring.jpg">
+                      <img class="img-circle" src="img/spring.jpg">
                     </a>
                   </div>
                   <div class="col-md-10">
@@ -354,7 +354,7 @@
                     <div class="media">
                       <div class="media-left media-middle col-md-2">
                         <a href="#">
-                          <img class="img-circle" src="../resources/img/spring.jpg">
+                          <img class="img-circle" src="img/spring.jpg">
                         </a>
                       </div>
                       <div class="col-md-10">
@@ -406,7 +406,7 @@
                   <div class="media">
                     <div class="media-left media-middle col-md-2">
                       <a href="#">
-                        <img class="img-circle" src="../resources/img/spring.jpg">
+                        <img class="img-circle" src="img/spring.jpg">
                       </a>
                     </div>
                     <div class="col-md-10">
@@ -458,7 +458,7 @@
                 <div class="media">
                   <div class="media-left media-middle col-md-2">
                     <a href="#">
-                      <img class="img-circle" src="../resources/img/spring.jpg">
+                      <img class="img-circle" src="img/spring.jpg">
                     </a>
                   </div>
                   <div class="col-md-10">
@@ -529,7 +529,7 @@
 <script>
 
   //팝업 시작
-  var image = '<img src="resources/img/graph.png">';
+  var image = '<img src="img/graph.png">';
   $('button:contains("Detail")').popover({html: true, trigger:'hover', placement:'auto right', content:image, container:'body'});
   $(document).ready(function(){
     var line1 = [['Nissan', 4],['Porche', 6],['Acura', 2],['Aston Martin', 5],['Rolls Royce', 6]];
@@ -549,7 +549,7 @@
     var ticks = ['a', 'b', 'c', 'd'];
 
     plot1 = $.jqplot('chart1', [s1], {
-            // Only animate if we're not using excanvas (not in IE 7 or IE 8)..
+            // Only animate if we're not using excanvas (not in IE 7 or IE 8)
             animate: !$.jqplot.use_excanvas,
             seriesDefaults:{
               renderer:$.jqplot.BarRenderer,

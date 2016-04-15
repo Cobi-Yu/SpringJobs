@@ -71,7 +71,16 @@
     .progress{
       margin:10px;
     }
+    .addUserbox {
+	    width: auto;
+	    height: auto;    
+	    padding: 50px;
+	    border: 1px;
+	}
   </style>
+    <style>
+    .box {margin:auto; width:600px; height:600px; background-color:antiquewhite;}
+    </style>
 </head>
 <body>
 
@@ -92,7 +101,7 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 
-        <form class="navbar-form navbar-left" role="search">
+        <div class="navbar-form navbar-left" role="search">
           <div class="btn-group"><!-- option button -->
             <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
               검색방법 <span class="caret"></span>
@@ -110,9 +119,9 @@
             <input type="text" class="form-control" placeholder="Search" size="45">
           </div>
           <button type="submit" class="btn btn-default"><strong>Search</strong></button>
-        </form>
+        </div>
 
-        <form class="form-inline navbar-form navbar-right">
+        <div class="form-inline navbar-form navbar-right">
           <div class="form-group">
             <label class="sr-only" for="exampleInputEmail3">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">   
@@ -129,7 +138,7 @@
           <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> Login</button>
           <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-user"></span> Sign up</button>
 
-        </form>
+        </div>
 
       </div><!-- /.navbar-collapse -->
 
@@ -187,18 +196,69 @@
   <!--본문 시작-->
   <div class="container-fluid text-center">    
     <div class="row content">
-      <div class="col-sm-1 sidenav">
-      </div>
-      <div class="col-md-10 text-left main"> 
+      	<div class="col-sm-1 sidenav">
+      	</div>
+      	<div class="col-md-10 text-left main"> 
+       		 <div class="addUserbox">
+                <form class="form-horizontal">
+                    <h1 align="center" style="width:100">Welcom to SpringJobs</h1>
+                    <h3 align="center">새로운 세상이 당신을 기다립니다.</h3>
+                    <br>
+                    <br>
+                    <table class="table table-bordered table-striped nanum" style="width:30%;" align="center">
+                        <tbody>
 
-      <!--실제 본문 들어갈 곳-->
-      
-      </div>
-      <div class="col-sm-1 sidenav">
-      </div>
-    </div>
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>ID/e-mail</strong></td>
+                                    <td>
+                                        <input class="form-control" type="text" id="uem" placeholder="ID/e-mail을 입력하세요.">
+                                        <br>
+                                        <div id="duplicate" class="alert alert-danger" role="alert">
+                                   
+                                        </div>
+                                    </td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>암호</strong></td>
+                                    <td>
+                                        <input class="form-control" type="password" id="upw" placeholder="PW를 입력하세요.">
+                                    </td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>이름</strong></td>
+                                    <td>
+                                        <input class="form-control" type="text" id="unm" placeholder="이름을 입력하세요.">
+                                    </td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>국적</strong></td>
+                                    <td>
+                                        <input class="form-control" type="email" id="uco" placeholder="국적">
+                                    </td>
+                                </thead>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div align="center">
+                        <button type="button" class="btn btn-primary" id="join">확인</button>
+                        <button type="button" class="btn btn-primary">취 소</button>
+
+                    </div>
+                </form>
+            </div>        
+  		</div>
+  		<div class="col-sm-1 sidenav">
+  		</div>
+	</div>
   </div>
-</div>
 <script>
   //팝업 시작
   var image = '<img src="img/graph.png">';
@@ -215,6 +275,48 @@
     $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeOut();
   });
   //sub 상단바 끝
+  
+  $('#join').click(function(){
+	  console.log('{"uem":"'+$("#uem").val()+'","upw":"'+$("#upw").val()+'","unm":'+$('#unm').val()+'"}');
+	  $.ajax({
+			url:"http://192.168.0.57:8080/addUser",
+			method : "POST",
+			dataType : "json",
+			data : '{"uem":"'+$("#uem").val()+'","upw":"'+$("#upw").val()+'","unm":"'+$('#unm').val()+'"}',
+			headers : {
+				"Accept" : "application/json",
+				"Content-Type" : "application/json"
+			},
+			success : function(status){
+				alert("가입완료 ");
+			}
+		});  
+  });
+  
+  $('#uem').on('input',function(){
+	  	if(($(this).val().length)>5){
+	  		console.log('{"uem":"'+$("#uem").val()+'"}');
+			$.ajax({
+				url:"http://192.168.0.57:8080/idDuplicateCheck",
+				method : "POST",
+				dataType : "json",
+				data : '{"uem":"'+$(this).val()+'"}',
+				headers : {
+					"Accept" : "application/json",
+					"Content-Type" : "application/json"
+				},
+				success : function(data,status){
+					if(data.duplicateResult==0){
+						$('#duplicate').text('사용가능');
+					}else{
+						$('#duplicate').text('사용불가능');
+					}
+				}
+			});  
+  		}else{
+  			$('#duplicate').text('6자 이상입니다.');
+  		}
+  });
 
 </script> 
 
