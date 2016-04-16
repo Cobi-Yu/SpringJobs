@@ -279,7 +279,7 @@
   $('#join').click(function(){
 	  console.log('{"uem":"'+$("#uem").val()+'","upw":"'+$("#upw").val()+'","unm":'+$('#unm').val()+'"}');
 	  $.ajax({
-			url:"http://192.168.0.57:8080/addUser",
+			url:"http://localhost:8080/addUser",
 			method : "POST",
 			dataType : "json",
 			data : '{"uem":"'+$("#uem").val()+'","upw":"'+$("#upw").val()+'","unm":"'+$('#unm').val()+'"}',
@@ -297,7 +297,7 @@
 	  	if(($(this).val().length)>5){
 	  		console.log('{"uem":"'+$("#uem").val()+'"}');
 			$.ajax({
-				url:"http://192.168.0.57:8080/idDuplicateCheck",
+				url:"http://localhost:8080/idDuplicateCheck",
 				method : "POST",
 				dataType : "json",
 				data : '{"uem":"'+$(this).val()+'"}',

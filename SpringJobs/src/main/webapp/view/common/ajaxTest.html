@@ -1,0 +1,53 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+	테스트할 url : <input type="text" id="url" size="100"><br>
+	테스트 방식 
+	<select id="type">
+	  <option value="GET">GET</option>
+	  <option value="POST">POST</option>
+	</select>
+	<br>
+	<input type ="button" id="btn" value="TEST">
+	<br><br>
+	결과
+	<pre id="testValue">
+	</pre>
+</body>
+
+<script>
+	$('#btn').click(function(){
+		 $.ajax({
+			url:$('#url').val(),
+			method : $('#type').val(),
+			dataType : "json",
+			data : $('#query').val(),
+			headers : {
+				"Accept" : "application/json",
+				"Content-Type" : "application/json"
+			},
+			success : function(data, status){
+				var value = JSON.stringify(data);
+				$('#testValue').text(value); 
+			}
+		}); 
+	});
+	$('#type').change(function() {
+		if($("#type option:selected").val()=='POST'){
+			$("#type").after('<div id="added"></div>');
+			$("#added").append( "Query : <input type='text' id='query' size='100'/>")
+		}
+		if($("#type option:selected").val()=='GET'){
+			alert('get');
+			$('#added').remove();
+		}
+	});
+</script>
+</html>
