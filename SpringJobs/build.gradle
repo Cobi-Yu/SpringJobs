@@ -9,10 +9,10 @@ apply plugin: 'war'          // web archive 제어 명령
 sourceSets {
     main {
         java {
-            srcDir 'src/java/main'
+            srcDir 'src/main/java'
         }
         resources {
-            srcDir 'src/resource'
+            srcDir 'src/main/resource'
         }
     }
 }
