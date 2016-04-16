@@ -4,6 +4,19 @@ apply plugin: 'java'           // 자바 빌드 명령
 apply plugin: 'eclipse-wtp'     // eclipse WTP 제어 명령
 apply plugin: 'war'          // web archive 제어 명령 
 
+
+// resource build path 추가
+sourceSets {
+    main {
+        java {
+            srcDir 'src/java/main'
+        }
+        resources {
+            srcDir 'src/resource'
+        }
+    }
+}
+
 //2) 자바 소스에 대한 기본 설정
 compileJava {
   options.encoding = "UTF-8" //"UTF-8"   // 소스 코드의 문잡 집합 
