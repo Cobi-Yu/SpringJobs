@@ -58,6 +58,7 @@ dependencies {
   compile 'org.springframework:spring-test:4.0.9.RELEASE'
   compile 'junit:junit:4.7'
   
+  compile 'mysql:mysql-connector-java:5.1.38'
   
   // 컴파일 할 때만 사용하고 배포에는 포함하지 않는 라이브러리.
   providedCompile 'javax.servlet:javax.servlet-api:3.1.0'
