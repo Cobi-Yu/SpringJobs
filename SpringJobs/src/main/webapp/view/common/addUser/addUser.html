@@ -53,6 +53,7 @@
     .main{
       padding-top: 10px;
     }
+
     .navbar-item{
       color:white;
     }
@@ -292,6 +293,7 @@
     var line1 = [['Nissan', 4],['Porche', 6],['Acura', 2],['Aston Martin', 5],['Rolls Royce', 6]];
   });
   //팝업 끝
+
   //sub 상단바 시작
   $('.dropdown').hover(function(){
     $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeIn();
@@ -373,7 +375,7 @@
 	  	if(($(this).val().length)>5){
 	  		console.log('{"uem":"'+$("#uem").val()+'"}');
 			$.ajax({
-				url:"http://localhost:8080/idDuplicateCheck",
+				url:"http://52.79.155.246:1337/uemDuplicateCheck",
 				method : "POST",
 				dataType : "json",
 				data : '{"uem":"'+$(this).val()+'"}',
@@ -442,7 +444,8 @@
   		}else{
   			$('#ucovalicheck').text('6자 이상입니다.');
   		}
-  });  
+  });
+
 </script> 
 
 </body>
