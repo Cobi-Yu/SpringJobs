@@ -16,6 +16,7 @@
 	 <!-- SQL Definition :: file include -->
 	<mappers>
 		<mapper resource="mybatisSql/UserMapper.xml"/>
+		<mapper resource="mybatisSql/ProjectMapper.xml"/>
 	</mappers>
 
 </configuration>
