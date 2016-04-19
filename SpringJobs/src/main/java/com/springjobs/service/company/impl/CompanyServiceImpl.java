@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.springjobs.dao.company.CompanyDao;
 import com.springjobs.domain.Cpjts;
+import com.springjobs.domain.Crecs;
 import com.springjobs.service.company.CompanyService;
 
 @Service("companyServiceImpl")
@@ -18,5 +19,7 @@ public class CompanyServiceImpl implements CompanyService{
 	public void addProject(Cpjts cpjts){
 		companyDao.addProject(cpjts);
 	}
-
+	public void addJob(Crecs crecs){
+		companyDao.addJob(crecs);
+	}
 }

@@ -17,6 +17,7 @@
 	<mappers>
 		<mapper resource="mybatisSql/UserMapper.xml"/>
 		<mapper resource="mybatisSql/ProjectMapper.xml"/>
+		<mapper resource="mybatisSql/AddJobMapper.xml"/>
 	</mappers>
 
 </configuration>

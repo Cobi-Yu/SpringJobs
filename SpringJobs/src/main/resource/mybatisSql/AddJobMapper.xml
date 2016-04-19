@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AddJobMapper">
+	<resultMap id="AddJobSelectMap" type="com.springjobs.domain.Crecs">
+		<result property="reno" 			column="RENO" 		jdbcType="INTEGER"/>
+		<result property="title"			column="RETL" 		jdbcType="VARCHAR" />
+		<result property="comName"		 	column="RECNM" 		jdbcType="VARCHAR" />
+		<result property="detail" 			column="REWC" 		jdbcType="VARCHAR" />
+		<result property="person" 			column="RENPL"	 	jdbcType="INTEGER" />
+		<result property="check" 			column="RECHK"	 	jdbcType="CHAR" />
+		<result property="industry" 		column="REIDT" 		jdbcType="VARCHAR" />
+		<result property="jobType" 			column="REJP" 		jdbcType="VARCHAR" />
+		<result property="reType" 			column="RETP" 		jdbcType="VARCHAR" />
+		<result property="date" 			column="RERD" 		jdbcType="DATE" />
+		<result property="area" 			column="REAR" 		jdbcType="VARCHAR" />
+		<result property="workType"			column="REWT" 		jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<!-- SQL : INSERT -->
+	<insert 	id="addJob"		parameterType="com.springjobs.domain.Crecs" >
+	 	INSERT
+		INTO CRECS(retl, recnm, rewc, renpl, rechk, reyr, reidt, rejp, retp, repay, rerg, rerd, rehtn, rear, rewt, cno) 
+		VALUES(#{retl},#{recnm},#{rewc},#{renpl},#{rechk},#{reyr},#{reidt},#{rejp},#{retp},#{repay},#{rerg},#{rerd},#{rehtn},#{rear},#{rewt},1);
+	 </insert>
+	
+	
+</mapper>

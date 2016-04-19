@@ -1,341 +1,375 @@
 <!DOCTYPE html>
+<!-- release v4.3.2, copyright 2014 - 2015 Kartik Visweswaran -->
 <html lang="en">
+
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8" />
+    <title>구인 등록 - &copy; KM</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
 
-  <!--  jqplot cdn-->
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/jquery.jqplot.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.barRenderer.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.pieRenderer.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.categoryAxisRenderer.min.js"></script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/plugins/jqplot.pointLabels.min.js"></script>
-  <script type="text/javascript" src=""></script>
-  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jqPlot/1.0.8/jquery.jqplot.min.css" />
-  <!-- jqplot cdn end-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-  <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 1000px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
-    }
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
+    <!--파일첨부-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.1/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.1/js/fileinput.min.js" type="text/javascript"></script>
 
-    .main{
-      padding-top: 10px;
-    }
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
-    .navbar-item{
-      color:white;
-    }
-    .nav-tabs{
-      background: black;
-    }
-    .nav-sub{
-      padding: 0px; 
-      background: black; 
-      line-height: 1px; 
-      font-size: 13px
-    }
+    <!-- bootstrap toggle -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.1/js/bootstrap-toggle.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.1/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <!-- bootstrap toggle end-->
 
-    .progress{
-      margin:10px;
-    }
-  </style>
-    
-<style>
-    .box {margin:auto; width:1000px; height:550px; background-color:silver;}
-</style>
+    <style>
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        
+        .row.content {
+            height: 450px
+        }
+        /* Set gray background color and 100% height */
+        
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 200%;
+        }
+        /* Set black background color, white text and some padding */
+        
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+            .row.content {
+                height: auto;
+            }
+        }
+        
+        .developer_list {
+            padding-top: 5px;
+        }
+    </style>
 
-    
+
+
 </head>
+
 <body>
 
-  <nav class="navbar navbar-inverse" >
-    <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">SpringJobs</a>
-      </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-        <form class="navbar-form navbar-left" role="search">
-          <div class="btn-group"><!-- option button -->
-            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-              검색방법 <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu" role="menu">
-              <li><a href="#">사람</a></li>
-              <li><a href="#">기업</a></li>
-              <li><a href="#">사용API</a></li>
-              <li class="divider"></li>
-              <li><a href="#">기타</a></li>
-            </ul>
-          </div><!-- option button end-->
-
-          <div class="form-group ">
-            <input type="text" class="form-control" placeholder="Search" size="45">
-          </div>
-          <button type="submit" class="btn btn-default"><strong>Search</strong></button>
-        </form>
-
-        <form class="form-inline navbar-form navbar-right">
-          <div class="form-group">
-            <label class="sr-only" for="exampleInputEmail3">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">   
-          </div>
-          <div class="form-group">
-            <label class="sr-only" for="exampleInputPassword3">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
-            <div class="checkbox">
-              <label>
-                <input type="checkbox"> <font color="A7A7A7">Remember me</font>
-              </label>
-            </div>  
-          </div>
-          <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> Login</button>
-          <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-user"></span> Sign up</button>
-
-        </form>
-
-      </div><!-- /.navbar-collapse -->
-
-    </div><!-- /.container-fluid -->
-  </nav>
-
-
-  <!-- sub상단바-->
-  <div class="col-md-12 nav-sub">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-      <ul class="nav nav-pills">
-
-        <li role="presentation" id = "dropdown" class="dropdown" >
-          <a href="#" class="navbar-item">홈</a>
-        </li>
-        
-        <li role="presentation" class="dropdown">
-          <a href="#" class="navbar-item">이력서등록</a>
-          <ul id = "dropdown-menu" class="dropdown-menu" role="menu">
-            <li><a href='#'>item1</a></li>
-            <li><a href='#'>item2</a></li>
-            <li><a href='#'>item3</a></li>
-          </ul>
-        </li>
-        
-        <li role="presentation" class="dropdown">
-          <a href="#" class="navbar-item">채용정보</a>
-          <ul id = "dropdown-menu" class="dropdown-menu" role="menu">
-            <li><a href='#'>item1</a></li>
-            <li><a href='#'>item2</a></li>
-            <li><a href='#'>item3</a></li>
-          </ul>
-        </li>
-
-        <li role="presentation" class="dropdown">
-          <a href="#" class="navbar-item">프로젝트</a>
-          <ul id = "dropdown-menu" class="dropdown-menu" role="menu">
-            <li><a href='#'>item1</a></li>
-            <li><a href='#'>item2</a></li>
-            <li><a href='#'>item3</a></li>
-          </ul>
-        </li>
-
-        <li role="presentation" class="dropdown" style="float:right;">
-          <a href="#" class="navbar-item">SpringJobs소개</a>
-        </li>
-      </ul>
-    </div>
-
-  </div>
-  <!-- sub상단바 끝-->
-
-
-  <!--본문 시작-->
-  <div class="container-fluid text-center">    
-    <div class="row content">
-      <div class="col-sm-1 sidenav">
-      </div>
-      <div class="col-md-10 text-left main">          
-          <form class="form-horizontal" >
-              <p><img src="tree.jpg" align="middle"></p>
-<br><br><br><br><br><br><br><br>
-      <div class="box"> <p><br><h2 align="center">SpringJobs</h2><br><br>
-                
-  <div class="form-group form-group-md" >      
-      <label class="col-md-2 control-label" for="formGroupInputMedium">직 무</label>
-    <div class="col-md-5">
-       <div class="btn-group">
-  <button type="button" class="btn btn-danger">분 류</button>
-  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-    <span class="caret"></span>
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-    <li><a href="#">개발자</a></li>
-    <li><a href="#">기획자</a></li>
-    <li><a href="#">웹디자이너</a></li>
-  </ul>
-<br><br>           
-</div>
-      <input class="form-control" type="text" id="formGroupInputLarge" placeholder="직무명을 입력하세요.">
-    </div>
-  </div>
-             <!--직무명 끝-->
-  <div class="form-inline form-group-md form-group">
-     <label class="col-md-2 control-label" for="formGroupInputMedium">기 간</label>
-  <div class="col-md-2">
-    <input type="date" class="form-control" id="exampleInputEmail3">
-  </div>
-    <div class="col-md-1">
-        <span class=" glyphicon glyphicon-minus" aria-hidden="true"></span>
-      </div>
-  <div class="col-md-2">
-    <input class="form-control" type="date" id="exampleInputPassword3">
-  </div>
-     </div>
-      <!--기 간 끝-->
-       <div class="form-inline form-group-md form-group">
-     <label class="col-md-2 control-label" for="formGroupInputMedium">기 술</label>
-  <div class="col-md">   
-   <div class="row">
-  <div class="col-md-5">
-    <div class="input-group ">
-      <input type="text" class="form-control " placeholder="Search for...">
-      <span class="input-group-btn ">
-        <button class="btn btn-default" type="button">검색</button>   
-      </span>    <!--검색 버튼-->
-        <div class="col-md-4"></div>
-          <div class="col-md-5">
-              
-      <input class="form-control" type="text" id="formGroupInputLarge" placeholder="">         
-    </div>    
-    </div><!-- /input-group -->
-  </div><!-- /.col-md-6 -->
-</div><!-- /.row -->   
-           </div>
-      </div>
-         <!--기 술 끝-->
-      
-        <div class="form-group form-group-md">
-    <label class="col-md-2 control-label" for="formGroupInputMedium">인 원</label>
-    <div class="col-md-1">
-       <select class="form-control">
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
-  <option>5</option>
-
-</select>
-    
-    </div>
-  </div>
-      <!--인원 끝--><div class="form-inline form-group-md form-group">
-     <label class="col-md-2 control-label" for="formGroupInputMedium">급 여</label>      
-          <p><label>최 소</label><span><input type="text" class="form-control" id="exampleInputEmail3"></span>&nbsp;<label>원</label>&nbsp;<span class=" glyphicon glyphicon-minus" aria-hidden="true"></span>&nbsp;<label>최 대</label>&nbsp;<span><input class="form-control" type="text" id="exampleInputPassword3"></span>&nbsp;<label>원</label></p>       
- 
-          
-  
-  <div class="col-md-2">
-    
-  </div>
- </div>
-       
-       <!--급여 끝-->
-      
-   
-        <!-- 프로젝트 상세 파일 첨부-->
-   <div class="form-group form-group-md">
-
-      <label class="col-md-2 control-label" for="formGroupInputMedium">상세 파일</label>
-    
-        <div class="container kv-main col-md-5">
-            <form enctype="multipart/form-data">
-                <div class="form-group">
-                    <input id="file-5" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#">
-                </div>
-                  <div class="btn ">
-                      <span class="input center-block">     
-                      </span>
-                       <dl><dt><button type="button" class="btn btn-primary">등 록</button>&nbsp;   
-                           <button type="button" class="btn btn-primary">취 소</button></dt></dl>
-                </div> 
-            </form>
+    <!--상단바 시작-->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">SpringJobs</a>
             </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="btn-group">
+                        <!-- option button -->
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            검색방법 <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">사람</a></li>
+                            <li><a href="#">기업</a></li>
+                            <li><a href="#">사용API</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">기타</a></li>
+                        </ul>
+                    </div>
+                    <!-- option button end-->
+
+                    <div class="form-group ">
+                        <input type="text" class="form-control" placeholder="Search" size="45">
+                    </div>
+                    <button type="submit" class="btn btn-default"><strong>Search</strong></button>
+                </form>
+
+                <form class="form-inline navbar-form navbar-right">
+                    <div class="form-group">
+                        <label class="sr-only" for="exampleInputEmail3">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="exampleInputPassword3">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> <font color="A7A7A7">Remember me</font>
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> Login</button>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-user"></span> Sign in</button>
+
+                </form>
+
+            </div>
+            <!-- /.navbar-collapse -->
+
         </div>
-      
-        <!-- 프로젝트 상세 파일 첨부 끝-->
-      
-      
-      </div>
-      
-          </form>
-     
-      
-      </div>
-      <div class="col-sm-1 sidenav">
-      </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!--상단바 끝-->
+
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <div class="col-sm-1 sidenav"></div>
+            <!-- 왼쪽여백-->
+            <div class="col-md-10 text-left">
+                <!-- 중간 메인 화면 start-->
+
+                <br>
+                <br>
+                <form class="form-horizontal">
+                    <div class="form-group form-group-md">
+                        <label class="col-md-2 control-label" for="formGroupInputMedium">채용 공고 제목</label>
+                        <div class="col-md-5">
+
+                            <input class="form-control" type="text" id="retl" placeholder="채용 공고 제목을 입력하세요.">
+                        </div>
+
+                    </div>
+                    <!--채용공고 제목 끝-->
+
+                    <div class="form-group form-group-md">
+                        <label class="col-md-2 control-label" for="formGroupInputMedium">회사명</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="text" id="recnm">
+                        </div>
+                    </div>
+                    <!--회사명-->
+                    <div class="form-group form-group-md">
+                        <label class="col-md-2 control-label" for="formGroupInputMedium">주요업무</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="text" id="rewc">
+                        </div>
+                    </div>
+                    <!--주요업무-->
+
+                    <div class="form-group form-group-md">
+                        <label class="col-md-2 control-label" for="formGroupInputMedium">모집인원</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="text" id="renpl">
+                        </div>
+                    </div>
+                    <!--모집인원-->
+                    <div class="form-group form-group-md">
+                        <label class="col-md-2 control-label" for="formGroupInputMedium">경력여부</label>
+                        <div class="col-md-5">
+                            <div style="display:inline-block">
+                                <input type="checkbox" checked data-toggle="toggle" data-size="small" data-on="yes" data-off="no" id="rechk">
+                            </div>
+                        </div>
+                    </div>
+                    <!--경력여부-->
+                    <div class="form-group form-group-md">
+                        <label class="col-md-2 control-label" for="formGroupInputMedium">경력연차</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="text" id="reyr">
+                        </div>
+                    </div>
+                    <!--경력연차-->
+                    <div class="form-group form-group-md">
+                        <label class="col-md-2 control-label" for="formGroupInputMedium">업계</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="text" id="reidt">
+                        </div>
+                    </div>
+                    <!--업계-->
+                    <div class="form-group form-group-md">
+                        <label class="col-md-2 control-label" for="formGroupInputMedium">직종</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="text" id="rejp">
+                        </div>
+                    </div>
+                    <!--직종-->
+                    <div class="form-group form-group-md">
+                        <label class="col-md-2 control-label" for="formGroupInputMedium">고용형태</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="text" id="retp">
+                        </div>
+                    </div>
+                    <!--고용형태-->
+                    <div class="form-group form-group-md">
+                        <label class="col-md-2 control-label" for="formGroupInputMedium">급여</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="text" id="repay">
+                        </div>
+                    </div>
+                    <!--급여-->
+                    <div class="form-group form-group-md">
+                        <label class="col-md-2 control-label" for="formGroupInputMedium">게시자</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="text" id="rerg">
+                        </div>
+                    </div>
+                    <!--게시자-->
+                       <div class="form-group form-group-md">
+                        <label class="col-md-2 control-label" for="formGroupInputMedium">게시일</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="date" id="rerd">
+                        </div>
+                    </div>
+                        <!--게시일-->
+                         <div class="form-group form-group-md">
+                        <label class="col-md-2 control-label" for="formGroupInputMedium">조회수</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="text" id="rehtn">
+                        </div>
+                    </div>
+                    <!--조회수-->
+                      
+                         <div class="form-group form-group-md">
+                        <label class="col-md-2 control-label" for="formGroupInputMedium">지역</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="text" id="rear">
+                        </div>
+                    </div>
+                    <!--지역-->
+                         <div class="form-group form-group-md">
+                        <label class="col-md-2 control-label" for="formGroupInputMedium">근무형태</label>
+                        <div class="col-md-5">
+                            <input class="form-control" type="text" id="rewt">
+                        </div>
+                    </div>
+                    <!--근무형태-->
+                    
+
+
+
+                    <div class="btn ">
+                        <span class="input center-block">
+						  <button type="button" class="btn btn-success btn-sm" id="join">등록</button>
+						           
+						  <button type="button" class="btn btn-danger btn-sm">취소</button>
+	                 </span>
+                    </div>
+                    <!--등록버튼-->
+
+                </form>
+            </div>
+
+            <div class="col-sm-1 sidenav"></div>
+            <!-- 오른쪽여백-->
+        </div>
     </div>
-  </div>
-
-<script>
-  //팝업 시작
-  var image = '<img src="img/graph.png">';
-  $('button:contains("Detail")').popover({html: true, trigger:'hover', placement:'auto right', content:image, container:'body'});
-  $(document).ready(function(){
-    var line1 = [['Nissan', 4],['Porche', 6],['Acura', 2],['Aston Martin', 5],['Rolls Royce', 6]];
-  });
-  //팝업 끝
-
-  //sub 상단바 시작
-  $('.dropdown').hover(function(){
-    $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeIn();
-  },function() {
-    $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeOut();
-  });
-  //sub 상단바 끝
-
-</script> 
-
 </body>
+<script>
+    /*
+            $(".file").on('fileselect', function(event, n, l) {
+                alert('File Selected. Name: ' + l + ', Num: ' + n);
+            });
+            */
+
+    $("#file-4").fileinput({
+        uploadExtraData: {
+            kvId: '10'
+        }
+    });
+    $(".btn-warning").on('click', function () {
+        if ($('#file-4').attr('disabled')) {
+            $('#file-4').fileinput('enable');
+        } else {
+            $('#file-4').fileinput('disable');
+        }
+    });
+    $(".btn-info").on('click', function () {
+        $('#file-4').fileinput('refresh', {
+            previewClass: 'bg-info'
+        });
+    });
+    /*
+    $('#file-4').on('fileselectnone', function() {
+        alert('Huh! You selected no files.');
+    });
+    $('#file-4').on('filebrowse', function() {
+        alert('File browse clicked for #file-4');
+    });
+    */
+    $(document).ready(function () {
+        $("#test-upload").fileinput({
+            'showPreview': false
+            , 'allowedFileExtensions': ['jpg', 'png', 'gif']
+            , 'elErrorContainer': '#errorBlock'
+        });
+        /*
+        $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
+            alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
+        });
+        */
+
+
+        $('#join').click(function () {
+            var rechk;
+            if ($(this).val() == 'on') {
+                rechk = 0;
+            } else {
+                rechk = 1;
+            }
+
+            console.log('{"retl":"' +$("#retl").val() +'","recnm":"' 
+            	+$("#recnm").val()+'","rewc":"'+$("#rewc").val()+'","renpl":"' 
+            	+$("#renpl").val()+'","rechk":"'+$("#rechk").val()+'","reyr":"' 
+            	+$("#reyr").val()+'","reidt":"'+$("#reidt").val()+'","rejp":"' 
+            	+$("#rejp").val()+'","retp":"'+$("#retp").val()+'","repay":"' 
+            	+$("#repay").val()+'","rerg":"'+$("#rerg").val()+'","rerd":"' 
+            	+$("#rerd").val()+'","rehtn":"'+$("#rehtn").val()+'","rear":"' 
+            	+$("#rear").val()+'","rewt":"'+$("#rewt").val()+'"}')
+            
+            $.ajax({
+                url: "http://localhost:8080/addJob"
+                , method: "POST"
+                , dataType: "json"
+                , data: '{"retl":"'+$("#retl").val()+'","recnm":"'+$("#recnm").val() 
+                	+'","rewc":"'+$("#rewc").val()+'","renpl":"'+$("#renpl").val()+'","rechk":"' 
+                	+rechk+'","reyr":"'+$("#reyr").val()+'","reidt":"'+$("#reidt").val() 
+                	+'","rejp":"'+$("#rejp").val()+'","retp":"'+$("#retp").val()+'","repay":"' 
+                	+$("#repay").val()+'","rerg":"'+$("#rerg").val()+'","rerd":"'+$("#rerd").val() 
+                	+'","rehtn":"'+$("#rehtn").val()+'","rear":"'+$("#rear").val()+'","rewt":"' 
+                	+$("#rewt").val() +'"}'
+                , headers: {
+                    "Accept": "application/json"
+                    , "Content-Type": "application/json"
+                }
+                , success: function (status) {
+                    alert("등록완료");
+                }
+            });
+        });
+
+
+
+    });
+</script>
+
 </html>

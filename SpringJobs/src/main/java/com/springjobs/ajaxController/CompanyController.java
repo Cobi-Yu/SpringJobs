@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.springjobs.domain.Cpjts;
+import com.springjobs.domain.Crecs;
 import com.springjobs.service.company.CompanyService;
 
 @Controller
@@ -21,5 +22,10 @@ public class CompanyController {
 	public void addProject(@RequestBody Cpjts cpjts){
 		System.out.println("addProject Test :"+cpjts.toString());
 		companyService.addProject(cpjts);
+	}
+	@RequestMapping( value="/addJob" , method=RequestMethod.POST)
+	public void addJob(@RequestBody Crecs crecs){
+		System.out.println("addJob Test :"+crecs.toString());
+		companyService.addJob(crecs);
 	}
 }

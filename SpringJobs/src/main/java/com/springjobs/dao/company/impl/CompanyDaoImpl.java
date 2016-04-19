@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import com.springjobs.dao.company.CompanyDao;
 import com.springjobs.domain.Cpjts;
+import com.springjobs.domain.Crecs;
 
 @Repository("companyDaoImpl")
 public class CompanyDaoImpl implements CompanyDao{
@@ -21,6 +22,10 @@ public class CompanyDaoImpl implements CompanyDao{
 	
 	public void addProject(Cpjts cpjts){
 		sqlSession.insert("ProjectMapper.addProject", cpjts);
+	}
+	
+	public void addJob(Crecs crecs){
+		sqlSession.insert("AddJobMapper.addJob", crecs);
 	}
 	
 }
