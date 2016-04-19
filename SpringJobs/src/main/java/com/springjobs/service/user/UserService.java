@@ -1,11 +1,11 @@
 package com.springjobs.service.user;
 
-import com.springjobs.domain.User;
+import com.springjobs.domain.Users;
 
 public interface UserService {
-	public void addUser(User user);
+	public void addUser(Users user);
 	
-	public int login(User user);
+	public int login(Users user);
 	
-	public int idDuplicateCheck(User user);
+	public int idDuplicateCheck(Users user);
 }

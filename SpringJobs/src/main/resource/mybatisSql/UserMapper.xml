@@ -5,26 +5,26 @@
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="UserMapper">
-	<resultMap id="userSelectMap" type="com.springjobs.domain.User">
+	<resultMap id="userSelectMap" type="com.springjobs.domain.Users">
 		<result property="uno" 			column="UNO" 			jdbcType="INTEGER"/>
 		<result property="email"	column="UEM" 		jdbcType="VARCHAR" />
 		<result property="password" 	column="UPW" 		jdbcType="VARCHAR" />
 	</resultMap>
 	
 	<!-- SQL : INSERT -->
-	<insert 	id="addUser"		parameterType="com.springjobs.domain.User" >
+	<insert 	id="addUser"		parameterType="com.springjobs.domain.Users" >
 	 	INSERT
 		INTO USERS(unm, uem, upw, ucnf) 
 		VALUES	 (#{unm},#{uem},#{upw},'0');
 	 </insert>
 	 
-	<select id="login" parameterType="com.springjobs.domain.User" resultType="int">
+	<select id="login" parameterType="com.springjobs.domain.Users" resultType="int">
 		SELECT COUNT(*) 
 		FROM USERS 
 		WHERE uem=#{uem} and upw=#{upw};
     </select>
     
-	<select id="idDuplicateCheck" parameterType="com.springjobs.domain.User" resultType="int">
+	<select id="idDuplicateCheck" parameterType="com.springjobs.domain.Users" resultType="int">
 		SELECT COUNT(*) 
 		FROM USERS 
 		WHERE uem=#{uem};

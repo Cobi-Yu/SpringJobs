@@ -153,15 +153,11 @@ public class Users {
 		this.ures = ures;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Users [uno=" + uno + ", unm=" + unm + ", uenm=" + uenm + ", uem=" + uem + ", upw=" + upw + ", uco="
 				+ uco + ", usx=" + usx + ", ucnf=" + ucnf + ", ubd=" + ubd + ", upho=" + upho + ", uadr=" + uadr
 				+ ", uurl=" + uurl + ", ures=" + ures + "]";
 	}
-	
-	
-
 	
 } // end of class

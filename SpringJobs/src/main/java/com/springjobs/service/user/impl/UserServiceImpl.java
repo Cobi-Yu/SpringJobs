@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.springjobs.dao.user.UserDao;
-import com.springjobs.domain.User;
+import com.springjobs.domain.Users;
 import com.springjobs.service.user.UserService;
 
 @Service("userServiceImpl")
@@ -17,17 +17,17 @@ public class UserServiceImpl implements UserService{
 		this.userDao = userDao;
 	}
 	
-	public void addUser(User user){
+	public void addUser(Users user){
 		userDao.addUser(user);
 	}
 
 	@Override
-	public int login(User user) {
+	public int login(Users user) {
 		return userDao.login(user);
 	}
 
 	@Override
-	public int idDuplicateCheck(User user) {
+	public int idDuplicateCheck(Users user) {
 		return userDao.idDuplicateCheck(user);
 	}
 }

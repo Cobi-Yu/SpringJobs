@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.springjobs.dao.user.UserDao;
-import com.springjobs.domain.User;
+import com.springjobs.domain.Users;
 
 @Repository("userDaoImpl")
 public class UserDaoImpl implements UserDao{
@@ -19,17 +19,17 @@ public class UserDaoImpl implements UserDao{
 		this.sqlSession = sqlSession;
 	}
 	
-	public void addUser(User user){
+	public void addUser(Users user){
 		sqlSession.insert("UserMapper.addUser", user);
 	}
 
 	@Override
-	public int login(User user) {
+	public int login(Users user) {
 		return sqlSession.selectOne("UserMapper.login", user);
 	}
 
 	@Override
-	public int idDuplicateCheck(User user) {
+	public int idDuplicateCheck(Users user) {
 		return sqlSession.selectOne("UserMapper.idDuplicateCheck",user);
 	}
 }
