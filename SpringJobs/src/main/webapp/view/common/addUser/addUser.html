@@ -318,57 +318,7 @@
 			}
 		});  
   });
-  
-  $('#upw').on('input',function(){
-	  	if(($(this).val().length)>5){
-	  		console.log('{"upw":"'+$("#upw").val()+'"}');
-			$.ajax({
-				url:"http://localhost:8080/idDuplicateCheck",
-				method : "POST",
-				dataType : "json",
-				data : '{"upw":"'+$(this).val()+'"}',
-				headers : {
-					"Accept" : "application/json",
-					"Content-Type" : "application/json"
-				},
-				success : function(data,status){
-					if(data.duplicateResult==0){
-						$('#upwvalicheck').text('사용가능');
-					}else{
-						$('#upwvalicheck').text('사용불가능');
-					}
-				}
-			});  
-  		}else{
-  			$('#upwvalicheck').text('6자 이상입니다.');
-  		}
-  });
-    
-    
-  $('#reupw').on('input',function(){
-	  	if(($(this).val().length)>5){
-	  		console.log('{"reupw":"'+$("#reupw").val()+'"}');
-			$.ajax({
-				url:"http://localhost:8080/idDuplicateCheck",
-				method : "POST",
-				dataType : "json",
-				data : '{"reupw":"'+$(this).val()+'"},{"upw":"'+$(this).val()+'"}',
-				headers : {
-					"Accept" : "application/json",
-					"Content-Type" : "application/json"
-				},
-				success : function(data,status){
-					if(data.duplicateResult==0 ){
-						$('#reupwvalicheck').text('사용가능');
-					}else{
-						$('#reupwvalicheck').text('사용불가능');
-					}
-				}
-			});  
-  		}else{
-  			$('#reupwvalicheck').text('6자 이상입니다.');
-  		}
-  });    
+      
     
     //////////////////////////////////////////////////
   $('#uem').on('input',function(){
@@ -396,55 +346,6 @@
   		}
   });    
     
-      $('#unm').on('input',function(){
-	  	if(($(this).val().length)>5){
-	  		console.log('{"unm":"'+$("#unm").val()+'"}');
-			$.ajax({
-				url:"http://localhost:8080/idDuplicateCheck",
-				method : "POST",
-				dataType : "json",
-				data : '{"unm":"'+$(this).val()+'"}',
-				headers : {
-					"Accept" : "application/json",
-					"Content-Type" : "application/json"
-				},
-				success : function(data,status){
-					if(data.duplicateResult==0){
-						$('#unmvalicheck').text('사용가능');
-					}else{
-						$('#unmvalicheck').text('사용불가능');
-					}
-				}
-			});  
-  		}else{
-  			$('#unmvalicheck').text('6자 이상입니다.');
-  		}
-  });  
-    
-      $('#uco').on('input',function(){
-	  	if(($(this).val().length)>5){
-	  		console.log('{"uco":"'+$("#uco").val()+'"}');
-			$.ajax({
-				url:"http://localhost:8080/idDuplicateCheck",
-				method : "POST",
-				dataType : "json",
-				data : '{"uco":"'+$(this).val()+'"}',
-				headers : {
-					"Accept" : "application/json",
-					"Content-Type" : "application/json"
-				},
-				success : function(data,status){
-					if(data.duplicateResult==0){
-						$('#ucovalicheck').text('사용가능');
-					}else{
-						$('#ucovalicheck').text('사용불가능');
-					}
-				}
-			});  
-  		}else{
-  			$('#ucovalicheck').text('6자 이상입니다.');
-  		}
-  });
 
 </script> 
 
