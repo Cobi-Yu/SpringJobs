@@ -1,0 +1,35 @@
+<style>
+    #loginTable.table{
+        width:400px;  
+    }
+</style>
+
+<table>
+    <tr>
+        <th width="20%"><a href="#"><img src="/view/resources/img/test.jpg" class="img-circle" width="50" height="50"></a></th>
+        <th width="50%" id="uem"></th>
+        <th width="15%"><a id="myPage"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></th>
+        <th width="15%"><a id="notice"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></a></th>
+    </tr>
+</table>  
+
+
+<script>
+$('img').click(function(){
+	  $.ajax({
+        url: contextRoot+"/logout",
+        method : "POST",
+        dataType : "json",
+        headers : {
+            "Accept" : "application/json",
+            "Content-Type" : "application/json"
+        },
+        success : function(data, status){
+        	location.reload();
+        },
+        error:function(req,status,error){
+			alert('error');
+		}
+    }); 
+})
+</script>

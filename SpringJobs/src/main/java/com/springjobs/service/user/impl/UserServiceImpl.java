@@ -22,7 +22,7 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public int login(Users user) {
+	public Users login(Users user) {
 		return userDao.login(user);
 	}
 

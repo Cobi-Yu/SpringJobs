@@ -18,8 +18,8 @@
 		VALUES	 (#{unm},#{uem},#{upw},'0');
 	 </insert>
 	 
-	<select id="login" parameterType="com.springjobs.domain.Users" resultType="int">
-		SELECT COUNT(*) 
+	<select id="login" parameterType="com.springjobs.domain.Users" resultType="com.springjobs.domain.Users">
+		SELECT * 
 		FROM USERS 
 		WHERE uem=#{uem} and upw=#{upw};
     </select>

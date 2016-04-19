@@ -1,0 +1,73 @@
+@CHARSET "UTF-8";
+ /* Remove the navbar's default margin-bottom and rounded borders */ 
+ 
+ 	html { 
+	    height:100%;
+	}
+	body { 
+	    min-height:100%;
+	}
+    .navbar {
+        margin-bottom: 0;
+        border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: auto;}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+        padding-top: 20px;
+        background-color: #f1f1f1;
+        height: 700px;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+        background-color: #555;
+        color: white;
+        padding: 15px;
+    }
+
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+    .sidenav {
+        height: 0px;
+        padding: 15px;
+    }
+    .row.content {height:auto;} 
+    }
+
+    .main{
+     padding-top: 10px;
+    }
+
+    .navbar-item{
+        color:white;
+    }
+    .nav-tabs{
+    background: black;
+    }
+    .nav-sub{
+        padding: 0px; 
+        background: black; 
+        line-height: 1px; 
+        font-size: 13px
+    }
+
+    .progress{
+        margin:10px;
+    }
+    .glyphicon{
+        font-size: 2em; 
+        color:white;
+      }
+
+    th{
+        text-align: center;
+        color:white;
+        font-size: 
+    }
+    #loginTable.table{
+        width:800px;  
+    }

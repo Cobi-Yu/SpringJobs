@@ -24,7 +24,7 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public int login(Users user) {
+	public Users login(Users user) {
 		return sqlSession.selectOne("UserMapper.login", user);
 	}
 

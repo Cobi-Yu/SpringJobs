@@ -1,6 +1,8 @@
 package com.springjobs.ajaxController;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -41,14 +43,23 @@ public class UserController {
 	}
 	
 	@RequestMapping( value="/login", method=RequestMethod.POST)
-	public void login(@RequestBody Users user, Model model){
-		System.out.println("Login Request : "+user.getUem());
-		model.addAttribute("loginResult", userService.login(user));
+	public void login(@RequestBody Users user, HttpSession session, Model model){
+		System.out.println("Login Request executed: "+user.getUem());
+		Users loginUser = userService.login(user);
+		session.setAttribute("user", loginUser);
+		System.out.println("SESSION : "+session.getAttribute("user"));
+		model.addAttribute("user", loginUser);
+	}
+
+	@RequestMapping( value="/loginCheck", method=RequestMethod.POST)
+	public void loginCheck(HttpSession session, Model model){
+		Users loginUser = (Users) session.getAttribute("user");
+		model.addAttribute("user", loginUser);
 	}
 	
-	@RequestMapping( value="/idDuplicateCheck", method=RequestMethod.POST)
-	public void idDuplicateCheck(@RequestBody Users user, Model model){
-		System.out.println("idDuplicateCheck Request : "+user.getUem());
-		model.addAttribute("duplicateResult", userService.idDuplicateCheck(user));
+	@RequestMapping( value="/logout", method=RequestMethod.POST)
+	public void logout(HttpSession session, Model model){
+		session.invalidate();
 	}
+	
 }
