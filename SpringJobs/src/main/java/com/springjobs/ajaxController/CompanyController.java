@@ -19,7 +19,7 @@ public class CompanyController {
 	
 	@RequestMapping( value="/addProject" , method=RequestMethod.POST)
 	public void addProject(@RequestBody Cpjts cpjts){
-		System.out.println("addProject Test :"+cpjts.getCpjchk());
+		System.out.println("addProject Test :"+cpjts.toString());
 		companyService.addProject(cpjts);
 	}
 }
