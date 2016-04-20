@@ -68,5 +68,5 @@ $('#loginButton').click(
 		});
 // 로그인 이벤트 끝
 $('#signUp').click(function() {
-	location.href = 'addUser/addUser.html';
+	location.href = '../addUser/addUser.html';
 })
