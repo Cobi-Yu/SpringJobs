@@ -11,7 +11,7 @@ $(document).ready(function() {
 		success : function(data, status) {
 			console.log(data.user);
 			if (data.user) {
-				$('#loginTable').load('loginSucess.html', function() {
+				$('#loginTable').load('/view/common/login/loginSucess.html', function() {
 					$('#uem').text(data.user.uem);
 				});
 				user=data.user;
@@ -68,5 +68,5 @@ $('#loginButton').click(
 		});
 // 로그인 이벤트 끝
 $('#signUp').click(function() {
-	location.href = '../addUser/addUser.html';
+	location.href = '/view/common/addUser/addUser.html';
 })
