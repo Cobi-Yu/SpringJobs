@@ -31,8 +31,8 @@
 										<td class="success"><strong>ID/e-mail</strong></td>
 										<td><input class="form-control" type="text" id="joinuem"
 											placeholder="ID/e-mail을 입력하세요."></td>
-										<td width="250">
-											<div id="uemvalicheck" class="alert alert-danger" role="alert">
+										<td>
+											<div id="uemvalicheck" role="alert">
 		
 											</div>
 										</td>
@@ -44,7 +44,7 @@
 										<td><input class="form-control" type="password" id="joinupw"
 											placeholder="PW를 입력하세요."></td>
 										<td>
-											<div id="upwvalicheck" class="alert alert-danger" role="alert">
+											<div id="upwvalicheck" role="alert">
 		
 											</div>
 										</td>
@@ -56,8 +56,7 @@
 										<td><input class="form-control" type="password" id="joinreupw"
 											placeholder="PW를 입력하세요."></td>
 										<td>
-											<div id="reupwvalicheck" class="alert alert-danger"
-												role="alert" style="height: 25px"></div>
+											<div id="reupwvalicheck" role="alert"></div>
 										</td>
 									</thead>
 								</tr>
@@ -67,7 +66,7 @@
 										<td><input class="form-control" type="text" id="joinunm"
 											placeholder="이름을 입력하세요."></td>
 										<td>
-											<div id="unmvalicheck" class="alert alert-danger" role="alert">
+											<div id="unmvalicheck" role="alert">
 		
 											</div>
 										</td>
@@ -79,7 +78,7 @@
 										<td><input class="form-control" type="email" id="joinuco"
 											placeholder="국적"></td>
 										<td>
-											<div id="ucovalicheck" class="alert alert-danger" role="alert">
+											<div id="ucovalicheck" role="alert">
 		
 											</div>
 										</td>
@@ -102,10 +101,36 @@
 	<div id="footer"></div>
 </body>
 <script>
+	var uemConfirm=false;
+	var upwConfirm=false;
 	$(function(){
 		$('#header').load('/view/common/login/frameHeader.html');
 		$('#footer').load('/view/common/login/frameFooter.html');
 	})
+	<!-- 비밀번호 체크 -->
+	$('#joinupw').on('input',function(){
+		if($(this).val().length<8){
+			$('#upwvalicheck').text('비밀번호는 8자 이상입니다.');
+			upwConfirm=false;
+		}else{
+			$('#upwvalicheck').text('');
+			upwConfirm=true;
+		}
+	});
+	<!-- 비밀번호 체크 끝-->
+	
+	<!-- 비밀번호 재입력 체크-->
+	$('#joinreupw').on('input',function(){
+		if($(this).val()!=$('#joinupw').val()){
+			upwConfirm=false;
+			$('#reupwvalicheck').text('비밀번호가 일치하지 않습니다.');
+		}else{
+			upwConfirm=true;
+			$('#reupwvalicheck').text('');
+		}
+	});
+	<!-- 비밀번호 재입력 체크 끝-->
+	
 	
 	<!-- 아이디 중복 체크-->
 	  $('#joinuem').on('input',function(){
@@ -122,9 +147,11 @@
 					},
 					success : function(data,status){
 						if(data.duplicateResult==0){
+							uemConfirm=true;
 							$('#uemvalicheck').text('사용가능');
 						}else{
-							$('#uemvalicheck').text('사용불가능');
+							uemConfirm=false;
+							$('#uemvalicheck').text('아이디 중복입니다.');
 						}
 					}
 				});  
@@ -136,9 +163,16 @@
 	
 	<!-- 회원가입 버튼 -->
 	$('#join').click(function(){
-		  console.log('{"uem":"'+$("#uem").val()+'","upw":"'+$("#upw").val()+'","unm":'+$('#unm').val()+'"}');
-		  $.ajax({
-				url:"http://localhost:8080/addUser",
+		console.log("uem : "+uemConfirm);
+		console.log("upw : "+upwConfirm);
+		if(!uemConfirm){
+			$("#joinuem").focus();
+		}else if(!upwConfirm){
+			$("#joinupw").focus();
+		}else{
+			console.log('{"uem":"'+$("#uem").val()+'","upw":"'+$("#upw").val()+'","unm":'+$('#unm').val()+'"}');
+			$.ajax({
+				url: contextRoot+"/addUser",
 				method : "POST",
 				dataType : "json",
 				data : '{"uem":"'+$("#joinuem").val()+'","upw":"'+$("#joinupw").val()+'","unm":"'+$('#joinunm').val()+'"}',
@@ -149,7 +183,8 @@
 				success : function(status){
 					alert("가입완료 ");
 				}
-			});  
+			});
+		}
 	});
 	<!-- 회원가입 버튼 끝-->
 </script>

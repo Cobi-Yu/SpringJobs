@@ -13,6 +13,11 @@ $(document).ready(function() {
 			if (data.user) {
 				$('#loginTable').load('/view/common/login/loginSucess.html', function() {
 					$('#uem').text(data.user.uem);
+					if(!data.user.upho){//사진이 없을때
+						$( "#upho" ).attr( "src", "/view/resources/img/unknown.jpg");
+					}else{//사진이 있을때
+						$( "#upho" ).attr( "src", data.user.upho);
+					}
 				});
 				user=data.user;
 			}else{
