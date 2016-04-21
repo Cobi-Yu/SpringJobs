@@ -4,7 +4,19 @@ public class Ctags {
 	private int cexno;
 	private String cextg;
 	private int cno;
+	public Ctags() {
+		// TODO Auto-generated constructor stub
+	}
 	
+	
+	public Ctags(int cexno, String cextg, int cno) {
+		super();
+		this.cexno = cexno;
+		this.cextg = cextg;
+		this.cno = cno;
+	}
+
+
 	public int getCexno() {
 		return cexno;
 	}

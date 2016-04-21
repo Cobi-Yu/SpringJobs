@@ -11,6 +11,16 @@ public class UTags {
 	}
 	
 
+	
+	public UTags(int uexno, String uextg, int uno) {
+		super();
+		this.uexno = uexno;
+		this.uextg = uextg;
+		this.uno = uno;
+	}
+
+
+
 	public int getUexno() {
 		return uexno;
 	}

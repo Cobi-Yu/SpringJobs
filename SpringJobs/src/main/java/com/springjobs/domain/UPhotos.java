@@ -10,6 +10,15 @@ public class UPhotos {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+	public UPhotos(int phno, String phot, int uno) {
+		super();
+		this.phno = phno;
+		this.phot = phot;
+		this.uno = uno;
+	}
+
+
 	public int getPhno() {
 		return phno;
 	}

@@ -23,6 +23,27 @@ public class Users {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
+	public Users(int uno, String unm, String uenm, String uem, String upw, String uco, String usx, String ucnf,
+			Date ubd, String upho, String uadr, String uurl, String ures) {
+		super();
+		this.uno = uno;
+		this.unm = unm;
+		this.uenm = uenm;
+		this.uem = uem;
+		this.upw = upw;
+		this.uco = uco;
+		this.usx = usx;
+		this.ucnf = ucnf;
+		this.ubd = ubd;
+		this.upho = upho;
+		this.uadr = uadr;
+		this.uurl = uurl;
+		this.ures = ures;
+	}
+
+
 
 	public int getUno() {
 		return uno;

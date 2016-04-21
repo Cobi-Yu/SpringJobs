@@ -5,7 +5,19 @@ public class Creatchs {
 	private String refnm;
 	private int reno;
 	
+	public Creatchs() {
+		// TODO Auto-generated constructor stub
+	}
 	
+	
+	public Creatchs(int refno, String refnm, int reno) {
+		super();
+		this.refno = refno;
+		this.refnm = refnm;
+		this.reno = reno;
+	}
+
+
 	public int getRefno() {
 		return refno;
 	}

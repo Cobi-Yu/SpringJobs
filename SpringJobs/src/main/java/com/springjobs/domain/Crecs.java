@@ -17,13 +17,44 @@ public class Crecs {
 	private int repay;
 	private String rerg;
 	private Date rerd;
+	private Date reed;
 	private int rehtn;
 	private String rear;
 	private String rewt;
 	private int cno;
+	private int uno;
 	
+	public Crecs() {
+		// TODO Auto-generated constructor stub
+	}
 	
-	
+	public Crecs(int reno, String retl, String recnm, String rewc, int renpl, String rechk, String reyr, String reidt,
+			String rejp, String retp, int repay, String rerg, Date rerd, Date reed, int rehtn, String rear, String rewt,
+			int cno, int uno) {
+		super();
+		this.reno = reno;
+		this.retl = retl;
+		this.recnm = recnm;
+		this.rewc = rewc;
+		this.renpl = renpl;
+		this.rechk = rechk;
+		this.reyr = reyr;
+		this.reidt = reidt;
+		this.rejp = rejp;
+		this.retp = retp;
+		this.repay = repay;
+		this.rerg = rerg;
+		this.rerd = rerd;
+		this.reed = reed;
+		this.rehtn = rehtn;
+		this.rear = rear;
+		this.rewt = rewt;
+		this.cno = cno;
+		this.uno = uno;
+	}
+
+
+
 	public int getReno() {
 		return reno;
 	}
@@ -102,6 +133,12 @@ public class Crecs {
 	public void setRerd(Date rerd) {
 		this.rerd = rerd;
 	}
+	public Date getReed() {
+		return reed;
+	}
+	public void setReed(Date reed) {
+		this.reed = reed;
+	}
 	public int getRehtn() {
 		return rehtn;
 	}
@@ -126,12 +163,18 @@ public class Crecs {
 	public void setCno(int cno) {
 		this.cno = cno;
 	}
+	public int getUno() {
+		return uno;
+	}
+	public void setUno(int uno) {
+		this.uno = uno;
+	}
 	@Override
 	public String toString() {
 		return "Crecs [reno=" + reno + ", retl=" + retl + ", recnm=" + recnm + ", rewc=" + rewc + ", renpl=" + renpl
 				+ ", rechk=" + rechk + ", reyr=" + reyr + ", reidt=" + reidt + ", rejp=" + rejp + ", retp=" + retp
-				+ ", repay=" + repay + ", rerg=" + rerg + ", rerd=" + rerd + ", rehtn=" + rehtn + ", rear=" + rear
-				+ ", rewt=" + rewt + ", cno=" + cno + "]";
+				+ ", repay=" + repay + ", rerg=" + rerg + ", rerd=" + rerd + ", reed=" + reed + ", rehtn=" + rehtn
+				+ ", rear=" + rear + ", rewt=" + rewt + ", cno=" + cno + ", uno=" + uno + "]";
 	}
 	
 	

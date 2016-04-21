@@ -15,6 +15,20 @@ public class UPjtNo {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
+	public UPjtNo(int pjno, int uno, String pjnm, String pjsd, String pjed, String pjdt, String pjpy) {
+		super();
+		this.pjno = pjno;
+		this.uno = uno;
+		this.pjnm = pjnm;
+		this.pjsd = pjsd;
+		this.pjed = pjed;
+		this.pjdt = pjdt;
+		this.pjpy = pjpy;
+	}
+
+
 
 	public int getPjno() {
 		return pjno;
