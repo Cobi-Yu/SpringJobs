@@ -44,6 +44,12 @@ public class UserController {
 	
 	@RequestMapping( value="/login", method=RequestMethod.POST)
 	public void login(@RequestBody Users user, HttpSession session, Model model){
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("Login Request executed: "+user.getUem());
 		Users loginUser = userService.login(user);
 		session.setAttribute("user", loginUser);
@@ -53,6 +59,12 @@ public class UserController {
 
 	@RequestMapping( value="/loginCheck", method=RequestMethod.POST)
 	public void loginCheck(HttpSession session, Model model){
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		Users loginUser = (Users) session.getAttribute("user");
 		model.addAttribute("user", loginUser);
 	}

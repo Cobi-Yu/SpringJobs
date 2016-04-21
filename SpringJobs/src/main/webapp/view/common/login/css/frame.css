@@ -71,3 +71,24 @@
     #loginTable.table{
         width:800px;  
     }
+    
+    .wrap-loading{ /*화면 전체를 어둡게 합니다.*/
+	    position: absolute;
+	    left:45%;
+	    right:50%;
+	    top:0;
+	    bottom:0;
+	    height:100%;
+	    padding:0px;
+	}
+    .wrap-loading div{ /*로딩 이미지*/
+        position: absolute;
+        top:50%;
+        left:50%;
+        margin-left: -21px;
+        margin-top: -21px;
+        padding:0px;
+    }
+    .display-none{ /*감추기*/
+        display:none;
+    }

@@ -32,9 +32,8 @@
 				<div class="col-md-2 side-menu" style="padding: 0px;">
 					<table class="table table-hover">
 						<tr>
-							<td><strong>지역</strong> <input type="checkbox" class="fold"
-								data-toggle="toggle" data-size="mini" data-onstyle="default"
-								data-on="펴기" data-off="접기">
+							<td><strong>지역</strong> 
+                                <input type="checkbox" class="fold" data-toggle="toggle" data-size="mini" data-onstyle="default" data-on="펴기" data-off="접기">
 								<div class="fold-list region-list"
 									style="margin-left: 20px; font-size: 12px;">
 									<div class="checkbox">
@@ -50,7 +49,8 @@
 										<input type="checkbox" class="region-check">
 										<p class="region-option">대한민국 서울 서초</p>
 									</div>
-								</div></td>
+								</div>
+                            </td>
 						</tr>
 						<tr>
 							<td><strong>사용API</strong> <input type="checkbox"
@@ -65,31 +65,37 @@
 				<!--페이지 중앙 본문 중 좌측 끝-->
 				<div class="col-md-10">
 					<!--페이지 중앙 본문 중 우측 본문 판낼-->
-					<table class="table table-strpied" style="table-layout: fixed;">
+					<table class="table table-strpied" >
 						<!--검색 태그-->
 						<tr>
 							<td id="input-tag" style="word-break: break-all;"></td>
 						</tr>
 						<!-- 검색태그 끝-->
 						<tr>
-							<td>
-								<div
-									style="display: inline-block; width: 80%; vertical-align: middle;">
-									<input style="float: left;" type="image" src="img/spring.jpg">
-									<a href="#" style="font-size: 20px;">Ux / UI Designer</a><br>
-									<a href="#">SK Telecom</a><br> Korea, 2016년 3월 21<br>
-									<a href="#">비슷한 회사</a><br>
-								</div>
-
-								<div style="display: inline-block">
-									<input type="checkbox" checked data-toggle="toggle"
-										data-size="small">
-								</div>
-
+							<td width="20%" align="center">
+                                <img src="img/spring.jpg">
 							</td>
+                            <td width="70%">
+                                <dl>
+                                    <dd><a href="#" style="font-size: 20px;">Ux / UI Designer</a></dd>
+                                    <dd><a href="#">SK Telecom</a></dd> 
+                                    <dd>Korea, 2016년 3월 21</dd>
+                                    <dd>급여 : 300~400</dd>
+                                    <dd>근무형태 : 상주</dd>
+                                    <dd>윈도우 마이그레이션 관련 프로젝트 구인</dd>
+                                    <dd><a href="#">비슷한 회사</a></dd>
+                                </dl>
+                            </td>
+                            <td width="10%" valign="middle">
+                                <div>
+									<input type="checkbox" checked data-toggle="toggle" data-size="small">
+								</div>
+                            </td>
 						</tr>
 						<tr>
 							<td>fdsf</td>
+                            <td>sd</td>
+                            <td>s</td>
 						</tr>
 					</table>
 					<!--페이지 중앙 본문 중 우측 본문 판넬 끝-->
@@ -106,86 +112,99 @@
 	<div id="footer"></div>
 </body>
 <script>
-	$(function(){
+	$(function() {
 		$('#header').load('/view/common/login/frameHeader.html');
 		$('#footer').load('/view/common/login/frameFooter.html');
 	});
-	
+
 	//검색 태그 추가 function
-    function addSearchTag(text,color){
-        var tagDelete = $("<a></a>").addClass('tag-delete').text(' X');
-        $('#input-tag').append($("<span></span>").addClass('label label-'+color).text(text).append(tagDelete));
-        //검색 태그 삭제
-        ////////////////추후 ready에도 넣어줘야됨
-        $('.tag-delete').click(function() {
-            $(this).parent().remove();
-        });
-        //검색 태그 삭제 끝
-        $('#search-api').val('');
-    }
-    //검색 태그 추가 function 끝
+	function addSearchTag(text, color) {
+		var tagDelete = $("<a></a>").addClass('tag-delete').text(' X');
+		$('#input-tag').append(
+				$("<span></span>").addClass('label label-' + color).text(text)
+						.append(tagDelete));
+		//검색 태그 삭제
+		////////////////추후 ready에도 넣어줘야됨
+		$('.tag-delete').click(function() {
+			$(this).parent().remove();
+		});
+		//검색 태그 삭제 끝
+		$('#search-api').val('');
+	}
+	//검색 태그 추가 function 끝
 
-    $(document).ready(function() {
-        //검색 자동완성
-//         $('#search-api').autocomplete({
-//             source: function(req,res){
-//                 $.ajax({
-//                     type:'post',
-//                     url:"http://52.79.155.246:8080/Spring/test.jsp",
-//                     dataType : "json",
-//                     data : { value : req.term },
-//                     success:function(data){
-//                         res($.map(data, function(item){
-//                             return {
-//                                 label : item.data,
-//                                 value : item.data
-//                             }
-//                         })
-//                     );
-//                     }
-//                 });
-//             },
-//             minLength:3,
-//             select: function(event,ui){
-//                 addSearchTag(ui.item.value,'danger');//사용자 정의 function
-//             }
-//         });
-        //검색 자동완성 끝
-        
-        //region 숨기기
-        $('.fold').change(function() {
-            var submenu = $(this).parent().next(".fold-list");
-            if (submenu.is(":visible")) {
-                submenu.slideUp();
-            } else {
-                submenu.slideDown();
-            }
-        });
-        //region 숨기기 끝
+	$(document).ready(
+			function() {
+				//검색 자동완성
+				//         $('#search-api').autocomplete({
+				//             source: function(req,res){
+				//                 $.ajax({
+				//                     type:'post',
+				//                     url:"http://52.79.155.246:8080/Spring/test.jsp",
+				//                     dataType : "json",
+				//                     data : { value : req.term },
+				//                     success:function(data){
+				//                         res($.map(data, function(item){
+				//                             return {
+				//                                 label : item.data,
+				//                                 value : item.data
+				//                             }
+				//                         })
+				//                     );
+				//                     }
+				//                 });
+				//             },
+				//             minLength:3,
+				//             select: function(event,ui){
+				//                 addSearchTag(ui.item.value,'danger');//사용자 정의 function
+				//             }
+				//         });
+				//검색 자동완성 끝
 
-        //검색 태그 추가
-        $('.region-check').click(function() {
-            addSearchTag($(this).next('.region-option').text(),'primary');//사용자 정의 function
-            $('.tag-delete').click(function() {
-                var deleteTag = $(this).parent('span').text().split(' X')[0];
-                $('.region-option:contains('+deleteTag+')').prev().prop('checked',false);
-            });
-        });
-        //검색 태그 추가 끝
-        
-        //아래 한줄은 옆에 비어있는 공간 높이 채우기
-        $('.row.content').css('height', $('.main').height());
-        console.log($('.main').height());
+				//region 숨기기
+				$('.fold').change(function() {
+					var submenu = $(this).parent().next(".fold-list");
+					if (submenu.is(":visible")) {
+						submenu.slideUp();
+					} else {
+						submenu.slideDown();
+					}
+				});
+				//region 숨기기 끝
 
+				//검색 태그 추가
+				$('.region-check').click(
+						function() {
+							addSearchTag($(this).next('.region-option').text(),
+									'primary');//사용자 정의 function
+							$('.tag-delete').click(
+									function() {
+										var deleteTag = $(this).parent('span')
+												.text().split(' X')[0];
+										$(
+												'.region-option:contains('
+														+ deleteTag + ')')
+												.prev().prop('checked', false);
+									});
+						});
+				//검색 태그 추가 끝
 
-        //sub 상단바 시작
-        $('.dropdown').hover(function() {
-            $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeIn();
-        }, function() {
-            $(this).find('.dropdown-menu').stop(true, true).delay(50).fadeOut();
-        });
-        //sub 상단바 끝
-    });
+				//아래 한줄은 옆에 비어있는 공간 높이 채우기
+				$('.row.content').css('height', $('.main').height());
+				console.log($('.main').height());
+
+				//sub 상단바 시작
+				$('.dropdown').hover(
+						function() {
+							$(this).find('.dropdown-menu').stop(true, true)
+									.delay(50).fadeIn();
+						},
+						function() {
+							$(this).find('.dropdown-menu').stop(true, true)
+									.delay(50).fadeOut();
+						});
+				//sub 상단바 끝
+			});
 </script>
 
 </html>

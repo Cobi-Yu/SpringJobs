@@ -8,6 +8,8 @@ $(document).ready(function() {
 			"Accept" : "application/json",
 			"Content-Type" : "application/json"
 		},
+		beforeSend : addLoading,
+		complete : removeLoading,
 		success : function(data, status) {
 			console.log(data.user);
 			if (data.user) {
@@ -25,6 +27,7 @@ $(document).ready(function() {
 			}
 		},
 		error:function(req,status,error){
+			callModal('알수없는 에러');
 			user=null;
 		}
 	});
@@ -56,6 +59,10 @@ $('#loginButton').click(
 					"Accept" : "application/json",
 					"Content-Type" : "application/json"
 				},
+				//로딩 이미지 추가 필수부분 시작
+				beforeSend : addLoading,
+				complete : removeLoading,
+				//로딩 이미지 추가 필수부분 끝
 				success : function(data, status) {
 					console.log(data);
 					if (data.user) {
@@ -63,15 +70,18 @@ $('#loginButton').click(
 						location.reload();
 					} else {
 						user=null;
-						alert("로그인 실패");
+						callModal('아이디, 비밀번호가 맞지 않습니다.');
 					}
 				},
 				error:function(req,status,error){
+					callModal('알수없는 에러');
 					user=null;
 				}
 			});
 		});
-// 로그인 이벤트 끝
-$('#signUp').click(function() {
-	location.href = '/view/common/addUser/addUser.html';
-})
+
+redirect($('#signUp'),'/view/common/addUser/addUser.html');
+redirect($('#addJob'),'/view/company/addJob/addJob.html');
+redirect($('#projectList'),'/view/developer/projectList/projectList.html');
+redirect($('#addProject'),'/view/company/addProject/addProject.html');
+redirect($('#frame'),'/view/common/login/frame.html');
