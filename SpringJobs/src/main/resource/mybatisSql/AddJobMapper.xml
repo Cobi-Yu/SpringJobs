@@ -15,7 +15,8 @@
 		<result property="industry" 		column="REIDT" 		jdbcType="VARCHAR" />
 		<result property="jobType" 			column="REJP" 		jdbcType="VARCHAR" />
 		<result property="reType" 			column="RETP" 		jdbcType="VARCHAR" />
-		<result property="date" 			column="RERD" 		jdbcType="DATE" />
+		<result property="regDate" 			column="RERD" 		jdbcType="DATE" />
+		<result property="endDate"			column="REED"		jdbcType="DATE" />
 		<result property="area" 			column="REAR" 		jdbcType="VARCHAR" />
 		<result property="workType"			column="REWT" 		jdbcType="VARCHAR" />
 	</resultMap>
@@ -23,8 +24,8 @@
 	<!-- SQL : INSERT -->
 	<insert 	id="addJob"		parameterType="com.springjobs.domain.Crecs" >
 	 	INSERT
-		INTO CRECS(retl, recnm, rewc, renpl, rechk, reyr, reidt, rejp, retp, repay, rerg, rerd, rehtn, rear, rewt, cno) 
-		VALUES(#{retl},#{recnm},#{rewc},#{renpl},#{rechk},#{reyr},#{reidt},#{rejp},#{retp},#{repay},#{rerg},#{rerd},#{rehtn},#{rear},#{rewt},1);
+		INTO CRECS(retl, recnm, rewc, renpl, rechk, reyr, reidt, rejp, retp, repay, rerg, rerd, reed, rehtn, rear, rewt, cno) 
+		VALUES(#{retl},#{recnm},#{rewc},#{renpl},#{rechk},#{reyr},#{reidt},#{rejp},#{retp},#{repay},#{rerg},curdate(),#{reed},#{rehtn},#{rear},#{rewt},1);
 	 </insert>
 	
 	
