@@ -1,334 +1,363 @@
 <!DOCTYPE html>
-<!-- release v4.3.2, copyright 2014 - 2015 Kartik Visweswaran -->
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <title>구인 등록 - &copy; KM</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" type="text/javascript"></script>
-    <!--파일첨부-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.1/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.1/js/fileinput.min.js" type="text/javascript"></script>
-
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/view/common/login/css/frame.css">
     <!-- bootstrap toggle -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.1/js/bootstrap-toggle.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.1/css/bootstrap-toggle.min.css" rel="stylesheet">
     <!-- bootstrap toggle end-->
+    <!--파일첨부-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.1/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.1/js/fileinput.min.js" type="text/javascript"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <style>
-        /* Remove the navbar's default margin-bottom and rounded borders */
-        
-        .navbar {
-            margin-bottom: 0;
-            border-radius: 0;
-        }
-        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-        
-        .row.content {
-            height: 450px
-        }
-        /* Set gray background color and 100% height */
-        
-        .sidenav {
-            padding-top: 20px;
-            background-color: #f1f1f1;
-            height: 200%;
-        }
-        /* Set black background color, white text and some padding */
-        
-        footer {
-            background-color: #555;
+        .adp {
+            background-color: #6666FF;
+            width: 100%;
+            padding: 0em 1em 1em 4em;
             color: white;
-            padding: 15px;
-        }
-        /* On small screens, set height to 'auto' for sidenav and grid */
-        
-        @media screen and (max-width: 767px) {
-            .sidenav {
-                height: auto;
-                padding: 15px;
-            }
-            .row.content {
-                height: auto;
-            }
         }
         
-        .developer_list {
-            padding-top: 5px;
+        .tabsize {
+            width:80%;
+            float: left;
+        }
+        .tabmar{
+            margin-left: 10em;
         }
     </style>
-
-
-
 </head>
 
 <body>
-
-
-    <!--상단바 시작-->
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">SpringJobs</a>
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-
-                <form class="navbar-form navbar-left" role="search">
-                    <div class="btn-group">
-                        <!-- option button -->
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                            검색방법 <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">사람</a></li>
-                            <li><a href="#">기업</a></li>
-                            <li><a href="#">사용API</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">기타</a></li>
-                        </ul>
-                    </div>
-                    <!-- option button end-->
-
-                    <div class="form-group ">
-                        <input type="text" class="form-control" placeholder="Search" size="45">
-                    </div>
-                    <button type="submit" class="btn btn-default"><strong>Search</strong></button>
-                </form>
-
-                <form class="form-inline navbar-form navbar-right">
-                    <div class="form-group">
-                        <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Enter email">
-                    </div>
-                    <div class="form-group">
-                        <label class="sr-only" for="exampleInputPassword3">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> <font color="A7A7A7">Remember me</font>
-                            </label>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-log-in"></span> Login</button>
-                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-user"></span> Sign in</button>
-
-                </form>
-
-            </div>
-            <!-- /.navbar-collapse -->
-
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
-
-    <!--상단바 끝-->
-
+    <div id="header"></div>
+    <!--본문 시작-->
 
     <div class="container-fluid text-center">
         <div class="row content">
-            <div class="col-sm-1 sidenav"></div>
-            <!-- 왼쪽여백-->
-            <div class="col-md-10 text-left">
-                <!-- 중간 메인 화면 start-->
-
-                <br>
-                <br>
-                <form class="form-horizontal">
-                    <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" for="formGroupInputMedium">채용 공고 제목</label>
-                        <div class="col-md-5">
-
-                            <input class="form-control" type="text" id="retl" placeholder="채용 공고 제목을 입력하세요.">
-                        </div>
-
-                    </div>
-                    <!--채용공고 제목 끝-->
-
-                    <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" for="formGroupInputMedium">회사명</label>
-                        <div class="col-md-5">
-                            <input class="form-control" type="text" id="recnm">
-                        </div>
-                    </div>
-                    <!--회사명-->
-                    <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" for="formGroupInputMedium">주요업무</label>
-                        <div class="col-md-5">
-                            <input class="form-control" type="text" id="rewc">
-                        </div>
-                    </div>
-                    <!--주요업무-->
-
-                    <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" for="formGroupInputMedium">모집인원</label>
-                        <div class="col-md-5">
-                            <input class="form-control" type="text" id="renpl">
-                        </div>
-                    </div>
-                    <!--모집인원-->
-                    <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" for="formGroupInputMedium">경력여부</label>
-                        <div class="col-md-5">
-                            <div style="display:inline-block">
-                                <input type="checkbox" checked data-toggle="toggle" data-size="small" data-on="yes" data-off="no" id="rechk">
-                            </div>
-                        </div>
-                    </div>
-                    <!--경력여부-->
-                    <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" for="formGroupInputMedium">경력연차</label>
-                        <div class="col-md-5">
-                            <input class="form-control" type="text" id="reyr">
-                        </div>
-                    </div>
-                    <!--경력연차-->
-                    <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" for="formGroupInputMedium">업계</label>
-                        <div class="col-md-5">
-                            <input class="form-control" type="text" id="reidt">
-                        </div>
-                    </div>
-                    <!--업계-->
-                    <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" for="formGroupInputMedium">직종</label>
-                        <div class="col-md-5">
-                            <input class="form-control" type="text" id="rejp">
-                        </div>
-                    </div>
-                    <!--직종-->
-                    <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" for="formGroupInputMedium">고용형태</label>
-                        <div class="col-md-5">
-                            <input class="form-control" type="text" id="retp">
-                        </div>
-                    </div>
-                    <!--고용형태-->
-                    <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" for="formGroupInputMedium">급여</label>
-                        <div class="col-md-5">
-                            <input class="form-control" type="text" id="repay">
-                        </div>
-                    </div>
-                    <!--급여-->
-                    <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" for="formGroupInputMedium">게시자</label>
-                        <div class="col-md-5">
-                            <input class="form-control" type="text" id="rerg">
-                        </div>
-                    </div>
-                    <!--게시자-->
-                       <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" for="formGroupInputMedium">게시일</label>
-                        <div class="col-md-5">
-                            <input class="form-control" type="date" id="rerd">
-                        </div>
-                    </div>
-                        <!--게시일-->
-                         <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" for="formGroupInputMedium">조회수</label>
-                        <div class="col-md-5">
-                            <input class="form-control" type="text" id="rehtn">
-                        </div>
-                    </div>
-                    <!--조회수-->
-                      
-                         <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" for="formGroupInputMedium">지역</label>
-                        <div class="col-md-5">
-                            <input class="form-control" type="text" id="rear">
-                        </div>
-                    </div>
-                    <!--지역-->
-                         <div class="form-group form-group-md">
-                        <label class="col-md-2 control-label" for="formGroupInputMedium">근무형태</label>
-                        <div class="col-md-5">
-                            <input class="form-control" type="text" id="rewt">
-                        </div>
-                    </div>
-                    <!--근무형태-->
-                    
+            <div class="col-sm-2 sidenav"></div>
+            <div class="col-md-8 text-left main">
 
 
+                <!-- 본문입력란 -->
 
-                    <div class="btn ">
-                        <span class="input center-block">
+                <!---->
+                <div class="table-responsive tabmar">
+
+
+                    <table class="table table-bordered table-striped nanum tabsize" >
+
+
+                        <tbody>
+                            <tr>
+                                <thead>
+                                    <td>
+                                    <div class="col-md-12 adp">
+                          
+                                            <h1>기업공고 등록</h1> 상세하게 작성해 주실수록 더 많은 지원자에게 노출됩니다.
+                                    </div>
+                                        </td>
+                                </thead>
+                            </tr>
+                            
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>* 채용 공고 제목</strong></td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input style="width:100%" type="text" id="retl" placeholder="채용 공고 제목을 입력하세요.">
+                                </td>
+                            </tr>
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>* 회사명</strong></td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input style="width:100%" type="text" id="recnm" placeholder="회사명을 입력하세요.">
+                                </td>
+                            </tr>
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>* 주요 업무 소개</strong></td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input style="width:100%;height:250px" type="text" id="rewc" placeholder="주요 업무를 소개해 주세요.">
+                                </td>
+                            </tr>
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>* 모집인원</strong></td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <td>
+                                   <!--  <select class="form-control" style="width:20%" id="renpl">
+                                        <option>1~3명</option>
+                                        <option>3~6명</option>
+                                        <option>7~9명</option>
+                                        <option>3~6명</option>
+                                    </select> -->
+                                  <input style="width:100%" type="text" id="renpl" placeholder="회사명을 입력하세요.">
+                                </td>
+                            </tr>
+                            <div><tr>
+                                <thead>
+                                    <td class="success"><strong>* 신입/경력 여부</strong></td>
+                                </thead>
+                            </tr>
+                                </div>
+                            <div>    
+                            <tr>
+                                <td>
+                                    <input class="form-control" type="checkbox" checked data-toggle="toggle" data-size="small" data-on="신입" data-off="경력" id="rechk" style="display:inline-block; " >
+                  
+                                    <div id="pre_set" > </div>
+                                </td>
+                            </tr>                                    
+                              </div>
+                           
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>* 업계</strong></td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select class="form-control" style="width:30%" id="reidt">
+                                        <option>선택하기</option>
+                                        <option>IT</option>
+                                        <option>금융업</option>
+                                        <option>제조업</option>
+                                        <option>유통업</option>.
+                                        <option>서비스업</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>* 직무</strong></td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select class="form-control" style="width:30%" id="rejp">
+                                        <option>선택하기</option>
+                                        <option>웹 디자이너</option>
+                                        <option>서버 구현</option>
+                                        <option>전산 개발 및 유지보수</option>
+                                        <option>풀스택 개발자</option>.
+                                        <option>DBA</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>* 고용형태</strong></td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select class="form-control" style="width:30%" id="retp">
+                                        <option>선택하기</option>
+                                        <option>Full-Time</option>
+                                        <option>Part-Time</option>
+                                        <option>계약직</option>
+                                        <option>인턴직</option>.
+                                        <option>기타</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>* 근무형태</strong></td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select class="form-control" style="width:30%" id="rewt">
+                                        <option>선택하기</option>
+                                        <option>파견직</option>
+                                        <option>출퇴근</option>
+                                        <option>자택근무</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>* 급여 (단위=원)</strong></td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <!-- <select class="form-control" style="width:30%" id="repay">
+                                        <option>2000만 ~ 2400만</option>
+                                        <option>2400만 ~ 2800만</option>
+                                        <option>2800만 ~ 3200만</option>
+                                        <option>3200만 ~ 3600만</option>
+                                        <option>3600만 ~ 4000만</option>
+                                        <option>4000만 ~ 4400만</option>
+                                        <option>4400만 ~ 4800만</option>
+                                        <option>협의</option>
+                                    </select> -->
+                                        <input style="width:100%" type="text" id="repay" placeholder="회사명을 입력하세요.">
+                                </td>
+                            </tr>
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>게시자</strong></td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input style="width:100%" type="text" id="rerg" placeholder="직책-이름을 입력하세요. Ex)사장-경민.">
+                                </td>
+                            </tr>
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>* 마감일</strong></td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <input class="form-control" type="date" id="reed" style="width:40%">
+                                </td>
+                            </tr>
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>* 근무 지역</strong></td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select class="form-control" style="width:30%" id="rear">
+                                        <option>경기</option>
+                                        <option>서울</option>
+                                        <option>강원</option>
+                                        <option>전북</option>
+                                        <option>전남</option>
+                                        <option>충북</option>
+                                        <option>충남</option>
+                                        <option>경남</option>
+                                        <option>경북</option>
+                                        <option>제주</option>
+                                        <option>해외</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <thead>
+                                    <td class="success"><strong>첨부파일 등록</strong></td>
+                                </thead>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="container kv-main col-md-12">
+
+                                        <form enctype="multipart/form-data">
+                                            <script>
+                                                $(document).on('ready', function () {
+                                                    $("#file-0b").fileinput();
+                                                });
+                                            </script>
+                                        </form>
+
+                                        <form enctype="multipart/form-data">
+                                
+                                                <input id="refnm" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#">
+                                      
+                                            <div class="btn ">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                          
+           		  
+                            
+                </div>
+  					 <span class="input center-block">
 						  <button type="button" class="btn btn-success btn-sm" id="join">등록</button>
 						           
 						  <button type="button" class="btn btn-danger btn-sm">취소</button>
 	                 </span>
-                    </div>
-                    <!--등록버튼-->
 
-                </form>
+                <!--등록버튼-->
+
             </div>
-
-            <div class="col-sm-1 sidenav"></div>
-            <!-- 오른쪽여백-->
+            <!---->
+              <div class="col-sm-2 sidenav"></div>
         </div>
+      
     </div>
+    <div id="footer"></div>
 </body>
 <script>
-    /*
-            $(".file").on('fileselect', function(event, n, l) {
-                alert('File Selected. Name: ' + l + ', Num: ' + n);
-            });
-            */
+    
+      //추가 및 삭제 버튼
 
-    $("#file-4").fileinput({
+    $('#rechk').change(function(){
+       var chk = '<input class="form-control" type="text" id="reyr" placeholder="경력 연차를 입력하세요.">';
+        
+        if($('#rechk').prop("checked")){
+                   $('#reyr').remove();
+        }
+        else{
+   
+              $('#pre_set').append(chk);
+        }
+    });
+
+    //header, footer 가져오기
+    $(function () {
+        $('#header').load('/view/common/login/frameHeader.html');
+        $('#footer').load('/view/common/login/frameFooter.html');
+    })
+
+    //파일입력 함수
+    $("#refnm").fileinput({
         uploadExtraData: {
             kvId: '10'
         }
     });
     $(".btn-warning").on('click', function () {
-        if ($('#file-4').attr('disabled')) {
-            $('#file-4').fileinput('enable');
+        if ($('#refnm').attr('disabled')) {
+            $('#refnm').fileinput('enable');
         } else {
-            $('#file-4').fileinput('disable');
+            $('#refnm').fileinput('disable');
         }
     });
     $(".btn-info").on('click', function () {
-        $('#file-4').fileinput('refresh', {
+        $('#refnm').fileinput('refresh', {
             previewClass: 'bg-info'
         });
     });
-    /*
-    $('#file-4').on('fileselectnone', function() {
-        alert('Huh! You selected no files.');
-    });
-    $('#file-4').on('filebrowse', function() {
-        alert('File browse clicked for #file-4');
-    });
-    */
+
+    //파일 업로드 관련 함수
     $(document).ready(function () {
         $("#test-upload").fileinput({
             'showPreview': false
             , 'allowedFileExtensions': ['jpg', 'png', 'gif']
             , 'elErrorContainer': '#errorBlock'
         });
-        /*
-        $("#test-upload").on('fileloaded', function(event, file, previewId, index) {
-            alert('i = ' + index + ', id = ' + previewId + ', file = ' + file.name);
-        });
-        */
 
-
+        //등록버튼시 이벤트
         $('#join').click(function () {
             var rechk;
             if ($(this).val() == 'on') {
@@ -338,37 +367,31 @@
             }
 
             console.log('{"retl":"' +$("#retl").val() +'","recnm":"' 
-            	+$("#recnm").val()+'","rewc":"'+$("#rewc").val()+'","renpl":"' 
-            	+$("#renpl").val()+'","rechk":"'+$("#rechk").val()+'","reyr":"' 
-            	+$("#reyr").val()+'","reidt":"'+$("#reidt").val()+'","rejp":"' 
-            	+$("#rejp").val()+'","retp":"'+$("#retp").val()+'","repay":"' 
-            	+$("#repay").val()+'","rerg":"'+$("#rerg").val()+'","rerd":"' 
-            	+$("#rerd").val()+'","rehtn":"'+$("#rehtn").val()+'","rear":"' 
-            	+$("#rear").val()+'","rewt":"'+$("#rewt").val()+'"}')
-            
-            $.ajax({
-                url: "http://localhost:8080/addJob"
+                	+$("#recnm").val()+'","rewc":"'+$("#rewc").val()+'","renpl":"' 
+                	+$("#renpl").val()+'","rechk":"'+$("#rechk").val()+'","reyr":"' 
+                	+$("#reyr").val()+'","reidt":"'+$("#reidt").val()+'","rejp":"' 
+                	+$("#rejp").val()+'","retp":"'+$("#retp").val()+'","repay":"' 
+                	+$("#repay").val()+'","rerg":"'+$("#rerg").val()+'","reed":"' +$("#reed").val()
+                	+'","rear":"'+$("#rear").val()+'","rewt":"'+$("#rewt").val()+'"}')
+         $.ajax({
+                url: contextRoot+"/addJob"
                 , method: "POST"
                 , dataType: "json"
                 , data: '{"retl":"'+$("#retl").val()+'","recnm":"'+$("#recnm").val() 
                 	+'","rewc":"'+$("#rewc").val()+'","renpl":"'+$("#renpl").val()+'","rechk":"' 
                 	+rechk+'","reyr":"'+$("#reyr").val()+'","reidt":"'+$("#reidt").val() 
-                	+'","rejp":"'+$("#rejp").val()+'","retp":"'+$("#retp").val()+'","repay":"' 
-                	+$("#repay").val()+'","rerg":"'+$("#rerg").val()+'","rerd":"'+$("#rerd").val() 
-                	+'","rehtn":"'+$("#rehtn").val()+'","rear":"'+$("#rear").val()+'","rewt":"' 
+                	+'","rejp":"'+$("#rejp").val()+'","reed":"' +$("#reed").val()+'","retp":"'+$("#retp").val()+'","repay":"' 
+                	+$("#repay").val()+'","rerg":"'+$("#rerg").val()+'","rear":"'+$("#rear").val()+'","rewt":"' 
                 	+$("#rewt").val() +'"}'
                 , headers: {
                     "Accept": "application/json"
                     , "Content-Type": "application/json"
                 }
                 , success: function (status) {
-                    alert("등록완료");
+                    callModal('등록완료');
                 }
             });
         });
-
-
-
     });
 </script>
 
