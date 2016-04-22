@@ -12,18 +12,17 @@ var redirect = function(id,url){
 //redirect할 함수 끝
 
 //로딩 이미지 시작
-var loading ='<div class="wrap-loading"><div><img src="/view/resources/img/loading.gif" height="150" width="150"/></div></div>';
-
 var addLoading = function(){
+	var loading ='<div class="wrap-loading"><img src="/view/resources/img/loading.gif" height="150" width="150"/></div>';
 //	$('.content').addClass('display-none');
 //	$('#footer').addClass('display-none');
 	if($('.wrap-loading')){
-		$('.text-center').append(loading);
+		$('body').append(loading);
 	}
 };
 
 var removeLoading = function(){
-	$('.wrap-loading').addClass('display-none');
+	$('.wrap-loading').remove();
 	$('.content').removeClass('display-none');
 	$('#footer').removeClass('display-none');
 };

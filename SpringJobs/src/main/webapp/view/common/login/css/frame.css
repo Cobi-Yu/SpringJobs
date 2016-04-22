@@ -73,15 +73,18 @@
     }
     
     .wrap-loading{ /*화면 전체를 어둡게 합니다.*/
+    	background-size: 100%;
+    	background-color: rgba(0,0,0,0.3);
 	    position: absolute;
-	    left:45%;
-	    right:50%;
+	    left:0;
+	    right:0;
 	    top:0;
 	    bottom:0;
 	    height:100%;
 	    padding:0px;
+	    opacity: 0.8;
 	}
-    .wrap-loading div{ /*로딩 이미지*/
+    .wrap-loading img{ /*로딩 이미지*/
         position: absolute;
         top:50%;
         left:50%;
