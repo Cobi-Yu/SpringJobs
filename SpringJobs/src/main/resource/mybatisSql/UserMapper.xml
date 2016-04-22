@@ -19,9 +19,9 @@
 	 </insert>
 	 
 	<select id="login" parameterType="com.springjobs.domain.Users" resultType="com.springjobs.domain.Users">
-		SELECT * 
-		FROM USERS 
-		WHERE uem=#{uem} and upw=#{upw};
+		SELECT U.UNO,U.UNM,U.UENM,U.UEM,U.UPW,U.UCO,U.USX,U.UCNF,U.UBD,U.UPHO,U.UADR,UURL,URES,C.CNO
+		FROM USERS U left outer join CINFOS C
+		ON U.uno=C.uno WHERE U.uem=#{uem} and U.upw=#{upw}
     </select>
     
 	<select id="idDuplicateCheck" parameterType="com.springjobs.domain.Users" resultType="int">
