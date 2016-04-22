@@ -2,21 +2,21 @@ package com.springjobs.domain;
 
 import java.sql.Date;
 
-public class PJTBDS {
-	int pbno;
-	String pbtl;
-	String pbct;
-	Date pbrd;
-	String pbrg;
-	String pbop;
-	int cpjno;
-	int uno;
+public class Pjtbds {
+	private int pbno;
+	private String pbtl;
+	private String pbct;
+	private Date pbrd;
+	private String pbrg;
+	private String pbop;
+	private int cpjno;
+	private int uno;
 	
-	public PJTBDS() {
+	public Pjtbds() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public PJTBDS(int pbno, String pbtl, String pbct, Date pbrd, String pbrg, String pbop, int cpjno, int uno) {
+	public Pjtbds(int pbno, String pbtl, String pbct, Date pbrd, String pbrg, String pbop, int cpjno, int uno) {
 		super();
 		this.pbno = pbno;
 		this.pbtl = pbtl;

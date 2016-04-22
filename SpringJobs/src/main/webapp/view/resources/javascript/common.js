@@ -30,12 +30,16 @@ var removeLoading = function(){
 //로딩 이미지 끝
 
 //모달창
-var callModal = function(msg){
+var callModal = function(title, msg, url){
 	$('.modal').modal({
 		remote : '/view/common/modal/modal.html',
 	});
 	$('.modal').on('shown.bs.modal', function (e) {
+		$('.modal-header').text(title);
 		$('#modalMsg').text(msg);
+		if(url){
+			redirect($('#modalBtn'),url);
+		}
 	});
 };
 //모달 창 끝
