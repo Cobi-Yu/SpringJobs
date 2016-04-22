@@ -6,14 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker3.css" rel="stylesheet"/>
-	
-	<link rel="stylesheet" href="/view/common/login/css/frame.css">
-	
+	<link rel="stylesheet" href="/view/common/login/css/frame.css">	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment-with-locales.min.js"></script>
-	
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>	
+	<!-- bootstrap toggle -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.1/js/bootstrap-toggle.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.1/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <!-- bootstrap toggle end-->
+    <!--파일첨부-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.1/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.1/js/fileinput.min.js" type="text/javascript"></script>
 	
 	<style>
 		.adp{
@@ -24,6 +26,9 @@
 		}
 		.adc{
 			margin-left: 10em;
+		}
+		.adm{
+			margin-right: 2em; 
 		}
 	</style>
 </head>
@@ -55,26 +60,105 @@
 						   </tr>
 						   <tr>
 						   		<td><h3>예상 기간</h3>
-						   	   	시작날짜 <input id="fromDate" type="text">
-								종료날짜 <input id="toDate" type="text">
+						   			<div class="col-md-3">
+							   	   	시작일 <input class="form-control" type="date" id="cpjsd" style="width:110%">
+							   	   	</div>
+									<div class="col-md-3">
+									종료일 <input class="form-control" type="date" id="cpjed" style="width:110%">
+									</div>
 						   		</td>
 						   </tr>
 						   <tr>		 	
 						  		<td><h3>프로젝트 설명</h3>
-								<textarea name="content" id="cpjnm" rows="15" cols="60" placeholder="프로젝트를 설명해주세요."></textarea></td>	
+								<textarea name="content" id="cpjint" rows="15" cols="60" placeholder="프로젝트를 설명해주세요."></textarea></td>	
 	                       </tr>
 		                   <tr>
 		                   		<td><h3>요구되는 기술</h3>
-		                   		기술명 <input type="text">
+		                   		기술명 <input type="text" id="cpjsk">
 		                   		</td>   
 		                   </tr>
 		                   <tr>
+		                   		<td><h3>프로젝트 경력여부</h3>
+                                    <input class="form-control" type="checkbox" checked data-toggle="toggle" data-size="small" data-on="없음" data-off="경력" id="cpjchk" style="display:inline-block; " >
+                  
+                                    <div id="pre_set" > </div>
+                                </td>
+		                   </tr>
+		                   <tr>
+		                   		<td><h3>모집인원</h3>
+		                   		 	<input type="text" id="cpjnpl" style="width:25%" placeholder="예) 5명일경우 5만 입력">	
+		                   		</td>
+		                   </tr>
+		                   <tr>
+		                   		<td><h3>급여</h3>
+		                   		<div class="col-md-3 adm">
+		                   		최소<input type="text" id="cpjmnp" style="width: 120%" placeholder="예) 1백만원일경우 1000000">
+		                   		</div>
+		                   		<div class="col-md-3">
+		                   		최대<input type="text" id="cpjmap" style="width: 120%" placeholder="예) 2백만원일경우 2000000">
+		                   		</div>
+		                   		</td>
+		                   </tr>
+		                   <tr>
+		                   		<td><h3>게시자</h3>
+		                   		<input type="text" id="cpjrg" style="width: 25%" placeholder="예) 홍길동 or 비트교육센터"> 
+		                   		</td>
+		                   </tr>
+		                   <tr>
+		                   		<td><h3>근무형태</h3>
+		                   			<select class="form-control" style="width:30%" id="cpjwt">
+                                        <option>근무형태</option>
+                                        <option>출퇴근</option>
+                                        <option>자택근무</option>
+                                    </select>
+		                   		</td>
+		                   </tr>
+		                   <tr>
+		                   		<td><h3>지역</h3>
+		                   			<select class="form-control" style="width:30%" id="cpjar">
+		                   				<option>지역</option>
+                                        <option>경기</option>
+                                        <option>서울</option>
+                                        <option>강원</option>
+                                        <option>전북</option>
+                                        <option>전남</option>
+                                        <option>충북</option>
+                                        <option>충남</option>
+                                        <option>경남</option>
+                                        <option>경북</option>
+                                        <option>제주</option>
+                                        <option>해외</option>
+                                    </select>
+		                   		</td>
+		                   </tr>
+		                   <tr>
+                                <td><h3>첨부파일 등록</h3>
+                                    <div class="container kv-main col-md-12">
+
+                                        <form enctype="multipart/form-data">
+                                            <script>
+                                                $(document).on('ready', function () {
+                                                    $("#file-0b").fileinput();
+                                                });
+                                            </script>
+                                        </form>
+
+                                        <form enctype="multipart/form-data">
+                                
+                                                <input id="cpjfnm" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#">
+                                      
+                                            <div class="btn ">
+                                            </div>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>   
+		                   <tr>
 		                   		<td>
 		                   		<button type="button" class="btn btn-default">임시저장</button> 
-								<button type="button" class="btn btn-primary">등록</button> 	 
-								 </td>
-		                   </tr>
-		                                      
+								<button type="button" class="btn btn-primary" id="join">등록</button> 	 
+								</td>
+		                   </tr>                
 	                      </tbody>
 	                       
 						</table>
@@ -88,24 +172,81 @@
 	<div id="footer"></div>
 </body>
 <script>
+
+	//추가 및 삭제 버튼
+	
+	$('#cpjchk').change(function(){
+	   var chk = '<input class="form-control" type="text" id="cpjyr" style="width:25%" placeholder="예) 5년일경우 5 입력">';
+	    
+	    if($('#cpjchk').prop("checked")){
+	               $('#cpjyr').remove();
+	    }
+	    else{
+	
+	          $('#pre_set').append(chk);
+	    }
+	});
+	
 	$(function(){
 		$('#header').load('/view/common/login/frameHeader.html');
 		$('#footer').load('/view/common/login/frameFooter.html');
-		
-		$('#fromDate').datepicker({
-			  language : 'ko', // 화면에 출력될 언어를 한국어로 설정한다.
-			  pickTime : false, // 사용자로부터 시간 선택을 허용하려면 true를 설정하거나 pickTime 옵션을 생략한다.
-			  defalutDate : new Date() // 기본값으로 오늘 날짜를 입력한다. 기본값을 해제하려면 defaultDate 옵션을 생략한다.
-			});
-
-		$('#toDate').datepicker({
-			  language : 'ko',
-			  pickTime : false,
-			  defalutDate : new Date()
-			});
 	});
 	
-	
+	$(document).ready(function () {
+        $("#test-upload").fileinput({
+            'showPreview': false
+            , 'allowedFileExtensions': ['jpg', 'png', 'gif']
+            , 'elErrorContainer': '#errorBlock'
+        });
+
+        //등록버튼시 이벤트
+        $('#join').click(function () {
+            var cpjchk;
+            if ($(this).val() == 'on') {
+            	cpjchk = 0;
+            } else {
+            	cpjchk = 1;
+            }
+
+            console.log('{"cpjnm":"' +$("#cpjnm").val() 
+            		+'","cpjsd":"'+$("#cpjsd").val()
+            		+'","cpjed":"'+$("#cpjed").val()
+            		+'","cpjint":"'+$("#cpjint").val()
+            		+'","cpjsk":"'+$("#cpjsk").val()
+            		+'","cpjchk":"'+$("#cpjchk").val()
+            		+'","cpjyr":"'+$("#cpjyr").val()
+            		+'","cpjnpl":"'+$("#cpjnpl").val()
+            		+'","cpjmnp":"'+$("#cpjmnp").val()
+            		+'","cpjmap":"'+$("#cpjmap").val()
+            		+'","cpjrg":"'+$("#cpjrg").val()
+            		+'","cpjwt":"'+$("#cpjwt").val()
+            		+'","cpjar":"' +$("#cpjar").val()+'"}')
+         $.ajax({
+                url: contextRoot+"/addProject"
+                , method: "POST"
+                , dataType: "json"
+                , data: 
+                	'{"cpjnm":"' +$("#cpjnm").val() 
+            		+'","cpjsd":"'+$("#cpjsd").val()
+            		+'","cpjed":"'+$("#cpjed").val()
+            		+'","cpjint":"'+$("#cpjint").val()
+            		+'","cpjchk":"'+cpjchk
+            		+'","cpjnpl":"'+$("#cpjnpl").val()
+            		+'","cpjmnp":"'+$("#cpjmnp").val()
+            		+'","cpjmap":"'+$("#cpjmap").val()
+            		+'","cpjrg":"'+$("#cpjrg").val()
+            		+'","cpjwt":"'+$("#cpjwt").val()
+            		+'","cpjar":"' +$("#cpjar").val()+'"}'
+                , headers: {
+                      "Accept": "application/json"
+                    , "Content-Type": "application/json"
+                }
+                , success: function (status) {
+                    callModal('프로젝트 등록완료');
+                }
+            });
+        });
+    });
 	
 </script>
 

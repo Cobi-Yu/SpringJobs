@@ -6,7 +6,7 @@
 
 <mapper namespace="ProjectMapper">
 	<resultMap id="projectSelectMap" type="com.springjobs.domain.Cpjts">
-		<result property="cpjno" 			column="CPJNO" 		jdbcType="INTEGER"/>
+		<result property="cpjno" 			column="CPJNO" 		jdbcType	="INTEGER"/>
 		<result property="name"				column="CPJNM" 		jdbcType="VARCHAR" />
 		<result property="introduction" 	column="CPJINT" 	jdbcType="VARCHAR" />
 		<result property="skill" 			column="CPJSK" 		jdbcType="VARCHAR" />
@@ -17,6 +17,8 @@
 		<result property="maxpay" 			column="CPJMAP" 	jdbcType="INTEGER" />
 		<result property="clicktimes" 		column="CPJHTN" 	jdbcType="INTEGER" />
 		<result property="regdate" 			column="CPJRD" 	 	jdbcType="DATE" />
+		<result property="startdate" 		column="CPJSD" 	 	jdbcType="DATE" />
+		<result property="enddate" 			column="CPJED" 	 	jdbcType="DATE" />
 		<result property="writer" 			column="CPJRG" 		jdbcType="VARCHAR" />
 		<result property="worktype" 		column="CPJWT" 		jdbcType="VARCHAR" />
 		<result property="area" 			column="CPJAR" 		jdbcType="VARCHAR" />
@@ -25,8 +27,8 @@
 	<!-- SQL : INSERT -->
 	<insert 	id="addProject"		parameterType="com.springjobs.domain.Cpjts" >
 	 	INSERT
-		INTO CPJTS(cpjnm, cpjint, cpjsk, cpjchk, cpjyr, cpjnpl, cpjmnp, cpjmap, cpjhtn, cpjrd, cpjrg, cpjwt, cpjar, cno) 
-		VALUES(#{cpjnm},#{cpjint},#{cpjsk},#{cpjchk},#{cpjyr},#{cpjnpl},#{cpjmnp},#{cpjmap},1,#{cpjrd},#{cpjrg},#{cpjwt},#{cpjar},1);
+		INTO CPJTS(cpjnm, cpjsd, cpjed, cpjint, cpjchk, cpjyr, cpjnpl, cpjmnp, cpjmap, cpjhtn, cpjrd, cpjrg, cpjwt, cpjar, cno) 
+		VALUES(#{cpjnm},#{cpjsd},#{cpjed},#{cpjint},#{cpjchk},#{cpjyr},#{cpjnpl},#{cpjmnp},#{cpjmap},1,curdate(),#{cpjrg},#{cpjwt},#{cpjar},1);
 	 </insert>
 
 </mapper>
