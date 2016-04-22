@@ -34,6 +34,12 @@
         .tabmar{
             margin-left: 10em;
         }
+        
+        .navbar {
+	        margin-bottom: 0;
+	        border-radius: 0;
+	        margin-bottom: 0px;
+	    }
     </style>
 </head>
 
@@ -388,7 +394,7 @@
                     , "Content-Type": "application/json"
                 }
                 , success: function (status) {
-                    callModal('등록완료');
+                    callModal('공고등록','등록완료','/view/common/login/frame.html');
                 }
             });
         });

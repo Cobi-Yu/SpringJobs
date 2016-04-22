@@ -180,8 +180,10 @@
 					"Accept" : "application/json",
 					"Content-Type" : "application/json"
 				},
+				beforeSend : addLoading,
+				complete : removeLoading,
 				success : function(status){
-					alert("가입완료 ");
+					callModal('회원가입','가입완료!!','/view/common/login/frame.html');
 				}
 			});
 		}

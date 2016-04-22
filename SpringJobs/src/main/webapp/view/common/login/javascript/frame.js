@@ -27,7 +27,7 @@ $(document).ready(function() {
 			}
 		},
 		error:function(req,status,error){
-			callModal('알수없는 에러');
+			callModal('경고','알수없는 에러');
 			user=null;
 		}
 	});
@@ -74,7 +74,7 @@ $('#loginButton').click(
 					}
 				},
 				error:function(req,status,error){
-					callModal('알수없는 에러');
+					callModal('경고','알수없는 에러');
 					user=null;
 				}
 			});
