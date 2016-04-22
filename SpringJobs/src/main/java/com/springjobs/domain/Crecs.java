@@ -22,7 +22,6 @@ public class Crecs {
 	private String rear;
 	private String rewt;
 	private int cno;
-	private int uno;
 	
 	public Crecs() {
 		// TODO Auto-generated constructor stub
@@ -50,7 +49,6 @@ public class Crecs {
 		this.rear = rear;
 		this.rewt = rewt;
 		this.cno = cno;
-		this.uno = uno;
 	}
 
 
@@ -163,18 +161,13 @@ public class Crecs {
 	public void setCno(int cno) {
 		this.cno = cno;
 	}
-	public int getUno() {
-		return uno;
-	}
-	public void setUno(int uno) {
-		this.uno = uno;
-	}
+	
 	@Override
 	public String toString() {
 		return "Crecs [reno=" + reno + ", retl=" + retl + ", recnm=" + recnm + ", rewc=" + rewc + ", renpl=" + renpl
 				+ ", rechk=" + rechk + ", reyr=" + reyr + ", reidt=" + reidt + ", rejp=" + rejp + ", retp=" + retp
 				+ ", repay=" + repay + ", rerg=" + rerg + ", rerd=" + rerd + ", reed=" + reed + ", rehtn=" + rehtn
-				+ ", rear=" + rear + ", rewt=" + rewt + ", cno=" + cno + ", uno=" + uno + "]";
+				+ ", rear=" + rear + ", rewt=" + rewt + ", cno=" + cno + "]";
 	}
 	
 	
