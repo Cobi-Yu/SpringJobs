@@ -82,6 +82,7 @@ $('#loginButton').click(
 
 redirect($('#signUp'),'/view/common/addUser/addUser.html');
 redirect($('#addJob'),'/view/company/addJob/addJob.html');
+redirect($('#getJob'),'/view/company/getJob/getJob.html');
 redirect($('#projectList'),'/view/developer/projectList/projectList.html');
 redirect($('#addProject'),'/view/company/addProject/addProject.html');
 redirect($('#frame'),'/view/common/login/frame.html');
