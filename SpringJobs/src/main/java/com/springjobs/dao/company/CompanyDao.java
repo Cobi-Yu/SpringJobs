@@ -1,5 +1,6 @@
 package com.springjobs.dao.company;
 
+import com.springjobs.domain.Cinfos;
 import com.springjobs.domain.Cpjts;
 import com.springjobs.domain.Crecs;
 
@@ -11,4 +12,5 @@ public interface CompanyDao {
 	
 	public Crecs getJob(int reno) throws Exception ;
 
+	public void addCompany(Cinfos cinfos);
 }

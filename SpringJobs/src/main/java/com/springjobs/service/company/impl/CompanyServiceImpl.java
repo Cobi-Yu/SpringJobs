@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.springjobs.dao.company.CompanyDao;
+import com.springjobs.domain.Cinfos;
 import com.springjobs.domain.Cpjts;
 import com.springjobs.domain.Crecs;
 import com.springjobs.service.company.CompanyService;
@@ -27,4 +28,7 @@ public class CompanyServiceImpl implements CompanyService{
 		return companyDao.getJob(reno);
 	}
 	
+	public void addCompany(Cinfos cinfos){
+		companyDao.addCompany(cinfos);
+	}
 }

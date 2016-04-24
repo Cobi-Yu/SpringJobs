@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.springjobs.dao.company.CompanyDao;
+import com.springjobs.domain.Cinfos;
 import com.springjobs.domain.Cpjts;
 import com.springjobs.domain.Crecs;
 
@@ -32,4 +33,7 @@ public class CompanyDaoImpl implements CompanyDao{
 		return sqlSession.selectOne("AddJobMapper.getJob", reno);
 	}
 	
+	public void addCompany(Cinfos cinfos){
+		sqlSession.insert("AddCompanyMapper.addCompany", cinfos);
+	}
 }
