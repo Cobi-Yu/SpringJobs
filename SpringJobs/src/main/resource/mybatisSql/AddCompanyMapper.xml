@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AddCompanyMapper">
+	<resultMap id="AddCompanySelectMap" type="com.springjobs.domain.Cinfos">
+		<result property="cno" 				column="CNO" 		jdbcType="INTEGER"/>
+		<result property="cct"				column="CCT" 		jdbcType="VARCHAR" />
+		<result property="crgno"		 	column="CRGNO" 		jdbcType="INTEGER" />
+		<result property="cnm" 				column="CNM" 		jdbcType="VARCHAR" />
+		<result property="cscl" 			column="CSCL"	 	jdbcType="VARCHAR" />
+		<result property="clo" 				column="CLO"	 	jdbcType="VARCHAR" />
+		<result property="cnpl" 			column="CNPL" 		jdbcType="INTEGER" />
+		<result property="cint" 			column="CINT" 		jdbcType="VARCHAR" />
+		
+	</resultMap>
+	
+	<!-- SQL : INSERT -->
+	<insert 	id="addCompany"		parameterType="com.springjobs.domain.Cinfos" >
+	 	INSERT
+		INTO CINFOS(cno, uno, cct, crgno, cnm, cscl, clo, cnpl, cint) 
+		VALUES(#{cno},1,#{cct},#{crgno},#{cnm},#{cscl},#{clo},#{cnpl},#{cint});
+	 </insert>
+	
+</mapper>
