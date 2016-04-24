@@ -28,4 +28,8 @@ public class CompanyDaoImpl implements CompanyDao{
 		sqlSession.insert("AddJobMapper.addJob", crecs);
 	}
 	
+	public Crecs getJob(int reno) throws Exception {
+		return sqlSession.selectOne("AddJobMapper.getJob", reno);
+	}
+	
 }

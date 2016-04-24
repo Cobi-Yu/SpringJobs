@@ -8,4 +8,6 @@ public interface CompanyService {
 	public void addProject(Cpjts cpjts);
 	
 	public void addJob(Crecs crecs);
+	
+	public Crecs getJob(int reno) throws Exception ;
 }

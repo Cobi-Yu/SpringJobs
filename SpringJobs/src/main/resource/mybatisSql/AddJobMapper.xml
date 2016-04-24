@@ -28,5 +28,13 @@
 		VALUES(#{retl},#{recnm},#{rewc},#{renpl},#{rechk},#{reyr},#{reidt},#{rejp},#{retp},#{repay},#{rerg},curdate(),#{reed},#{rehtn},#{rear},#{rewt},1);
 	 </insert>
 	
+	<!-- SQL : SELECT ONE -->
+	 <select 	id="getJob"	parameterType="com.springjobs.domain.Crecs"	resultMap="AddJobSelectMap">
+		SELECT
+		* FROM CRECS, CINFOS, USERS 
+		WHERE CRECS.cno = CINFOS.cno
+		and CINFOS.cno = USERS.cno
+	<!-- 	and USERS.uno = CINFOS.uno -->
+	 </select>
 	
 </mapper>

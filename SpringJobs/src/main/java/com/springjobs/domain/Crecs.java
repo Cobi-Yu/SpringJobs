@@ -1,4 +1,4 @@
-package com.springjobs.domain;
+                               package com.springjobs.domain;
 
 import java.sql.Date;
 

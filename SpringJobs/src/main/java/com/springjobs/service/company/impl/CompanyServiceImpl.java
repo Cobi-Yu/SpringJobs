@@ -22,4 +22,9 @@ public class CompanyServiceImpl implements CompanyService{
 	public void addJob(Crecs crecs){
 		companyDao.addJob(crecs);
 	}
+	
+	public Crecs getJob(int reno) throws Exception {
+		return companyDao.getJob(reno);
+	}
+	
 }
