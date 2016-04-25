@@ -149,6 +149,7 @@
                             <tr>
                                 <td>
                                   <input type="text" style="width:60%" id="clo" placeholder="주소">
+                                   <input type="text" style="width:60%" id="cloo" placeholder="세부 주소를 입력해주세요.">
                                   <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
                                   <div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
                 <!--등록버튼-->
@@ -256,7 +257,7 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
                 , dataType: "json"
                 , data: '{"cct":"'+$("#cct").val()+'","crgno":"'+$("#crgno").val() 
                 	+'","cnm":"'+$("#cnm").val()+'","cscl":"'+$("#cscl").val()+'","clo":"'
-                	+$("#clo").val()+'","cnpl":"'+$("#cnpl").val() 
+                	+$("#clo").val()'+'$("#cloo").val()+'","cnpl":"'+$("#cnpl").val() 
                 	+'","cint":"'+$("#cint").val()+'"}'
                 , headers: {
                     "Accept": "application/json"
