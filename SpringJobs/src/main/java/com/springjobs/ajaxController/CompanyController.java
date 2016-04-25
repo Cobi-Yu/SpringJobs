@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.springjobs.domain.Cinfos;
 import com.springjobs.domain.Cpjts;
 import com.springjobs.domain.Crecs;
 import com.springjobs.service.company.CompanyService;
@@ -22,10 +21,22 @@ public class CompanyController {
 	private CompanyService companyService;
 	
 	@RequestMapping( value="/addProject" , method=RequestMethod.POST)
-	public void addProject(@RequestBody Cpjts cpjts){
+	public void addProject(@RequestBody Cpjts cpjts, Model model){
 		System.out.println("addProject Test :"+cpjts.toString());
-		companyService.addProject(cpjts);
+		
+		model.addAttribute("cpjno",companyService.addProject(cpjts));
 	}
+	
+////////////////////////////////////////////////////////////////////////////////////////////////////
+	@RequestMapping( value="/addProjectView" , method=RequestMethod.GET)
+	public void addProjectView(@RequestParam("cpjno") int cpjno, Model model) throws Exception{
+		System.out.println("addProjectView Test :"+cpjno);
+		Cpjts cpjts = companyService.getProject(cpjno);
+		System.out.println("cotroller부분 cpjts :"+cpjts);
+		model.addAttribute("cpjts", cpjts);
+	}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+	
 	@RequestMapping( value="/addJob" , method=RequestMethod.POST)
 	public void addJob(@RequestBody Crecs crecs){
 		System.out.println("addJob Test :"+crecs.toString());
@@ -39,12 +50,6 @@ public class CompanyController {
 		Crecs crecs = companyService.getJob(reno);
 		model.addAttribute("crecs", crecs);
 	
-	}
-	
-	@RequestMapping( value="/addCompany" , method=RequestMethod.POST)
-	public void addCompany(@RequestBody Cinfos cinfos){
-		System.out.println("addCompany Test :"+cinfos.toString());
-		companyService.addCompany(cinfos);
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*	@RequestMapping( value="/getJob/{reno}", method=RequestMethod.POST )
