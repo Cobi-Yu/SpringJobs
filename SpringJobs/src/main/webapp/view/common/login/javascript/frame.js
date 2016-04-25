@@ -66,7 +66,6 @@ $('#loginButton').click(
 				success : function(data, status) {
 					console.log(data);
 					if (data.user) {
-						alert("로그인 완료");
 						location.reload();
 					} else {
 						user=null;
