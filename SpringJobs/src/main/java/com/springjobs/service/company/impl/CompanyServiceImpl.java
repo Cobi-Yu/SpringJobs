@@ -17,13 +17,15 @@ public class CompanyServiceImpl implements CompanyService{
 	
 	private CompanyDao companyDao;
 	
-	public void addProject(Cpjts cpjts){
-		companyDao.addProject(cpjts);
+	public int addProject(Cpjts cpjts){
+		return companyDao.addProject(cpjts);
 	}
 	public void addJob(Crecs crecs){
 		companyDao.addJob(crecs);
 	}
-	
+	public Cpjts getProject(int cpjno) throws Exception {
+		return companyDao.getProject(cpjno);
+	}
 	public Crecs getJob(int reno) throws Exception {
 		return companyDao.getJob(reno);
 	}

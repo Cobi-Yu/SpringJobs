@@ -21,8 +21,16 @@ public class CompanyDaoImpl implements CompanyDao{
 		this.sqlSession = sqlSession;
 	}
 	
-	public void addProject(Cpjts cpjts){
+	public int addProject(Cpjts cpjts){
 		sqlSession.insert("ProjectMapper.addProject", cpjts);
+		int cpjno = cpjts.getCpjno();
+		System.out.println("dao impl에서 cpjno 값은??"+ cpjno);
+		
+		return cpjno;
+	}
+	
+	public Cpjts getProject(int cpjno) throws Exception{
+		return sqlSession.selectOne("ProjectMapper.getProject", cpjno);	
 	}
 	
 	public void addJob(Crecs crecs){
