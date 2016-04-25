@@ -63,7 +63,7 @@
 	   $('#join').click(function () {
  
 		   
-		   console.log('{"retl":"' +$("#retl").val() +'","recnm":"' 
+		   console.log('{"reno":"'+$("#reno").val()+'","retl":"' +$("#retl").val() +'","recnm":"' 
 	            	+$("#recnm").val()+'","rewc":"'+$("#rewc").val()+'","renpl":"' 
 	            	+$("#renpl").val()+'","rechk":"'+$("#rechk").val()+'","reyr":"' 
 	            	+$("#reyr").val()+'","reidt":"'+$("#reidt").val()+'","rejp":"' 
@@ -75,7 +75,13 @@
                 url: contextRoot+"/getJob"
                 , method: "POST"
                 , dataType: "json"
-                , data: '{"crecs":"'+$("#crecs").val()+'"}'
+                , data: '{"reno":"'+$("#reno").val()+'","retl":"' +$("#retl").val() +'","recnm":"' 
+            	+$("#recnm").val()+'","rewc":"'+$("#rewc").val()+'","renpl":"' 
+            	+$("#renpl").val()+'","rechk":"'+$("#rechk").val()+'","reyr":"' 
+            	+$("#reyr").val()+'","reidt":"'+$("#reidt").val()+'","rejp":"' 
+            	+$("#rejp").val()+'","retp":"'+$("#retp").val()+'","repay":"' 
+            	+$("#repay").val()+'","rerg":"'+$("#rerg").val()+'","reed":"' +$("#reed").val()
+            	+'","rear":"'+$("#rear").val()+'","rewt":"'+$("#rewt").val()+'"}'
                 , headers: {
                     "Accept": "application/json"
                     , "Content-Type": "application/json"
