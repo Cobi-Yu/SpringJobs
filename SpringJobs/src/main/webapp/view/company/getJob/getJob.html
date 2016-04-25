@@ -20,7 +20,8 @@
 			<div class="col-sm-2 sidenav"></div>
 			<div class="col-md-8 text-left main">
 		<!-- 본문입력란 -->
-		<form id="getJobTable">
+	<form id=getJobTable>
+				<input type="text" id="reno" >
 			<input type="text" id="retl" >
 				<input type="text" id="recnm" >
 					<input type="text" id="rewc" >
@@ -32,8 +33,6 @@
 											<input type="text" id="retp" >
 												<input type="text" id="repay" >
 													<input type="text" id="rerg" >
-														<input type="text" id="rerd" >
-															<input type="text" id="reed" >
 																<input type="text" id="rear" >
 																	<input type="text" id="rewt" >	
 																	
@@ -43,7 +42,7 @@
 						           
 						  <button type="button" class="btn btn-danger btn-sm">취소</button>
 	                 </span>
-	                 </form>
+	      </form>
 			</div>
 			<div class="col-sm-2 sidenav"></div>
 		</div>
@@ -60,19 +59,17 @@
 	})
 	
 	$(document).ready(function() {
-	   $('#join').click(function () {
- 
-		   
-		   console.log('{"reno":"'+$("#reno").val()+'","retl":"' +$("#retl").val() +'","recnm":"' 
+	   $('#join').click(function () { 
+		/*    console.log('{"reno":"'+$("#reno").val()+'","retl":"' +$("#retl").val() +'","recnm":"' 
 	            	+$("#recnm").val()+'","rewc":"'+$("#rewc").val()+'","renpl":"' 
 	            	+$("#renpl").val()+'","rechk":"'+$("#rechk").val()+'","reyr":"' 
 	            	+$("#reyr").val()+'","reidt":"'+$("#reidt").val()+'","rejp":"' 
 	            	+$("#rejp").val()+'","retp":"'+$("#retp").val()+'","repay":"' 
 	            	+$("#repay").val()+'","rerg":"'+$("#rerg").val()+'","reed":"' +$("#reed").val()
 	            	+'","rear":"'+$("#rear").val()+'","rewt":"'+$("#rewt").val()+'"}') 
-	            	
-        $.ajax({
-                url: contextRoot+"/getJob"
+	            	 */
+        //$.ajax({
+               /*  url: contextRoot+"/getJob"
                 , method: "POST"
                 , dataType: "json"
                 , data: '{"reno":"'+$("#reno").val()+'","retl":"' +$("#retl").val() +'","recnm":"' 
@@ -92,29 +89,25 @@
         				$('#getJobTable').load('/view/company/getJob/getJob.html', function() {
         					$('#crecs').text(data.reno);
         				});
-        	
         		},
-        			/* if (data.crecs) {
-        				$('#getJobTable').load('/view/company/getJob/getJob.html', function() {
-        					$('#uno').text(data.user.uno);
-        				});
-        				user=data.user;
-        			}else{
-        				user=null;
-        			} */
-        /* 		}, */
-
-        	error:function(req,status,error){
+        	/*error:function(req,status,error){
         			callModal('알수없는 에러');
         			user=null;
         		} 
-            }); 
-      
+            });  */
+      	
+      	$.getJSON("/getJob?reno=16", function(data){
+      		console.log(data);
+      		console.log(data.crecs.recnm);
+      		var crecs=data.crecs;
+      		var recnm=data.crecs.recnm;
+      		
+      		$('#getJobTable').load('/view/company/getJob/getJob.html', function() {
+				$('#crecs').text(data.recnm);
+				});
+      	});
+      	});
 	   });
-	/* 	if ($('.main').height() > $('.sidenav').height()) {
-			$('.sidenav').height($('.main').height());
-		} */
-	});
 </script>
 
 </html>
