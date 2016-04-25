@@ -220,6 +220,7 @@
             		+'","cpjmap":"'+$("#cpjmap").val()
             		+'","cpjrg":"'+$("#cpjrg").val()
             		+'","cpjwt":"'+$("#cpjwt").val()
+            		+'","cno":"'+user.cno
             		+'","cpjar":"' +$("#cpjar").val()+'"}')
          $.ajax({
                 url: contextRoot+"/addProject"
@@ -236,13 +237,16 @@
             		+'","cpjmap":"'+$("#cpjmap").val()
             		+'","cpjrg":"'+$("#cpjrg").val()
             		+'","cpjwt":"'+$("#cpjwt").val()
+            		+'","cno":"'+user.cno
             		+'","cpjar":"' +$("#cpjar").val()+'"}'
                 , headers: {
                       "Accept": "application/json"
                     , "Content-Type": "application/json"
-                }
-                , success: function (status) {
-                	callModal('프로젝트등록','등록완료','/view/common/login/frame.html');
+                },
+                beforeSend : addLoading,
+        		complete : removeLoading,
+                success: function (data) {
+                    callModal('프로젝트등록','등록완료',contextRoot+"/view/common/login/frame.html");
                 }
             });
         });
