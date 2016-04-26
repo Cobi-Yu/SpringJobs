@@ -83,6 +83,8 @@ redirect($('#addJob'),'/view/company/addJob/addJob.html');
 redirect($('#getJob'),'/view/company/getJob/getJob.html');
 redirect($('#projectList'),'/view/developer/projectList/projectList.html');
 redirect($('#addProject'),'/view/company/addProject/addProject.html');
+redirect($('#addProjectView'),'/view/company/addProject/addProjectViewSample.html');
+redirect($('#frame'),'/view/common/login/frame.html');
 redirect($('#frame'),'/view/common/login/frame.html');
 
 $(document).trigger('frameComplete');
