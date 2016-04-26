@@ -135,7 +135,7 @@
 	<!-- 아이디 중복 체크-->
 	  $('#joinuem').on('input',function(){
 		  	if(($(this).val().length)>5){
-		  		console.log('{"uem":"'+$("#uem").val()+'"}');
+		  		console.log('{"uem":"'+$("#joinuem").val()+'"}');
 				$.ajax({
 					url: nodeContextRoot+"/uemDuplicateCheck",
 					method : "POST",
@@ -170,7 +170,7 @@
 		}else if(!upwConfirm){
 			$("#joinupw").focus();
 		}else{
-			console.log('{"uem":"'+$("#uem").val()+'","upw":"'+$("#upw").val()+'","unm":'+$('#unm').val()+'"}');
+			console.log('{"uem":"'+$("#joinuem").val()+'","upw":"'+$("#upw").val()+'","unm":'+$('#unm').val()+'"}');
 			$.ajax({
 				url: contextRoot+"/addUser",
 				method : "POST",
