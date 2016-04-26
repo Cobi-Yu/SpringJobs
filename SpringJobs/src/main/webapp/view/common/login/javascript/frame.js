@@ -1,5 +1,4 @@
 //로그인 체크
-$(document).ready(function() {
 	$.ajax({
 		url : contextRoot + "/loginCheck",
 		method : "POST",
@@ -18,7 +17,8 @@ $(document).ready(function() {
 					if(!data.user.upho){//사진이 없을때
 						$( "#upho" ).attr( "src", "/view/resources/img/unknown.jpg");
 					}else{//사진이 있을때
-						$( "#upho" ).attr( "src", data.user.upho);
+						$( "#upho" ).attr( "src", "/view/resources/img/unknown.jpg");
+//						$( "#upho" ).attr( "src", data.user.upho);// 제대로 사진데이터 입력되면 꼭 주석풀어야됨 위에꺼 지우고
 					}
 				});
 				user=data.user;
@@ -35,7 +35,6 @@ $(document).ready(function() {
 	if ($('.main').height() > $('.sidenav').height()) {
 		$('.sidenav').height($('.main').height());
 	}
-});
 // 로그인 체크 끝
 
 // sub 상단바 시작
@@ -85,3 +84,5 @@ redirect($('#getJob'),'/view/company/getJob/getJob.html');
 redirect($('#projectList'),'/view/developer/projectList/projectList.html');
 redirect($('#addProject'),'/view/company/addProject/addProject.html');
 redirect($('#frame'),'/view/common/login/frame.html');
+
+$(document).trigger('frameComplete');

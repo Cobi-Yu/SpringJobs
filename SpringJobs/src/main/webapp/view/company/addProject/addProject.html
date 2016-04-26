@@ -192,7 +192,7 @@
 		$('#footer').load('/view/common/login/frameFooter.html');
 	});
 	
-	$(document).ready(function () {
+	$(document).on('frameComplete',function(event){
         $("#test-upload").fileinput({
             'showPreview': false
             , 'allowedFileExtensions': ['jpg', 'png', 'gif']

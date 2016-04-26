@@ -9,7 +9,7 @@ public class Cpjts {
 	 private String cpjint;
 	 private String cpjsk;
 	 private String cpjchk;
-	 private String cpjyr;
+	 private int cpjyr;
 	 private int cpjnpl;
 	 private int cpjmnp;
 	 private int cpjmap;
@@ -21,14 +21,14 @@ public class Cpjts {
 	 private String cpjwt;
 	 private String cpjar;
 	 private int cno;
-
+	 
 	public Cpjts() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public Cpjts(int cpjno, String cpjnm, String cpjint, String cpjsk, String cpjchk, String cpjyr, int cpjnpl,
-			int cpjmnp, int cpjmap, int cpjhtn, Date cpjrd, Date cpjed, Date cpjsd, String cpjrg, String cpjwt,
-			String cpjar, int cno) {
+
+	public Cpjts(int cpjno, String cpjnm, String cpjint, String cpjsk, String cpjchk, int cpjyr, int cpjnpl, int cpjmnp,
+			int cpjmap, int cpjhtn, Date cpjrd, Date cpjed, Date cpjsd, String cpjrg, String cpjwt, String cpjar,
+			int cno) {
 		super();
 		this.cpjno = cpjno;
 		this.cpjnm = cpjnm;
@@ -89,11 +89,11 @@ public class Cpjts {
 		this.cpjchk = cpjchk;
 	}
 
-	public String getCpjyr() {
+	public int getCpjyr() {
 		return cpjyr;
 	}
 
-	public void setCpjyr(String cpjyr) {
+	public void setCpjyr(int cpjyr) {
 		this.cpjyr = cpjyr;
 	}
 
@@ -191,6 +191,10 @@ public class Cpjts {
 				+ cpjchk + ", cpjyr=" + cpjyr + ", cpjnpl=" + cpjnpl + ", cpjmnp=" + cpjmnp + ", cpjmap=" + cpjmap
 				+ ", cpjhtn=" + cpjhtn + ", cpjrd=" + cpjrd + ", cpjed=" + cpjed + ", cpjsd=" + cpjsd + ", cpjrg="
 				+ cpjrg + ", cpjwt=" + cpjwt + ", cpjar=" + cpjar + ", cno=" + cno + "]";
-	}	 
+	}
+	
+	
+	 
+	 
 	
 }

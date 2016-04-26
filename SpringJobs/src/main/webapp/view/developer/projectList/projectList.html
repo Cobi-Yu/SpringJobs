@@ -23,80 +23,94 @@
 <!-- bootstrap toggle end-->
 
 <style>
-    .list-detail {
-        display: none;
-    }
+.list-detail {
+	display: none;
+}
 
-    .ui-autocomplete {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        z-index: 1000;
-        float: left;
-        display: none;
-        min-width: 160px;
-        _width: 160px;
-        padding: 4px 0;
-        margin: 2px 0 0 0;
-        list-style: none;
-        background-color: #ffffff;
-        border-color: #ccc;
-        border-color: rgba(0, 0, 0, 0.2);
-        border-style: solid;
-        border-width: 1px;
-        -webkit-border-radius: 5px;
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-        -webkit-background-clip: padding-box;
-        -moz-background-clip: padding;
-        background-clip: padding-box;
-        *border-right-width: 2px;
-        *border-bottom-width: 2px; . ui-menu-item > a.ui-corner-all { display :
-        block;
-        padding: 3px 15px;
-        clear: both;
-        font-weight: normal;
-        line-height: 18px;
-        color: #555555;
-        white-space: nowrap; &. ui-state-hover , &.ui-state-active { color :
-        #ffffff;
-        text-decoration: none;
-        background-color: #0088cc;
-        border-radius: 0px;
-        -webkit-border-radius: 0px;
-        -moz-border-radius: 0px;
-        background-image: none;
-    }
+.ui-autocomplete {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1000;
+	float: left;
+	display: none;
+	min-width: 160px;
+	_width: 160px;
+	padding: 4px 0;
+	margin: 2px 0 0 0;
+	list-style: none;
+	background-color: #ffffff;
+	border-color: #ccc;
+	border-color: rgba(0, 0, 0, 0.2);
+	border-style: solid;
+	border-width: 1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	*border-right-width: 2px;
+	*border-bottom-width: 2px; . ui-menu-item > a.ui-corner-all { display :
+	block;
+	padding: 3px 15px;
+	clear: both;
+	font-weight: normal;
+	line-height: 18px;
+	color: #555555;
+	white-space: nowrap; &. ui-state-hover , &.ui-state-active { color :
+	#ffffff;
+	text-decoration: none;
+	background-color: #0088cc;
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	background-image: none;
+	}
+	}
+}
 
-    }
-    }
-    .ui-menu .ui-menu-item a.ui-corner-all:hover, .ui-menu .ui-menu-item a.ui-corner-all:focus,
-        .ui-menu .ui-menu-item a.ui-corner-all:active {
-        background: #ff8a00 !important;
-        color: #000;
-        border-radius: 0;
-    }
+.ui-menu .ui-menu-item a.ui-corner-all:hover, .ui-menu .ui-menu-item a.ui-corner-all:focus,
+	.ui-menu .ui-menu-item a.ui-corner-all:active {
+		background: #ff8a00 !important;
+		color: #000;
+		border-radius: 0;
+	}
 
-    .ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover,
-        .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus
-        {
-        background: #ff8a00;
-        border: none;
-        color: #000;
-        border-radius: 0
-    }
-    .tag{
-        display: inline-block; 
-        background-color: rgb(230, 230, 230);
-        margin-right: 5px;
-       	margin-bottom: 5px;
-    }
-    .fold-list{
-    	display:none;
-    }
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover,
+	.ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus
+	{
+		background: #ff8a00;
+		border: none;
+		color: #000;
+		border-radius: 0
+	}
+
+.tag {
+		display: inline-block;
+		background-color: rgb(230, 230, 230);
+		margin-right: 5px;
+		margin-bottom: 5px;
+	}
+
+.fold-list {
+	display: none;
+}
+
+.projectImg {
+	width: 20%;
+}
+
+.projectDesc {
+	width: 70%;
+}
+
+.projectButton {
+	width: 10%;
+}
 </style>
 </head>
 <body>
@@ -110,69 +124,71 @@
 				<div class="col-md-3 side-menu" style="padding: 0px;">
 					<table class="table table-hover">
 						<tr>
-							<td>
-                                <strong>지역</strong> 
-                                <div class = "toggleDiv" style="float:right;">
-                                    <input type="checkbox" class="fold" data-toggle="toggle" data-size="mini" data-onstyle="default" data-on="펴기" data-off="접기" checked="false">
-                                </div>
-                                <div class="fold-list cpjar-list"
-                                    style="margin-left: 20px; font-size: 12px;" style="display:none;">
-                                    <div class="checkbox">
-                                        <input type="checkbox" class="cpjar-check" value="46">
-                                        <p class="cpjar-option">대한민국 경기 성남</p>
-                                    </div>
+							<td><strong>지역</strong>
+								<div class="toggleDiv" style="float: right;">
+									<input type="checkbox" class="fold" data-toggle="toggle"
+										data-size="mini" data-onstyle="default" data-on="펴기"
+										data-off="접기" checked="false">
+								</div>
+								<div class="fold-list cpjar-list"
+									style="margin-left: 20px; font-size: 12px;"
+									style="display:none;">
+									<div class="checkbox">
+										<input type="checkbox" class="cpjar-check" value="46">
+										<p class="cpjar-option">대한민국 경기 성남</p>
+									</div>
 
-                                    <div class="checkbox">
-                                        <input type="checkbox" class="cpjar-check" value="45">
-                                        <p class="cpjar-option">대한민국 서울 강남</p>
-                                    </div>
-                                    <div class="checkbox">
-                                        <input type="checkbox" class="cpjar-check" value="47">
-                                        <p class="cpjar-option">대한민국 서울 서초</p>
-                                    </div>
-                                </div>
-                            </td>
+									<div class="checkbox">
+										<input type="checkbox" class="cpjar-check" value="45">
+										<p class="cpjar-option">대한민국 서울 강남</p>
+									</div>
+									<div class="checkbox">
+										<input type="checkbox" class="cpjar-check" value="47">
+										<p class="cpjar-option">대한민국 서울 서초</p>
+									</div>
+								</div></td>
 						</tr>
 						<tr>
-							<td>
-                                <strong>사용API</strong>
-                                <div class = "toggleDiv" style="float:right;">
-                                    <input type="checkbox" class="fold pull-right" data-toggle="toggle" data-size="mini" data-onstyle="default" data-on="펴기" data-off="접기" checked="false">
-                                </div>
+							<td><strong>사용API</strong>
+								<div class="toggleDiv" style="float: right;">
+									<input type="checkbox" class="fold pull-right"
+										data-toggle="toggle" data-size="mini" data-onstyle="default"
+										data-on="펴기" data-off="접기" checked="false">
+								</div>
 								<div class="fold-list api-list">
-									<input type="text" id="search-api" placeholder="ex) java, servlet">
-								</div>
-                            </td>
+									<input type="text" id="search-api"
+										placeholder="ex) java, servlet">
+								</div></td>
 						</tr>
-                        <tr>
-                            <td>
-                                <strong>급여</strong> 
-                                <div class = "toggleDiv" style="float:right;">
-                                    <input type="checkbox" class="fold pull-right" data-toggle="toggle" data-size="mini" data-onstyle="default" data-on="펴기" data-off="접기" checked="false">
-                                </div>
-                                <div class="fold-list cpjm-list">
-									<input type="text" id="cpjmnp" size="5"> ~ <input type="text" id="cpjmap" size="5"> 만원
-                                    <button type="button" class="btn btn-default btn-xs" style='float:right;'>추가</button>
+						<tr>
+							<td><strong>급여</strong>
+								<div class="toggleDiv" style="float: right;">
+									<input type="checkbox" class="fold pull-right"
+										data-toggle="toggle" data-size="mini" data-onstyle="default"
+										data-on="펴기" data-off="접기" checked="false">
 								</div>
-                                
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <strong>경력연차</strong> 
-                                <div class = "toggleDiv" style="float:right;">
-                                    <input type="checkbox" class="fold pull-right" data-toggle="toggle" data-size="mini" data-onstyle="default" data-on="펴기" data-off="접기" checked="false">
-                                </div>
-                                <select class="form-control input-sm fold-list" id="cpjyr">
-                                      <option>무관</option>
-                                      <option>1년</option>
-                                      <option>2년</option>
-                                      <option>3년</option>
-                                      <option>4년</option>
-                                    <option>5년이상</option>
-                                </select>
-                            </td>
-                        </tr>
+								<div class="fold-list cpjm-list">
+									<input type="text" id="cpjmnp" size="5"> ~ <input
+										type="text" id="cpjmap" size="5"> 만원
+									<button type="button" class="btn btn-default btn-xs"
+										style='float: right;'>추가</button>
+								</div></td>
+						</tr>
+						<tr>
+							<td><strong>경력연차</strong>
+								<div class="toggleDiv" style="float: right;">
+									<input type="checkbox" class="fold pull-right"
+										data-toggle="toggle" data-size="mini" data-onstyle="default"
+										data-on="펴기" data-off="접기" checked="false">
+								</div> <select class="form-control input-sm fold-list" id="cpjyr">
+									<option>무관</option>
+									<option>1년</option>
+									<option>2년</option>
+									<option>3년</option>
+									<option>4년</option>
+									<option>5년이상</option>
+							</select></td>
+						</tr>
 					</table>
 				</div>
 				<!--페이지 중앙 본문 중 좌측 끝-->
@@ -188,15 +204,15 @@
 					</table>
 					<table class="table table-strpied">
 						<tr>
-							<td width="20%" align="center"><img src="img/spring.jpg">
-							</td>
-							<td width="70%">
+							<td class="projectImg" align="center"><img
+								src="img/spring.jpg"></td>
+							<td class="projectDesc">
 								<dl>
 									<dd>
-										<a href="#" style="font-size: 20px;">Ux / UI Designer</a>
+										<a href="" style="font-size: 20px;">Ux / UI Designer</a>
 									</dd>
 									<dd>
-										<a href="#">SK Telecom</a>
+										<a href="">SK Telecom</a>
 									</dd>
 									<dd>Korea, 2016년 3월 21</dd>
 									<dd>급여 : 300~400</dd>
@@ -205,11 +221,11 @@
 										<dd>윈도우 마이그레이션 관련 프로젝트 구인</dd>
 									</div>
 									<dd>
-										<a href="#">비슷한 회사</a>
+										<a href="">비슷한 회사</a>
 									</dd>
 								</dl>
 							</td>
-							<td width="10%" valign="middle"><input
+							<td class="projectButton" valign="middle"><input
 								class="list-detail-btn" type="checkbox" checked
 								data-toggle="toggle" data-size="small" data-on="미리보기"
 								data-off="접기"></td>
@@ -249,16 +265,14 @@
 			if(tag.hasClass('cpjar-tag')){//지역태그 삭제
 				var arr = $.makeArray(search.cpjar);
 				$.map(arr,function(val,i){
-					if(tag.text().indexOf(val.label)!=-1){//해당태그가 맞다면
-				        console.log(val);
+					if(tag.text().indexOf(val)!=-1){//해당태그가 맞다면
 						search.cpjar.splice(i,1);
 					}
 				});
 			}else if(tag.hasClass('api-tag')){//api태그삭제
 				var arr = $.makeArray(search.cpjsk);
 				$.map(arr,function(val,i){
-					if(tag.text().indexOf(val.label)!=-1){//해당태그가 맞다면
-				        console.log(val);
+					if(tag.val()==val){//해당태그가 맞다면
 						search.cpjsk.splice(i,1);
 					}
 				});
@@ -266,7 +280,6 @@
 				var arr = $.makeArray(search.cpjsk);
 				$.map(arr,function(val,i){
 					if(tag.text().indexOf(val.label)!=-1){//해당태그가 맞다면
-				        console.log(val);
 						search.cpjsk.splice(i,1);
 					}
 				});
@@ -274,7 +287,6 @@
 				var arr = $.makeArray(search.cpjsk);
 				$.map(arr,function(val,i){
 					if(tag.text().indexOf(val.label)!=-1){//해당태그가 맞다면
-				        console.log(val);
 						search.cpjsk.splice(i,1);
 					}
 				});
@@ -286,7 +298,7 @@
 	}
 	//검색 태그 추가 function 끝
 
-	$(document).ready(function() {
+	$(document).on('frameComplete',function(event){
         search.cpjmnp=null;
         search.cpjmap=null;
         search.cpjyr=null;
@@ -297,7 +309,11 @@
                             type:'post',
                             url: nodeContextRoot+"/skillCheck",
                             dataType : "json",
-                            data : { sknm : req.term },
+                            data :  '{"sknm" : "'+req.term+'"}',
+                            headers : {
+        						"Accept" : "application/json",
+        						"Content-Type" : "application/json"
+        					},
                             success:function(data){
                                 res($.map(data, function(item, i){
                                 		return {
@@ -313,9 +329,8 @@
                     select: function(event,ui){
                     	//중복체크
                     	var bool=true;
-                        var arr = $.makeArray(search.cpjsk);
-                       	$.map(arr,function(val,i){
-                       		if(val.value==ui.item.value){
+                       	$.map($.makeArray(search.cpjsk),function(val,i){
+                       		if(val==ui.item.value){
                        			bool=false;
                        			return;
                        		}
@@ -328,7 +343,8 @@
                        	}
                        	//중복체크 끝
                        	addSearchTag('api-tag',ui.item.label,'danger');//사용자 정의 function
-                        search.cpjsk.push(ui.item);
+                       	$('.api-tag').last().val(ui.item.value);
+                        search.cpjsk.push(ui.item.value);
 					}
                 }).autocomplete("widget").addClass("fixed-height");;
         //검색 자동완성 끝
@@ -348,15 +364,9 @@
         //cpjar검색 태그 추가
         $('.cpjar-check').click(function() {
             var cpjarText = $(this).next('.cpjar-option').text();//클릭된 cpjar의 검색 text
-//             delete(search.cpjar);
-//             search.cpjar=[];
-//             $('.cpjar-check:checked').each(function(){
-//                 search.cpjar.push({"value":$(this).val(),"label":$(this).next('.cpjar-option').text()});
-//             })
-
             if($(this).is(":checked")){ //check했을 때
                 addSearchTag('cpjar-tag', cpjarText, 'primary');//사용자 정의 function
-                search.cpjar.push({"value": $(this).val(), "label": cpjarText})
+                search.cpjar.push(cpjarText);
                 $('.tag-delete').click(function() {
                             var deleteTag = $(this).parent('button').text().split(' X')[0];
                             $('.cpjar-option:contains('+ deleteTag + ')').prev().prop('checked', false);
@@ -364,8 +374,7 @@
             }else{//check풀렸을 때
             	var arr = $.makeArray(search.cpjar);
 				$.map(arr,function(val,i){
-					if(cpjarText.indexOf(val.label)!=-1){//해당태그가 맞다면
-				        console.log(val);
+					if(cpjarText.indexOf(val)!=-1){//해당태그가 맞다면
 						search.cpjar.splice(i,1);
 					}
 				});
@@ -419,8 +428,22 @@
         if($('.cpjyr-tag')){
             $('.cpjyr-tag').remove();
         }
-        addSearchTag('cpjyr-tag',search.cpjyr+'년','success');
-    });
+		addSearchTag('cpjyr-tag',search.cpjyr+'년','success');
+		console.log(JSON.stringify(search));
+		$.ajax({
+            type:'post',
+            url: contextRoot+"/developer/projectList",
+            dataType : "json",
+            headers : {
+				"Accept" : "application/json",
+				"Content-Type" : "application/json"
+			},
+            data : JSON.stringify(search),
+            success:function(data){
+                console.log(data.search);
+            }
+        });
+	});
     //경력추가 끝
 </script>
 
