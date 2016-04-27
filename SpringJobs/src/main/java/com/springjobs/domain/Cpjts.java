@@ -8,7 +8,7 @@ public class Cpjts {
 	 private int cpjno;
 	 private String cpjnm;
 	 private String cpjint;
-	 private List<String> cpjsk;
+	 private List<Skills> cpjsk;
 	 private String cpjchk;
 	 private int cpjyr;
 	 private int cpjnpl;
@@ -27,7 +27,7 @@ public class Cpjts {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cpjts(int cpjno, String cpjnm, String cpjint, List<String> cpjsk, String cpjchk, int cpjyr, int cpjnpl,
+	public Cpjts(int cpjno, String cpjnm, String cpjint, List<Skills> cpjsk, String cpjchk, int cpjyr, int cpjnpl,
 			int cpjmnp, int cpjmap, int cpjhtn, Date cpjrd, Date cpjed, Date cpjsd, String cpjrg, String cpjwt,
 			String cpjar, int cno) {
 		super();
@@ -74,11 +74,11 @@ public class Cpjts {
 		this.cpjint = cpjint;
 	}
 
-	public List<String> getCpjsk() {
+	public List<Skills> getCpjsk() {
 		return cpjsk;
 	}
 
-	public void setCpjsk(List<String> cpjsk) {
+	public void setCpjsk(List<Skills> cpjsk) {
 		this.cpjsk = cpjsk;
 	}
 
@@ -193,6 +193,7 @@ public class Cpjts {
 				+ ", cpjhtn=" + cpjhtn + ", cpjrd=" + cpjrd + ", cpjed=" + cpjed + ", cpjsd=" + cpjsd + ", cpjrg="
 				+ cpjrg + ", cpjwt=" + cpjwt + ", cpjar=" + cpjar + ", cno=" + cno + "]";
 	}
-	 
+	
+	
 	
 }
