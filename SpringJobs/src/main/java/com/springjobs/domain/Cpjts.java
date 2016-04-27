@@ -1,13 +1,14 @@
 package com.springjobs.domain;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Cpjts {
 
 	 private int cpjno;
 	 private String cpjnm;
 	 private String cpjint;
-	 private String cpjsk;
+	 private List<String> cpjsk;
 	 private String cpjchk;
 	 private int cpjyr;
 	 private int cpjnpl;
@@ -26,9 +27,9 @@ public class Cpjts {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cpjts(int cpjno, String cpjnm, String cpjint, String cpjsk, String cpjchk, int cpjyr, int cpjnpl, int cpjmnp,
-			int cpjmap, int cpjhtn, Date cpjrd, Date cpjed, Date cpjsd, String cpjrg, String cpjwt, String cpjar,
-			int cno) {
+	public Cpjts(int cpjno, String cpjnm, String cpjint, List<String> cpjsk, String cpjchk, int cpjyr, int cpjnpl,
+			int cpjmnp, int cpjmap, int cpjhtn, Date cpjrd, Date cpjed, Date cpjsd, String cpjrg, String cpjwt,
+			String cpjar, int cno) {
 		super();
 		this.cpjno = cpjno;
 		this.cpjnm = cpjnm;
@@ -73,11 +74,11 @@ public class Cpjts {
 		this.cpjint = cpjint;
 	}
 
-	public String getCpjsk() {
+	public List<String> getCpjsk() {
 		return cpjsk;
 	}
 
-	public void setCpjsk(String cpjsk) {
+	public void setCpjsk(List<String> cpjsk) {
 		this.cpjsk = cpjsk;
 	}
 
@@ -192,9 +193,6 @@ public class Cpjts {
 				+ ", cpjhtn=" + cpjhtn + ", cpjrd=" + cpjrd + ", cpjed=" + cpjed + ", cpjsd=" + cpjsd + ", cpjrg="
 				+ cpjrg + ", cpjwt=" + cpjwt + ", cpjar=" + cpjar + ", cno=" + cno + "]";
 	}
-	
-	
-	 
 	 
 	
 }
