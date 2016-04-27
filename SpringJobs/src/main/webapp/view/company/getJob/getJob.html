@@ -21,22 +21,10 @@
 			<div class="col-md-8 text-left main">
 		<!-- 본문입력란 -->
 	<form id=getJobTable>
-				<input type="text" id="reno" >
-			<input type="text" id="retl" >
-				<input type="text" id="recnm" >
-					<input type="text" id="rewc" >
-						<input type="text" id="renpl" >
-							<input type="text" id="rechk" >
-								<input type="text" id="reyr" >
-									<input type="text" id="reidt" >
-										<input type="text" id="rejp" >
-											<input type="text" id="retp" >
-												<input type="text" id="repay" >
-													<input type="text" id="rerg" >
-																<input type="text" id="rear" >
-																	<input type="text" id="rewt" >	
-																	
-																	
+				
+			<div id="recnm"> </div>
+			<div id="reed"> </div>
+				
 																		 <span class="input center-block">
 						  <button type="button" class="btn btn-success btn-sm" id="join">등록</button>
 						           
@@ -58,55 +46,36 @@
 		
 	})
 	
-	$(document).ready(function() {
+	$(document).on('frameComplete',function(event) {
 	   $('#join').click(function () { 
-		/*    console.log('{"reno":"'+$("#reno").val()+'","retl":"' +$("#retl").val() +'","recnm":"' 
-	            	+$("#recnm").val()+'","rewc":"'+$("#rewc").val()+'","renpl":"' 
-	            	+$("#renpl").val()+'","rechk":"'+$("#rechk").val()+'","reyr":"' 
-	            	+$("#reyr").val()+'","reidt":"'+$("#reidt").val()+'","rejp":"' 
-	            	+$("#rejp").val()+'","retp":"'+$("#retp").val()+'","repay":"' 
-	            	+$("#repay").val()+'","rerg":"'+$("#rerg").val()+'","reed":"' +$("#reed").val()
-	            	+'","rear":"'+$("#rear").val()+'","rewt":"'+$("#rewt").val()+'"}') 
-	            	 */
-        //$.ajax({
-               /*  url: contextRoot+"/getJob"
-                , method: "POST"
+		
+        $.ajax({
+                url: contextRoot+"/getJob?reno=1"
+                , method: "GET"
                 , dataType: "json"
-                , data: '{"reno":"'+$("#reno").val()+'","retl":"' +$("#retl").val() +'","recnm":"' 
-            	+$("#recnm").val()+'","rewc":"'+$("#rewc").val()+'","renpl":"' 
-            	+$("#renpl").val()+'","rechk":"'+$("#rechk").val()+'","reyr":"' 
-            	+$("#reyr").val()+'","reidt":"'+$("#reidt").val()+'","rejp":"' 
-            	+$("#rejp").val()+'","retp":"'+$("#retp").val()+'","repay":"' 
-            	+$("#repay").val()+'","rerg":"'+$("#rerg").val()+'","reed":"' +$("#reed").val()
-            	+'","rear":"'+$("#rear").val()+'","rewt":"'+$("#rewt").val()+'"}'
-                , headers: {
+               , headers: {
                     "Accept": "application/json"
                     , "Content-Type": "application/json"
                 }
-                , success : function(data, status) {
-        			console.log(data.crecs);
-        				crecs=data.crecs;
-        				$('#getJobTable').load('/view/company/getJob/getJob.html', function() {
-        					$('#crecs').text(data.reno);
+                , success : function(data) {
+                	console.log(data);
+              		console.log(data.crecs.recnm);
+               		console.log(data.crecs.reed);
+              		var crecs=data.crecs;
+              		var recnm=data.crecs.recnm;
+              		var reed=data.crecs.reed;
+              		$('#getJobTable').load('/view/company/getJob/getJob.html', function() {
+        				$('#recnm').text(data.crecs.recnm);
+        				$('#reed').text(data.crecs.reed);
         				});
+        			
         		},
-        	/*error:function(req,status,error){
-        			callModal('알수없는 에러');
-        			user=null;
-        		} 
-            });  */
-      	
-      	$.getJSON("/getJob?reno=16", function(data){
-      		console.log(data);
-      		console.log(data.crecs.recnm);
-      		var crecs=data.crecs;
-      		var recnm=data.crecs.recnm;
-      		
-      		$('#getJobTable').load('/view/company/getJob/getJob.html', function() {
-				$('#crecs').text(data.recnm);
-				});
-      	});
-      	});
+        			error:function(req,status,error){
+        				callModal('알수없는 에러');
+        				user=null;
+        		}
+            }); 
+	   });
 	   });
 </script>
 
