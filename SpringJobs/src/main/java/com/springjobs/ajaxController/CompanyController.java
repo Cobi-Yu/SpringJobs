@@ -39,9 +39,9 @@ public class CompanyController {
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	@RequestMapping( value="/addJob" , method=RequestMethod.POST)
-	public void addJob(@RequestBody Crecs crecs){
+	public void addJob(@RequestBody Crecs crecs, Model model){
 		System.out.println("addJob Test :"+crecs.toString());
-		companyService.addJob(crecs);
+		model.addAttribute("reno",companyService.addJob(crecs));
 	}
 	
 	@RequestMapping( value="/getJob", method=RequestMethod.GET )
