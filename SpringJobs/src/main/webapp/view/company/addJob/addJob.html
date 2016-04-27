@@ -283,7 +283,7 @@
 
                                         <form enctype="multipart/form-data">
                                 
-                                                <input id="refnm" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#">
+                                                <input id="refnm" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="/view/company/addJob/file">
                                       
                                             <div class="btn ">
                                             </div>
@@ -357,7 +357,7 @@
 
     //파일 업로드 관련 함수
     $(document).ready(function () {
-        $("#test-upload").fileinput({
+        $("#refnm").fileinput({
             'showPreview': false
             , 'allowedFileExtensions': ['jpg', 'png', 'gif']
             , 'elErrorContainer': '#errorBlock'
@@ -393,8 +393,10 @@
                     "Accept": "application/json"
                     , "Content-Type": "application/json"
                 }
+                ,beforeSend : addLoading
+				,complete : removeLoading
                 , success: function (status) {
-                    callModal('공고등록','등록완료','/view/common/login/frame.html');
+                    callModal('구인 등록','구인 공고 등록 완료',contextRoot+"/view/company/getJob/getJob.html" );
                 }
             });
         });
