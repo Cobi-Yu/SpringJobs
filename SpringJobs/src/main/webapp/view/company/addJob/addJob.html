@@ -51,17 +51,10 @@
         <div class="row content">
             <div class="col-sm-2 sidenav"></div>
             <div class="col-md-8 text-left main">
-
-
                 <!-- 본문입력란 -->
-
                 <!---->
                 <div class="table-responsive tabmar">
-
-
                     <table class="table table-bordered table-striped nanum tabsize" >
-
-
                         <tbody>
                             <tr>
                                 <thead>
@@ -356,7 +349,7 @@
     });
 
     //파일 업로드 관련 함수
-    $(document).ready(function () {
+	$(document).on('frameComplete',function(event) {
         $("#refnm").fileinput({
             'showPreview': false
             , 'allowedFileExtensions': ['jpg', 'png', 'gif']
@@ -371,7 +364,6 @@
             } else {
                 rechk = 1;
             }
-
             console.log('{"retl":"' +$("#retl").val() +'","recnm":"' 
                 	+$("#recnm").val()+'","rewc":"'+$("#rewc").val()+'","renpl":"' 
                 	+$("#renpl").val()+'","rechk":"'+$("#rechk").val()+'","reyr":"' 
@@ -380,7 +372,7 @@
                 	+$("#repay").val()+'","rerg":"'+$("#rerg").val()+'","reed":"' +$("#reed").val()
                 	+'","rear":"'+$("#rear").val()+'","rewt":"'+$("#rewt").val()+'"}')
          $.ajax({
-                url: contextRoot+"/addJob"
+                url: contextRoot+"/company/addJob"
                 , method: "POST"
                 , dataType: "json"
                 , data: '{"retl":"'+$("#retl").val()+'","recnm":"'+$("#recnm").val() 
@@ -395,12 +387,44 @@
                 }
                 ,beforeSend : addLoading
 				,complete : removeLoading
-                , success: function (status) {
-                    callModal('구인 등록','구인 공고 등록 완료',contextRoot+"/view/company/getJob/getJob.html" );
+                , success: function (data) {
+                	console.log(data.reno);
+                	 $.ajax({
+     	                url: contextRoot+"/view/company/getJob/getJob.html?"+data.reno
+     	                , method: "GET"
+     	                , dataType: "json"
+     	               , headers: {
+     	                    "Accept": "application/json"
+     	                    , "Content-Type": "application/json"
+     	                },
+     	                success : function(data) {
+     	                	
+     	                	console.log(data);
+     	                	$('#retl').text(data.crecs.retl);
+     	               		$('#recnm').text(data.crecs.recnm);
+     	               		$('#rewc').text(data.crecs.rewc);
+     	               		$('#renpl').text(data.crecs.renpl);
+     	               		$('#rechk').text(data.crecs.rechk);
+     	               		$('#reyr').text(data.crecs.reyr);
+     	               		$('#reidt').text(data.crecs.reidt);
+     	               		$('#rejp').text(data.crecs.rejp);
+     	               		$('#retp').text(data.crecs.retp);
+     	               		$('#repay').text(data.crecs.repay);
+     	               		$('#rerg').text(data.crecs.rerg);
+     	               		$('#reed').text(data.crecs.reed);
+     	    				$('#rear').text(data.crecs.rear);
+     	    				$('#rewt').text(data.crecs.rewt);
+     	        		},        		
+     	        			error:function(req,status,error){
+     	        				callModal('알수없는 에러');
+     	        				user=null;
+     	        		}
+     	            });
+                	 callModal('구인 등록','구인 공고 등록 완료', contextRoot+"/view/company/getJob/getJob.html?"+data.reno);
                 }
             });
+           
         });
     });
 </script>
-
 </html>
