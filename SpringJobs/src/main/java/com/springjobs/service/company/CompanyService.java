@@ -8,7 +8,7 @@ public interface CompanyService {
 	
 	public int addProject(Cpjts cpjts);
 	
-	public void addJob(Crecs crecs);
+	public int addJob(Crecs crecs);
 	
 	public Cpjts getProject(int cpjno) throws Exception;
 	

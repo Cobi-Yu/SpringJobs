@@ -33,8 +33,11 @@ public class CompanyDaoImpl implements CompanyDao{
 		return sqlSession.selectOne("ProjectMapper.getProject", cpjno);	
 	}
 	
-	public void addJob(Crecs crecs){
+	public int addJob(Crecs crecs){
 		sqlSession.insert("AddJobMapper.addJob", crecs);
+		int reno = crecs.getReno();
+		System.out.println("dao impl에서 reno 값은??"+ reno);
+		return reno;
 	}
 	
 	public Crecs getJob(int reno) throws Exception {

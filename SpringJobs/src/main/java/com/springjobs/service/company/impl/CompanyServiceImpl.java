@@ -20,8 +20,8 @@ public class CompanyServiceImpl implements CompanyService{
 	public int addProject(Cpjts cpjts){
 		return companyDao.addProject(cpjts);
 	}
-	public void addJob(Crecs crecs){
-		companyDao.addJob(crecs);
+	public int addJob(Crecs crecs){
+		return companyDao.addJob(crecs);
 	}
 	public Cpjts getProject(int cpjno) throws Exception {
 		return companyDao.getProject(cpjno);
