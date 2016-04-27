@@ -181,22 +181,20 @@
 
 			$('#header').load('/view/common/login/frameHeader.html');
 			$('#footer').load('/view/common/login/frameFooter.html');
-			
+	});
+	$(document).on('frameComplete',function(event){
 			$.ajax({
-				url : "http://t1.java78.com:8080/addProjectView?cpjno=1",
+				url : contextRoot+"/addProjectView?cpjno=1",
 				method : "GET",
 				dataType : "json",
 				headers : {
 					"Accept" : "application/json",
 					"Content-Type" : "application/json"
 				},
-				/* 
 				beforeSend : addLoading,
-				complete : removeLoading, */
+				complete : removeLoading,
 				success : function(data) {
 					console.log(data.cpjts);
-					#{}
-					'{"cpjnm":"'+data.cpjnm+'"}'
 				},
 				error:function(req,status,error){
 					callModal('경고','알수없는 에러');
