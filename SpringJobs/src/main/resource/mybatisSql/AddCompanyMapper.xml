@@ -21,7 +21,7 @@
 	<insert 	id="addCompany"		parameterType="com.springjobs.domain.Cinfos" >
 	 	INSERT
 		INTO CINFOS(cno, uno, cct, crgno, cnm, cscl, clo, cnpl, cint) 
-		VALUES(#{cno},1,#{cct},#{crgno},#{cnm},#{cscl},#{clo},#{cnpl},#{cint});
+		VALUES(#{cno},#{uno},#{cct},#{crgno},#{cnm},#{cscl},#{clo},#{cnpl},#{cint});
 	 </insert>
 	
 </mapper>
