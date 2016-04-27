@@ -25,7 +25,11 @@
 	<insert 	id="addJob"		parameterType="com.springjobs.domain.Crecs" >
 	 	INSERT
 		INTO CRECS(retl, recnm, rewc, renpl, rechk, reyr, reidt, rejp, retp, repay, rerg, rerd, reed, rehtn, rear, rewt, cno) 
-		VALUES(#{retl},#{recnm},#{rewc},#{renpl},#{rechk},#{reyr},#{reidt},#{rejp},#{retp},#{repay},#{rerg},curdate(),#{reed},#{rehtn},#{rear},#{rewt},1);
+		VALUES(#{retl},#{recnm},#{rewc},#{renpl},#{rechk},#{reyr},#{reidt},#{rejp},#{retp},#{repay},#{rerg},curdate(),#{reed},1,#{rear},#{rewt},1);
+		    <selectKey keyProperty="reno" resultType="INTEGER">
+	        SELECT LAST_INSERT_ID()
+	  	  </selectKey>
+	
 	 </insert>
 	
 	<!-- SQL : SELECT ONE -->
