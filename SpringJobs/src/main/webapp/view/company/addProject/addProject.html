@@ -209,21 +209,21 @@
             }
 
             console.log('{"cpjnm":"' +$("#cpjnm").val() 
-            		+'","cpjsd":"'+$("#cpjsd").val()
-            		+'","cpjed":"'+$("#cpjed").val()
-            		+'","cpjint":"'+$("#cpjint").val()
-            		+'","cpjsk":"'+$("#cpjsk").val()
-            		+'","cpjchk":"'+$("#cpjchk").val()
-            		+'","cpjyr":"'+$("#cpjyr").val()
-            		+'","cpjnpl":"'+$("#cpjnpl").val()
-            		+'","cpjmnp":"'+$("#cpjmnp").val()
-            		+'","cpjmap":"'+$("#cpjmap").val()
-            		+'","cpjrg":"'+$("#cpjrg").val()
-            		+'","cpjwt":"'+$("#cpjwt").val()
-            		+'","cno":"'+user.cno
-            		+'","cpjar":"' +$("#cpjar").val()+'"}')
+	            		+'","cpjsd":"'+$("#cpjsd").val()
+	            		+'","cpjed":"'+$("#cpjed").val()
+	            		+'","cpjint":"'+$("#cpjint").val()
+	            		+'","cpjsk":"'+$("#cpjsk").val()
+	            		+'","cpjchk":"'+$("#cpjchk").val()
+	            		+'","cpjyr":"'+$("#cpjyr").val()
+	            		+'","cpjnpl":"'+$("#cpjnpl").val()
+	            		+'","cpjmnp":"'+$("#cpjmnp").val()
+	            		+'","cpjmap":"'+$("#cpjmap").val()
+	            		+'","cpjrg":"'+$("#cpjrg").val()
+	            		+'","cpjwt":"'+$("#cpjwt").val()
+	            		+'","cno":"'+user.cno
+	            		+'","cpjar":"' +$("#cpjar").val()+'"}')
          $.ajax({
-                url: contextRoot+"/addProject"
+                url: contextRoot+"/company/addProject"
                 , method: "POST"
                 , dataType: "json"
                 , data: 

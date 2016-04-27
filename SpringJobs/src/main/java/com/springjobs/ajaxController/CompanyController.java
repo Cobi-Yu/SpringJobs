@@ -14,6 +14,7 @@ import com.springjobs.domain.Crecs;
 import com.springjobs.service.company.CompanyService;
 
 @Controller
+@RequestMapping("/company")
 public class CompanyController {
 
 	@Autowired

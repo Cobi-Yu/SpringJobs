@@ -56,7 +56,7 @@
 		                   </tr>
 		                   <tr> 
 	                        	<td><h3>프로젝트 주제</h3>
-	                        	<div id="cpjnm"></div>
+	                        		<div class="col-md-3" id="cpjnm"></div>
 								</td>
 						   </tr>
 						   <tr>
@@ -71,11 +71,12 @@
 									</div>
 						   		</td>
 						   </tr>
-						   <!-- 
+						    
 						   <tr>		 	
 						  		<td><h3>프로젝트 설명</h3>
-								<textarea name="content" id="cpjint" rows="15" cols="60" placeholder="프로젝트를 설명해주세요."></textarea></td>	
+								<div class="col-md-3" id="cpjint" ></div>	
 	                       </tr>
+	                       
 		                   <tr>
 		                   		<td><h3>요구되는 기술</h3>
 		                   		기술명 <input type="text" id="cpjsk">
@@ -83,11 +84,10 @@
 		                   </tr>
 		                   <tr>
 		                   		<td><h3>프로젝트 경력여부</h3>
-                                    <input class="form-control" type="checkbox" checked data-toggle="toggle" data-size="small" data-on="없음" data-off="경력" id="cpjchk" style="display:inline-block; " >
-                  
-                                    <div id="pre_set" > </div>
+                                    <div id="pre_set"> </div>
                                 </td>
 		                   </tr>
+		                   <!-- 
 		                   <tr>
 		                   		<td><h3>모집인원</h3>
 		                   		 	<input type="text" id="cpjnpl" style="width:25%" placeholder="예) 5명일경우 5만 입력">	
@@ -162,7 +162,7 @@
 		                   		<button type="button" class="btn btn-default">임시저장</button> 
 								<button type="button" class="btn btn-primary" id="join">등록</button> 	 
 								</td>
-		                   </tr>      -->           
+		                   </tr>     -->       
 	                      </tbody>
 	                       
 						</table>
@@ -182,9 +182,10 @@
 			$('#header').load('/view/common/login/frameHeader.html');
 			$('#footer').load('/view/common/login/frameFooter.html');
 	});
+	
 	$(document).on('frameComplete',function(event){
 			$.ajax({
-				url : contextRoot+"/addProjectView?cpjno=1",
+				url : contextRoot+"/company/addProjectView?cpjno=1",
 				method : "GET",
 				dataType : "json",
 				headers : {
@@ -195,28 +196,15 @@
 				complete : removeLoading,
 				success : function(data) {
 					console.log(data.cpjts);
+					$('#cpjnm').text(data.cpjts.cpjnm);
+					$('#cpjsd').text(data.cpjts.cpjsd);
+					$('#cpjed').text(data.cpjts.cpjed);
+					$('#cpjint').text(data.cpjts.cpjint);
 				},
 				error:function(req,status,error){
 					callModal('경고','알수없는 에러');
 					user=null;
 				}
-				
-// 				$.getJSON("/addProjectView?cpjno=1", function(data){
-// 					console.log(data);
-// 					console.log(data.cpjts.cpjnm);
-					
-// 					var cpjnm='';
-// 					var cpjsd='';
-// 					var cpjed='';
-					
-// 					cpjnm += data.cpjts.cpjnm;
-// 					cpjsd += data.cpjts.cpjsd;
-// 					cpjed += data.cpjts.cpjed;
-// 					console.log(cpjed);
-// 					$('#cpjnm').text(cpjnm);
-// 					$('#cpjsd').text(cpjsd);
-// 					$('#cpjed').text(cpjed);
-// 				});
 			 });
 		});
 		
