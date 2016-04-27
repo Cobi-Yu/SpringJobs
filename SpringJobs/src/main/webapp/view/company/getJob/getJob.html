@@ -11,6 +11,29 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/view/common/login/css/frame.css">
+ <style>
+        .adp {
+            background-color: #6666FF;
+            width: 100%;
+            padding: 0em 1em 1em 4em;
+            color: white;
+        }
+        
+        .tabsize {
+            width:80%;
+            float: left;
+        }
+        .tabmar{
+            margin-left: 10em;
+        }
+        
+        .navbar {
+	        margin-bottom: 0;
+	        border-radius: 0;
+	        margin-bottom: 0px;
+	    }
+    </style>
+
 </head>
 <body>
 	<div id="header"></div>
@@ -20,17 +43,96 @@
 			<div class="col-sm-2 sidenav"></div>
 			<div class="col-md-8 text-left main">
 		<!-- 본문입력란 -->
-	<form id=getJobTable>
-				
-			<div id="recnm"> </div>
-			<div id="reed"> </div>
-				
-																		 <span class="input center-block">
+		
+		<div class="table-responsive tabmar">
+			<table class="table table-bordered table-striped nanum tabsize">
+				<tbody>
+					<tr>
+						<td>
+							<div class="col-md-12 adp">        
+                       			<h1>기업공고 등록</h1>
+                       			상세하게 작성해 주실수록 더 많은 지원자에게 노출됩니다.
+                          </div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="retl"> </div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="recnm"> </div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="rewc"> </div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="renpl"> </div>
+						</td>
+					</tr>								
+					<tr>
+						<td>
+							<div id="rechk"> </div>
+						</td>
+					</tr>			
+					<tr>
+						<td>
+							<div id="reyr"> </div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="reidt"> </div>	
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div id="rejp"> </div>	
+						</td>
+					</tr>													
+					<tr>
+						<td>
+							<div id="retp"> </div>
+						</td>
+					</tr>								
+					<tr>
+						<td>
+							<div id="repay"> </div>	
+						</td>
+					</tr>								
+					<tr>
+						<td>
+							<div id="rerg"> </div>
+						</td>
+					</tr>								
+					<tr>
+						<td>
+							<div id="reed"> </div>	
+						</td>
+					</tr>								
+					<tr>
+						<td>
+							<div id="rear"> </div>	
+						</td>
+					</tr>								
+					<tr>
+						<td>
+							<div id="rewt"> </div>	
+						</td>
+					</tr>								
+				</tbody>
+			</table>			
+		</div>	
+			 <span class="input center-block">
 						  <button type="button" class="btn btn-success btn-sm" id="join">등록</button>
 						           
 						  <button type="button" class="btn btn-danger btn-sm">취소</button>
-	                 </span>
-	      </form>
+	           </span>
 			</div>
 			<div class="col-sm-2 sidenav"></div>
 		</div>
@@ -41,35 +143,42 @@
 	$(function(){
 		$('#header').load('/view/common/login/frameHeader.html');
 		$('#footer').load('/view/common/login/frameFooter.html');
-		
-	
-		
-	})
+	});
 	
 	$(document).on('frameComplete',function(event) {
 	   $('#join').click(function () { 
 		
         $.ajax({
+<<<<<<< .mine
+                url: contextRoot+"/company/getJob?reno="+data.crecs.reno
+=======
                 url: contextRoot+"/company/getJob?reno=1"
+>>>>>>> .r93
                 , method: "GET"
                 , dataType: "json"
                , headers: {
                     "Accept": "application/json"
                     , "Content-Type": "application/json"
-                }
-                , success : function(data) {
+                },
+                beforeSend : addLoading,
+				complete : removeLoading,
+                success : function(data) {
                 	console.log(data);
-              		console.log(data.crecs.recnm);
-               		console.log(data.crecs.reed);
-              		var crecs=data.crecs;
-              		var recnm=data.crecs.recnm;
-              		var reed=data.crecs.reed;
-              		$('#getJobTable').load('/view/company/getJob/getJob.html', function() {
-        				$('#recnm').text(data.crecs.recnm);
-        				$('#reed').text(data.crecs.reed);
-        				});
-        			
-        		},
+                	$('#retl').text(data.crecs.retl);
+               		$('#recnm').text(data.crecs.recnm);
+               		$('#rewc').text(data.crecs.rewc);
+               		$('#renpl').text(data.crecs.renpl);
+               		$('#rechk').text(data.crecs.rechk);
+               		$('#reyr').text(data.crecs.reyr);
+               		$('#reidt').text(data.crecs.reidt);
+               		$('#rejp').text(data.crecs.rejp);
+               		$('#retp').text(data.crecs.retp);
+               		$('#repay').text(data.crecs.repay);
+               		$('#rerg').text(data.crecs.rerg);
+               		$('#reed').text(data.crecs.reed);
+    				$('#rear').text(data.crecs.rear);
+    				$('#rewt').text(data.crecs.rewt);
+        		},        		
         			error:function(req,status,error){
         				callModal('알수없는 에러');
         				user=null;
