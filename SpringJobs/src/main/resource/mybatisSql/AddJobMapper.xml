@@ -7,18 +7,18 @@
 <mapper namespace="AddJobMapper">
 	<resultMap id="AddJobSelectMap" type="com.springjobs.domain.Crecs">
 		<result property="reno" 			column="RENO" 		jdbcType="INTEGER"/>
-		<result property="title"			column="RETL" 		jdbcType="VARCHAR" />
-		<result property="comName"		 	column="RECNM" 		jdbcType="VARCHAR" />
-		<result property="detail" 			column="REWC" 		jdbcType="VARCHAR" />
-		<result property="person" 			column="RENPL"	 	jdbcType="INTEGER" />
-		<result property="check" 			column="RECHK"	 	jdbcType="CHAR" />
-		<result property="industry" 		column="REIDT" 		jdbcType="VARCHAR" />
-		<result property="jobType" 			column="REJP" 		jdbcType="VARCHAR" />
-		<result property="reType" 			column="RETP" 		jdbcType="VARCHAR" />
-		<result property="regDate" 			column="RERD" 		jdbcType="DATE" />
-		<result property="endDate"			column="REED"		jdbcType="DATE" />
-		<result property="area" 			column="REAR" 		jdbcType="VARCHAR" />
-		<result property="workType"			column="REWT" 		jdbcType="VARCHAR" />
+		<result property="retl"				column="RETL" 		jdbcType="VARCHAR" />
+		<result property="recnm"		 	column="RECNM" 		jdbcType="VARCHAR" />
+		<result property="rewc" 			column="REWC" 		jdbcType="VARCHAR" />
+		<result property="renpl" 			column="RENPL"	 	jdbcType="INTEGER" />
+		<result property="rechk" 			column="RECHK"	 	jdbcType="CHAR" />
+		<result property="reidt"	 		column="REIDT" 		jdbcType="VARCHAR" />
+		<result property="rejp"	 			column="REJP" 		jdbcType="VARCHAR" />
+		<result property="retp" 			column="RETP" 		jdbcType="VARCHAR" />
+		<result property="rerd" 			column="RERD" 		jdbcType="DATE" />
+		<result property="reed"				column="REED"		jdbcType="DATE" />
+		<result property="rear" 			column="REAR" 		jdbcType="VARCHAR" />
+		<result property="rewt"				column="REWT" 		jdbcType="VARCHAR" />
 	</resultMap>
 	
 	<!-- SQL : INSERT -->
@@ -29,9 +29,11 @@
 	 </insert>
 	
 	<!-- SQL : SELECT ONE -->
-	 <select 	id="getJob"	parameterType="com.springjobs.domain.Crecs"	resultMap="AddJobSelectMap">
-		SELECT reno, retl, recnm, rewc, renpl, rechk, reyr, reidt, rejp, retp, repay, rerg, reed, rear, rewt
-		FROM CRECS<!-- , CINFOS, USERS 
+	 <select 	id="getJob"	parameterType="int"	resultMap="AddJobSelectMap">
+		SELECT retl, recnm, rewc, renpl, rechk, reyr, reidt, rejp, retp, repay, rerg, rear, rewt
+		FROM CRECS
+		WHERE reno = #{reno};
+		<!-- , CINFOS, USERS 
 		WHERE CRECS.cno = CINFOS.cno
 		and CINFOS.cno = USERS.cno -->
 	<!-- 	and USERS.uno = CINFOS.uno -->
