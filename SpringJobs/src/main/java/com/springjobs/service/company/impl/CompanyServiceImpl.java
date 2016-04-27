@@ -21,6 +21,7 @@ public class CompanyServiceImpl implements CompanyService{
 		return companyDao.addProject(cpjts);
 	}
 	public int addJob(Crecs crecs){
+		System.out.println("crecs 값은?:"+companyDao.addJob(crecs));
 		return companyDao.addJob(crecs);
 	}
 	public Cpjts getProject(int cpjno) throws Exception {
