@@ -183,7 +183,7 @@
 			$('#footer').load('/view/common/login/frameFooter.html');
 			
 			$.ajax({
-				url : "http://t1.java78.com:8080/addProjectView?cpjno=25",
+				url : "http://t1.java78.com:8080/addProjectView?cpjno=1",
 				method : "GET",
 				dataType : "json",
 				headers : {
@@ -194,7 +194,8 @@
 				beforeSend : addLoading,
 				complete : removeLoading, */
 				success : function(data) {
-					console.log(data);
+					console.log(data.cpjts);
+					#{}
 					'{"cpjnm":"'+data.cpjnm+'"}'
 				},
 				error:function(req,status,error){
@@ -202,7 +203,7 @@
 					user=null;
 				}
 				
-// 				$.getJSON("/addProjectView?cpjno=25", function(data){
+// 				$.getJSON("/addProjectView?cpjno=1", function(data){
 // 					console.log(data);
 // 					console.log(data.cpjts.cpjnm);
 					
