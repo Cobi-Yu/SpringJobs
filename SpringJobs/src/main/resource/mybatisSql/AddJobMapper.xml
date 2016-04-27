@@ -30,7 +30,7 @@
 	
 	<!-- SQL : SELECT ONE -->
 	 <select 	id="getJob"	parameterType="int"	resultMap="AddJobSelectMap">
-		SELECT retl, recnm, rewc, renpl, rechk, reyr, reidt, rejp, retp, repay, rerg, rear, rewt
+		SELECT retl, recnm, rewc, renpl, rechk, reyr, reidt, rejp, retp, repay, rerg, reed, rear, rewt
 		FROM CRECS
 		WHERE reno = #{reno};
 		<!-- , CINFOS, USERS 
