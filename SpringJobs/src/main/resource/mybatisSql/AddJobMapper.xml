@@ -19,6 +19,7 @@
 		<result property="reed"				column="REED"		jdbcType="DATE" />
 		<result property="rear" 			column="REAR" 		jdbcType="VARCHAR" />
 		<result property="rewt"				column="REWT" 		jdbcType="VARCHAR" />
+		<result property="cno"				column="CNO"		jdbcType="INTEGER"/>
 	</resultMap>
 	
 	<!-- SQL : INSERT -->
