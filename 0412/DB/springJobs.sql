@@ -1,702 +1,807 @@
+-- «–±≥
+ALTER TABLE `USCLS`
+	DROP FOREIGN KEY `FK_USERS_TO_USCLS`; -- »∏ø¯ -> «–±≥
 
--- ÌïôÍµê
-DROP TABLE IF EXISTS `USCLS` RESTRICT;
+-- ∞Ê∑¬
+ALTER TABLE `UEXPS`
+	DROP FOREIGN KEY `FK_USERS_TO_UEXPS`; -- »∏ø¯ -> ∞Ê∑¬
 
--- Í≤ΩÎ†•
-DROP TABLE IF EXISTS `UEXPS` RESTRICT;
+-- ±‚æ˜¡§∫∏
+ALTER TABLE `CINFOS`
+	DROP FOREIGN KEY `FK_USERS_TO_CINFOS`; -- »∏ø¯ -> ±‚æ˜¡§∫∏
 
--- Í∏∞ÏóÖÏÇ¨ÏßÑ
-DROP TABLE IF EXISTS `CPHOTS` RESTRICT;
+-- ±∏¿Œ∞¯∞Ì
+ALTER TABLE `CRECS`
+	DROP FOREIGN KEY `FK_CINFOS_TO_CRECS`; -- ±‚æ˜¡§∫∏ -> ±∏¿Œ∞¯∞Ì
 
--- Í∏∞ÏóÖÌÉúÍ∑∏
-DROP TABLE IF EXISTS `CTAGS` RESTRICT;
+-- ±‚æ˜ªÁ¡¯
+ALTER TABLE `CPHOTS`
+	DROP FOREIGN KEY `FK_CINFOS_TO_CPHOTS`; -- ±‚æ˜¡§∫∏ -> ±‚æ˜ªÁ¡¯
 
--- ÏûêÍ≤©Ï¶ù
-DROP TABLE IF EXISTS `UCERTS` RESTRICT;
+-- ±‚æ˜≈¬±◊
+ALTER TABLE `CTAGS`
+	DROP FOREIGN KEY `FK_CINFOS_TO_CTAGS`; -- ±‚æ˜¡§∫∏ -> ±‚æ˜≈¬±◊
 
--- ÌîÑÎ°úÏ†ùÌä∏Í≤ΩÎ†•
-DROP TABLE IF EXISTS `UPJTNO` RESTRICT;
+-- ¿⁄∞›¡ı
+ALTER TABLE `UCERTS`
+	DROP FOREIGN KEY `FK_USERS_TO_UCERTS`; -- »∏ø¯ -> ¿⁄∞›¡ı
 
--- ÌîÑÎ°úÏ†ùÌä∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê
-DROP TABLE IF EXISTS `PJTBDS` RESTRICT;
+-- ø‹±πæÓ
+ALTER TABLE `ULANS`
+	DROP FOREIGN KEY `FK_USERS_TO_ULANS`; -- »∏ø¯ -> ø‹±πæÓ
 
--- ÌîÑÎ°úÏ†ùÌä∏Ï≤®Î∂ÄÌååÏùº
-DROP TABLE IF EXISTS `CPJTATCHS` RESTRICT;
+-- ±‚º˙ø¨¬˜
+ALTER TABLE `YSKILLS`
+	DROP FOREIGN KEY `FK_SKILLS_TO_YSKILLS`; -- ∫∏¿Ø±‚º˙ -> ±‚º˙ø¨¬˜
 
--- ÌöåÏõêÏÇ¨ÏßÑ
-DROP TABLE IF EXISTS `UPHOTS` RESTRICT;
+-- ±‚º˙ø¨¬˜
+ALTER TABLE `YSKILLS`
+	DROP FOREIGN KEY `FK_USERS_TO_YSKILLS`; -- »∏ø¯ -> ±‚º˙ø¨¬˜
 
--- ÌöåÏõêÌÉúÍ∑∏
-DROP TABLE IF EXISTS `UTAGS` RESTRICT;
+-- ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ
+ALTER TABLE `CPJTS`
+	DROP FOREIGN KEY `FK_CINFOS_TO_CPJTS`; -- ±‚æ˜¡§∫∏ -> ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ
 
--- Íµ¨Ïù∏Ï†ïÎ≥¥Ï≤®Î∂ÄÌååÏùº
-DROP TABLE IF EXISTS `CREATCHS` RESTRICT;
+-- «¡∑Œ¡ß∆Æ∞Ê∑¬
+ALTER TABLE `UPJTNO`
+	DROP FOREIGN KEY `FK_USERS_TO_UPJTNO`; -- »∏ø¯ -> «¡∑Œ¡ß∆Æ∞Ê∑¬
 
--- Íµ¨Ïù∏Ï†ïÎ≥¥ÌïÑÏöîÍ∏∞Ïà†
-DROP TABLE IF EXISTS `CRESKILLS` RESTRICT;
+-- «¡∑Œ¡ß∆Æ¡§∫∏πÆ¿«∞‘Ω√∆«
+ALTER TABLE `PJTBDS`
+	DROP FOREIGN KEY `FK_CPJTS_TO_PJTBDS`; -- ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ -> «¡∑Œ¡ß∆Æ¡§∫∏πÆ¿«∞‘Ω√∆«
 
--- ÌîÑÎ°úÏ†ùÌä∏ÌïÑÏöîÍ∏∞Ïà†
-DROP TABLE IF EXISTS `CPJTSKILLS` RESTRICT;
+-- «¡∑Œ¡ß∆Æ¡§∫∏πÆ¿«∞‘Ω√∆«
+ALTER TABLE `PJTBDS`
+	DROP FOREIGN KEY `FK_USERS_TO_PJTBDS`; -- »∏ø¯ -> «¡∑Œ¡ß∆Æ¡§∫∏πÆ¿«∞‘Ω√∆«
 
--- Íµ¨Ïù∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê
-DROP TABLE IF EXISTS `REBDS` RESTRICT;
+-- «¡∑Œ¡ß∆Æ√∑∫Œ∆ƒ¿œ
+ALTER TABLE `CPJTATCHS`
+	DROP FOREIGN KEY `FK_CPJTS_TO_CPJTATCHS`; -- ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ -> «¡∑Œ¡ß∆Æ√∑∫Œ∆ƒ¿œ
 
--- Ïô∏Íµ≠Ïñ¥
-DROP TABLE IF EXISTS `ULANS` RESTRICT;
+-- »∏ø¯ªÁ¡¯
+ALTER TABLE `UPHOTS`
+	DROP FOREIGN KEY `FK_USERS_TO_UPHOTS`; -- »∏ø¯ -> »∏ø¯ªÁ¡¯
 
--- Í∏∞Ïà†Ïó∞Ï∞®
-DROP TABLE IF EXISTS `YSKILLS` RESTRICT;
+-- »∏ø¯≈¬±◊
+ALTER TABLE `UTAGS`
+	DROP FOREIGN KEY `FK_USERS_TO_UTAGS`; -- »∏ø¯ -> »∏ø¯≈¬±◊
 
--- Í∏∞ÏóÖÎì±Î°ùÌîÑÎ°úÏ†ùÌä∏
-DROP TABLE IF EXISTS `CPJTS` RESTRICT;
+-- ±∏¿Œ¡§∫∏√∑∫Œ∆ƒ¿œ
+ALTER TABLE `CREATCHS`
+	DROP FOREIGN KEY `FK_CRECS_TO_CREATCHS`; -- ±∏¿Œ∞¯∞Ì -> ±∏¿Œ¡§∫∏√∑∫Œ∆ƒ¿œ
 
--- Íµ¨Ïù∏Í≥µÍ≥†
-DROP TABLE IF EXISTS `CRECS` RESTRICT;
+-- ±∏¿Œ¡§∫∏« ø‰±‚º˙
+ALTER TABLE `CRESKILLS`
+	DROP FOREIGN KEY `FK_CRECS_TO_CRESKILLS`; -- ±∏¿Œ∞¯∞Ì -> ±∏¿Œ¡§∫∏« ø‰±‚º˙
 
--- Î≥¥Ïú†Í∏∞Ïà†
-DROP TABLE IF EXISTS `SKILLS` RESTRICT;
+-- ±∏¿Œ¡§∫∏« ø‰±‚º˙
+ALTER TABLE `CRESKILLS`
+	DROP FOREIGN KEY `FK_SKILLS_TO_CRESKILLS`; -- ∫∏¿Ø±‚º˙ -> ±∏¿Œ¡§∫∏« ø‰±‚º˙
 
--- Í∏∞ÏóÖÏ†ïÎ≥¥
-DROP TABLE IF EXISTS `CINFOS` RESTRICT;
+-- «¡∑Œ¡ß∆Æ« ø‰±‚º˙
+ALTER TABLE `CPJTSKILLS`
+	DROP FOREIGN KEY `FK_CPJTS_TO_CPJTSKILLS`; -- ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ -> «¡∑Œ¡ß∆Æ« ø‰±‚º˙
 
--- ÌöåÏõê
+-- «¡∑Œ¡ß∆Æ« ø‰±‚º˙
+ALTER TABLE `CPJTSKILLS`
+	DROP FOREIGN KEY `FK_SKILLS_TO_CPJTSKILLS`; -- ∫∏¿Ø±‚º˙ -> «¡∑Œ¡ß∆Æ« ø‰±‚º˙
+
+-- ±∏¿Œ¡§∫∏πÆ¿«∞‘Ω√∆«
+ALTER TABLE `REBDS`
+	DROP FOREIGN KEY `FK_CRECS_TO_REBDS`; -- ±∏¿Œ∞¯∞Ì -> ±∏¿Œ¡§∫∏πÆ¿«∞‘Ω√∆«
+
+-- ±∏¿Œ¡§∫∏πÆ¿«∞‘Ω√∆«
+ALTER TABLE `REBDS`
+	DROP FOREIGN KEY `FK_USERS_TO_REBDS`; -- »∏ø¯ -> ±∏¿Œ¡§∫∏πÆ¿«∞‘Ω√∆«
+
+-- »∏ø¯
 DROP TABLE IF EXISTS `USERS` RESTRICT;
 
+-- «–±≥
+DROP TABLE IF EXISTS `USCLS` RESTRICT;
 
+-- ∞Ê∑¬
+DROP TABLE IF EXISTS `UEXPS` RESTRICT;
 
--- ÌöåÏõê
+-- ±‚æ˜¡§∫∏
+DROP TABLE IF EXISTS `CINFOS` RESTRICT;
+
+-- ±∏¿Œ∞¯∞Ì
+DROP TABLE IF EXISTS `CRECS` RESTRICT;
+
+-- ±‚æ˜ªÁ¡¯
+DROP TABLE IF EXISTS `CPHOTS` RESTRICT;
+
+-- ±‚æ˜≈¬±◊
+DROP TABLE IF EXISTS `CTAGS` RESTRICT;
+
+-- ¿⁄∞›¡ı
+DROP TABLE IF EXISTS `UCERTS` RESTRICT;
+
+-- ø‹±πæÓ
+DROP TABLE IF EXISTS `ULANS` RESTRICT;
+
+-- ∫∏¿Ø±‚º˙
+DROP TABLE IF EXISTS `SKILLS` RESTRICT;
+
+-- ±‚º˙ø¨¬˜
+DROP TABLE IF EXISTS `YSKILLS` RESTRICT;
+
+-- ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ
+DROP TABLE IF EXISTS `CPJTS` RESTRICT;
+
+-- «¡∑Œ¡ß∆Æ∞Ê∑¬
+DROP TABLE IF EXISTS `UPJTNO` RESTRICT;
+
+-- «¡∑Œ¡ß∆Æ¡§∫∏πÆ¿«∞‘Ω√∆«
+DROP TABLE IF EXISTS `PJTBDS` RESTRICT;
+
+-- «¡∑Œ¡ß∆Æ√∑∫Œ∆ƒ¿œ
+DROP TABLE IF EXISTS `CPJTATCHS` RESTRICT;
+
+-- »∏ø¯ªÁ¡¯
+DROP TABLE IF EXISTS `UPHOTS` RESTRICT;
+
+-- »∏ø¯≈¬±◊
+DROP TABLE IF EXISTS `UTAGS` RESTRICT;
+
+-- ±∏¿Œ¡§∫∏√∑∫Œ∆ƒ¿œ
+DROP TABLE IF EXISTS `CREATCHS` RESTRICT;
+
+-- ±∏¿Œ¡§∫∏« ø‰±‚º˙
+DROP TABLE IF EXISTS `CRESKILLS` RESTRICT;
+
+-- «¡∑Œ¡ß∆Æ« ø‰±‚º˙
+DROP TABLE IF EXISTS `CPJTSKILLS` RESTRICT;
+
+-- ±∏¿Œ¡§∫∏πÆ¿«∞‘Ω√∆«
+DROP TABLE IF EXISTS `REBDS` RESTRICT;
+
+-- »∏ø¯
 CREATE TABLE `USERS` (
-	`UNO`  INTEGER      NOT NULL COMMENT 'ÌöåÏõêÏùºÎ†®Î≤àÌò∏', -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
-	`UNM`  VARCHAR(50)  NOT NULL COMMENT 'ÌöåÏõêÏù¥Î¶Ñ', -- ÌöåÏõêÏù¥Î¶Ñ
-	`UENM` VARCHAR(50)  NULL     COMMENT 'ÌöåÏõêÏòÅÎ¨∏Ïù¥Î¶Ñ', -- ÌöåÏõêÏòÅÎ¨∏Ïù¥Î¶Ñ
-	`UEM`  VARCHAR(40)  NOT NULL COMMENT 'Ïù¥Î©îÏùº', -- Ïù¥Î©îÏùº
-	`UPW`  VARCHAR(20)  NOT NULL COMMENT 'ÎπÑÎ∞ÄÎ≤àÌò∏', -- ÎπÑÎ∞ÄÎ≤àÌò∏
-	`UCO`  VARCHAR(20)  NULL     COMMENT 'Íµ≠Ï†Å', -- Íµ≠Ï†Å
-	`USX`  VARCHAR(20)  NULL     COMMENT 'ÏÑ±Î≥Ñ', -- ÏÑ±Î≥Ñ
-	`UCNF` VARCHAR(20)  NOT NULL COMMENT 'Ïù∏Ï¶ùÏó¨Î∂Ä', -- Ïù∏Ï¶ùÏó¨Î∂Ä
-	`UBD`  DATE         NULL     COMMENT 'ÏÉùÎÖÑÏõîÏùº', -- ÏÉùÎÖÑÏõîÏùº
-	`UPHO` VARCHAR(30)  NULL     COMMENT 'Ïó∞ÎùΩÏ≤ò', -- Ïó∞ÎùΩÏ≤ò
-	`UADR` VARCHAR(255) NULL     COMMENT 'Í±∞Ï£ºÏßÄÏ£ºÏÜå', -- Í±∞Ï£ºÏßÄÏ£ºÏÜå
-	`UURL` VARCHAR(255) NULL     COMMENT 'ÌöåÏõêÏ£ºÏöîURL', -- ÌöåÏõêÏ£ºÏöîURL
-	`URES` TEXT         NULL     COMMENT 'ÌöåÏõêÏûêÍ∏∞ÏÜåÍ∞úÏÑú' -- ÌöåÏõêÏûêÍ∏∞ÏÜåÍ∞úÏÑú
+	`UNO`  INTEGER      NOT NULL COMMENT '»∏ø¯¿œ∑√π¯»£', -- »∏ø¯¿œ∑√π¯»£
+	`UNM`  VARCHAR(50)  NOT NULL COMMENT '»∏ø¯¿Ã∏ß', -- »∏ø¯¿Ã∏ß
+	`UENM` VARCHAR(50)  NULL     COMMENT '»∏ø¯øµπÆ¿Ã∏ß', -- »∏ø¯øµπÆ¿Ã∏ß
+	`UEM`  VARCHAR(40)  NOT NULL COMMENT '¿Ã∏ﬁ¿œ', -- ¿Ã∏ﬁ¿œ
+	`UPW`  VARCHAR(20)  NOT NULL COMMENT '∫Òπ–π¯»£', -- ∫Òπ–π¯»£
+	`UCO`  VARCHAR(20)  NULL     COMMENT '±π¿˚', -- ±π¿˚
+	`USX`  VARCHAR(20)  NULL     COMMENT 'º∫∫∞', -- º∫∫∞
+	`UCNF` VARCHAR(20)  NOT NULL COMMENT '¿Œ¡ıø©∫Œ', -- ¿Œ¡ıø©∫Œ
+	`UBD`  DATE         NULL     COMMENT 'ª˝≥‚ø˘¿œ', -- ª˝≥‚ø˘¿œ
+	`UPHO` VARCHAR(30)  NULL     COMMENT 'ø¨∂Ù√≥', -- ø¨∂Ù√≥
+	`UADR` VARCHAR(255) NULL     COMMENT '∞≈¡÷¡ˆ¡÷º“', -- ∞≈¡÷¡ˆ¡÷º“
+	`UURL` VARCHAR(255) NULL     COMMENT '»∏ø¯¡÷ø‰URL', -- »∏ø¯¡÷ø‰URL
+	`URES` VARCHAR(255) NULL     COMMENT '»∏ø¯¿⁄±‚º“∞≥º≠' -- »∏ø¯¿⁄±‚º“∞≥º≠
 )
-COMMENT 'ÌöåÏõê';
+COMMENT '»∏ø¯';
 
--- ÌöåÏõê
+-- »∏ø¯
 ALTER TABLE `USERS`
-	ADD CONSTRAINT `PK_USERS` -- ÌöåÏõê Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_USERS` -- »∏ø¯ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		);
 
--- ÌöåÏõê Ïú†ÎãàÌÅ¨ Ïù∏Îç±Ïä§
+-- »∏ø¯ ¿Ø¥œ≈© ¿Œµ¶Ω∫
 CREATE UNIQUE INDEX `UIX_USERS`
-	ON `USERS` ( -- ÌöåÏõê
-		`UEM` ASC -- Ïù¥Î©îÏùº
+	ON `USERS` ( -- »∏ø¯
+		`UEM` ASC -- ¿Ã∏ﬁ¿œ
 	);
 
--- ÌïôÍµê
+-- «–±≥
 CREATE TABLE `USCLS` (
-	`SCNO` INTEGER     NOT NULL COMMENT 'ÌïôÍµêÏùºÎ†®Î≤àÌò∏', -- ÌïôÍµêÏùºÎ†®Î≤àÌò∏
-	`SCNM` VARCHAR(50) NOT NULL COMMENT 'ÌïôÍµêÎ™Ö', -- ÌïôÍµêÎ™Ö
-	`SCMJ` VARCHAR(50) NOT NULL COMMENT 'ÌïôÍµêÏ†ÑÍ≥µÎ™Ö', -- ÌïôÍµêÏ†ÑÍ≥µÎ™Ö
-	`SCGR` DOUBLE(5,2) NOT NULL COMMENT 'ÌïôÍµêÏÑ±Ï†Å', -- ÌïôÍµêÏÑ±Ï†Å
-	`SCSD` DATE        NOT NULL COMMENT 'ÌïôÍµêÏûÖÌïôÏùº', -- ÌïôÍµêÏûÖÌïôÏùº
-	`SCED` DATE        NOT NULL COMMENT 'ÌïôÍµêÏ°∏ÏóÖÏùº', -- ÌïôÍµêÏ°∏ÏóÖÏùº
-	`UNO`  INTEGER     NOT NULL COMMENT 'ÌöåÏõêÏùºÎ†®Î≤àÌò∏' -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+	`SCNO` INTEGER     NOT NULL COMMENT '«–±≥¿œ∑√π¯»£', -- «–±≥¿œ∑√π¯»£
+	`SCNM` VARCHAR(50) NOT NULL COMMENT '«–±≥∏Ì', -- «–±≥∏Ì
+	`SCMJ` VARCHAR(50) NOT NULL COMMENT '«–±≥¿¸∞¯∏Ì', -- «–±≥¿¸∞¯∏Ì
+	`SCGR` INTEGER     NOT NULL COMMENT '«–±≥º∫¿˚', -- «–±≥º∫¿˚
+	`SCSD` DATE        NOT NULL COMMENT '«–±≥¿‘«–¿œ', -- «–±≥¿‘«–¿œ
+	`SCED` DATE        NOT NULL COMMENT '«–±≥¡πæ˜¿œ', -- «–±≥¡πæ˜¿œ
+	`UNO`  INTEGER     NOT NULL COMMENT '»∏ø¯¿œ∑√π¯»£' -- »∏ø¯¿œ∑√π¯»£
 )
-COMMENT 'ÌïôÍµê';
+COMMENT '«–±≥';
 
--- ÌïôÍµê
+-- «–±≥
 ALTER TABLE `USCLS`
-	ADD CONSTRAINT `PK_USCLS` -- ÌïôÍµê Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_USCLS` -- «–±≥ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`SCNO` -- ÌïôÍµêÏùºÎ†®Î≤àÌò∏
+			`SCNO` -- «–±≥¿œ∑√π¯»£
 		);
 
--- Í≤ΩÎ†•
+-- ∞Ê∑¬
 CREATE TABLE `UEXPS` (
-	`EXPNO` INTEGER     NOT NULL COMMENT 'Í≤ΩÎ†•ÏùºÎ†®Î≤àÌò∏', -- Í≤ΩÎ†•ÏùºÎ†®Î≤àÌò∏
-	`EXPCN` VARCHAR(50) NOT NULL COMMENT 'Í≤ΩÎ†•ÌöåÏÇ¨Î™Ö', -- Í≤ΩÎ†•ÌöåÏÇ¨Î™Ö
-	`EXPDN` VARCHAR(50) NOT NULL COMMENT 'Í≤ΩÎ†•Î∂ÄÏÑúÎ™Ö', -- Í≤ΩÎ†•Î∂ÄÏÑúÎ™Ö
-	`EXPPY` INTEGER     NULL     COMMENT 'Í≤ΩÎ†•Í∏âÏó¨', -- Í≤ΩÎ†•Í∏âÏó¨
-	`EXPSD` DATE        NOT NULL COMMENT 'Í≤ΩÎ†•ÏûÖÏÇ¨Ïùº', -- Í≤ΩÎ†•ÏûÖÏÇ¨Ïùº
-	`EXPED` DATE        NOT NULL COMMENT 'Í≤ΩÎ†•Ìá¥ÏÇ¨Ïùº', -- Í≤ΩÎ†•Ìá¥ÏÇ¨Ïùº
-	`EXPWC` TEXT        NOT NULL COMMENT 'Í≤ΩÎ†•ÏóÖÎ¨¥ÎÇ¥Ïö©', -- Í≤ΩÎ†•ÏóÖÎ¨¥ÎÇ¥Ïö©
-	`EXPPT` VARCHAR(20) NULL     COMMENT 'Í≤ΩÎ†•ÏßÅÏ±Ö', -- Í≤ΩÎ†•ÏßÅÏ±Ö
-	`UNO`   INTEGER     NOT NULL COMMENT 'ÌöåÏõêÏùºÎ†®Î≤àÌò∏' -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+	`EXPNO` INTEGER      NOT NULL COMMENT '∞Ê∑¬¿œ∑√π¯»£', -- ∞Ê∑¬¿œ∑√π¯»£
+	`EXPCN` VARCHAR(50)  NOT NULL COMMENT '∞Ê∑¬»∏ªÁ∏Ì', -- ∞Ê∑¬»∏ªÁ∏Ì
+	`EXPDN` VARCHAR(50)  NOT NULL COMMENT '∞Ê∑¬∫Œº≠∏Ì', -- ∞Ê∑¬∫Œº≠∏Ì
+	`EXPPY` INTEGER      NULL     COMMENT '∞Ê∑¬±ﬁø©', -- ∞Ê∑¬±ﬁø©
+	`EXPSD` DATE         NOT NULL COMMENT '∞Ê∑¬¿‘ªÁ¿œ', -- ∞Ê∑¬¿‘ªÁ¿œ
+	`EXPED` DATE         NOT NULL COMMENT '∞Ê∑¬≈ªÁ¿œ', -- ∞Ê∑¬≈ªÁ¿œ
+	`EXPWC` VARCHAR(255) NOT NULL COMMENT '∞Ê∑¬æ˜π´≥ªøÎ', -- ∞Ê∑¬æ˜π´≥ªøÎ
+	`EXPPT` VARCHAR(20)  NULL     COMMENT '∞Ê∑¬¡˜√•', -- ∞Ê∑¬¡˜√•
+	`UNO`   INTEGER      NOT NULL COMMENT '»∏ø¯¿œ∑√π¯»£' -- »∏ø¯¿œ∑√π¯»£
 )
-COMMENT 'Í≤ΩÎ†•';
+COMMENT '∞Ê∑¬';
 
--- Í≤ΩÎ†•
+-- ∞Ê∑¬
 ALTER TABLE `UEXPS`
-	ADD CONSTRAINT `PK_UEXPS` -- Í≤ΩÎ†• Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_UEXPS` -- ∞Ê∑¬ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`EXPNO` -- Í≤ΩÎ†•ÏùºÎ†®Î≤àÌò∏
+			`EXPNO` -- ∞Ê∑¬¿œ∑√π¯»£
 		);
 
--- Í∏∞ÏóÖÏ†ïÎ≥¥
+-- ±‚æ˜¡§∫∏
 CREATE TABLE `CINFOS` (
-	`CNO`   INTEGER      NOT NULL COMMENT 'Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏', -- Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏
-	`CCT`   VARCHAR(20)  NOT NULL COMMENT 'Í∏∞ÏóÖÎ∂ÑÏïº', -- Í∏∞ÏóÖÎ∂ÑÏïº
-	`CRGNO` INTEGER      NULL     COMMENT 'ÏÇ¨ÏóÖÏûêÎ≤àÌò∏', -- ÏÇ¨ÏóÖÏûêÎ≤àÌò∏
-	`CNM`   VARCHAR(50)  NOT NULL COMMENT 'ÌöåÏÇ¨Î™Ö', -- ÌöåÏÇ¨Î™Ö
-	`CSCL`  VARCHAR(20)  NULL     COMMENT 'Í∏∞ÏóÖÍ∑úÎ™®', -- Í∏∞ÏóÖÍ∑úÎ™®
-	`CLO`   VARCHAR(255) NULL     COMMENT 'Í∏∞ÏóÖÏúÑÏπò', -- Í∏∞ÏóÖÏúÑÏπò
-	`CNPL`  INTEGER      NULL     COMMENT 'Í∏∞ÏóÖÏù∏Ïõê', -- Í∏∞ÏóÖÏù∏Ïõê
-	`CINT`  TEXT         NULL     COMMENT 'Í∏∞ÏóÖÏÑ§Î™Ö' -- Í∏∞ÏóÖÏÑ§Î™Ö
+	`CNO`   INTEGER      NOT NULL COMMENT '±‚æ˜¿œ∑√π¯»£', -- ±‚æ˜¿œ∑√π¯»£
+	`CCT`   VARCHAR(20)  NOT NULL COMMENT '±‚æ˜∫–æﬂ', -- ±‚æ˜∫–æﬂ
+	`CRGNO` INTEGER      NULL     COMMENT 'ªÁæ˜¿⁄π¯»£', -- ªÁæ˜¿⁄π¯»£
+	`CNM`   VARCHAR(50)  NOT NULL COMMENT '»∏ªÁ∏Ì', -- »∏ªÁ∏Ì
+	`CSCL`  VARCHAR(20)  NULL     COMMENT '±‚æ˜±‘∏', -- ±‚æ˜±‘∏
+	`CLO`   VARCHAR(255) NULL     COMMENT '±‚æ˜¿ßƒ°', -- ±‚æ˜¿ßƒ°
+	`CNPL`  INTEGER      NULL     COMMENT '±‚æ˜¿Œø¯', -- ±‚æ˜¿Œø¯
+	`CINT`  VARCHAR(255) NULL     COMMENT '±‚æ˜º≥∏Ì', -- ±‚æ˜º≥∏Ì
+	`UNO`   INTEGER      NULL     COMMENT '»∏ø¯¿œ∑√π¯»£' -- »∏ø¯¿œ∑√π¯»£
 )
-COMMENT 'Í∏∞ÏóÖÏ†ïÎ≥¥';
+COMMENT '±‚æ˜¡§∫∏';
 
--- Í∏∞ÏóÖÏ†ïÎ≥¥
+-- ±‚æ˜¡§∫∏
 ALTER TABLE `CINFOS`
-	ADD CONSTRAINT `PK_CINFOS` -- Í∏∞ÏóÖÏ†ïÎ≥¥ Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_CINFOS` -- ±‚æ˜¡§∫∏ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`CNO` -- Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏
+			`CNO` -- ±‚æ˜¿œ∑√π¯»£
 		);
 
--- Í∏∞ÏóÖÏ†ïÎ≥¥ Ïú†ÎãàÌÅ¨ Ïù∏Îç±Ïä§
+-- ±‚æ˜¡§∫∏ ¿Ø¥œ≈© ¿Œµ¶Ω∫
 CREATE UNIQUE INDEX `UIX_CINFOS`
-	ON `CINFOS` ( -- Í∏∞ÏóÖÏ†ïÎ≥¥
-		`CRGNO` ASC -- ÏÇ¨ÏóÖÏûêÎ≤àÌò∏
+	ON `CINFOS` ( -- ±‚æ˜¡§∫∏
+		`CRGNO` ASC -- ªÁæ˜¿⁄π¯»£
 	);
 
--- Íµ¨Ïù∏Í≥µÍ≥†
+-- ±∏¿Œ∞¯∞Ì
 CREATE TABLE `CRECS` (
-	`RENO`  INTEGER      NOT NULL COMMENT 'Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏', -- Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏
-	`RETL`  VARCHAR(100) NOT NULL COMMENT 'Ï±ÑÏö©Í≥µÍ≥†Ï†úÎ™©', -- Ï±ÑÏö©Í≥µÍ≥†Ï†úÎ™©
-	`RECNM` VARCHAR(50)  NOT NULL COMMENT 'ÌöåÏÇ¨Î™Ö', -- ÌöåÏÇ¨Î™Ö
-	`REWC`  TEXT         NOT NULL COMMENT 'Ï£ºÏöîÏóÖÎ¨¥', -- Ï£ºÏöîÏóÖÎ¨¥
-	`RENPL` INTEGER      NOT NULL COMMENT 'Î™®ÏßëÏù∏Ïõê', -- Î™®ÏßëÏù∏Ïõê
-	`RECHK` CHAR(1)      NOT NULL COMMENT 'Í≤ΩÎ†•Ïó¨Î∂Ä', -- Í≤ΩÎ†•Ïó¨Î∂Ä
-	`REYR`  VARCHAR(20)  NULL     COMMENT 'Í≤ΩÎ†•Ïó∞Ï∞®', -- Í≤ΩÎ†•Ïó∞Ï∞®
-	`REIDT` VARCHAR(20)  NOT NULL COMMENT 'ÏóÖÍ≥Ñ', -- ÏóÖÍ≥Ñ
-	`REJP`  VARCHAR(20)  NOT NULL COMMENT 'ÏßÅÏ¢Ö', -- ÏßÅÏ¢Ö
-	`RETP`  VARCHAR(20)  NOT NULL COMMENT 'Í≥†Ïö©ÌòïÌÉú', -- Í≥†Ïö©ÌòïÌÉú
-	`REPAY` INTEGER      NULL     COMMENT 'Í∏âÏó¨', -- Í∏âÏó¨
-	`RERG`  VARCHAR(50)  NULL     COMMENT 'Í≤åÏãúÏûê', -- Í≤åÏãúÏûê
-	`RERD`  DATE         NOT NULL COMMENT 'Í≤åÏãúÏùº', -- Í≤åÏãúÏùº
-	`REHTN` INTEGER      NULL     COMMENT 'Ï°∞ÌöåÏàò', -- Ï°∞ÌöåÏàò
-	`REAR`  VARCHAR(255) NOT NULL COMMENT 'ÏßÄÏó≠', -- ÏßÄÏó≠
-	`REWT`  VARCHAR(20)  NOT NULL COMMENT 'Í∑ºÎ¨¥ÌòïÌÉú', -- Í∑ºÎ¨¥ÌòïÌÉú
-	`CNO`   INTEGER      NOT NULL COMMENT 'Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏' -- Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏
+	`RENO`  INTEGER      NOT NULL COMMENT '±∏¿Œ¿œ∑√π¯»£', -- ±∏¿Œ¿œ∑√π¯»£
+	`RETL`  VARCHAR(100) NOT NULL COMMENT '√§øÎ∞¯∞Ì¡¶∏Ò', -- √§øÎ∞¯∞Ì¡¶∏Ò
+	`RECNM` VARCHAR(50)  NOT NULL COMMENT '»∏ªÁ∏Ì', -- »∏ªÁ∏Ì
+	`REWC`  VARCHAR(255) NOT NULL COMMENT '¡÷ø‰æ˜π´', -- ¡÷ø‰æ˜π´
+	`RENPL` INTEGER      NOT NULL COMMENT '∏¡˝¿Œø¯', -- ∏¡˝¿Œø¯
+	`RECHK` CHAR(1)      NOT NULL COMMENT '∞Ê∑¬ø©∫Œ', -- ∞Ê∑¬ø©∫Œ
+	`REYR`  VARCHAR(20)  NULL     COMMENT '∞Ê∑¬ø¨¬˜', -- ∞Ê∑¬ø¨¬˜
+	`REIDT` VARCHAR(20)  NOT NULL COMMENT 'æ˜∞Ë', -- æ˜∞Ë
+	`REJP`  VARCHAR(20)  NOT NULL COMMENT '¡˜¡æ', -- ¡˜¡æ
+	`RETP`  VARCHAR(20)  NOT NULL COMMENT '∞ÌøÎ«¸≈¬', -- ∞ÌøÎ«¸≈¬
+	`REPAY` INTEGER      NULL     COMMENT '±ﬁø©', -- ±ﬁø©
+	`RERG`  VARCHAR(50)  NULL     COMMENT '∞‘Ω√¿⁄', -- ∞‘Ω√¿⁄
+	`RERD`  DATE         NOT NULL COMMENT '∞‘Ω√¿œ', -- ∞‘Ω√¿œ
+	`REED`  DATE         NOT NULL COMMENT '∏∂∞®¿œ', -- ∏∂∞®¿œ
+	`REHTN` INTEGER      NULL     COMMENT '¡∂»∏ºˆ', -- ¡∂»∏ºˆ
+	`REAR`  VARCHAR(255) NOT NULL COMMENT '¡ˆø™', -- ¡ˆø™
+	`REWT`  VARCHAR(20)  NOT NULL COMMENT '±Ÿπ´«¸≈¬', -- ±Ÿπ´«¸≈¬
+	`CNO`   INTEGER      NOT NULL COMMENT '±‚æ˜¿œ∑√π¯»£' -- ±‚æ˜¿œ∑√π¯»£
 )
-COMMENT 'Íµ¨Ïù∏Í≥µÍ≥†';
+COMMENT '±∏¿Œ∞¯∞Ì';
 
--- Íµ¨Ïù∏Í≥µÍ≥†
+-- ±∏¿Œ∞¯∞Ì
 ALTER TABLE `CRECS`
-	ADD CONSTRAINT `PK_CRECS` -- Íµ¨Ïù∏Í≥µÍ≥† Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_CRECS` -- ±∏¿Œ∞¯∞Ì ±‚∫ª≈∞
 		PRIMARY KEY (
-			`RENO` -- Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏
+			`RENO` -- ±∏¿Œ¿œ∑√π¯»£
 		);
 
--- Í∏∞ÏóÖÏÇ¨ÏßÑ
+-- ±‚æ˜ªÁ¡¯
 CREATE TABLE `CPHOTS` (
-	`CPHNO` INTEGER    NOT NULL COMMENT 'ÏÇ¨ÏßÑÏùºÎ†®Î≤àÌò∏', -- ÏÇ¨ÏßÑÏùºÎ†®Î≤àÌò∏
-	`CPH`   MEDIUMBLOB NOT NULL COMMENT 'ÏÇ¨ÏßÑ', -- ÏÇ¨ÏßÑ
-	`CNO`   INTEGER    NOT NULL COMMENT 'Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏' -- Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏
+	`CPHNO` INTEGER      NOT NULL COMMENT 'ªÁ¡¯¿œ∑√π¯»£', -- ªÁ¡¯¿œ∑√π¯»£
+	`CPH`   VARCHAR(255) NOT NULL COMMENT 'ªÁ¡¯', -- ªÁ¡¯
+	`CNO`   INTEGER      NOT NULL COMMENT '±‚æ˜¿œ∑√π¯»£' -- ±‚æ˜¿œ∑√π¯»£
 )
-COMMENT 'Í∏∞ÏóÖÏÇ¨ÏßÑ';
+COMMENT '±‚æ˜ªÁ¡¯';
 
--- Í∏∞ÏóÖÏÇ¨ÏßÑ
+-- ±‚æ˜ªÁ¡¯
 ALTER TABLE `CPHOTS`
-	ADD CONSTRAINT `PK_CPHOTS` -- Í∏∞ÏóÖÏÇ¨ÏßÑ Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_CPHOTS` -- ±‚æ˜ªÁ¡¯ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`CPHNO` -- ÏÇ¨ÏßÑÏùºÎ†®Î≤àÌò∏
+			`CPHNO` -- ªÁ¡¯¿œ∑√π¯»£
 		);
 
--- Í∏∞ÏóÖÌÉúÍ∑∏
+-- ±‚æ˜≈¬±◊
 CREATE TABLE `CTAGS` (
-	`CEXNO` INTEGER     NOT NULL COMMENT 'ÎÖ∏Ï∂úÌÉúÍ∑∏ÏùºÎ†®Î≤àÌò∏', -- ÎÖ∏Ï∂úÌÉúÍ∑∏ÏùºÎ†®Î≤àÌò∏
-	`CEXTG` VARCHAR(50) NOT NULL COMMENT 'ÎÖ∏Ï∂úÌÉúÍ∑∏', -- ÎÖ∏Ï∂úÌÉúÍ∑∏
-	`CNO`   INTEGER     NOT NULL COMMENT 'Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏' -- Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏
+	`CEXNO` INTEGER     NOT NULL COMMENT '≥Î√‚≈¬±◊¿œ∑√π¯»£', -- ≥Î√‚≈¬±◊¿œ∑√π¯»£
+	`CEXTG` VARCHAR(50) NOT NULL COMMENT '≥Î√‚≈¬±◊', -- ≥Î√‚≈¬±◊
+	`CNO`   INTEGER     NOT NULL COMMENT '±‚æ˜¿œ∑√π¯»£' -- ±‚æ˜¿œ∑√π¯»£
 )
-COMMENT 'Í∏∞ÏóÖÌÉúÍ∑∏';
+COMMENT '±‚æ˜≈¬±◊';
 
--- Í∏∞ÏóÖÌÉúÍ∑∏
+-- ±‚æ˜≈¬±◊
 ALTER TABLE `CTAGS`
-	ADD CONSTRAINT `PK_CTAGS` -- Í∏∞ÏóÖÌÉúÍ∑∏ Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_CTAGS` -- ±‚æ˜≈¬±◊ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`CEXNO` -- ÎÖ∏Ï∂úÌÉúÍ∑∏ÏùºÎ†®Î≤àÌò∏
+			`CEXNO` -- ≥Î√‚≈¬±◊¿œ∑√π¯»£
 		);
 
--- ÏûêÍ≤©Ï¶ù
+-- ¿⁄∞›¡ı
 CREATE TABLE `UCERTS` (
-	`CTNO`   INTEGER      NOT NULL COMMENT 'ÏûêÍ≤©Ï¶ùÏùºÎ†®Î≤àÌò∏', -- ÏûêÍ≤©Ï¶ùÏùºÎ†®Î≤àÌò∏
-	`CTNM`   VARCHAR(50)  NOT NULL COMMENT 'ÏûêÍ≤©Ï¶ùÎ™Ö', -- ÏûêÍ≤©Ï¶ùÎ™Ö
-	`CTAG`   VARCHAR(50)  NOT NULL COMMENT 'Ïù∏Ï¶ùÍ∏∞Í¥Ä', -- Ïù∏Ï¶ùÍ∏∞Í¥Ä
-	`CTUQNO` INTEGER      NOT NULL COMMENT 'ÏûêÍ≤©Ï¶ùÎ≤àÌò∏', -- ÏûêÍ≤©Ï¶ùÎ≤àÌò∏
-	`CTSC`   INTEGER      NULL     COMMENT 'Ï†êÏàò', -- Ï†êÏàò
-	`CTURL`  VARCHAR(255) NULL     COMMENT 'ÏûêÍ≤©Ï¶ùURL', -- ÏûêÍ≤©Ï¶ùURL
-	`CTDY`   DATE         NULL     COMMENT 'ÏãúÌóòÏùº', -- ÏãúÌóòÏùº
-	`CTSD`   DATE         NULL     COMMENT 'Î∞úÍ∏âÏùº', -- Î∞úÍ∏âÏùº
-	`CTED`   DATE         NULL     COMMENT 'ÎßåÎ£åÏùº', -- ÎßåÎ£åÏùº
-	`UNO`    INTEGER      NOT NULL COMMENT 'ÌöåÏõêÏùºÎ†®Î≤àÌò∏' -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+	`CTNO`   INTEGER      NOT NULL COMMENT '¿⁄∞›¡ı¿œ∑√π¯»£', -- ¿⁄∞›¡ı¿œ∑√π¯»£
+	`CTNM`   VARCHAR(50)  NOT NULL COMMENT '¿⁄∞›¡ı∏Ì', -- ¿⁄∞›¡ı∏Ì
+	`CTAG`   VARCHAR(50)  NOT NULL COMMENT '¿Œ¡ı±‚∞¸', -- ¿Œ¡ı±‚∞¸
+	`CTUQNO` INTEGER      NOT NULL COMMENT '¿⁄∞›¡ıπ¯»£', -- ¿⁄∞›¡ıπ¯»£
+	`CTSC`   INTEGER      NOT NULL COMMENT '¡°ºˆ', -- ¡°ºˆ
+	`CTURL`  VARCHAR(255) NULL     COMMENT '¿⁄∞›¡ıURL', -- ¿⁄∞›¡ıURL
+	`CTDY`   DATE         NULL     COMMENT 'Ω√«Ë¿œ', -- Ω√«Ë¿œ
+	`CTSD`   DATE         NOT NULL COMMENT 'πﬂ±ﬁ¿œ', -- πﬂ±ﬁ¿œ
+	`CTED`   DATE         NULL     COMMENT '∏∏∑·¿œ', -- ∏∏∑·¿œ
+	`UNO`    INTEGER      NOT NULL COMMENT '»∏ø¯¿œ∑√π¯»£' -- »∏ø¯¿œ∑√π¯»£
 )
-COMMENT 'ÏûêÍ≤©Ï¶ù';
+COMMENT '¿⁄∞›¡ı';
 
--- ÏûêÍ≤©Ï¶ù
+-- ¿⁄∞›¡ı
 ALTER TABLE `UCERTS`
-	ADD CONSTRAINT `PK_UCERTS` -- ÏûêÍ≤©Ï¶ù Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_UCERTS` -- ¿⁄∞›¡ı ±‚∫ª≈∞
 		PRIMARY KEY (
-			`CTNO` -- ÏûêÍ≤©Ï¶ùÏùºÎ†®Î≤àÌò∏
+			`CTNO` -- ¿⁄∞›¡ı¿œ∑√π¯»£
 		);
 
--- Ïô∏Íµ≠Ïñ¥
+-- ø‹±πæÓ
 CREATE TABLE `ULANS` (
-	`LGNO`  INTEGER     NOT NULL COMMENT 'Ïô∏Íµ≠Ïñ¥ÏùºÎ†®Î≤àÌò∏', -- Ïô∏Íµ≠Ïñ¥ÏùºÎ†®Î≤àÌò∏
-	`LGNM`  VARCHAR(50) NOT NULL COMMENT 'Ïô∏Íµ≠Ïñ¥Ïù¥Î¶Ñ', -- Ïô∏Íµ≠Ïñ¥Ïù¥Î¶Ñ
-	`LGLVL` TEXT        NOT NULL COMMENT 'Ïô∏Íµ≠Ïñ¥ÏàòÏ§Ä', -- Ïô∏Íµ≠Ïñ¥ÏàòÏ§Ä
-	`UNO`   INTEGER     NOT NULL COMMENT 'ÌöåÏõêÏùºÎ†®Î≤àÌò∏' -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+	`LGNO`  INTEGER      NOT NULL COMMENT 'ø‹±πæÓ¿œ∑√π¯»£', -- ø‹±πæÓ¿œ∑√π¯»£
+	`LGNM`  VARCHAR(50)  NOT NULL COMMENT 'ø‹±πæÓ¿Ã∏ß', -- ø‹±πæÓ¿Ã∏ß
+	`LGLVL` VARCHAR(255) NOT NULL COMMENT 'ø‹±πæÓºˆ¡ÿ', -- ø‹±πæÓºˆ¡ÿ
+	`UNO`   INTEGER      NOT NULL COMMENT '»∏ø¯¿œ∑√π¯»£' -- »∏ø¯¿œ∑√π¯»£
 )
-COMMENT 'Ïô∏Íµ≠Ïñ¥';
+COMMENT 'ø‹±πæÓ';
 
--- Ïô∏Íµ≠Ïñ¥
+-- ø‹±πæÓ
 ALTER TABLE `ULANS`
-	ADD CONSTRAINT `PK_ULANS` -- Ïô∏Íµ≠Ïñ¥ Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_ULANS` -- ø‹±πæÓ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`LGNO` -- Ïô∏Íµ≠Ïñ¥ÏùºÎ†®Î≤àÌò∏
+			`LGNO` -- ø‹±πæÓ¿œ∑√π¯»£
 		);
 
--- Î≥¥Ïú†Í∏∞Ïà†
+-- ∫∏¿Ø±‚º˙
 CREATE TABLE `SKILLS` (
-	`SKNO` INTEGER      NOT NULL COMMENT 'Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏', -- Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏
-	`SKNM` VARCHAR(100) NOT NULL COMMENT 'Í∏∞Ïà†Î™Ö' -- Í∏∞Ïà†Î™Ö
+	`SKNO` INTEGER      NOT NULL COMMENT '∫∏¿Ø±‚º˙¿œ∑√π¯»£', -- ∫∏¿Ø±‚º˙¿œ∑√π¯»£
+	`SKNM` VARCHAR(100) NOT NULL COMMENT '±‚º˙∏Ì' -- ±‚º˙∏Ì
 )
-COMMENT 'Î≥¥Ïú†Í∏∞Ïà†';
+COMMENT '∫∏¿Ø±‚º˙';
 
--- Î≥¥Ïú†Í∏∞Ïà†
+-- ∫∏¿Ø±‚º˙
 ALTER TABLE `SKILLS`
-	ADD CONSTRAINT `PK_SKILLS` -- Î≥¥Ïú†Í∏∞Ïà† Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_SKILLS` -- ∫∏¿Ø±‚º˙ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`SKNO` -- Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏
+			`SKNO` -- ∫∏¿Ø±‚º˙¿œ∑√π¯»£
 		);
 
--- Í∏∞Ïà†Ïó∞Ï∞®
+-- ±‚º˙ø¨¬˜
 CREATE TABLE `YSKILLS` (
-	`YSNO` INTEGER     NOT NULL COMMENT 'Í∏∞Ïà†Ïó∞Ï∞®ÏùºÎ†®Î≤àÌò∏', -- Í∏∞Ïà†Ïó∞Ï∞®ÏùºÎ†®Î≤àÌò∏
-	`UNO`  INTEGER     NOT NULL COMMENT 'ÌöåÏõêÏùºÎ†®Î≤àÌò∏', -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
-	`SKNO` INTEGER     NOT NULL COMMENT 'Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏', -- Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏
-	`YSYR` VARCHAR(20) NOT NULL COMMENT 'Í∏∞Ïà†Ïó∞Ï∞®' -- Í∏∞Ïà†Ïó∞Ï∞®
+	`YSNO` INTEGER     NOT NULL COMMENT '±‚º˙ø¨¬˜¿œ∑√π¯»£', -- ±‚º˙ø¨¬˜¿œ∑√π¯»£
+	`UNO`  INTEGER     NOT NULL COMMENT '»∏ø¯¿œ∑√π¯»£', -- »∏ø¯¿œ∑√π¯»£
+	`SKNO` INTEGER     NOT NULL COMMENT '∫∏¿Ø±‚º˙¿œ∑√π¯»£', -- ∫∏¿Ø±‚º˙¿œ∑√π¯»£
+	`YSYR` VARCHAR(20) NOT NULL COMMENT '±‚º˙ø¨¬˜' -- ±‚º˙ø¨¬˜
 )
-COMMENT 'Í∏∞Ïà†Ïó∞Ï∞®';
+COMMENT '±‚º˙ø¨¬˜';
 
--- Í∏∞Ïà†Ïó∞Ï∞®
+-- ±‚º˙ø¨¬˜
 ALTER TABLE `YSKILLS`
-	ADD CONSTRAINT `PK_YSKILLS` -- Í∏∞Ïà†Ïó∞Ï∞® Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_YSKILLS` -- ±‚º˙ø¨¬˜ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`YSNO` -- Í∏∞Ïà†Ïó∞Ï∞®ÏùºÎ†®Î≤àÌò∏
+			`YSNO` -- ±‚º˙ø¨¬˜¿œ∑√π¯»£
 		);
 
--- Í∏∞ÏóÖÎì±Î°ùÌîÑÎ°úÏ†ùÌä∏
+-- ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ
 CREATE TABLE `CPJTS` (
-	`CPJNO`  INTEGER      NOT NULL COMMENT 'Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏', -- Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏
-	`CPJNM`  VARCHAR(50)  NOT NULL COMMENT 'Ïù¥Î¶Ñ', -- Ïù¥Î¶Ñ
-	`CPJINT` TEXT         NOT NULL COMMENT 'ÏÑ§Î™Ö', -- ÏÑ§Î™Ö
-	`CPJSK`  VARCHAR(20)  NOT NULL COMMENT 'ÏöîÍµ¨ÎêòÎäîÍ∏∞Ïà†', -- ÏöîÍµ¨ÎêòÎäîÍ∏∞Ïà†
-	`CPJCHK` CHAR(1)      NOT NULL COMMENT 'ÌîÑÎ°úÏ†ùÌä∏Í≤ΩÎ†•Ïó¨Î∂Ä', -- ÌîÑÎ°úÏ†ùÌä∏Í≤ΩÎ†•Ïó¨Î∂Ä
-	`CPJYR`  VARCHAR(20)  NULL     COMMENT 'ÌîÑÎ°úÏ†ùÌä∏Í≤ΩÎ†•Ïó∞Ï∞®', -- ÌîÑÎ°úÏ†ùÌä∏Í≤ΩÎ†•Ïó∞Ï∞®
-	`CPJNPL` INTEGER      NOT NULL COMMENT 'Î™®ÏßëÏù∏Ïõê', -- Î™®ÏßëÏù∏Ïõê
-	`CPJMNP` INTEGER      NOT NULL COMMENT 'Í∏âÏó¨ÏµúÏÜå', -- Í∏âÏó¨ÏµúÏÜå
-	`CPJMAP` INTEGER      NOT NULL COMMENT 'Í∏âÏó¨ÏµúÎåÄ', -- Í∏âÏó¨ÏµúÎåÄ
-	`CPJHTN` INTEGER      NULL     COMMENT 'Ï°∞ÌöåÏàò', -- Ï°∞ÌöåÏàò
-	`CPJRD`  DATE         NOT NULL COMMENT 'Îì±Î°ùÏùº', -- Îì±Î°ùÏùº
-	`CPJRG`  VARCHAR(50)  NOT NULL COMMENT 'Í≤åÏãúÏûê', -- Í≤åÏãúÏûê
-	`CPJWT`  VARCHAR(20)  NOT NULL COMMENT 'Í∑ºÎ¨¥ÌòïÌÉú', -- Í∑ºÎ¨¥ÌòïÌÉú
-	`CPJAR`  VARCHAR(255) NOT NULL COMMENT 'ÏßÄÏó≠Î™Ö', -- ÏßÄÏó≠Î™Ö
-	`CNO`    INTEGER      NOT NULL COMMENT 'Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏' -- Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏
+	`CPJNO`  INTEGER      NOT NULL COMMENT 'µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£', -- µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£
+	`CPJNM`  VARCHAR(50)  NOT NULL COMMENT '¿Ã∏ß', -- ¿Ã∏ß
+	`CPJINT` VARCHAR(255) NOT NULL COMMENT 'º≥∏Ì', -- º≥∏Ì
+	`CPJCHK` CHAR(1)      NOT NULL COMMENT '«¡∑Œ¡ß∆Æ∞Ê∑¬ø©∫Œ', -- «¡∑Œ¡ß∆Æ∞Ê∑¬ø©∫Œ
+	`CPJYR`  INTEGER      NULL     COMMENT '«¡∑Œ¡ß∆Æ∞Ê∑¬ø¨¬˜', -- «¡∑Œ¡ß∆Æ∞Ê∑¬ø¨¬˜
+	`CPJNPL` INTEGER      NOT NULL COMMENT '∏¡˝¿Œø¯', -- ∏¡˝¿Œø¯
+	`CPJMNP` INTEGER      NOT NULL COMMENT '±ﬁø©√÷º“', -- ±ﬁø©√÷º“
+	`CPJMAP` INTEGER      NOT NULL COMMENT '±ﬁø©√÷¥Î', -- ±ﬁø©√÷¥Î
+	`CPJHTN` INTEGER      NULL     COMMENT '¡∂»∏ºˆ', -- ¡∂»∏ºˆ
+	`CPJRD`  DATE         NOT NULL COMMENT 'µÓ∑œ¿œ', -- µÓ∑œ¿œ
+	`CPJED`  DATE         NOT NULL COMMENT '∏∂∞®¿œ', -- ∏∂∞®¿œ
+	`CPJSD`  DATE         NOT NULL COMMENT 'Ω√¿€¿œ', -- Ω√¿€¿œ
+	`CPJRG`  VARCHAR(50)  NOT NULL COMMENT '∞‘Ω√¿⁄', -- ∞‘Ω√¿⁄
+	`CPJWT`  VARCHAR(20)  NOT NULL COMMENT '±Ÿπ´«¸≈¬', -- ±Ÿπ´«¸≈¬
+	`CPJAR`  VARCHAR(255) NOT NULL COMMENT '¡ˆø™∏Ì', -- ¡ˆø™∏Ì
+	`CNO`    INTEGER      NOT NULL COMMENT '±‚æ˜¿œ∑√π¯»£' -- ±‚æ˜¿œ∑√π¯»£
 )
-COMMENT 'Í∏∞ÏóÖÎì±Î°ùÌîÑÎ°úÏ†ùÌä∏';
+COMMENT '±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ';
 
--- Í∏∞ÏóÖÎì±Î°ùÌîÑÎ°úÏ†ùÌä∏
+-- ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ
 ALTER TABLE `CPJTS`
-	ADD CONSTRAINT `PK_CPJTS` -- Í∏∞ÏóÖÎì±Î°ùÌîÑÎ°úÏ†ùÌä∏ Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_CPJTS` -- ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`CPJNO` -- Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏
+			`CPJNO` -- µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£
 		);
 
--- ÌîÑÎ°úÏ†ùÌä∏Í≤ΩÎ†•
+-- «¡∑Œ¡ß∆Æ∞Ê∑¬
 CREATE TABLE `UPJTNO` (
-	`PJNO` INTEGER      NOT NULL COMMENT 'ÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏', -- ÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏
-	`UNO`  INTEGER      NOT NULL COMMENT 'ÌöåÏõêÏùºÎ†®Î≤àÌò∏', -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
-	`PJNM` VARCHAR(100) NOT NULL COMMENT 'ÌîÑÎ°úÏ†ùÌä∏Ï†úÎ™©', -- ÌîÑÎ°úÏ†ùÌä∏Ï†úÎ™©
-	`PJSD` DATE         NOT NULL COMMENT 'ÌîÑÎ°úÏ†ùÌä∏ÏãúÏûëÏùº', -- ÌîÑÎ°úÏ†ùÌä∏ÏãúÏûëÏùº
-	`PJED` DATE         NOT NULL COMMENT 'ÌîÑÎ°úÏ†ùÌä∏Ï¢ÖÎ£åÏùº', -- ÌîÑÎ°úÏ†ùÌä∏Ï¢ÖÎ£åÏùº
-	`PJDT` TEXT         NOT NULL COMMENT 'ÌîÑÎ°úÏ†ùÌä∏ÏÉÅÏÑ∏ÏÑ§Î™Ö', -- ÌîÑÎ°úÏ†ùÌä∏ÏÉÅÏÑ∏ÏÑ§Î™Ö
-	`PJPY` VARCHAR(50)  NULL     COMMENT 'ÌîÑÎ°úÏ†ùÌä∏Ï∞∏Ïó¨Ïûê' -- ÌîÑÎ°úÏ†ùÌä∏Ï∞∏Ïó¨Ïûê
+	`PJNO` INTEGER      NOT NULL COMMENT '«¡∑Œ¡ß∆Æ¿œ∑√π¯»£', -- «¡∑Œ¡ß∆Æ¿œ∑√π¯»£
+	`UNO`  INTEGER      NOT NULL COMMENT '»∏ø¯¿œ∑√π¯»£', -- »∏ø¯¿œ∑√π¯»£
+	`PJNM` VARCHAR(100) NOT NULL COMMENT '«¡∑Œ¡ß∆Æ¡¶∏Ò', -- «¡∑Œ¡ß∆Æ¡¶∏Ò
+	`PJSD` DATE         NOT NULL COMMENT '«¡∑Œ¡ß∆ÆΩ√¿€¿œ', -- «¡∑Œ¡ß∆ÆΩ√¿€¿œ
+	`PJED` DATE         NOT NULL COMMENT '«¡∑Œ¡ß∆Æ¡æ∑·¿œ', -- «¡∑Œ¡ß∆Æ¡æ∑·¿œ
+	`PJDT` VARCHAR(255) NOT NULL COMMENT '«¡∑Œ¡ß∆ÆªÛººº≥∏Ì', -- «¡∑Œ¡ß∆ÆªÛººº≥∏Ì
+	`PJPY` VARCHAR(50)  NULL     COMMENT '«¡∑Œ¡ß∆Æ¬¸ø©¿⁄' -- «¡∑Œ¡ß∆Æ¬¸ø©¿⁄
 )
-COMMENT 'ÌîÑÎ°úÏ†ùÌä∏Í≤ΩÎ†•';
+COMMENT '«¡∑Œ¡ß∆Æ∞Ê∑¬';
 
--- ÌîÑÎ°úÏ†ùÌä∏Í≤ΩÎ†•
+-- «¡∑Œ¡ß∆Æ∞Ê∑¬
 ALTER TABLE `UPJTNO`
-	ADD CONSTRAINT `PK_UPJTNO` -- ÌîÑÎ°úÏ†ùÌä∏Í≤ΩÎ†• Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_UPJTNO` -- «¡∑Œ¡ß∆Æ∞Ê∑¬ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`PJNO` -- ÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏
+			`PJNO` -- «¡∑Œ¡ß∆Æ¿œ∑√π¯»£
 		);
 
--- ÌîÑÎ°úÏ†ùÌä∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê
+-- «¡∑Œ¡ß∆Æ¡§∫∏πÆ¿«∞‘Ω√∆«
 CREATE TABLE `PJTBDS` (
-	`PBNO`  INTEGER      NOT NULL COMMENT 'Î¨∏ÏùòÍ≤åÏãúÌåêÏùºÎ†®Î≤àÌò∏', -- Î¨∏ÏùòÍ≤åÏãúÌåêÏùºÎ†®Î≤àÌò∏
-	`PBTL`  VARCHAR(100) NOT NULL COMMENT 'Í≤åÏãúÎ¨ºÏ†úÎ™©', -- Í≤åÏãúÎ¨ºÏ†úÎ™©
-	`PBCT`  TEXT         NOT NULL COMMENT 'Í≤åÏãúÎ¨ºÎÇ¥Ïö©', -- Í≤åÏãúÎ¨ºÎÇ¥Ïö©
-	`PBRD`  DATE         NOT NULL COMMENT 'Í≤åÏãúÎ¨∏Îì±Î°ùÏùº', -- Í≤åÏãúÎ¨∏Îì±Î°ùÏùº
-	`PBRG`  VARCHAR(50)  NOT NULL COMMENT 'Í≤åÏãúÎ¨∏Îì±Î°ùÏûê', -- Í≤åÏãúÎ¨∏Îì±Î°ùÏûê
-	`PBOP`  CHAR(1)      NOT NULL COMMENT 'Í≥µÍ∞úÏó¨Î∂Ä', -- Í≥µÍ∞úÏó¨Î∂Ä
-	`CPJNO` INTEGER      NOT NULL COMMENT 'Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏', -- Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏
-	`UNO`   INTEGER      NOT NULL COMMENT 'ÌöåÏõêÏùºÎ†®Î≤àÌò∏' -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+	`PBNO`  INTEGER      NOT NULL COMMENT 'πÆ¿«∞‘Ω√∆«¿œ∑√π¯»£', -- πÆ¿«∞‘Ω√∆«¿œ∑√π¯»£
+	`PBTL`  VARCHAR(100) NOT NULL COMMENT '∞‘Ω√π∞¡¶∏Ò', -- ∞‘Ω√π∞¡¶∏Ò
+	`PBCT`  VARCHAR(255) NOT NULL COMMENT '∞‘Ω√π∞≥ªøÎ', -- ∞‘Ω√π∞≥ªøÎ
+	`PBRD`  DATE         NOT NULL COMMENT '∞‘Ω√πÆµÓ∑œ¿œ', -- ∞‘Ω√πÆµÓ∑œ¿œ
+	`PBRG`  VARCHAR(50)  NOT NULL COMMENT '∞‘Ω√πÆµÓ∑œ¿⁄', -- ∞‘Ω√πÆµÓ∑œ¿⁄
+	`PBOP`  CHAR(1)      NOT NULL COMMENT '∞¯∞≥ø©∫Œ', -- ∞¯∞≥ø©∫Œ
+	`CPJNO` INTEGER      NOT NULL COMMENT 'µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£', -- µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£
+	`UNO`   INTEGER      NOT NULL COMMENT '»∏ø¯¿œ∑√π¯»£' -- »∏ø¯¿œ∑√π¯»£
 )
-COMMENT 'ÌîÑÎ°úÏ†ùÌä∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê';
+COMMENT '«¡∑Œ¡ß∆Æ¡§∫∏πÆ¿«∞‘Ω√∆«';
 
--- ÌîÑÎ°úÏ†ùÌä∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê
+-- «¡∑Œ¡ß∆Æ¡§∫∏πÆ¿«∞‘Ω√∆«
 ALTER TABLE `PJTBDS`
-	ADD CONSTRAINT `PK_PJTBDS` -- ÌîÑÎ°úÏ†ùÌä∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_PJTBDS` -- «¡∑Œ¡ß∆Æ¡§∫∏πÆ¿«∞‘Ω√∆« ±‚∫ª≈∞
 		PRIMARY KEY (
-			`PBNO` -- Î¨∏ÏùòÍ≤åÏãúÌåêÏùºÎ†®Î≤àÌò∏
+			`PBNO` -- πÆ¿«∞‘Ω√∆«¿œ∑√π¯»£
 		);
 
--- ÌîÑÎ°úÏ†ùÌä∏Ï≤®Î∂ÄÌååÏùº
+-- «¡∑Œ¡ß∆Æ√∑∫Œ∆ƒ¿œ
 CREATE TABLE `CPJTATCHS` (
-	`CPJFNO` INTEGER    NOT NULL COMMENT 'Ï≤®Î∂ÄÌååÏùºÏùºÎ†®Î≤àÌò∏', -- Ï≤®Î∂ÄÌååÏùºÏùºÎ†®Î≤àÌò∏
-	`CPJFNM` MEDIUMBLOB NOT NULL COMMENT 'Ï≤®Î∂ÄÌååÏùº', -- Ï≤®Î∂ÄÌååÏùº
-	`CPJNO`  INTEGER    NOT NULL COMMENT 'Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏' -- Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏
+	`CPJFNO` INTEGER      NOT NULL COMMENT '√∑∫Œ∆ƒ¿œ¿œ∑√π¯»£', -- √∑∫Œ∆ƒ¿œ¿œ∑√π¯»£
+	`CPJFNM` VARCHAR(255) NOT NULL COMMENT '√∑∫Œ∆ƒ¿œ', -- √∑∫Œ∆ƒ¿œ
+	`CPJNO`  INTEGER      NOT NULL COMMENT 'µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£' -- µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£
 )
-COMMENT 'ÌîÑÎ°úÏ†ùÌä∏Ï≤®Î∂ÄÌååÏùº';
+COMMENT '«¡∑Œ¡ß∆Æ√∑∫Œ∆ƒ¿œ';
 
--- ÌîÑÎ°úÏ†ùÌä∏Ï≤®Î∂ÄÌååÏùº
+-- «¡∑Œ¡ß∆Æ√∑∫Œ∆ƒ¿œ
 ALTER TABLE `CPJTATCHS`
-	ADD CONSTRAINT `PK_CPJTATCHS` -- ÌîÑÎ°úÏ†ùÌä∏Ï≤®Î∂ÄÌååÏùº Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_CPJTATCHS` -- «¡∑Œ¡ß∆Æ√∑∫Œ∆ƒ¿œ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`CPJFNO` -- Ï≤®Î∂ÄÌååÏùºÏùºÎ†®Î≤àÌò∏
+			`CPJFNO` -- √∑∫Œ∆ƒ¿œ¿œ∑√π¯»£
 		);
 
--- ÌöåÏõêÏÇ¨ÏßÑ
+-- »∏ø¯ªÁ¡¯
 CREATE TABLE `UPHOTS` (
-	`PHNO` INTEGER    NOT NULL COMMENT 'ÏÇ¨ÏßÑÏùºÎ†®Î≤àÌò∏', -- ÏÇ¨ÏßÑÏùºÎ†®Î≤àÌò∏
-	`PHOT` MEDIUMBLOB NOT NULL COMMENT 'ÏÇ¨ÏßÑ', -- ÏÇ¨ÏßÑ
-	`UNO`  INTEGER    NOT NULL COMMENT 'ÌöåÏõêÏùºÎ†®Î≤àÌò∏' -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+	`PHNO` INTEGER      NOT NULL COMMENT 'ªÁ¡¯¿œ∑√π¯»£', -- ªÁ¡¯¿œ∑√π¯»£
+	`PHOT` VARCHAR(255) NOT NULL COMMENT 'ªÁ¡¯', -- ªÁ¡¯
+	`UNO`  INTEGER      NOT NULL COMMENT '»∏ø¯¿œ∑√π¯»£' -- »∏ø¯¿œ∑√π¯»£
 )
-COMMENT 'ÌöåÏõêÏÇ¨ÏßÑ';
+COMMENT '»∏ø¯ªÁ¡¯';
 
--- ÌöåÏõêÏÇ¨ÏßÑ
+-- »∏ø¯ªÁ¡¯
 ALTER TABLE `UPHOTS`
-	ADD CONSTRAINT `PK_UPHOTS` -- ÌöåÏõêÏÇ¨ÏßÑ Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_UPHOTS` -- »∏ø¯ªÁ¡¯ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`PHNO` -- ÏÇ¨ÏßÑÏùºÎ†®Î≤àÌò∏
+			`PHNO` -- ªÁ¡¯¿œ∑√π¯»£
 		);
 
--- ÌöåÏõêÌÉúÍ∑∏
+-- »∏ø¯≈¬±◊
 CREATE TABLE `UTAGS` (
-	`UEXNO` INTEGER     NOT NULL COMMENT 'ÎÖ∏Ï∂úÌÉúÍ∑∏ÏùºÎ†®Î≤àÌò∏', -- ÎÖ∏Ï∂úÌÉúÍ∑∏ÏùºÎ†®Î≤àÌò∏
-	`UEXTG` VARCHAR(50) NOT NULL COMMENT 'ÎÖ∏Ï∂úÌÉúÍ∑∏', -- ÎÖ∏Ï∂úÌÉúÍ∑∏
-	`UNO`   INTEGER     NOT NULL COMMENT 'ÌöåÏõêÏùºÎ†®Î≤àÌò∏' -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+	`UEXNO` INTEGER     NOT NULL COMMENT '≥Î√‚≈¬±◊¿œ∑√π¯»£', -- ≥Î√‚≈¬±◊¿œ∑√π¯»£
+	`UEXTG` VARCHAR(50) NOT NULL COMMENT '≥Î√‚≈¬±◊', -- ≥Î√‚≈¬±◊
+	`UNO`   INTEGER     NOT NULL COMMENT '»∏ø¯¿œ∑√π¯»£' -- »∏ø¯¿œ∑√π¯»£
 )
-COMMENT 'ÌöåÏõêÌÉúÍ∑∏';
+COMMENT '»∏ø¯≈¬±◊';
 
--- ÌöåÏõêÌÉúÍ∑∏
+-- »∏ø¯≈¬±◊
 ALTER TABLE `UTAGS`
-	ADD CONSTRAINT `PK_UTAGS` -- ÌöåÏõêÌÉúÍ∑∏ Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_UTAGS` -- »∏ø¯≈¬±◊ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`UEXNO` -- ÎÖ∏Ï∂úÌÉúÍ∑∏ÏùºÎ†®Î≤àÌò∏
+			`UEXNO` -- ≥Î√‚≈¬±◊¿œ∑√π¯»£
 		);
 
--- Íµ¨Ïù∏Ï†ïÎ≥¥Ï≤®Î∂ÄÌååÏùº
+-- ±∏¿Œ¡§∫∏√∑∫Œ∆ƒ¿œ
 CREATE TABLE `CREATCHS` (
-	`REFNO` INTEGER    NOT NULL COMMENT 'Ï≤®Î∂ÄÌååÏùºÏùºÎ†®Î≤àÌò∏', -- Ï≤®Î∂ÄÌååÏùºÏùºÎ†®Î≤àÌò∏
-	`REFNM` MEDIUMBLOB NOT NULL COMMENT 'Ï≤®Î∂ÄÌååÏùº', -- Ï≤®Î∂ÄÌååÏùº
-	`RENO`  INTEGER    NOT NULL COMMENT 'Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏' -- Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏
+	`REFNO` INTEGER      NOT NULL COMMENT '√∑∫Œ∆ƒ¿œ¿œ∑√π¯»£', -- √∑∫Œ∆ƒ¿œ¿œ∑√π¯»£
+	`REFNM` VARCHAR(255) NOT NULL COMMENT '√∑∫Œ∆ƒ¿œ', -- √∑∫Œ∆ƒ¿œ
+	`RENO`  INTEGER      NOT NULL COMMENT '±∏¿Œ¿œ∑√π¯»£' -- ±∏¿Œ¿œ∑√π¯»£
 )
-COMMENT 'Íµ¨Ïù∏Ï†ïÎ≥¥Ï≤®Î∂ÄÌååÏùº';
+COMMENT '±∏¿Œ¡§∫∏√∑∫Œ∆ƒ¿œ';
 
--- Íµ¨Ïù∏Ï†ïÎ≥¥Ï≤®Î∂ÄÌååÏùº
+-- ±∏¿Œ¡§∫∏√∑∫Œ∆ƒ¿œ
 ALTER TABLE `CREATCHS`
-	ADD CONSTRAINT `PK_CREATCHS` -- Íµ¨Ïù∏Ï†ïÎ≥¥Ï≤®Î∂ÄÌååÏùº Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_CREATCHS` -- ±∏¿Œ¡§∫∏√∑∫Œ∆ƒ¿œ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`REFNO` -- Ï≤®Î∂ÄÌååÏùºÏùºÎ†®Î≤àÌò∏
+			`REFNO` -- √∑∫Œ∆ƒ¿œ¿œ∑√π¯»£
 		);
 
--- Íµ¨Ïù∏Ï†ïÎ≥¥ÌïÑÏöîÍ∏∞Ïà†
+-- ±∏¿Œ¡§∫∏« ø‰±‚º˙
 CREATE TABLE `CRESKILLS` (
-	`RENO` INTEGER NOT NULL COMMENT 'Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏', -- Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏
-	`SKNO` INTEGER NOT NULL COMMENT 'Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏' -- Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏
+	`RENO` INTEGER NOT NULL COMMENT '±∏¿Œ¿œ∑√π¯»£', -- ±∏¿Œ¿œ∑√π¯»£
+	`SKNO` INTEGER NOT NULL COMMENT '∫∏¿Ø±‚º˙¿œ∑√π¯»£' -- ∫∏¿Ø±‚º˙¿œ∑√π¯»£
 )
-COMMENT 'Íµ¨Ïù∏Ï†ïÎ≥¥ÌïÑÏöîÍ∏∞Ïà†';
+COMMENT '±∏¿Œ¡§∫∏« ø‰±‚º˙';
 
--- Íµ¨Ïù∏Ï†ïÎ≥¥ÌïÑÏöîÍ∏∞Ïà†
+-- ±∏¿Œ¡§∫∏« ø‰±‚º˙
 ALTER TABLE `CRESKILLS`
-	ADD CONSTRAINT `PK_CRESKILLS` -- Íµ¨Ïù∏Ï†ïÎ≥¥ÌïÑÏöîÍ∏∞Ïà† Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_CRESKILLS` -- ±∏¿Œ¡§∫∏« ø‰±‚º˙ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`RENO`, -- Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏
-			`SKNO`  -- Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏
+			`RENO`, -- ±∏¿Œ¿œ∑√π¯»£
+			`SKNO`  -- ∫∏¿Ø±‚º˙¿œ∑√π¯»£
 		);
 
--- ÌîÑÎ°úÏ†ùÌä∏ÌïÑÏöîÍ∏∞Ïà†
+-- «¡∑Œ¡ß∆Æ« ø‰±‚º˙
 CREATE TABLE `CPJTSKILLS` (
-	`CPJNO` INTEGER NOT NULL COMMENT 'Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏', -- Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏
-	`SKNO`  INTEGER NOT NULL COMMENT 'Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏' -- Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏
+	`CPJNO` INTEGER NOT NULL COMMENT 'µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£', -- µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£
+	`SKNO`  INTEGER NOT NULL COMMENT '∫∏¿Ø±‚º˙¿œ∑√π¯»£' -- ∫∏¿Ø±‚º˙¿œ∑√π¯»£
 )
-COMMENT 'ÌîÑÎ°úÏ†ùÌä∏ÌïÑÏöîÍ∏∞Ïà†';
+COMMENT '«¡∑Œ¡ß∆Æ« ø‰±‚º˙';
 
--- ÌîÑÎ°úÏ†ùÌä∏ÌïÑÏöîÍ∏∞Ïà†
+-- «¡∑Œ¡ß∆Æ« ø‰±‚º˙
 ALTER TABLE `CPJTSKILLS`
-	ADD CONSTRAINT `PK_CPJTSKILLS` -- ÌîÑÎ°úÏ†ùÌä∏ÌïÑÏöîÍ∏∞Ïà† Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_CPJTSKILLS` -- «¡∑Œ¡ß∆Æ« ø‰±‚º˙ ±‚∫ª≈∞
 		PRIMARY KEY (
-			`CPJNO`, -- Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏
-			`SKNO`   -- Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏
+			`CPJNO`, -- µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£
+			`SKNO`   -- ∫∏¿Ø±‚º˙¿œ∑√π¯»£
 		);
 
--- Íµ¨Ïù∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê
+-- ±∏¿Œ¡§∫∏πÆ¿«∞‘Ω√∆«
 CREATE TABLE `REBDS` (
-	`RBNO` INTEGER      NOT NULL COMMENT 'Î¨∏ÏùòÍ≤åÏãúÌåêÏùºÎ†®Î≤àÌò∏', -- Î¨∏ÏùòÍ≤åÏãúÌåêÏùºÎ†®Î≤àÌò∏
-	`RBTL` VARCHAR(100) NOT NULL COMMENT 'Í≤åÏãúÎ¨ºÏ†úÎ™©', -- Í≤åÏãúÎ¨ºÏ†úÎ™©
-	`RBCT` TEXT         NOT NULL COMMENT 'Í≤åÏãúÎ¨ºÎÇ¥Ïö©', -- Í≤åÏãúÎ¨ºÎÇ¥Ïö©
-	`RBRD` DATE         NOT NULL COMMENT 'Í≤åÏãúÎ¨∏Îì±Î°ùÏùº', -- Í≤åÏãúÎ¨∏Îì±Î°ùÏùº
-	`RBRG` VARCHAR(50)  NOT NULL COMMENT 'Í≤åÏãúÎ¨∏Îì±Î°ùÏûê', -- Í≤åÏãúÎ¨∏Îì±Î°ùÏûê
-	`RBOP` CHAR(1)      NOT NULL COMMENT 'Í≥µÍ∞úÏó¨Î∂Ä', -- Í≥µÍ∞úÏó¨Î∂Ä
-	`RENO` INTEGER      NOT NULL COMMENT 'Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏', -- Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏
-	`UNO`  INTEGER      NOT NULL COMMENT 'ÌöåÏõêÏùºÎ†®Î≤àÌò∏' -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+	`RBNO` INTEGER      NOT NULL COMMENT 'πÆ¿«∞‘Ω√∆«¿œ∑√π¯»£', -- πÆ¿«∞‘Ω√∆«¿œ∑√π¯»£
+	`RBTL` VARCHAR(100) NOT NULL COMMENT '∞‘Ω√π∞¡¶∏Ò', -- ∞‘Ω√π∞¡¶∏Ò
+	`RBCT` VARCHAR(255) NOT NULL COMMENT '∞‘Ω√π∞≥ªøÎ', -- ∞‘Ω√π∞≥ªøÎ
+	`RBRD` DATE         NOT NULL COMMENT '∞‘Ω√πÆµÓ∑œ¿œ', -- ∞‘Ω√πÆµÓ∑œ¿œ
+	`RBRG` VARCHAR(50)  NOT NULL COMMENT '∞‘Ω√πÆµÓ∑œ¿⁄', -- ∞‘Ω√πÆµÓ∑œ¿⁄
+	`RBOP` CHAR(1)      NOT NULL COMMENT '∞¯∞≥ø©∫Œ', -- ∞¯∞≥ø©∫Œ
+	`RENO` INTEGER      NOT NULL COMMENT '±∏¿Œ¿œ∑√π¯»£', -- ±∏¿Œ¿œ∑√π¯»£
+	`UNO`  INTEGER      NOT NULL COMMENT '»∏ø¯¿œ∑√π¯»£' -- »∏ø¯¿œ∑√π¯»£
 )
-COMMENT 'Íµ¨Ïù∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê';
+COMMENT '±∏¿Œ¡§∫∏πÆ¿«∞‘Ω√∆«';
 
--- Íµ¨Ïù∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê
+-- ±∏¿Œ¡§∫∏πÆ¿«∞‘Ω√∆«
 ALTER TABLE `REBDS`
-	ADD CONSTRAINT `PK_REBDS` -- Íµ¨Ïù∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê Í∏∞Î≥∏ÌÇ§
+	ADD CONSTRAINT `PK_REBDS` -- ±∏¿Œ¡§∫∏πÆ¿«∞‘Ω√∆« ±‚∫ª≈∞
 		PRIMARY KEY (
-			`RBNO` -- Î¨∏ÏùòÍ≤åÏãúÌåêÏùºÎ†®Î≤àÌò∏
+			`RBNO` -- πÆ¿«∞‘Ω√∆«¿œ∑√π¯»£
 		);
 
--- ÌïôÍµê
+-- «–±≥
 ALTER TABLE `USCLS`
-	ADD CONSTRAINT `FK_USERS_TO_USCLS` -- ÌöåÏõê -> ÌïôÍµê
+	ADD CONSTRAINT `FK_USERS_TO_USCLS` -- »∏ø¯ -> «–±≥
 		FOREIGN KEY (
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		)
-		REFERENCES `USERS` ( -- ÌöåÏõê
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+		REFERENCES `USERS` ( -- »∏ø¯
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		);
 
--- Í≤ΩÎ†•
+-- ∞Ê∑¬
 ALTER TABLE `UEXPS`
-	ADD CONSTRAINT `FK_USERS_TO_UEXPS` -- ÌöåÏõê -> Í≤ΩÎ†•
+	ADD CONSTRAINT `FK_USERS_TO_UEXPS` -- »∏ø¯ -> ∞Ê∑¬
 		FOREIGN KEY (
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		)
-		REFERENCES `USERS` ( -- ÌöåÏõê
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+		REFERENCES `USERS` ( -- »∏ø¯
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		);
 
--- Íµ¨Ïù∏Í≥µÍ≥†
+-- ±‚æ˜¡§∫∏
+ALTER TABLE `CINFOS`
+	ADD CONSTRAINT `FK_USERS_TO_CINFOS` -- »∏ø¯ -> ±‚æ˜¡§∫∏
+		FOREIGN KEY (
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
+		)
+		REFERENCES `USERS` ( -- »∏ø¯
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
+		);
+
+-- ±∏¿Œ∞¯∞Ì
 ALTER TABLE `CRECS`
-	ADD CONSTRAINT `FK_CINFOS_TO_CRECS` -- Í∏∞ÏóÖÏ†ïÎ≥¥ -> Íµ¨Ïù∏Í≥µÍ≥†
+	ADD CONSTRAINT `FK_CINFOS_TO_CRECS` -- ±‚æ˜¡§∫∏ -> ±∏¿Œ∞¯∞Ì
 		FOREIGN KEY (
-			`CNO` -- Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏
+			`CNO` -- ±‚æ˜¿œ∑√π¯»£
 		)
-		REFERENCES `CINFOS` ( -- Í∏∞ÏóÖÏ†ïÎ≥¥
-			`CNO` -- Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏
+		REFERENCES `CINFOS` ( -- ±‚æ˜¡§∫∏
+			`CNO` -- ±‚æ˜¿œ∑√π¯»£
 		);
 
--- Í∏∞ÏóÖÏÇ¨ÏßÑ
+-- ±‚æ˜ªÁ¡¯
 ALTER TABLE `CPHOTS`
-	ADD CONSTRAINT `FK_CINFOS_TO_CPHOTS` -- Í∏∞ÏóÖÏ†ïÎ≥¥ -> Í∏∞ÏóÖÏÇ¨ÏßÑ
+	ADD CONSTRAINT `FK_CINFOS_TO_CPHOTS` -- ±‚æ˜¡§∫∏ -> ±‚æ˜ªÁ¡¯
 		FOREIGN KEY (
-			`CNO` -- Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏
+			`CNO` -- ±‚æ˜¿œ∑√π¯»£
 		)
-		REFERENCES `CINFOS` ( -- Í∏∞ÏóÖÏ†ïÎ≥¥
-			`CNO` -- Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏
+		REFERENCES `CINFOS` ( -- ±‚æ˜¡§∫∏
+			`CNO` -- ±‚æ˜¿œ∑√π¯»£
 		);
 
--- Í∏∞ÏóÖÌÉúÍ∑∏
+-- ±‚æ˜≈¬±◊
 ALTER TABLE `CTAGS`
-	ADD CONSTRAINT `FK_CINFOS_TO_CTAGS` -- Í∏∞ÏóÖÏ†ïÎ≥¥ -> Í∏∞ÏóÖÌÉúÍ∑∏
+	ADD CONSTRAINT `FK_CINFOS_TO_CTAGS` -- ±‚æ˜¡§∫∏ -> ±‚æ˜≈¬±◊
 		FOREIGN KEY (
-			`CNO` -- Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏
+			`CNO` -- ±‚æ˜¿œ∑√π¯»£
 		)
-		REFERENCES `CINFOS` ( -- Í∏∞ÏóÖÏ†ïÎ≥¥
-			`CNO` -- Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏
+		REFERENCES `CINFOS` ( -- ±‚æ˜¡§∫∏
+			`CNO` -- ±‚æ˜¿œ∑√π¯»£
 		);
 
--- ÏûêÍ≤©Ï¶ù
+-- ¿⁄∞›¡ı
 ALTER TABLE `UCERTS`
-	ADD CONSTRAINT `FK_USERS_TO_UCERTS` -- ÌöåÏõê -> ÏûêÍ≤©Ï¶ù
+	ADD CONSTRAINT `FK_USERS_TO_UCERTS` -- »∏ø¯ -> ¿⁄∞›¡ı
 		FOREIGN KEY (
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		)
-		REFERENCES `USERS` ( -- ÌöåÏõê
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+		REFERENCES `USERS` ( -- »∏ø¯
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		);
 
--- Ïô∏Íµ≠Ïñ¥
+-- ø‹±πæÓ
 ALTER TABLE `ULANS`
-	ADD CONSTRAINT `FK_USERS_TO_ULANS` -- ÌöåÏõê -> Ïô∏Íµ≠Ïñ¥
+	ADD CONSTRAINT `FK_USERS_TO_ULANS` -- »∏ø¯ -> ø‹±πæÓ
 		FOREIGN KEY (
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		)
-		REFERENCES `USERS` ( -- ÌöåÏõê
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+		REFERENCES `USERS` ( -- »∏ø¯
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		);
 
--- Í∏∞Ïà†Ïó∞Ï∞®
+-- ±‚º˙ø¨¬˜
 ALTER TABLE `YSKILLS`
-	ADD CONSTRAINT `FK_SKILLS_TO_YSKILLS` -- Î≥¥Ïú†Í∏∞Ïà† -> Í∏∞Ïà†Ïó∞Ï∞®
+	ADD CONSTRAINT `FK_SKILLS_TO_YSKILLS` -- ∫∏¿Ø±‚º˙ -> ±‚º˙ø¨¬˜
 		FOREIGN KEY (
-			`SKNO` -- Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏
+			`SKNO` -- ∫∏¿Ø±‚º˙¿œ∑√π¯»£
 		)
-		REFERENCES `SKILLS` ( -- Î≥¥Ïú†Í∏∞Ïà†
-			`SKNO` -- Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏
+		REFERENCES `SKILLS` ( -- ∫∏¿Ø±‚º˙
+			`SKNO` -- ∫∏¿Ø±‚º˙¿œ∑√π¯»£
 		);
 
--- Í∏∞Ïà†Ïó∞Ï∞®
+-- ±‚º˙ø¨¬˜
 ALTER TABLE `YSKILLS`
-	ADD CONSTRAINT `FK_USERS_TO_YSKILLS` -- ÌöåÏõê -> Í∏∞Ïà†Ïó∞Ï∞®
+	ADD CONSTRAINT `FK_USERS_TO_YSKILLS` -- »∏ø¯ -> ±‚º˙ø¨¬˜
 		FOREIGN KEY (
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		)
-		REFERENCES `USERS` ( -- ÌöåÏõê
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+		REFERENCES `USERS` ( -- »∏ø¯
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		);
 
--- Í∏∞ÏóÖÎì±Î°ùÌîÑÎ°úÏ†ùÌä∏
+-- ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ
 ALTER TABLE `CPJTS`
-	ADD CONSTRAINT `FK_CINFOS_TO_CPJTS` -- Í∏∞ÏóÖÏ†ïÎ≥¥ -> Í∏∞ÏóÖÎì±Î°ùÌîÑÎ°úÏ†ùÌä∏
+	ADD CONSTRAINT `FK_CINFOS_TO_CPJTS` -- ±‚æ˜¡§∫∏ -> ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ
 		FOREIGN KEY (
-			`CNO` -- Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏
+			`CNO` -- ±‚æ˜¿œ∑√π¯»£
 		)
-		REFERENCES `CINFOS` ( -- Í∏∞ÏóÖÏ†ïÎ≥¥
-			`CNO` -- Í∏∞ÏóÖÏùºÎ†®Î≤àÌò∏
+		REFERENCES `CINFOS` ( -- ±‚æ˜¡§∫∏
+			`CNO` -- ±‚æ˜¿œ∑√π¯»£
 		);
 
--- ÌîÑÎ°úÏ†ùÌä∏Í≤ΩÎ†•
+-- «¡∑Œ¡ß∆Æ∞Ê∑¬
 ALTER TABLE `UPJTNO`
-	ADD CONSTRAINT `FK_USERS_TO_UPJTNO` -- ÌöåÏõê -> ÌîÑÎ°úÏ†ùÌä∏Í≤ΩÎ†•
+	ADD CONSTRAINT `FK_USERS_TO_UPJTNO` -- »∏ø¯ -> «¡∑Œ¡ß∆Æ∞Ê∑¬
 		FOREIGN KEY (
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		)
-		REFERENCES `USERS` ( -- ÌöåÏõê
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+		REFERENCES `USERS` ( -- »∏ø¯
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		);
 
--- ÌîÑÎ°úÏ†ùÌä∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê
+-- «¡∑Œ¡ß∆Æ¡§∫∏πÆ¿«∞‘Ω√∆«
 ALTER TABLE `PJTBDS`
-	ADD CONSTRAINT `FK_CPJTS_TO_PJTBDS` -- Í∏∞ÏóÖÎì±Î°ùÌîÑÎ°úÏ†ùÌä∏ -> ÌîÑÎ°úÏ†ùÌä∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê
+	ADD CONSTRAINT `FK_CPJTS_TO_PJTBDS` -- ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ -> «¡∑Œ¡ß∆Æ¡§∫∏πÆ¿«∞‘Ω√∆«
 		FOREIGN KEY (
-			`CPJNO` -- Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏
+			`CPJNO` -- µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£
 		)
-		REFERENCES `CPJTS` ( -- Í∏∞ÏóÖÎì±Î°ùÌîÑÎ°úÏ†ùÌä∏
-			`CPJNO` -- Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏
+		REFERENCES `CPJTS` ( -- ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ
+			`CPJNO` -- µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£
 		);
 
--- ÌîÑÎ°úÏ†ùÌä∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê
+-- «¡∑Œ¡ß∆Æ¡§∫∏πÆ¿«∞‘Ω√∆«
 ALTER TABLE `PJTBDS`
-	ADD CONSTRAINT `FK_USERS_TO_PJTBDS` -- ÌöåÏõê -> ÌîÑÎ°úÏ†ùÌä∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê
+	ADD CONSTRAINT `FK_USERS_TO_PJTBDS` -- »∏ø¯ -> «¡∑Œ¡ß∆Æ¡§∫∏πÆ¿«∞‘Ω√∆«
 		FOREIGN KEY (
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		)
-		REFERENCES `USERS` ( -- ÌöåÏõê
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+		REFERENCES `USERS` ( -- »∏ø¯
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		);
 
--- ÌîÑÎ°úÏ†ùÌä∏Ï≤®Î∂ÄÌååÏùº
+-- «¡∑Œ¡ß∆Æ√∑∫Œ∆ƒ¿œ
 ALTER TABLE `CPJTATCHS`
-	ADD CONSTRAINT `FK_CPJTS_TO_CPJTATCHS` -- Í∏∞ÏóÖÎì±Î°ùÌîÑÎ°úÏ†ùÌä∏ -> ÌîÑÎ°úÏ†ùÌä∏Ï≤®Î∂ÄÌååÏùº
+	ADD CONSTRAINT `FK_CPJTS_TO_CPJTATCHS` -- ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ -> «¡∑Œ¡ß∆Æ√∑∫Œ∆ƒ¿œ
 		FOREIGN KEY (
-			`CPJNO` -- Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏
+			`CPJNO` -- µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£
 		)
-		REFERENCES `CPJTS` ( -- Í∏∞ÏóÖÎì±Î°ùÌîÑÎ°úÏ†ùÌä∏
-			`CPJNO` -- Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏
+		REFERENCES `CPJTS` ( -- ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ
+			`CPJNO` -- µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£
 		);
 
--- ÌöåÏõêÏÇ¨ÏßÑ
+-- »∏ø¯ªÁ¡¯
 ALTER TABLE `UPHOTS`
-	ADD CONSTRAINT `FK_USERS_TO_UPHOTS` -- ÌöåÏõê -> ÌöåÏõêÏÇ¨ÏßÑ
+	ADD CONSTRAINT `FK_USERS_TO_UPHOTS` -- »∏ø¯ -> »∏ø¯ªÁ¡¯
 		FOREIGN KEY (
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		)
-		REFERENCES `USERS` ( -- ÌöåÏõê
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+		REFERENCES `USERS` ( -- »∏ø¯
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		);
 
--- ÌöåÏõêÌÉúÍ∑∏
+-- »∏ø¯≈¬±◊
 ALTER TABLE `UTAGS`
-	ADD CONSTRAINT `FK_USERS_TO_UTAGS` -- ÌöåÏõê -> ÌöåÏõêÌÉúÍ∑∏
+	ADD CONSTRAINT `FK_USERS_TO_UTAGS` -- »∏ø¯ -> »∏ø¯≈¬±◊
 		FOREIGN KEY (
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		)
-		REFERENCES `USERS` ( -- ÌöåÏõê
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+		REFERENCES `USERS` ( -- »∏ø¯
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		);
 
--- Íµ¨Ïù∏Ï†ïÎ≥¥Ï≤®Î∂ÄÌååÏùº
+-- ±∏¿Œ¡§∫∏√∑∫Œ∆ƒ¿œ
 ALTER TABLE `CREATCHS`
-	ADD CONSTRAINT `FK_CRECS_TO_CREATCHS` -- Íµ¨Ïù∏Í≥µÍ≥† -> Íµ¨Ïù∏Ï†ïÎ≥¥Ï≤®Î∂ÄÌååÏùº
+	ADD CONSTRAINT `FK_CRECS_TO_CREATCHS` -- ±∏¿Œ∞¯∞Ì -> ±∏¿Œ¡§∫∏√∑∫Œ∆ƒ¿œ
 		FOREIGN KEY (
-			`RENO` -- Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏
+			`RENO` -- ±∏¿Œ¿œ∑√π¯»£
 		)
-		REFERENCES `CRECS` ( -- Íµ¨Ïù∏Í≥µÍ≥†
-			`RENO` -- Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏
+		REFERENCES `CRECS` ( -- ±∏¿Œ∞¯∞Ì
+			`RENO` -- ±∏¿Œ¿œ∑√π¯»£
 		);
 
--- Íµ¨Ïù∏Ï†ïÎ≥¥ÌïÑÏöîÍ∏∞Ïà†
+-- ±∏¿Œ¡§∫∏« ø‰±‚º˙
 ALTER TABLE `CRESKILLS`
-	ADD CONSTRAINT `FK_CRECS_TO_CRESKILLS` -- Íµ¨Ïù∏Í≥µÍ≥† -> Íµ¨Ïù∏Ï†ïÎ≥¥ÌïÑÏöîÍ∏∞Ïà†
+	ADD CONSTRAINT `FK_CRECS_TO_CRESKILLS` -- ±∏¿Œ∞¯∞Ì -> ±∏¿Œ¡§∫∏« ø‰±‚º˙
 		FOREIGN KEY (
-			`RENO` -- Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏
+			`RENO` -- ±∏¿Œ¿œ∑√π¯»£
 		)
-		REFERENCES `CRECS` ( -- Íµ¨Ïù∏Í≥µÍ≥†
-			`RENO` -- Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏
+		REFERENCES `CRECS` ( -- ±∏¿Œ∞¯∞Ì
+			`RENO` -- ±∏¿Œ¿œ∑√π¯»£
 		);
 
--- Íµ¨Ïù∏Ï†ïÎ≥¥ÌïÑÏöîÍ∏∞Ïà†
+-- ±∏¿Œ¡§∫∏« ø‰±‚º˙
 ALTER TABLE `CRESKILLS`
-	ADD CONSTRAINT `FK_SKILLS_TO_CRESKILLS` -- Î≥¥Ïú†Í∏∞Ïà† -> Íµ¨Ïù∏Ï†ïÎ≥¥ÌïÑÏöîÍ∏∞Ïà†
+	ADD CONSTRAINT `FK_SKILLS_TO_CRESKILLS` -- ∫∏¿Ø±‚º˙ -> ±∏¿Œ¡§∫∏« ø‰±‚º˙
 		FOREIGN KEY (
-			`SKNO` -- Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏
+			`SKNO` -- ∫∏¿Ø±‚º˙¿œ∑√π¯»£
 		)
-		REFERENCES `SKILLS` ( -- Î≥¥Ïú†Í∏∞Ïà†
-			`SKNO` -- Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏
+		REFERENCES `SKILLS` ( -- ∫∏¿Ø±‚º˙
+			`SKNO` -- ∫∏¿Ø±‚º˙¿œ∑√π¯»£
 		);
 
--- ÌîÑÎ°úÏ†ùÌä∏ÌïÑÏöîÍ∏∞Ïà†
+-- «¡∑Œ¡ß∆Æ« ø‰±‚º˙
 ALTER TABLE `CPJTSKILLS`
-	ADD CONSTRAINT `FK_CPJTS_TO_CPJTSKILLS` -- Í∏∞ÏóÖÎì±Î°ùÌîÑÎ°úÏ†ùÌä∏ -> ÌîÑÎ°úÏ†ùÌä∏ÌïÑÏöîÍ∏∞Ïà†
+	ADD CONSTRAINT `FK_CPJTS_TO_CPJTSKILLS` -- ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ -> «¡∑Œ¡ß∆Æ« ø‰±‚º˙
 		FOREIGN KEY (
-			`CPJNO` -- Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏
+			`CPJNO` -- µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£
 		)
-		REFERENCES `CPJTS` ( -- Í∏∞ÏóÖÎì±Î°ùÌîÑÎ°úÏ†ùÌä∏
-			`CPJNO` -- Îì±Î°ùÌîÑÎ°úÏ†ùÌä∏ÏùºÎ†®Î≤àÌò∏
+		REFERENCES `CPJTS` ( -- ±‚æ˜µÓ∑œ«¡∑Œ¡ß∆Æ
+			`CPJNO` -- µÓ∑œ«¡∑Œ¡ß∆Æ¿œ∑√π¯»£
 		);
 
--- ÌîÑÎ°úÏ†ùÌä∏ÌïÑÏöîÍ∏∞Ïà†
+-- «¡∑Œ¡ß∆Æ« ø‰±‚º˙
 ALTER TABLE `CPJTSKILLS`
-	ADD CONSTRAINT `FK_SKILLS_TO_CPJTSKILLS` -- Î≥¥Ïú†Í∏∞Ïà† -> ÌîÑÎ°úÏ†ùÌä∏ÌïÑÏöîÍ∏∞Ïà†
+	ADD CONSTRAINT `FK_SKILLS_TO_CPJTSKILLS` -- ∫∏¿Ø±‚º˙ -> «¡∑Œ¡ß∆Æ« ø‰±‚º˙
 		FOREIGN KEY (
-			`SKNO` -- Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏
+			`SKNO` -- ∫∏¿Ø±‚º˙¿œ∑√π¯»£
 		)
-		REFERENCES `SKILLS` ( -- Î≥¥Ïú†Í∏∞Ïà†
-			`SKNO` -- Î≥¥Ïú†Í∏∞Ïà†ÏùºÎ†®Î≤àÌò∏
+		REFERENCES `SKILLS` ( -- ∫∏¿Ø±‚º˙
+			`SKNO` -- ∫∏¿Ø±‚º˙¿œ∑√π¯»£
 		);
 
--- Íµ¨Ïù∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê
+-- ±∏¿Œ¡§∫∏πÆ¿«∞‘Ω√∆«
 ALTER TABLE `REBDS`
-	ADD CONSTRAINT `FK_CRECS_TO_REBDS` -- Íµ¨Ïù∏Í≥µÍ≥† -> Íµ¨Ïù∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê
+	ADD CONSTRAINT `FK_CRECS_TO_REBDS` -- ±∏¿Œ∞¯∞Ì -> ±∏¿Œ¡§∫∏πÆ¿«∞‘Ω√∆«
 		FOREIGN KEY (
-			`RENO` -- Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏
+			`RENO` -- ±∏¿Œ¿œ∑√π¯»£
 		)
-		REFERENCES `CRECS` ( -- Íµ¨Ïù∏Í≥µÍ≥†
-			`RENO` -- Íµ¨Ïù∏ÏùºÎ†®Î≤àÌò∏
+		REFERENCES `CRECS` ( -- ±∏¿Œ∞¯∞Ì
+			`RENO` -- ±∏¿Œ¿œ∑√π¯»£
 		);
 
--- Íµ¨Ïù∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê
+-- ±∏¿Œ¡§∫∏πÆ¿«∞‘Ω√∆«
 ALTER TABLE `REBDS`
-	ADD CONSTRAINT `FK_USERS_TO_REBDS` -- ÌöåÏõê -> Íµ¨Ïù∏Ï†ïÎ≥¥Î¨∏ÏùòÍ≤åÏãúÌåê
+	ADD CONSTRAINT `FK_USERS_TO_REBDS` -- »∏ø¯ -> ±∏¿Œ¡§∫∏πÆ¿«∞‘Ω√∆«
 		FOREIGN KEY (
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		)
-		REFERENCES `USERS` ( -- ÌöåÏõê
-			`UNO` -- ÌöåÏõêÏùºÎ†®Î≤àÌò∏
+		REFERENCES `USERS` ( -- »∏ø¯
+			`UNO` -- »∏ø¯¿œ∑√π¯»£
 		);
 
-
-
--- auto_increment ÏÑ§Ï†ï ÏãúÏûë--
+		
+-- auto_increment º≥¡§ Ω√¿€--
 alter table USERS modify UNO int auto_increment;
 alter table USCLS modify SCNO int auto_increment;
 alter table UEXPS modify EXPNO int auto_increment;
@@ -718,4 +823,89 @@ alter table CREATCHS modify REFNO int auto_increment;
 alter table CRESKILLS modify RENO int auto_increment;
 alter table CPJTSKILLS modify CPJNO int auto_increment;
 alter table REBDS modify RBNO int auto_increment;
--- auto_increment ÏÑ§Ï†ï ÎÅù--
+-- auto_increment º≥¡§ ≥°--
+
+INSERT INTO SKILLS (SKNM) VALUES ('NoSQL');
+INSERT INTO SKILLS (SKNM) VALUES ('Oracle');
+INSERT INTO SKILLS (SKNM) VALUES ('MySQL');
+INSERT INTO SKILLS (SKNM) VALUES ('MSSQL');
+INSERT INTO SKILLS (SKNM) VALUES ('Approach');
+INSERT INTO SKILLS (SKNM) VALUES ('PostgreSQL');
+INSERT INTO SKILLS (SKNM) VALUES ('IBM');
+INSERT INTO SKILLS (SKNM) VALUES ('DB2');
+INSERT INTO SKILLS (SKNM) VALUES ('dBASE');
+INSERT INTO SKILLS (SKNM) VALUES ('IV');
+INSERT INTO SKILLS (SKNM) VALUES ('Paradox');
+INSERT INTO SKILLS (SKNM) VALUES ('Sybase');
+INSERT INTO SKILLS (SKNM) VALUES ('Informix');
+INSERT INTO SKILLS (SKNM) VALUES ('VMS');
+INSERT INTO SKILLS (SKNM) VALUES ('HDB');
+INSERT INTO SKILLS (SKNM) VALUES ('MongoDB');
+INSERT INTO SKILLS (SKNM) VALUES ('Couchbase');
+INSERT INTO SKILLS (SKNM) VALUES ('ReactJS');
+INSERT INTO SKILLS (SKNM) VALUES ('FORTRAN');
+INSERT INTO SKILLS (SKNM) VALUES ('COBOL');
+INSERT INTO SKILLS (SKNM) VALUES ('R');
+INSERT INTO SKILLS (SKNM) VALUES ('Gralde');
+INSERT INTO SKILLS (SKNM) VALUES ('Scala');
+INSERT INTO SKILLS (SKNM) VALUES ('occam');
+INSERT INTO SKILLS (SKNM) VALUES ('Swift');
+INSERT INTO SKILLS (SKNM) VALUES ('VisualBasic');
+INSERT INTO SKILLS (SKNM) VALUES ('Pascal');
+INSERT INTO SKILLS (SKNM) VALUES ('Delphi');
+INSERT INTO SKILLS (SKNM) VALUES ('Ruby');
+INSERT INTO SKILLS (SKNM) VALUES ('ActionScript');
+INSERT INTO SKILLS (SKNM) VALUES ('ASP');
+INSERT INTO SKILLS (SKNM) VALUES ('Swift');
+INSERT INTO SKILLS (SKNM) VALUES ('Ajax');
+INSERT INTO SKILLS (SKNM) VALUES ('CSS');
+INSERT INTO SKILLS (SKNM) VALUES ('DHTML');
+INSERT INTO SKILLS (SKNM) VALUES ('XHTML');
+INSERT INTO SKILLS (SKNM) VALUES ('HTML');
+INSERT INTO SKILLS (SKNM) VALUES ('HTML5');
+INSERT INTO SKILLS (SKNM) VALUES ('CSS3');
+INSERT INTO SKILLS (SKNM) VALUES ('Web');
+INSERT INTO SKILLS (SKNM) VALUES ('Python');
+INSERT INTO SKILLS (SKNM) VALUES ('Perl');
+INSERT INTO SKILLS (SKNM) VALUES ('PHP');
+INSERT INTO SKILLS (SKNM) VALUES ('Java');
+INSERT INTO SKILLS (SKNM) VALUES ('Sevlet');
+INSERT INTO SKILLS (SKNM) VALUES ('JSP');
+INSERT INTO SKILLS (SKNM) VALUES ('JavaSE');
+INSERT INTO SKILLS (SKNM) VALUES ('JavaEE');
+INSERT INTO SKILLS (SKNM) VALUES ('EJB');
+INSERT INTO SKILLS (SKNM) VALUES ('Java');
+INSERT INTO SKILLS (SKNM) VALUES ('Applet');
+INSERT INTO SKILLS (SKNM) VALUES ('Android');
+INSERT INTO SKILLS (SKNM) VALUES ('Spring');
+INSERT INTO SKILLS (SKNM) VALUES ('iBatis');
+INSERT INTO SKILLS (SKNM) VALUES ('MyBatis');
+INSERT INTO SKILLS (SKNM) VALUES ('DHTML');
+INSERT INTO SKILLS (SKNM) VALUES ('Ajax');
+INSERT INTO SKILLS (SKNM) VALUES ('jQuery');
+INSERT INTO SKILLS (SKNM) VALUES ('JavaScript');
+INSERT INTO SKILLS (SKNM) VALUES ('C');
+INSERT INTO SKILLS (SKNM) VALUES ('Xcode');
+INSERT INTO SKILLS (SKNM) VALUES ('CocoaPods');
+INSERT INTO SKILLS (SKNM) VALUES ('Swift');
+
+insert into USERS VALUES(0,'name','engname','test@a.com','12341234','korea','man','1',20160425,'01012341234','address','webaddress','introduce');
+insert into CINFOS VALUES(0,'catego',1234,'compname','size','location',20,'description',1);
+insert into USCLS VALUES(0,'schoolname','majorname',2.5,20160425,20160426,1);
+insert into UEXPS VALUES(0,'compname','departname',200,20160424,20160425,'description','boss',1);
+insert into UCERTS VALUES(0,'ctname','ctag',123123456,90,'weburl',20160424,20160425,20160426,1);
+insert into CRECS VALUES(0,'title','compname','description',5,'1',5,'it','developer','home',3000,'user',20160424,20160425,100,'seoul','intern',1);
+insert into CPJTS VALUES(0,'title','description','1','5',10,2000,3000,10,20160424,20160425,20160426,'user','home','seoul',1);
+insert into UPJTNO VALUES(0,1,'title',20160424,20160425,'description','entry');
+insert into ULANS VALUES(0,'langname','level',1);
+insert into YSKILLS VALUES(0,1,44,5);
+insert into CPHOTS VALUES(0,'photopath',1);
+insert into CTAGS VALUES(0,'tagname',1);
+insert into PJTBDS VALUES(0,'title','description',20160424,'registrantname','1',1,1);
+insert into REBDS VALUES(0,'title','description',20160424,'registrantname','1',1,1);
+insert into CREATCHS VALUES(0,'filepath',1);
+insert into CRESKILLS VALUES(1,1);
+insert into CPJTSKILLS VALUES(1,1);
+insert into CPJTATCHS VALUES(0,'filepath',1);
+insert into UPHOTS VALUES(0,'photopath',1);
+insert into UTAGS VALUES(0,'tagname',1);
