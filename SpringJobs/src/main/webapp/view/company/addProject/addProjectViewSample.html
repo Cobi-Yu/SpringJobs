@@ -79,60 +79,44 @@
 	                       
 		                   <tr>
 		                   		<td><h3>요구되는 기술</h3>
-		                   		기술명 <input type="text" id="cpjsk">
+		                   		기술명 
+		                   		<input type="text" id="cpjsk">
 		                   		</td>   
 		                   </tr>
 		                   <tr>
 		                   		<td><h3>프로젝트 경력여부</h3>
-                                    <div id="pre_set"> </div>
+                                    <div class="col-md-3" id="cpjchk"> </div>
                                 </td>
 		                   </tr>
-		                   <!-- 
+		                    
 		                   <tr>
 		                   		<td><h3>모집인원</h3>
-		                   		 	<input type="text" id="cpjnpl" style="width:25%" placeholder="예) 5명일경우 5만 입력">	
+		                   		 	<div class="col-md-3" id="cpjnpl" style="width:25%"></div>
 		                   		</td>
 		                   </tr>
 		                   <tr>
 		                   		<td><h3>급여</h3>
-		                   		<div class="col-md-3 adm">
-		                   		최소<input type="text" id="cpjmnp" style="width: 120%" placeholder="예) 1백만원일경우 1000000">
+		                   		<div class="col-md-3">
+		                   		최소<div id="cpjmnp" style="width: 120%"></div>
 		                   		</div>
 		                   		<div class="col-md-3">
-		                   		최대<input type="text" id="cpjmap" style="width: 120%" placeholder="예) 2백만원일경우 2000000">
+		                   		최대<div id="cpjmap" style="width: 120%"></div>
 		                   		</div>
 		                   		</td>
 		                   </tr>
 		                   <tr>
 		                   		<td><h3>게시자</h3>
-		                   		<input type="text" id="cpjrg" style="width: 25%" placeholder="예) 홍길동 or 비트교육센터"> 
+		                   		<div class="col-md-3" id="cpjrg" style="width: 25%"></div> 
 		                   		</td>
 		                   </tr>
 		                   <tr>
 		                   		<td><h3>근무형태</h3>
-		                   			<select class="form-control" style="width:30%" id="cpjwt">
-                                        <option>근무형태</option>
-                                        <option>출퇴근</option>
-                                        <option>자택근무</option>
-                                    </select>
+		                   			<div class="col-md-3" id="cpjwt"></div>
 		                   		</td>
 		                   </tr>
 		                   <tr>
 		                   		<td><h3>지역</h3>
-		                   			<select class="form-control" style="width:30%" id="cpjar">
-		                   				<option>지역</option>
-                                        <option>경기</option>
-                                        <option>서울</option>
-                                        <option>강원</option>
-                                        <option>전북</option>
-                                        <option>전남</option>
-                                        <option>충북</option>
-                                        <option>충남</option>
-                                        <option>경남</option>
-                                        <option>경북</option>
-                                        <option>제주</option>
-                                        <option>해외</option>
-                                    </select>
+		                   			<div class="col-md-3" id="cpjar"></div>
 		                   		</td>
 		                   </tr>
 		                   <tr>
@@ -159,10 +143,10 @@
                             </tr>   
 		                   <tr>
 		                   		<td>
-		                   		<button type="button" class="btn btn-default">임시저장</button> 
-								<button type="button" class="btn btn-primary" id="join">등록</button> 	 
+		                   		<button type="button" class="btn btn-default">수정</button> 
+								<button type="button" class="btn btn-primary" id="join">확인</button> 	 
 								</td>
-		                   </tr>     -->       
+		                   </tr>       
 	                      </tbody>
 	                       
 						</table>
@@ -184,8 +168,38 @@
 	});
 	
 	$(document).on('frameComplete',function(event){
+			
+			console.log(location.href);
+			
+				
+				  
+			 
+				   //var ParameterObject = new Object();  
+				   var locate = location.href;  
+				 	
+				   /* 
+				   if(locate.indexOf("?")==-1){  
+				            return ParameterObject;  
+				   }  */ 
+				 
+				   var parameter = locate.split("?").pop(-1);
+				   console.log(parameter);
+				   
+				   //var paramAreay = parameter.split("&");  
+				   /* 
+				   for ( var i=0; i<paramAreay.length; i++ )  {  
+				         var tem = paramAreay[i].split("=");  
+				         ParameterObject[tem[0]] = tem[1];  
+				   }
+				   
+				   getUrlParameter = function () { 
+					   return ParameterObject; 
+				   }  
+				       return ParameterObject;   */ 		
+			
+			
 			$.ajax({
-				url : contextRoot+"/company/addProjectView?cpjno=1",
+				url : contextRoot+"/company/addProjectView?cpjno="+parameter,
 				method : "GET",
 				dataType : "json",
 				headers : {
@@ -200,6 +214,13 @@
 					$('#cpjsd').text(data.cpjts.cpjsd);
 					$('#cpjed').text(data.cpjts.cpjed);
 					$('#cpjint').text(data.cpjts.cpjint);
+					$('#cpjchk').text(data.cpjts.cpjchk);
+					$('#cpjnpl').text(data.cpjts.cpjnpl);
+					$('#cpjmnp').text(data.cpjts.cpjmnp);
+					$('#cpjmap').text(data.cpjts.cpjmap);
+					$('#cpjrg').text(data.cpjts.cpjrg);
+					$('#cpjwt').text(data.cpjts.cpjwt);
+					$('#cpjar').text(data.cpjts.cpjar);
 				},
 				error:function(req,status,error){
 					callModal('경고','알수없는 에러');
