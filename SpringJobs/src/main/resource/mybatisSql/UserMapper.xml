@@ -49,10 +49,6 @@
     		usx=#{usx}
     	</set>
     	WHERE uno=#{uno};
-    	
-       <selectKey keyProperty="uno" resultType="INTEGER">
-	        SELECT uno FROM users WHERE uno=#{uno};
-	   </selectKey>
     </update>
 	 
 </mapper>
