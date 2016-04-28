@@ -1,0 +1,260 @@
+@CHARSET "UTF-8";
+
+        /*버튼 쉐도우*/
+        
+        .button {
+            background-color: rgb(198, 228, 255);
+            /* Green */
+            border: none;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s;
+            /* Safari */
+            transition-duration: 0.4s;
+        }
+        
+        .button2:hover {
+            box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.24), 0 14px 42px 0 rgba(0, 0, 0, 0.19);
+        }
+        /* Style the buttons that are used to open and close the accordion panel */
+        
+        button.accordion:after {
+            content: '\02795';
+            /* Unicode character for "plus" sign (+) */
+            font-size: 13px;
+            color: #777;
+            float: right;
+            margin-left: 5px;
+        }
+        
+        button.accordion.active:after {
+            content: "\2796";
+            /* Unicode character for "minus" sign (-) */
+        }
+        
+        button.accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+        }
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        
+        button.accordion.active,
+        button.accordion:hover {
+            background-color: #ddd;
+        }
+        /* Style the accordion panel. Note: hidden by default */
+        
+        div.panel {
+            padding: 0 18px;
+            background-color: white;
+            display: none;
+        }
+        /* The "show" class is added to the accordion panel when the user clicks on one of the buttons. This will show the panel content */
+        
+        div.panel.show {
+            display: block !important;
+        }
+        /* Remove the navbar's default margin-bottom and rounded borders */
+        
+        .navbar {
+            margin-bottom: 0;
+            border-radius: 0;
+        }
+        /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+        
+        .row.content {
+            height: 1000px
+        }
+        /* Set gray background color and 100% height */
+        
+        .sidenav {
+            padding-top: 20px;
+            background-color: #f1f1f1;
+            height: 100%;
+        }
+        /* Set black background color, white text and some padding */
+        
+        footer {
+            background-color: #555;
+            color: white;
+            padding: 15px;
+        }
+        /* On small screens, set height to 'auto' for sidenav and grid */
+        
+        @media screen and (max-width: 767px) {
+            .sidenav {
+                height: auto;
+                padding: 15px;
+            }
+            .row.content {
+                height: auto;
+            }
+        }
+        
+        .main {
+            padding-top: 10px;
+        }
+        
+        .navbar-item {
+            color: white;
+        }
+        
+        .nav-tabs {
+            background: black;
+        }
+        
+        .nav-sub {
+            padding: 0px;
+            background: black;
+            line-height: 1px;
+            font-size: 13px
+        }
+        
+        .progress {
+            margin: 10px;
+        }
+        /* -------------------------------- style add --------------------------------*/
+        /* 여기는 본문의 텍스트 */
+        /* 여기는 해당 페이지 좌측 메뉴 하이라이트 색깔*/
+        
+        body .nav-list>.active>a {
+            /*background-color:black;*/
+            text-align: center;
+        }
+        
+        body .nav-list>.active>a:hover {
+            background: #ffffff;
+        }
+        
+        /* 왼쪽메뉴 hover 색상 */
+        body .nav a:hover {
+            background-color: white;
+        }
+        
+        #side-nav {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #side-nav:before,
+        #side-nav:after {
+            content: ' ';
+            display: table;
+        }
+        
+        #side-nav:after {
+            clear: both;
+        }
+        
+        .shareTech {
+            font-family: 'Share Tech', sans-serif;
+        }
+        /* 여기는 좌측 메뉴 바*/
+        
+        .nav-list li a {
+            height: 30px;
+            font-size: 1em;
+            line-height: 20px;
+        }
+        /* 여기는 본문의 투명도*/
+        
+        .opacity,
+        section {
+            opacity: .7;
+        }
+        
+        .h1-wrap {
+            padding: 1em 1em 5em 2em;
+            background-color: #F7EDFA;
+            margin-bottom: 1em;
+        }
+        
+        h1:first-of-type {
+            color: #5fd0eb;
+            font-size: 3em;
+            margin-top: 1em;
+            margin-left: 25%;
+        }
+        
+        .topImage {
+            display: inline-block;
+            height: auto;
+            width: 40%;
+            margin-left: 30%;
+        }
+        
+        section {
+            background-color: #F2EBF7;
+            height: auto;
+            /*프로필 등록을 위해서 section의 세로 사이즈 조정함 - 오병소 (160405 - UI 작업)*/
+            margin-bottom: 1em;
+            padding: 1em 1em .5em 1em;
+        }
+        
+        section + section {
+            height: auto/* note the section height here! */
+        }
+        
+        section + section + section {
+            height: 400px
+        }
+        
+        section h2 {
+            font-size: 3em;
+        }
+        
+        section p {
+            float: right;
+            font-size: 1.5em;
+            line-height: 1.6em;
+            width: 50%;
+        }
+        /*sub {
+          background:#A76AD9;
+          color:#fff;
+          padding:1em;
+          display:block;
+          float:right;
+          font-size:1em;
+          line-height:1.1em;
+          margin-bottom:1em;
+          margin-right:1em;
+          width:50%;
+        }*/
+        
+        sub a {
+            background: none;
+            color: #fff;
+        }
+        
+        sub a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        
+        @media only screen and (max-width: 1200px) {
+            #side-nav,
+            .puppyWrap {
+                display: none;
+            }
+            .col-md-offset-3 {
+                margin-left: 0;
+            }
+            .col-md-9 {
+                width: 100%;
+            }
+        }
+        /* -------------------------------- style end --------------------------------*/
