@@ -6,9 +6,20 @@
 
 <mapper namespace="UserMapper">
 	<resultMap id="userSelectMap" type="com.springjobs.domain.Users">
-		<result property="uno" 			column="UNO" 			jdbcType="INTEGER"/>
-		<result property="email"	column="UEM" 		jdbcType="VARCHAR" />
-		<result property="password" 	column="UPW" 		jdbcType="VARCHAR" />
+		<result property="uno" 			column="UNO" 		jdbcType="INTEGER"/>
+		<result property="unm" 			column="UNM" 		jdbcType="VARCHAR" />
+		<result property="uenm"			column="UENM" 		jdbcType="VARCHAR" />
+		<result property="uem" 			column="UEM" 		jdbcType="VARCHAR" />
+		<result property="upw" 			column="UPW" 		jdbcType="VARCHAR" />
+		<result property="uco" 			column="UCO" 		jdbcType="VARCHAR" />
+		<result property="usx" 			column="USX" 		jdbcType="VARCHAR" />
+		<result property="ucnf" 		column="UCNF" 		jdbcType="VARCHAR" />
+		<result property="ubd" 			column="UBD" 		jdbcType="DATE" />
+		<result property="upho" 		column="UPHO" 		jdbcType="VARCHAR" />
+		<result property="uadr" 		column="UADR" 		jdbcType="VARCHAR" />
+		<result property="uurl" 		column="UURL" 		jdbcType="VARCHAR" />
+		<result property="ures" 		column="URES" 		jdbcType="VARCHAR" />
+		
 	</resultMap>
 	
 	<!-- SQL : INSERT -->
@@ -29,5 +40,19 @@
 		FROM USERS 
 		WHERE uem=#{uem};
     </select>
+    
+    <update 	id="addInfo"	  parameterType="com.springjobs.domain.Users">
+    	UPDATE USERS
+    	<set>
+    		uenm=#{uenm},
+    		ubd=#{ubd}, 
+    		usx=#{usx}
+    	</set>
+    	WHERE uno=#{uno};
+    	
+       <selectKey keyProperty="uno" resultType="INTEGER">
+	        SELECT uno FROM users WHERE uno=#{uno};
+	   </selectKey>
+    </update>
 	 
 </mapper>
