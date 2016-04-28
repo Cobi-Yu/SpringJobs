@@ -370,7 +370,7 @@
                 	+$("#reyr").val()+'","reidt":"'+$("#reidt").val()+'","rejp":"' 
                 	+$("#rejp").val()+'","retp":"'+$("#retp").val()+'","repay":"' 
                 	+$("#repay").val()+'","rerg":"'+$("#rerg").val()+'","reed":"' +$("#reed").val()
-                	+'","rear":"'+$("#rear").val()+'","rewt":"'+$("#rewt").val()+'"}')
+                	+'","rear":"'+$("#rear").val()+'","rewt":"'+$("#rewt").val()+'","cno":"'+user.cno+'"}')
          $.ajax({
                 url: contextRoot+"/company/addJob"
                 , method: "POST"
@@ -380,7 +380,7 @@
                 	+rechk+'","reyr":"'+$("#reyr").val()+'","reidt":"'+$("#reidt").val() 
                 	+'","rejp":"'+$("#rejp").val()+'","reed":"' +$("#reed").val()+'","retp":"'+$("#retp").val()+'","repay":"' 
                 	+$("#repay").val()+'","rerg":"'+$("#rerg").val()+'","rear":"'+$("#rear").val()+'","rewt":"' 
-                	+$("#rewt").val() +'"}'
+                	+$("#rewt").val() +'","cno":"'+user.cno+'"}'
                 , headers: {
                     "Accept": "application/json"
                     , "Content-Type": "application/json"
@@ -389,37 +389,6 @@
 				,complete : removeLoading
                 , success: function (data) {
                 	console.log(data.reno);
-                	 $.ajax({
-     	                url: contextRoot+"/view/company/getJob/getJob.html?"+data.reno
-     	                , method: "GET"
-     	                , dataType: "json"
-     	               , headers: {
-     	                    "Accept": "application/json"
-     	                    , "Content-Type": "application/json"
-     	                },
-     	                success : function(data) {
-     	                	
-     	                	console.log(data);
-     	                	$('#retl').text(data.crecs.retl);
-     	               		$('#recnm').text(data.crecs.recnm);
-     	               		$('#rewc').text(data.crecs.rewc);
-     	               		$('#renpl').text(data.crecs.renpl);
-     	               		$('#rechk').text(data.crecs.rechk);
-     	               		$('#reyr').text(data.crecs.reyr);
-     	               		$('#reidt').text(data.crecs.reidt);
-     	               		$('#rejp').text(data.crecs.rejp);
-     	               		$('#retp').text(data.crecs.retp);
-     	               		$('#repay').text(data.crecs.repay);
-     	               		$('#rerg').text(data.crecs.rerg);
-     	               		$('#reed').text(data.crecs.reed);
-     	    				$('#rear').text(data.crecs.rear);
-     	    				$('#rewt').text(data.crecs.rewt);
-     	        		},        		
-     	        			error:function(req,status,error){
-     	        				callModal('알수없는 에러');
-     	        				user=null;
-     	        		}
-     	            });
                 	 callModal('구인 등록','구인 공고 등록 완료', contextRoot+"/view/company/getJob/getJob.html?"+data.reno);
                 }
             });

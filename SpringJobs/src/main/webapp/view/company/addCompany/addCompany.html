@@ -250,15 +250,16 @@ var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             console.log('{"cct":"' +$("#cct").val() +'","crgno":"' 
                 	+$("#crgno").val()+'","cnm":"'+$("#cnm").val()+'","cscl":"' 
                 	+$("#cscl").val()+'","clo":"'+$("#clo").val()+'","cnpl":"' 
-                	+$("#cnpl").val()+'","cint":"'+$("#cint").val()+'"}')
+                	+$("#cnpl").val()+'","cint":"'+$("#cint").val()+'","cno":"'+user.cno+'"}')
          $.ajax({
-                url: contextRoot+"/addCompany"
+                url: contextRoot+"/addCompany"/* ,"uno":"'+$("#user").uno'" */
                 , method: "POST"
                 , dataType: "json"
                 , data: '{"cct":"'+$("#cct").val()+'","crgno":"'+$("#crgno").val() 
-                	+'","cnm":"'+$("#cnm").val()+'","cscl":"'+$("#cscl").val()+'","clo":"'
-                	+$("#clo").val()'+'$("#cloo").val()+'","cnpl":"'+$("#cnpl").val() 
-                	+'","cint":"'+$("#cint").val()+'"}'
+                	+'","cnm":"'+$("#cnm").val()+'","cscl":"'+$("#cscl").val()
+                	+'","clo":"'+$("#clo").val()+'","cnpl":"'+$("#cnpl").val() 
+                	+'","cint":"'+$("#cint").val()+'","cno":"'+user.cno+'"}'
+             
                 , headers: {
                     "Accept": "application/json"
                     , "Content-Type": "application/json"

@@ -145,47 +145,46 @@
 		$('#footer').load('/view/common/login/frameFooter.html');
 	});
 	
-	$(document).on('frameComplete',function(event) {
-	   $('#join').click(function () { 
+	$(document).on('frameComplete',function(event){
 		
-        $.ajax({
-<<<<<<< .mine
-                url: contextRoot+"/company/getJob?reno="+data.crecs.reno
-=======
-                url: contextRoot+"/company/getJob?reno=1"
->>>>>>> .r93
-                , method: "GET"
-                , dataType: "json"
-               , headers: {
-                    "Accept": "application/json"
-                    , "Content-Type": "application/json"
-                },
-                beforeSend : addLoading,
-				complete : removeLoading,
-                success : function(data) {
-                	console.log(data);
-                	$('#retl').text(data.crecs.retl);
-               		$('#recnm').text(data.crecs.recnm);
-               		$('#rewc').text(data.crecs.rewc);
-               		$('#renpl').text(data.crecs.renpl);
-               		$('#rechk').text(data.crecs.rechk);
-               		$('#reyr').text(data.crecs.reyr);
-               		$('#reidt').text(data.crecs.reidt);
-               		$('#rejp').text(data.crecs.rejp);
-               		$('#retp').text(data.crecs.retp);
-               		$('#repay').text(data.crecs.repay);
-               		$('#rerg').text(data.crecs.rerg);
-               		$('#reed').text(data.crecs.reed);
-    				$('#rear').text(data.crecs.rear);
-    				$('#rewt').text(data.crecs.rewt);
-        		},        		
-        			error:function(req,status,error){
-        				callModal('알수없는 에러');
-        				user=null;
-        		}
-            }); 
-	   });
-	   });
+		console.log(location.href);
+		
+			   var locate = location.href;  
+			   var parameter = locate.split("?").pop(-1);
+			   console.log(parameter);
+		
+		$.ajax({
+			url : contextRoot+"/company/getJob?reno="+parameter,
+			method : "GET",
+			dataType : "json",
+			headers : {
+				"Accept" : "application/json",
+				"Content-Type" : "application/json"
+			},
+			beforeSend : addLoading,
+			complete : removeLoading,
+			success : function(data) {
+            	$('#retl').text(data.crecs.retl);
+           		$('#recnm').text(data.crecs.recnm);
+           		$('#rewc').text(data.crecs.rewc);
+           		$('#renpl').text(data.crecs.renpl);
+           		$('#rechk').text(data.crecs.rechk);
+           		$('#reyr').text(data.crecs.reyr);
+           		$('#reidt').text(data.crecs.reidt);
+           		$('#rejp').text(data.crecs.rejp);
+           		$('#retp').text(data.crecs.retp);
+           		$('#repay').text(data.crecs.repay);
+           		$('#rerg').text(data.crecs.rerg);
+           		$('#reed').text(data.crecs.reed);
+				$('#rear').text(data.crecs.rear);
+				$('#rewt').text(data.crecs.rewt);
+			},
+			error:function(req,status,error){
+				callModal('경고','알수없는 에러');
+				user=null;
+			}
+		 });
+	});
 </script>
 
 </html>
