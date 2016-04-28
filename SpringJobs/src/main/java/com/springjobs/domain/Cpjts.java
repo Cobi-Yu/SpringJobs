@@ -22,15 +22,15 @@ public class Cpjts {
 	 private String cpjwt;
 	 private String cpjar;
 	 private int cno;
+	 private String cnm;
 	 
-	 
-	public Cpjts() {
+	 public Cpjts() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Cpjts(int cpjno, String cpjnm, String cpjint, List<Skills> cpjsk, String cpjchk, int cpjyr, int cpjnpl,
 			int cpjmnp, int cpjmap, int cpjhtn, Date cpjrd, Date cpjed, Date cpjsd, String cpjrg, String cpjwt,
-			String cpjar, int cno) {
+			String cpjar, int cno, String cnm) {
 		super();
 		this.cpjno = cpjno;
 		this.cpjnm = cpjnm;
@@ -49,6 +49,7 @@ public class Cpjts {
 		this.cpjwt = cpjwt;
 		this.cpjar = cpjar;
 		this.cno = cno;
+		this.cnm = cnm;
 	}
 
 	public int getCpjno() {
@@ -187,14 +188,22 @@ public class Cpjts {
 		this.cno = cno;
 	}
 
+	public String getCnm() {
+		return cnm;
+	}
+
+	public void setCnm(String cnm) {
+		this.cnm = cnm;
+	}
+
 	@Override
 	public String toString() {
 		return "Cpjts [cpjno=" + cpjno + ", cpjnm=" + cpjnm + ", cpjint=" + cpjint + ", cpjsk=" + cpjsk + ", cpjchk="
 				+ cpjchk + ", cpjyr=" + cpjyr + ", cpjnpl=" + cpjnpl + ", cpjmnp=" + cpjmnp + ", cpjmap=" + cpjmap
 				+ ", cpjhtn=" + cpjhtn + ", cpjrd=" + cpjrd + ", cpjed=" + cpjed + ", cpjsd=" + cpjsd + ", cpjrg="
-				+ cpjrg + ", cpjwt=" + cpjwt + ", cpjar=" + cpjar + ", cno=" + cno + "]";
+				+ cpjrg + ", cpjwt=" + cpjwt + ", cpjar=" + cpjar + ", cno=" + cno + ", cnm=" + cnm + "]";
 	}
-	
-	
+	 
+	 
 	
 }

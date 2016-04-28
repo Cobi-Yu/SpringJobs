@@ -135,16 +135,16 @@
 									style="display:none;">
 									<div class="checkbox">
 										<input type="checkbox" class="cpjar-check" value="46">
-										<p class="cpjar-option">대한민국 경기 성남</p>
+										<p class="cpjar-option">경기도 성남시</p>
 									</div>
 
 									<div class="checkbox">
 										<input type="checkbox" class="cpjar-check" value="45">
-										<p class="cpjar-option">대한민국 서울 강남</p>
+										<p class="cpjar-option">서울시 강남구</p>
 									</div>
 									<div class="checkbox">
 										<input type="checkbox" class="cpjar-check" value="47">
-										<p class="cpjar-option">대한민국 서울 서초</p>
+										<p class="cpjar-option">서울시 구로구</p>
 									</div>
 								</div></td>
 						</tr>
@@ -202,34 +202,8 @@
 						</tr>
 						<!-- 검색태그 끝-->
 					</table>
-					<table class="table table-strpied">
-						<tr>
-							<td class="projectImg" align="center"><img
-								src="img/spring.jpg"></td>
-							<td class="projectDesc">
-								<dl>
-									<dd>
-										<a href="" style="font-size: 20px;">Ux / UI Designer</a>
-									</dd>
-									<dd>
-										<a href="">SK Telecom</a>
-									</dd>
-									<dd>Korea, 2016년 3월 21</dd>
-									<dd>급여 : 300~400</dd>
-									<div class="list-detail">
-										<dd>근무형태 : 상주</dd>
-										<dd>윈도우 마이그레이션 관련 프로젝트 구인</dd>
-									</div>
-									<dd>
-										<a href="">비슷한 회사</a>
-									</dd>
-								</dl>
-							</td>
-							<td class="projectButton" valign="middle"><input
-								class="list-detail-btn" type="checkbox" checked
-								data-toggle="toggle" data-size="small" data-on="미리보기"
-								data-off="접기"></td>
-						</tr>
+					<table class="table table-strpied" id="cpjt-list">
+						<!-- 리스트 들어갈 자리 -->
 						<tr>
 							<td></td>
 							<td></td>
@@ -247,61 +221,103 @@
 </body>
 <script>
     var search={cpjar:[],cpjsk:[],cpjmnp,cpjmap,cpjyr};
+    var cpjt;
     
 	$(function() {
 		$('#header').load('/view/common/login/frameHeader.html');
 		$('#footer').load('/view/common/login/frameFooter.html');
 	});
-
-	//검색 태그 추가 function
-	var addSearchTag = function(cls ,text, color) {
-		color="default";
-		var tagDelete = $("<a></a>").addClass('tag-delete').text(' X');
-		$('#input-tag').append(
-				$("<button></button>").addClass('btn tag btn-sm btn-' + color).addClass(cls).text(text).append(tagDelete));
-		//검색 태그 삭제
-		$('.tag-delete').click(function() {
-			var tag = $(this).parent('button');
-			if(tag.hasClass('cpjar-tag')){//지역태그 삭제
-				var arr = $.makeArray(search.cpjar);
-				$.map(arr,function(val,i){
-					if(tag.text().indexOf(val)!=-1){//해당태그가 맞다면
-						search.cpjar.splice(i,1);
+	
+	//검색 요청 function 
+    var request = function(){
+    	$.ajax({
+            type:'post',
+            url: contextRoot+"/developer/projectList",
+            dataType : "json",
+            beforeSend : addLoading,
+    		complete : removeLoading,
+            headers : {
+				"Accept" : "application/json",
+				"Content-Type" : "application/json"
+			},
+            data : JSON.stringify(search),
+            success:function(data){
+                console.log(data);
+                cpjt=data.cpjt;
+                $.get('/view/developer/projectList/eachProject.html',function(data){
+                	$('.eachProject').remove();
+                	for(var i =0;i<cpjt.length;i++){
+                		$('#cpjt-list tbody').prepend(data);
 					}
-				});
-			}else if(tag.hasClass('api-tag')){//api태그삭제
-				var arr = $.makeArray(search.cpjsk);
-				$.map(arr,function(val,i){
-					if(tag.val()==val){//해당태그가 맞다면
-						search.cpjsk.splice(i,1);
+                	for(var i =0;i<cpjt.length;i++){
+                		$('.table-cpjnm:eq('+i+')').text(cpjt[i].cpjnm);
+                		$('.table-cnm:eq('+i+')').text(cpjt[i].cnm);
+                		$('.table-cpjar:eq('+i+')').text(cpjt[i].cpjar);
+                		$('.table-cpjed:eq('+i+')').text(cpjt[i].cpjed);
+                		$('.table-cpjmnp:eq('+i+')').text(cpjt[i].cpjmnp);
+                		$('.table-cpjmap:eq('+i+')').text(cpjt[i].cpjmap);
+                		$('.table-cpjwt:eq('+i+')').text(cpjt[i].cpjwt);
+                		$('.table-cpjint:eq('+i+')').text(cpjt[i].cpjint);
+                		$('.list-detail-btn').bootstrapToggle();
 					}
-				});
-			}else if(tag.hasClass('cpjm-tag')){//급여태그삭제
-				var arr = $.makeArray(search.cpjsk);
-				$.map(arr,function(val,i){
-					if(tag.text().indexOf(val.label)!=-1){//해당태그가 맞다면
-						search.cpjsk.splice(i,1);
-					}
-				});
-			}else if(tag.hasClass('cpjyr-tag')){//경력태그삭제
-				var arr = $.makeArray(search.cpjsk);
-				$.map(arr,function(val,i){
-					if(tag.text().indexOf(val.label)!=-1){//해당태그가 맞다면
-						search.cpjsk.splice(i,1);
-					}
-				});
-			}
-			$(this).parent().remove();
-		});
-		//검색 태그 삭제 끝
-		$('#search-api').val('');
-	}
-	//검색 태그 추가 function 끝
+                });
+            }
+        });
+    }
+    //검색 요청 끝
 
 	$(document).on('frameComplete',function(event){
         search.cpjmnp=null;
         search.cpjmap=null;
         search.cpjyr=null;
+        
+        request();
+        
+    	//검색 태그 추가 function
+    	var addSearchTag = function(cls ,text, color) {
+    		color="default";
+    		var tagDelete = $("<a></a>").addClass('tag-delete').text(' X');
+    		$('#input-tag').append(
+    				$("<button></button>").addClass('btn tag btn-sm btn-' + color).addClass(cls).text(text).append(tagDelete));
+    		//검색 태그 삭제
+    		$('.tag-delete').click(function() {
+    			var tag = $(this).parent('button');
+    			if(tag.hasClass('cpjar-tag')){//지역태그 삭제
+    				var arr = $.makeArray(search.cpjar);
+    				$.map(arr,function(val,i){
+    					if(tag.text().indexOf(val)!=-1){//해당태그가 맞다면
+    						search.cpjar.splice(i,1);
+    					}
+    				});
+    			}else if(tag.hasClass('api-tag')){//api태그삭제
+    				var arr = $.makeArray(search.cpjsk);
+    				$.map(arr,function(val,i){
+    					if(tag.val()==val){//해당태그가 맞다면
+    						search.cpjsk.splice(i,1);
+    					}
+    				});
+    				$('#search-api').val('');
+    			}else if(tag.hasClass('cpjm-tag')){//급여태그삭제
+    				var arr = $.makeArray(search.cpjsk);
+    				$.map(arr,function(val,i){
+    					if(tag.text().indexOf(val.label)!=-1){//해당태그가 맞다면
+    						search.cpjsk.splice(i,1);
+    					}
+    				});
+    			}else if(tag.hasClass('cpjyr-tag')){//경력태그삭제
+    				var arr = $.makeArray(search.cpjsk);
+    				$.map(arr,function(val,i){
+    					if(tag.text().indexOf(val.label)!=-1){//해당태그가 맞다면
+    						search.cpjsk.splice(i,1);
+    					}
+    				});
+    			}
+    			$(this).parent().remove();
+    		});
+    		//검색 태그 삭제 끝
+    	}
+    	//검색 태그 추가 function 끝
+        
         //검색 자동완성
                 $('#search-api').autocomplete({
                     source: function(req,res){
@@ -310,6 +326,8 @@
                             url: nodeContextRoot+"/skillCheck",
                             dataType : "json",
                             data :  '{"sknm" : "'+req.term+'"}',
+                            beforeSend : addLoading,
+                    		complete : removeLoading,
                             headers : {
         						"Accept" : "application/json",
         						"Content-Type" : "application/json"
@@ -345,6 +363,7 @@
                        	addSearchTag('api-tag',ui.item.label,'danger');//사용자 정의 function
                        	$('.api-tag').last().val(ui.item.value);
                         search.cpjsk.push(ui.item.value);
+                        request();
 					}
                 }).autocomplete("widget").addClass("fixed-height");;
         //검색 자동완성 끝
@@ -360,6 +379,13 @@
             }
         });
         //좌측메뉴펴기
+        
+        //list-detail 접기
+       	$(document).on("change",'.list-detail-btn',function(){
+   	        var detailDiv = $(this).closest('tr').find('.list-detail');
+   	        detailDiv.slideToggle('slow');
+   		});
+       	//list-detail 접기 끝
 
         //cpjar검색 태그 추가
         $('.cpjar-check').click(function() {
@@ -380,6 +406,7 @@
 				});
             	$('.cpjar-tag').remove(':contains("'+cpjarText+'")');
             }
+            request();
         });
         //cpjar검색 태그 추가 끝
 
@@ -398,13 +425,6 @@
         
     });
     
-    //list detail
-    $('.list-detail-btn').change(function(){
-        var detailDiv = $('.list-detail-btn').closest('tr').find('.list-detail');
-        detailDiv.slideToggle('slow');
-    });
-    //list detail 끝
-    
     //급여조건추가(cpjm)
     $('.cpjm-list button').click(function(){
         search.cpjmnp = $('#cpjmnp').val();
@@ -419,6 +439,7 @@
         }
         $('#cpjmnp').val('');
         $('#cpjmap').val('');
+        request();
     });
     //급여조건추가(cpjm) 끝
     
@@ -429,20 +450,7 @@
             $('.cpjyr-tag').remove();
         }
 		addSearchTag('cpjyr-tag',search.cpjyr+'년','success');
-		console.log(JSON.stringify(search));
-		$.ajax({
-            type:'post',
-            url: contextRoot+"/developer/projectList",
-            dataType : "json",
-            headers : {
-				"Accept" : "application/json",
-				"Content-Type" : "application/json"
-			},
-            data : JSON.stringify(search),
-            success:function(data){
-                console.log(data);
-            }
-        });
+		request();
 	});
     //경력추가 끝
 </script>

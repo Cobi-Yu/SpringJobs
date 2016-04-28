@@ -7,7 +7,7 @@ var redirect = function(id,url){
 	id.click(function(event){
 		event.preventDefault();
 		location.href=url;
-	})
+	});
 };
 //redirect할 함수 끝
 

@@ -22,6 +22,7 @@
 		<result property="cpjwt" 			column="CPJWT" 		jdbcType="VARCHAR" />
 		<result property="cpjar" 			column="CPJAR" 		jdbcType="VARCHAR" />
 		<result property="cno" 			column="CNO" 			jdbcType="INTEGER" />
+		<result property="cnm" 			column="CNM" 			jdbcType="VARCHAR" />
 		<collection property="cpjsk" ofType="com.springjobs.domain.Skills">
 	    	<id property="skno" column="SKNO"/>
 	    	<result property="sknm" column="SKNM"/>
@@ -47,35 +48,38 @@
 	</select>
 	
 	<select id="getProjectList"		parameterType="com.springjobs.common.Search"	resultMap="projectSelectMap">
-		SELECT SUB.CPJNO, SUB.CPJNM, SUB.CPJINT, SUB.CPJCHK, SUB.CPJYR, SUB.CPJNPL, SUB.CPJMNP, SUB.CPJMAP, SUB.CPJRG, SUB.CPJWT, SUB.CPJAR, SKI.SKNO, SKI.SKNM
-		FROM
-		(SELECT
-		PJ.CPJNO, PJ.CPJNM, PJ.CPJINT, PJ.CPJCHK, PJ.CPJYR, PJ.CPJNPL, PJ.CPJMNP, PJ.CPJMAP, PJ.CPJRG, PJ.CPJWT, PJ.CPJAR
-	    FROM CPJTS PJ, CPJTSKILLS PJSK, SKILLS SK
-		<where>
-			PJ.CPJNO=PJSK.CPJNO
-	        AND PJSK.SKNO=SK.SKNO
-			<if test="cpjar.size>=1">
-	            AND
-				<foreach collection="cpjar" item="item" separator="OR">
-					cpjar=#{item}
-				</foreach>
-	        </if>
-	        <if test="cpjsk.size>=1">
-				AND
-				<foreach collection="cpjsk" item="item" separator="OR">
-					SK.skno=#{item}
-				</foreach>
-	        </if>
-	        <if test="cpjmnp!=0 and cpjmap!=0">
-				AND cpjmnp&lt;=#{cpjmnp} AND cpjmap&gt;=#{cpjmap}
-	        </if>
-	        <if test="cpjyr!=0">
-				AND cpjyr=#{cpjyr}
-	        </if>
-	    </where> ) SUB,
-	    CPJTSKILLS CPJ, SKILLS SKI
-		WHERE CPJ.SKNO=SKI.SKNO
-		AND SUB.CPJNO=CPJ.CPJNO
+		select * from
+		(select CP.CPJNO ,CIF.CNM from CPJTS CP, CPJTSKILLS CPSK, CINFOS CIF
+			<where>
+				CP.CPJNO=CPSK.CPJNO AND CIF.cno=CP.cno
+				<if test="cpjar.size>=1">
+		            AND
+					<foreach collection="cpjar" item="item" separator="OR">
+						cpjar=#{item}
+					</foreach>
+		        </if>
+		        <if test="cpjsk.size>=1">
+					AND
+					<foreach collection="cpjsk" item="item" separator="OR">
+						CPSK.skno=#{item}
+					</foreach>
+		        </if>
+		        <if test="cpjmnp!=0 and cpjmap!=0">
+					AND cpjmnp&lt;=#{cpjmnp} AND cpjmap&gt;=#{cpjmap}
+		        </if>
+		        <if test="cpjyr!=0">
+					AND cpjyr=#{cpjyr}
+		        </if>
+		    </where>
+		) cond,
+		(select CP.CPJNO, CP.CPJNM, CP.CPJINT, CP.CPJCHK, CP.CPJYR, CP.CPJNPL, CP.CPJMNP, CP.CPJMAP, CP.CPJHTN, 
+				CP.CPJRD, CP.CPJED, CP.CPJSD, CP.CPJRG, CP.CPJWT, CP.CPJAR, CP.CNO, SK.SKNO, SK.SKNM
+		from CPJTS CP 
+		LEFT OUTER JOIN 
+			(select sk.skno,sknm,cpjno 
+		     from SKILLS sk, CPJTSKILLS cpsk 
+		     where sk.skno=cpsk.skno)SK 
+		ON CP.cpjno=SK.cpjno) data
+		where cond.cpjno=data.cpjno
 	</select>
 </mapper>
