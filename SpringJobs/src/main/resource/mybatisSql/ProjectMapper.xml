@@ -6,7 +6,7 @@
 
 <mapper namespace="ProjectMapper">
 	<resultMap id="projectSelectMap" type="com.springjobs.domain.Cpjts">
-		<result property="cpjno" 			column="CPJNO" 		jdbcType="INTEGER"/>
+		<id 	property="cpjno" 			column="CPJNO" 		jdbcType="INTEGER"/>
 		<result property="cpjnm"			column="CPJNM" 		jdbcType="VARCHAR" />
 		<result property="cpjint" 			column="CPJINT" 	jdbcType="VARCHAR" />
 		<result property="cpjchk" 			column="CPJCHK" 	jdbcType="CHAR" />
@@ -21,8 +21,13 @@
 		<result property="cpjrg" 			column="CPJRG" 		jdbcType="VARCHAR" />
 		<result property="cpjwt" 			column="CPJWT" 		jdbcType="VARCHAR" />
 		<result property="cpjar" 			column="CPJAR" 		jdbcType="VARCHAR" />
+		<result property="cno" 			column="CNO" 			jdbcType="INTEGER" />
+		<collection property="cpjsk" ofType="com.springjobs.domain.Skills">
+	    	<id property="skno" column="SKNO"/>
+	    	<result property="sknm" column="SKNM"/>
+		</collection>
 	</resultMap>
-	
+
 	<!-- SQL : INSERT -->
 	<insert 	id="addProject"		parameterType="com.springjobs.domain.Cpjts" >
 	 	INSERT
@@ -39,5 +44,38 @@
 		cpjnm, cpjint, cpjchk, cpjyr, cpjnpl, cpjmnp, cpjmap, cpjrg, cpjwt, cpjar 
 		FROM CPJTS
 		WHERE cpjno = #{cpjno}
+	</select>
+	
+	<select id="getProjectList"		parameterType="com.springjobs.common.Search"	resultMap="projectSelectMap">
+		SELECT SUB.CPJNO, SUB.CPJNM, SUB.CPJINT, SUB.CPJCHK, SUB.CPJYR, SUB.CPJNPL, SUB.CPJMNP, SUB.CPJMAP, SUB.CPJRG, SUB.CPJWT, SUB.CPJAR, SKI.SKNO, SKI.SKNM
+		FROM
+		(SELECT
+		PJ.CPJNO, PJ.CPJNM, PJ.CPJINT, PJ.CPJCHK, PJ.CPJYR, PJ.CPJNPL, PJ.CPJMNP, PJ.CPJMAP, PJ.CPJRG, PJ.CPJWT, PJ.CPJAR
+	    FROM CPJTS PJ, CPJTSKILLS PJSK, SKILLS SK
+		<where>
+			PJ.CPJNO=PJSK.CPJNO
+	        AND PJSK.SKNO=SK.SKNO
+			<if test="cpjar.size>=1">
+	            AND
+				<foreach collection="cpjar" item="item" separator="OR">
+					cpjar=#{item}
+				</foreach>
+	        </if>
+	        <if test="cpjsk.size>=1">
+				AND
+				<foreach collection="cpjsk" item="item" separator="OR">
+					SK.skno=#{item}
+				</foreach>
+	        </if>
+	        <if test="cpjmnp!=0 and cpjmap!=0">
+				AND cpjmnp&lt;=#{cpjmnp} AND cpjmap&gt;=#{cpjmap}
+	        </if>
+	        <if test="cpjyr!=0">
+				AND cpjyr=#{cpjyr}
+	        </if>
+	    </where> ) SUB,
+	    CPJTSKILLS CPJ, SKILLS SKI
+		WHERE CPJ.SKNO=SKI.SKNO
+		AND SUB.CPJNO=CPJ.CPJNO
 	</select>
 </mapper>

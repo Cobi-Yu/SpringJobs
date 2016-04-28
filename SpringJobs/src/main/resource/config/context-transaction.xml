@@ -27,5 +27,6 @@
         <property name="password" value="${jdbc.password}"/>
         <property name="initialSize" value="${jdbc.initialSize}"/>
         <property name="maxActive" value="${jdbc.maxActive}"/>
+        <property name="validationQuery" value="select 1"/>
 	</bean>
 </beans>
