@@ -96,7 +96,7 @@
                                    <thead>
                                        <td class="success"><strong>이름</strong></td>
                                        <td>
-                                           <div id="unm" ></div>
+                                           <div class="col-md-12" id="unm"></div>
                                        </td>
                                        <td class="success"><strong>영문</strong></td>
                                        <td>
@@ -160,7 +160,7 @@
                                
                            </tbody>
                        </table>
-                       <button type="submit" class="button button2" id="basicinfo" style="width:20%"><strong>저장</strong></button>
+                       <button type="button" class="btn btn-primary" id="join">등록</button> 
                    </div>
                </div>
                <div class="container">
@@ -170,7 +170,7 @@
            <!--섹션 1 끝-->
 
 
-
+<!-- 
            <section id="two">
                <h2 class="shareTech">포트폴리오</h2>
                <button class="accordion">노출태그</button>
@@ -221,7 +221,7 @@
                                <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex) x.x/4.0, x.x/4.5, x.x/5.0 ...">
                            </div>
                        </div>
-                       <!--프로젝트 주제 끝-->
+                       프로젝트 주제 끝
                        <div class="form-inline form-group-md form-group">
                            <label class="col-md-2 control-label" for="formGroupInputMedium">재학 기간</label>
                            <div class="col-md-3">
@@ -280,7 +280,7 @@
                                    <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex) x.x/4.0, x.x/4.5, x.x/5.0 ...">
                                </div>
                            </div>
-                           <!--프로젝트 주제 끝-->
+                           프로젝트 주제 끝
                            <div class="form-inline form-group-md form-group">
                                <label class="col-md-2 control-label" for="formGroupInputMedium">재학 기간</label>
                                <div class="col-md-3">
@@ -340,7 +340,7 @@
                                </div>
                            </div>
                        </div>
-                       <!--프로젝트 주제 끝-->
+                       프로젝트 주제 끝
                        <div class="form-inline form-group-md form-group">
                            <label class="col-md-2 control-label" for="formGroupInputMedium">재직 기간</label>
                            <div class="col-md-3">
@@ -439,7 +439,7 @@
                    <p>Lorem ipsum...</p>
                </div>
 
-           </section>
+           </section> -->
 			<!-- 
                      <section id="three">
                      </section>
@@ -466,53 +466,31 @@
 </body>
 <script>
 
-	$(document).ready(function() {
+	$(function(){
 		$('#header').load('/view/common/login/frameHeader.html');
 		$('#footer').load('/view/common/login/frameFooter.html');
 	});
 	
-	$(document).trigger('frameComplete', function(event){	//trigger이벤트 시작
+	//trigger이벤트 시작
+	$(document).on('frameComplete',function(event){
 		
         //등록버튼시 이벤트 시작
         $('#join').click(function () {
-            /* var cpjchk;
-            if ($(this).val() == 'on') {
-            	cpjchk = 0;
-            } else {
-            	cpjchk = 1;
-            } */
 
-            console.log('{"cpjnm":"' +$("#cpjnm").val() 
-	            		+'","cpjsd":"'+$("#cpjsd").val()
-	            		+'","cpjed":"'+$("#cpjed").val()
-	            		+'","cpjint":"'+$("#cpjint").val()
-	            		+'","cpjsk":"'+$("#cpjsk").val()
-	            		+'","cpjchk":"'+$("#cpjchk").val()
-	            		+'","cpjyr":"'+$("#cpjyr").val()
-	            		+'","cpjnpl":"'+$("#cpjnpl").val()
-	            		+'","cpjmnp":"'+$("#cpjmnp").val()
-	            		+'","cpjmap":"'+$("#cpjmap").val()
-	            		+'","cpjrg":"'+$("#cpjrg").val()
-	            		+'","cpjwt":"'+$("#cpjwt").val()
-	            		+'","cno":"'+user.cno
-	            		+'","cpjar":"' +$("#cpjar").val()+'"}')
-         $.ajax({
-                url: contextRoot+"/company/addProject"
+         console.log('{"uenm":"' +$("#uenm").val() 
+	           		+'","ubd":"'+$("#ubd").val()
+	           		+'","usx":"'+$("#usx").val()
+	           		+'","uno":"'+user.uno+'"}')
+         
+	     $.ajax({
+                url: contextRoot+"/developer/addInfo"
                 , method: "POST"
                 , dataType: "json"
                 , data: 
-                	'{"cpjnm":"' +$("#cpjnm").val() 
-            		+'","cpjsd":"'+$("#cpjsd").val()
-            		+'","cpjed":"'+$("#cpjed").val()
-            		+'","cpjint":"'+$("#cpjint").val()
-            		+'","cpjchk":"'+cpjchk
-            		+'","cpjnpl":"'+$("#cpjnpl").val()
-            		+'","cpjmnp":"'+$("#cpjmnp").val()
-            		+'","cpjmap":"'+$("#cpjmap").val()
-            		+'","cpjrg":"'+$("#cpjrg").val()
-            		+'","cpjwt":"'+$("#cpjwt").val()
-            		+'","cno":"'+user.cno
-            		+'","cpjar":"' +$("#cpjar").val()+'"}'
+                	'{"uenm":"' +$("#uenm").val() 
+            		+'","ubd":"'+$("#ubd").val()
+            		+'","usx":"'+$("#usx").val()
+            		+'","uno":"'+user.uno+'"}'
                 , headers: {
                       "Accept": "application/json"
                     , "Content-Type": "application/json"
@@ -523,7 +501,7 @@
                 	console.log(data);
                		console.log(data.cpjno);
                     /* callModal('프로젝트등록','등록완료',contextRoot+"/company/addProjectView?cpjno="+data.cpjno); */
-               		callModal('프로젝트등록','등록완료',contextRoot+ "/view/company/addProject/addProjectView.html?"+data.cpjno);
+               		callModal('프로젝트등록','등록완료',contextRoot+ "/view/common/login/frame.html");
                 }
             });
         });	//등록버튼시 이벤트 끝
