@@ -52,10 +52,12 @@
 			}else{
 				user=null;
 			}
+			$(document).trigger('frameComplete');
 		},
 		error:function(req,status,error){
 			callModal('경고','알수없는 에러');
 			user=null;
+			$(document).trigger('frameComplete');
 		}
 	});
 	
@@ -110,7 +112,5 @@ redirect($('#getJob'),'/view/company/getJob/getJob.html');
 redirect($('#projectList'),'/view/developer/projectList/projectList.html');
 redirect($('#addInfo'),'/view/developer/addInfo/addInfoTest.html'); // 개인이력관리 링크
 redirect($('#addProject'),'/view/company/addProject/addProject.html');
+redirect($('#SpringJobsIntro'),'/view/common/login/SpringJobs.html');
 redirect($('#frame'),'/view/common/login/frame.html');
-redirect($('#frame'),'/view/common/login/frame.html');
-
-$(document).trigger('frameComplete');
