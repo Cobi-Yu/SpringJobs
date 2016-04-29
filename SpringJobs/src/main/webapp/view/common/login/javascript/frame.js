@@ -1,4 +1,4 @@
-$('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'css/freelancer.css') );
+$('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', '/view/common/login/css/freelancer.css') );
 
 //로그인 체크
 	$.ajax({
