@@ -1,3 +1,5 @@
+$('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', 'css/freelancer.css') );
+
 //로그인 체크
 	$.ajax({
 		url : contextRoot + "/loginCheck",
