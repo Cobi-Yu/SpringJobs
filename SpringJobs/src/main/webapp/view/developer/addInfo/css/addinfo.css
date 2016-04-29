@@ -189,6 +189,15 @@
             margin-left: 25%;
         }
         
+        .ptitle{
+        	background-color: #5ab97e;
+        	color: white;
+        	text-align: center;
+        	font-size: 2em; 
+        	padding: 0.5em 0em 0.5em 0em; 
+        	border: 3px solid white;
+        }
+        
         .topImage {
             display: inline-block;
             height: auto;
@@ -259,4 +268,11 @@
                 width: 100%;
             }
         }
+        
+        .adp{
+			background-color: #5ab97e;
+			width: 100%;
+			padding: 0em 1em 1em 4em;
+			color: white;
+		}
         /* -------------------------------- style end --------------------------------*/

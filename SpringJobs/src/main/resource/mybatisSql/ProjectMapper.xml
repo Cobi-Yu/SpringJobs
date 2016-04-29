@@ -1,85 +1,85 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <!DOCTYPE mapper
-		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="ProjectMapper">
-	<resultMap id="projectSelectMap" type="com.springjobs.domain.Cpjts">
-		<id 	property="cpjno" 			column="CPJNO" 		jdbcType="INTEGER"/>
-		<result property="cpjnm"			column="CPJNM" 		jdbcType="VARCHAR" />
-		<result property="cpjint" 			column="CPJINT" 	jdbcType="VARCHAR" />
-		<result property="cpjchk" 			column="CPJCHK" 	jdbcType="CHAR" />
-		<result property="cpjyr"	 		column="CPJYR"  	jdbcType="VARCHAR" />
-		<result property="cpjnpl" 			column="CPJNPL" 	jdbcType="INTEGER" />
-		<result property="cpjmnp" 			column="CPJMNP" 	jdbcType="INTEGER" />
-		<result property="cpjmap" 			column="CPJMAP" 	jdbcType="INTEGER" />
-		<result property="cpjhtn" 	 		column="CPJHTN" 	jdbcType="INTEGER" />
-		<result property="cpjrd" 			column="CPJRD" 	 	jdbcType="DATE" />
-		<result property="cpjsd" 			column="CPJSD" 	 	jdbcType="DATE" />
-		<result property="cpjed" 		    column="CPJED" 	 	jdbcType="DATE" />
-		<result property="cpjrg" 			column="CPJRG" 		jdbcType="VARCHAR" />
-		<result property="cpjwt" 			column="CPJWT" 		jdbcType="VARCHAR" />
-		<result property="cpjar" 			column="CPJAR" 		jdbcType="VARCHAR" />
-		<result property="cno" 			column="CNO" 			jdbcType="INTEGER" />
-		<result property="cnm" 			column="CNM" 			jdbcType="VARCHAR" />
-		<collection property="cpjsk" ofType="com.springjobs.domain.Skills">
-	    	<id property="skno" column="SKNO"/>
-	    	<result property="sknm" column="SKNM"/>
-		</collection>
-	</resultMap>
+   <resultMap id="projectSelectMap" type="com.springjobs.domain.Cpjts">
+      <id    property="cpjno"          column="CPJNO"       jdbcType="INTEGER"/>
+      <result property="cpjnm"         column="CPJNM"       jdbcType="VARCHAR" />
+      <result property="cpjint"        column="CPJINT"      jdbcType="VARCHAR" />
+      <result property="cpjchk"        column="CPJCHK"    	jdbcType="CHAR" />
+      <result property="cpjyr"         column="CPJYR"     	jdbcType="VARCHAR" />
+      <result property="cpjnpl"        column="CPJNPL"    	jdbcType="INTEGER" />
+      <result property="cpjmnp"        column="CPJMNP"    	jdbcType="INTEGER" />
+      <result property="cpjmap"         column="CPJMAP"    	jdbcType="INTEGER" />
+      <result property="cpjhtn"         column="CPJHTN"    	jdbcType="INTEGER" />
+      <result property="cpjrd"          column="CPJRD"      jdbcType="DATE" />
+      <result property="cpjsd"          column="CPJSD"      jdbcType="DATE" />
+      <result property="cpjed"          column="CPJED"      jdbcType="DATE" />
+      <result property="cpjrg"          column="CPJRG"      jdbcType="VARCHAR" />
+      <result property="cpjwt"          column="CPJWT"      jdbcType="VARCHAR" />
+      <result property="cpjar"          column="CPJAR"      jdbcType="VARCHAR" />
+      <result property="cno"          	column="CNO"        jdbcType="INTEGER" />
+      <result property="cnm"          	column="CNM"        jdbcType="VARCHAR" />
+      <collection property="cpjsk" ofType="com.springjobs.domain.Skills">
+          <id property="skno" column="SKNO"/>
+          <result property="sknm" column="SKNM"/>
+      </collection>
+   </resultMap>
 
-	<!-- SQL : INSERT -->
-	<insert 	id="addProject"		parameterType="com.springjobs.domain.Cpjts" >
-	 	INSERT
-		INTO CPJTS(cpjnm, cpjsd, cpjed, cpjint, cpjchk, cpjyr, cpjnpl, cpjmnp, cpjmap, cpjhtn, cpjrd, cpjrg, cpjwt, cpjar, cno) 
-		VALUES(#{cpjnm},#{cpjsd},#{cpjed},#{cpjint},#{cpjchk},#{cpjyr},#{cpjnpl},#{cpjmnp},#{cpjmap},1,curdate(),#{cpjrg},#{cpjwt},#{cpjar},#{cno});
-		
-	    <selectKey keyProperty="cpjno" resultType="INTEGER">
-	        SELECT LAST_INSERT_ID()
-	    </selectKey>
-	</insert>
-	
-	<select id="getProject"		parameterType="int"		resultMap="projectSelectMap">
-		SELECT
-		cpjnm, cpjint, cpjchk, cpjyr, cpjnpl, cpjmnp, cpjmap, cpjrg, cpjwt, cpjar 
-		FROM CPJTS
-		WHERE cpjno = #{cpjno}
-	</select>
-	
-	<select id="getProjectList"		parameterType="com.springjobs.common.Search"	resultMap="projectSelectMap">
-		select * from
-		(select CP.CPJNO ,CIF.CNM from CPJTS CP, CPJTSKILLS CPSK, CINFOS CIF
-			<where>
-				CP.CPJNO=CPSK.CPJNO AND CIF.cno=CP.cno
-				<if test="cpjar.size>=1">
-		            AND
-					<foreach collection="cpjar" item="item" separator="OR">
-						cpjar=#{item}
-					</foreach>
-		        </if>
-		        <if test="cpjsk.size>=1">
-					AND
-					<foreach collection="cpjsk" item="item" separator="OR">
-						CPSK.skno=#{item}
-					</foreach>
-		        </if>
-		        <if test="cpjmnp!=0 and cpjmap!=0">
-					AND cpjmnp&lt;=#{cpjmnp} AND cpjmap&gt;=#{cpjmap}
-		        </if>
-		        <if test="cpjyr!=0">
-					AND cpjyr=#{cpjyr}
-		        </if>
-		    </where>
-		) cond,
-		(select CP.CPJNO, CP.CPJNM, CP.CPJINT, CP.CPJCHK, CP.CPJYR, CP.CPJNPL, CP.CPJMNP, CP.CPJMAP, CP.CPJHTN, 
-				CP.CPJRD, CP.CPJED, CP.CPJSD, CP.CPJRG, CP.CPJWT, CP.CPJAR, CP.CNO, SK.SKNO, SK.SKNM
-		from CPJTS CP 
-		LEFT OUTER JOIN 
-			(select sk.skno,sknm,cpjno 
-		     from SKILLS sk, CPJTSKILLS cpsk 
-		     where sk.skno=cpsk.skno)SK 
-		ON CP.cpjno=SK.cpjno) data
-		where cond.cpjno=data.cpjno
-	</select>
+   <!-- SQL : INSERT -->
+   <insert    id="addProject"      parameterType="com.springjobs.domain.Cpjts" >
+       INSERT
+      INTO CPJTS(cpjnm, cpjsd, cpjed, cpjint, cpjchk, cpjyr, cpjnpl, cpjmnp, cpjmap, cpjhtn, cpjrd, cpjrg, cpjwt, cpjar, cno) 
+      VALUES(#{cpjnm},#{cpjsd},#{cpjed},#{cpjint},#{cpjchk},#{cpjyr},#{cpjnpl},#{cpjmnp},#{cpjmap},1,curdate(),#{cpjrg},#{cpjwt},#{cpjar},#{cno});
+      
+       <selectKey keyProperty="cpjno" resultType="INTEGER">
+           SELECT LAST_INSERT_ID()
+       </selectKey>
+   </insert>
+   
+   <select id="getProject"      parameterType="int"      resultMap="projectSelectMap">
+      SELECT
+      cpjnm, cpjint, cpjchk, cpjyr, cpjnpl, cpjmnp, cpjmap, cpjrg, cpjwt, cpjar 
+      FROM CPJTS
+      WHERE cpjno = #{cpjno}
+   </select>
+   
+   <select id="getProjectList"      parameterType="com.springjobs.common.Search"   resultMap="projectSelectMap">
+      select * from
+      (select CP.CPJNO ,CIF.CNM from CPJTS CP, CPJTSKILLS CPSK, CINFOS CIF
+         <where>
+            CP.CPJNO=CPSK.CPJNO AND CIF.cno=CP.cno
+            <if test="cpjar.size>=1">
+                  AND
+               <foreach collection="cpjar" item="item" separator="OR">
+                  cpjar=#{item}
+               </foreach>
+              </if>
+              <if test="cpjsk.size>=1">
+               AND
+               <foreach collection="cpjsk" item="item" separator="OR">
+                  CPSK.skno=#{item}
+               </foreach>
+              </if>
+              <if test="cpjmnp!=0 and cpjmap!=0">
+               AND cpjmnp&lt;=#{cpjmnp} AND cpjmap&gt;=#{cpjmap}
+              </if>
+              <if test="cpjyr!=0">
+               AND cpjyr=#{cpjyr}
+              </if>
+          </where>
+      ) cond,
+      (select CP.CPJNO, CP.CPJNM, CP.CPJINT, CP.CPJCHK, CP.CPJYR, CP.CPJNPL, CP.CPJMNP, CP.CPJMAP, CP.CPJHTN, 
+            CP.CPJRD, CP.CPJED, CP.CPJSD, CP.CPJRG, CP.CPJWT, CP.CPJAR, CP.CNO, SK.SKNO, SK.SKNM
+      from CPJTS CP 
+      LEFT OUTER JOIN 
+         (select sk.skno,sknm,cpjno 
+           from SKILLS sk, CPJTSKILLS cpsk 
+           where sk.skno=cpsk.skno)SK 
+      ON CP.cpjno=SK.cpjno) data
+      where cond.cpjno=data.cpjno
+   </select>
 </mapper>

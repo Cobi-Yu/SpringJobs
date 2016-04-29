@@ -46,7 +46,10 @@
     	<set>
     		uenm=#{uenm},
     		ubd=#{ubd}, 
-    		usx=#{usx}
+    		usx=#{usx},
+    		upho=#{upho},
+    		uurl=#{uurl},
+    		uadr=#{uadr}
     	</set>
     	WHERE uno=#{uno};
     </update>

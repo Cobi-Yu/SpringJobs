@@ -1,30 +1,3 @@
-/*
-// URL 파싱
-	var getUrlParameter = 
-		function (){  
-	 
-		   var ParameterObject = new Object();  
-		   var locate = location.href;  
-		 
-		   if(locate.indexOf("?")==-1){  
-		            return ParameterObject;  
-		   }  
-		 
-		   var parameter = locate.split("?")[1];  
-		   var paramAreay = parameter.split("&");  
-		   
-		   for ( var i=0; i<paramAreay.length; i++ )  {  
-		         var tem = paramAreay[i].split("=");  
-		         ParameterObject[tem[0]] = tem[1];  
-		   }
-		   
-		   getUrlParameter = function () { 
-			   return ParameterObject; 
-		   }  
-		       return ParameterObject;  
-	   };  
-// URL 파싱 끝
-   */
 //로그인 체크
 	$.ajax({
 		url : contextRoot + "/loginCheck",

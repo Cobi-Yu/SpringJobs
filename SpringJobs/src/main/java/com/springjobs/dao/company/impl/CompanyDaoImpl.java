@@ -25,11 +25,13 @@ public class CompanyDaoImpl implements CompanyDao{
 		sqlSession.insert("ProjectMapper.addProject", cpjts);
 		int cpjno = cpjts.getCpjno();
 		System.out.println("dao impl에서 cpjno 값은??"+ cpjno);
-		
 		return cpjno;
 	}
 	
 	public Cpjts getProject(int cpjno) throws Exception{
+		Cpjts cpjts = new Cpjts();
+		System.out.println("daoimpl에서 CPJTS:"+cpjts);
+		
 		return sqlSession.selectOne("ProjectMapper.getProject", cpjno);	
 	}
 	

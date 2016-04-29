@@ -45,21 +45,22 @@
 	<!-- 본문입력란 -->
 	<div class="container">
 		<!-- row 시 -->
-        <div class="row">
-         <!--사이드 메뉴-->
+        <div class="row" style="margin-left: 7em">
+         <!--사이드 메뉴
          <div id="side-nav">
 	       <ul class="nav nav-list affix">
-	          <!--  <li><a href="#start">*Scroll Spy<br><sub>vertical height</sub></a></li>-->
+	         
               <li><a href="#one">개인신상</a></li>
               <li><a href="#two">포트폴리오</a></li>
-              <!--<li><a href="#three">N&deg;3</a></li>
-              <li><a href="#four">N&deg;4</a></li>-->
            </ul>
          </div>
-         <!--사이드 메뉴 -->         
+         사이드 메뉴 -->         
          <!-- 섹션 시작-->
-         <div class="col-md-offset-1 col-md-9 content">
 
+         <div class="col-md-9 content">
+            <div class="ptitle">
+              개인이력관리
+            </div>
 			<!-- 개인신상 부분 섹션 1 시작 -->
             <section id="one">
                 <h2 class="shareTech">개인신상</h2>
@@ -123,32 +124,19 @@
                                    <thead>
                                        <td class="bg-info"><strong>핸드폰 번호</strong></td>
                                        <td>
-                                           <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex) 82-10-9169-3846">
-                                       </td>
-                                       <td class="bg-info"><strong>비상 연락처</strong></td>
-                                       <td>
-                                           <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex) 031-123-4567">
-                                       </td>
-                                   </thead>
-                               </tr>
-                               <tr>
-                                   <thead>
-                                       <td class="bg-info"><strong>E-mail Addres</strong>s</td>
-                                       <td>
-                                           <input class="form-control" type="email" id="formGroupInputLarge" placeholder="ex) ygm8225@gmail.com">
+                                       	   <input class="form-control" type="text" id="uphone" placeholder="ex) 010-3333-4444">
                                        </td>
                                        <td class="bg-info"><strong>주요 URL</strong></td>
-                                       <td colspan="3">
-                                           <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex)www.github.com/Yimkm">
+                                       <td>
+                                           <input class="form-control" type="text" id="uurl" placeholder="ex)www.github.com/Yimkm">
                                        </td>
                                    </thead>
                                </tr>
-                               
                                <tr>
                                    <thead>
                                        <td class="bg-info"><strong>거주지 주소</strong></td>
                                        <td colspan="3">
-                                           <input class="form-control" type="text" id="formGroupInputLarge" style="width:79%">
+                                           <input class="form-control" type="text" id="uadr" style="width:79%">
                                            <button type="submit" class="btn btn-default" style="width:20%">
                                                <span class="glyphicon glyphicon-search"></span> 주소검색
                                            </button>
@@ -158,7 +146,7 @@
                                
                            </tbody>
                        </table>
-                       <button type="button" class="btn btn-primary" id="join">등록</button> 
+                       <button type="button" class="btn btn-primary" id="join" style="">등록</button> 
                    </div>
                </div>
                <div class="container">
@@ -503,19 +491,25 @@
         $('#join').click(function () {
 	 
          console.log('{"uenm":"' +$("#uenm").val() 
-	           		+'","ubd":"'+$("#ubd").val()
+        		 	+'","ubd":"'+$("#ubd").val()
 	           		+'","usx":"'+$("#usx").val()
+	           		+'","upho":"'+$("#uphone").val()
+	           		+'","uurl":"'+$("#uurl").val()
+	           		+'","uadr":"'+$("#uadr").val()
 	           		+'","uno":"'+user.uno+'"}')
          
-	     $.ajax({
+	      $.ajax({
                 url: contextRoot+"/developer/addInfo"
                 , method: "POST"
                 , dataType: "json"
                 , data: 
                 	'{"uenm":"' +$("#uenm").val() 
-            		+'","ubd":"'+$("#ubd").val()
-            		+'","usx":"'+$("#usx").val()
-            		+'","uno":"'+user.uno+'"}'
+        		 	+'","ubd":"'+$("#ubd").val()
+	           		+'","usx":"'+$("#usx").val()
+	           		+'","upho":"'+$("#uphone").val()
+	           		+'","uurl":"'+$("#uurl").val()
+	           		+'","uadr":"'+$("#uadr").val()
+	           		+'","uno":"'+user.uno+'"}'
                 , headers: {
                       "Accept": "application/json"
                     , "Content-Type": "application/json"
@@ -525,10 +519,10 @@
                 success: function (data) {
                 	console.log(data);
                		console.log(data.cpjno);
-                    /* callModal('프로젝트등록','등록완료',contextRoot+"/company/addProjectView?cpjno="+data.cpjno); */
+                     /* callModal('프로젝트등록','등록완료',contextRoot+"/company/addProjectView?cpjno="+data.cpjno); */
                		callModal('프로젝트등록','등록완료',contextRoot+ "/view/common/login/frame.html");
                 }
-            });
+            }); 
         });	//등록버튼시 이벤트 끝
 
 	});	//trigger 이벤트 끝
