@@ -56,7 +56,7 @@
 		                   </tr>
 		                   <tr> 
 	                        	<td><h3>프로젝트 주제</h3>
-	                        		<div class="col-md-3" id="cpjnm"></div>
+	                        		<div class="col-md-12" id="cpjnm"></div>
 								</td>
 						   </tr>
 						   <tr>
@@ -74,7 +74,7 @@
 						    
 						   <tr>		 	
 						  		<td><h3>프로젝트 설명</h3>
-								<div class="col-md-3" id="cpjint" ></div>	
+								<div class="col-md-12" id="cpjint" ></div>	
 	                       </tr>
 	                       
 		                   <tr>
@@ -167,13 +167,12 @@
 			$('#footer').load('/view/common/login/frameFooter.html');
 	});
 	
+	
+	
 	$(document).on('frameComplete',function(event){
 			
 			console.log(location.href);
 			
-				
-				  
-			 
 				   //var ParameterObject = new Object();  
 				   var locate = location.href;  
 				 	
@@ -196,15 +195,14 @@
 					   return ParameterObject; 
 				   }  
 				       return ParameterObject;   */ 		
-			
-			
+				       
 			$.ajax({
 				url : contextRoot+"/company/addProjectView?cpjno="+parameter,
 				method : "GET",
 				dataType : "json",
 				headers : {
-					"Accept" : "application/json",
-					"Content-Type" : "application/json"
+						   "Accept" : "application/json",
+						   "Content-Type" : "application/json"
 				},
 				beforeSend : addLoading,
 				complete : removeLoading,
