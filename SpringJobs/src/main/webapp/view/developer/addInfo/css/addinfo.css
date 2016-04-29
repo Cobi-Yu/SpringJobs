@@ -197,11 +197,13 @@
         }
         
         section {
-            background-color: #F2EBF7;
+            background-color: #white;
             height: auto;
             /*프로필 등록을 위해서 section의 세로 사이즈 조정함 - 오병소 (160405 - UI 작업)*/
             margin-bottom: 1em;
             padding: 1em 1em .5em 1em;
+           	border-collapse: collapse; 
+			border: 1px solid black;  
         }
         
         section + section {

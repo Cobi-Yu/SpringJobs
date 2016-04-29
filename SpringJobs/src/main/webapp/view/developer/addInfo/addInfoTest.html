@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 <!-- cdn 추가작업 0428 -->
@@ -30,10 +30,9 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
     <!-- Latest compiled and minified JavaScript -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
-<!-- cdn 추가작업 0428 끝 -->
-
-<link rel="stylesheet" href="/view/common/login/css/frame.css">
-<link rel="stylesheet" href="/view/developer/addInfo/css/addinfo.css">
+	<!-- cdn 추가작업 0428 끝 -->
+	<link rel="stylesheet" href="/view/common/login/css/frame.css">
+	<link rel="stylesheet" href="/view/developer/addInfo/css/addinfo.css">
 </head>
 
 <body>
@@ -94,11 +93,11 @@
 
                                <tr>
                                    <thead>
-                                       <td class="success"><strong>이름</strong></td>
+                                       <td class="bg-info"><strong>이름</strong></td>
                                        <td>
                                            <div class="col-md-12" id="unm"></div>
                                        </td>
-                                       <td class="success"><strong>영문</strong></td>
+                                       <td class="bg-info"><strong>영문</strong></td>
                                        <td>
                                            <input class="form-control" type="text" id="uenm" placeholder="ex) Hong GilDong">
                                        </td>
@@ -107,11 +106,11 @@
                                
                                <tr>
                                    <thead>
-                                       <td class="success"><strong>생년월일</strong></td>
+                                       <td class="bg-info"><strong>생년월일</strong></td>
                                        <td>
                                            <input class="form-control" type="date" id="ubd">
                                        </td>
-                                       <td class="success"><strong>성별</strong></td>
+                                       <td class="bg-info"><strong>성별</strong></td>
                                        <td>
                                            <select class="form-control" id="usx">
                                                <option>남성</option>
@@ -120,14 +119,13 @@
                                        </td>
                                    </thead>
                                </tr>
-                               <!-- 
                                <tr>
                                    <thead>
-                                       <td class="success"><strong>핸드폰 번호</strong></td>
+                                       <td class="bg-info"><strong>핸드폰 번호</strong></td>
                                        <td>
                                            <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex) 82-10-9169-3846">
                                        </td>
-                                       <td class="success"><strong>비상 연락처</strong></td>
+                                       <td class="bg-info"><strong>비상 연락처</strong></td>
                                        <td>
                                            <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex) 031-123-4567">
                                        </td>
@@ -135,11 +133,11 @@
                                </tr>
                                <tr>
                                    <thead>
-                                       <td class="success"><strong>E-mail Addres</strong>s</td>
+                                       <td class="bg-info"><strong>E-mail Addres</strong>s</td>
                                        <td>
                                            <input class="form-control" type="email" id="formGroupInputLarge" placeholder="ex) ygm8225@gmail.com">
                                        </td>
-                                       <td class="success"><strong>주요 URL</strong></td>
+                                       <td class="bg-info"><strong>주요 URL</strong></td>
                                        <td colspan="3">
                                            <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex)www.github.com/Yimkm">
                                        </td>
@@ -148,7 +146,7 @@
                                
                                <tr>
                                    <thead>
-                                       <td class="success"><strong>거주지 주소</strong></td>
+                                       <td class="bg-info"><strong>거주지 주소</strong></td>
                                        <td colspan="3">
                                            <input class="form-control" type="text" id="formGroupInputLarge" style="width:79%">
                                            <button type="submit" class="btn btn-default" style="width:20%">
@@ -156,7 +154,7 @@
                                            </button>
                                        </td>
                                    </thead>
-                               </tr> -->
+                               </tr>
                                
                            </tbody>
                        </table>
@@ -170,7 +168,7 @@
            <!--섹션 1 끝-->
 
 
-<!-- 
+
            <section id="two">
                <h2 class="shareTech">포트폴리오</h2>
                <button class="accordion">노출태그</button>
@@ -294,8 +292,6 @@
                                    <input class="form-control" type="date" id="exampleInputPassword3">
                                </div>
                            </div>
-
-
 
                            <button type="button" class="btn btn-default" style="width:20%"><strong>저장</strong></button>
                            <button type="button" class="btn btn-default" style="width:20%" onclick="add_item()"><strong>추가</strong></button>
@@ -439,7 +435,7 @@
                    <p>Lorem ipsum...</p>
                </div>
 
-           </section> -->
+           </section>
 			<!-- 
                      <section id="three">
                      </section>
@@ -470,13 +466,42 @@
 		$('#header').load('/view/common/login/frameHeader.html');
 		$('#footer').load('/view/common/login/frameFooter.html');
 	});
-	
+
+	/* 포트폴리오 부분 학력에추가버튼 누를때 */
+    function add_item() {
+        // pre_set 에 있는 내용을 읽어와서 처리..
+        var div = document.createElement('div');
+        div.innerHTML = document.getElementById('pre_set').innerHTML;
+        document.getElementById('field').appendChild(div);
+    }
+    /* 포트폴리오 부분 학력에추가버튼 누를때 끝*/
+    
+    /* 포트폴리오 부분 학력추가란에 삭제 버튼 */
+    function remove_item(obj) {
+        // obj.parentNode 를 이용하여 삭제
+        document.getElementById('field').removeChild(obj.parentNode);
+    }
+    /* 포트폴리오 부분 학력추가란에 삭제 버튼 끝*/
+    
+    /* 플러스 버튼 누르면 아코디언 발생 */
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].onclick = function () {
+            this.classList.toggle("active");
+            this.nextElementSibling.classList.toggle("show");
+        }
+    }
+    /* 플러스 버튼 누르면 아코디언 발생 끝*/
+    
 	//trigger이벤트 시작
 	$(document).on('frameComplete',function(event){
 		
-        //등록버튼시 이벤트 시작
+		$('#unm').text(user.unm);
+		//등록버튼시 이벤트 시작
         $('#join').click(function () {
-
+	 
          console.log('{"uenm":"' +$("#uenm").val() 
 	           		+'","ubd":"'+$("#ubd").val()
 	           		+'","usx":"'+$("#usx").val()
@@ -505,7 +530,7 @@
                 }
             });
         });	//등록버튼시 이벤트 끝
-		
+
 	});	//trigger 이벤트 끝
 </script>
 
