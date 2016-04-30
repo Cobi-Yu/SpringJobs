@@ -6,53 +6,58 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav navbar-center">
-        <li>
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" id = "frame">SpringJobs</a>
-            </div>
-        </li>
-        <li>
-            <div class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                <select class="form-control" id="sel1">
-                    <option>기업</option>
-                    <option>프로젝트</option>
-                    <option>스킬</option>
-                    <option>개발자</option>
-                </select>
-                  <input type="text" class="form-control" placeholder="Search" size="50">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </div>
-        </li>
+        <ul class="nav navbar-nav navbar-center" style="position: relative;left: 17%;">
+	        <li>
+	            <div class="navbar-header">
+	              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                <span class="sr-only">Toggle navigation</span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	              </button>
+	              <a class="navbar-brand" id = "frame">SpringJobs</a>
+	            </div>
+	        </li>
+	        <li>
+	            <div class="navbar-form navbar-left" role="search">
+	                <div class="form-group">
+	                <select class="form-control" id="sel1">
+	                    <option>기업</option>
+	                    <option>프로젝트</option>
+	                    <option>스킬</option>
+	                    <option>개발자</option>
+	                </select>
+	                  <input type="text" class="form-control" placeholder="Search" size="50">
+	                </div>
+	                <button type="submit" class="btn btn-default">Submit</button>
+	            </div>
+	        </li>
+	        <li style="width:50px;"><a></a></li>
+	        <li class="dropdown" id="loginul">
+	        	<a class="dropdown-toggle" data-toggle="dropdown" href="#">로그인</a>
+	        	<ul class="dropdown-menu" style="width:300px; padding:0px; left: -300%;">
+	        		<li style="text-align:center; background-color:#5F5F5F; color:white; height:30px; line-height:30px">
+	        			로그인
+	        		</li>
+					<li style="padding:10px;">
+						<input type="text" class="form-control" id="uem" placeholder="Enter email">
+					</li>
+					<li style="padding:10px;">
+						<input type="password" class="form-control" id="upw" placeholder="Password">
+					</li>
+					<li style="padding:10px;">
+						<button type="button" class="btn btn-default" id="loginButton" style="float:right;">Login</button>
+					</li>
+		        </ul>
+	        </li>
+	        <li class="dropdown">
+	        	<a href="#" id="signUp">회원가입</a>
+	        </li>
         </ul>
         <!--로그인 완료 화면-->
-        <ul class="nav navbar-nav navbar-right" id="loginArea" style="padding-top:7px;">
-        <li>
-            <form id="loginTable">
-                <table>
-                    <tr>
-                        <th width="30%"><input type="text" class="form-control" id="uem" placeholder="Enter email"></th>
-                        <th width="30%"><input type="password" class="form-control" id="upw" placeholder="Password"></th>
-<!--                         <th width="15%"><input type="checkbox"> <font color="A7A7A7">Remember me</font></a></th> -->
-                        <th width="25%">
-                            <button type="button" class="btn btn-default" id="loginButton">Login</button>
-                            <button type="button" class="btn btn-default" id="signUp">Sign up</button>
-                        </th>
-                    </tr>
-                </table>    
-            </form>
-        </li>
-        </ul>
-        <!--로그인 완료 화면 끝-->
-    </div><!-- /.navbar-collapse -->
+        
+		<!--로그인 완료 화면 끝-->
+	</div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
@@ -61,10 +66,9 @@
     <div class="col-md-12 nav-sub parent">
         <div class="col-md-1"></div>
         <div class="col-md-10">
-            <ul class="nav nav-pills">
-
+            <ul class="nav nav-pills" style="position: relative;left: 14%;">
                 <li role="presentation" class="dropdown">
-                    <a id="addInfo" class="navbar-item">이력관리</a>
+                    <a href="#" class="navbar-item">이력관리</a>
                 </li>
 
                 <li role="presentation" class="dropdown">
@@ -81,15 +85,15 @@
                         <li><a id = "projectList">프로젝트 정보</a></li>
                         <li><a id = "addProject">프로젝트 등록</a></li>
                         <li><a href='#'>참여중인 프로젝트</a></li>
+                        <li><a id = "addProjectView">내가올린 프로젝트보기</a></li>
                     </ul>
                 </li>
-				
+
                 <li role="presentation" class="dropdown pull-right">
-                    <a id="SpringJobsIntro" class="navbar-item">SpringJobs소개</a>
+                    <a href="#" class="navbar-item">SpringJobs소개</a>
                 </li>
             </ul>
         </div>
-
     </div>
 <!-- sub상단바 끝-->
 </div>

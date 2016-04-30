@@ -4,18 +4,33 @@
     }
 </style>
 
-<table>
-    <tr>
-        <th width="20%"><a href="#"><img id="upho" class="img-circle" width="50" height="50"></a></th>
-        <th width="50%" id="uem"></th>
-        <th width="15%"><a id="myPage"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></th>
-        <th width="15%"><a id="notice"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></a></th>
-    </tr>
-</table>  
+<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <img
+	id="upho" class="img-circle" width="50" height="50">
+</a>
+<ul class="dropdown-menu"
+	style="width: 300px; padding: 0px; left: -300%;">
+	<li style="text-align: center; background-color: #5F5F5F; color: white; height: 30px; line-height: 30px">
+		로그인</li>
+	<li id="uem" style="padding: 10px; text-align:right;"></li>
+	<li style="padding: 10px;">
+		<button type="button" class="btn btn-default" id="logoutButton" style="float: right;">Logout</button>
+	</li>
+</ul>
+
+
+
+<!-- <table> -->
+<!--     <tr> -->
+<!--         <th width="20%"><a href="#"><img id="upho" class="img-circle" width="50" height="50"></a></th> -->
+<!--         <th width="50%" id="uem"></th> -->
+<!--         <th width="15%"><a id="myPage"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a></th> -->
+<!--         <th width="15%"><a id="notice"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></a></th> -->
+<!--     </tr> -->
+<!-- </table>   -->
 
 
 <script>
-$('img').click(function(){
+$('#logoutButton').click(function(){
 	  $.ajax({
         url: contextRoot+"/logout",
         method : "POST",
@@ -31,5 +46,8 @@ $('img').click(function(){
 			alert('error');
 		}
     }); 
-})
+});
+
+$('#upho').parent('a').css('padding',5);
+$('#loginul').next('li').children('a').css('padding',20);
 </script>

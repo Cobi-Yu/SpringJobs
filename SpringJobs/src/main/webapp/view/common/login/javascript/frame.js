@@ -14,8 +14,9 @@ $('head').append( $('<link rel="stylesheet" type="text/css" />').attr('href', '/
 		success : function(data, status) {
 			console.log(data.user);
 			if (data.user) {
-				$('#loginTable').load('/view/common/login/loginSucess.html', function() {
+				$('#loginul').load('/view/common/login/loginSucess.html', function() {
 					$('#uem').text(data.user.uem);
+					$(this).next().children('a').text(data.user.unm);
 					if(!data.user.upho){//사진이 없을때
 						$( "#upho" ).attr( "src", "/view/resources/img/unknown.jpg");
 					}else{//사진이 있을때
@@ -81,6 +82,17 @@ $('#loginButton').click(
 				}
 			});
 		});
+
+$('.dropdown').hover(function(){
+	$(this).addClass('active');
+},function(){
+	$(this).removeClass('active');
+});
+$('.navbar-nav').css('left',$(window).width()/105+'%');
+$(window).resize(function(){
+	$('.navbar-nav').css('left',$(window).width()/90+'%');
+	
+});
 redirect($('#signUp'),'/view/common/addUser/addUser.html');
 redirect($('#addJob'),'/view/company/addJob/addJob.html');
 redirect($('#getJob'),'/view/company/getJob/getJob.html');

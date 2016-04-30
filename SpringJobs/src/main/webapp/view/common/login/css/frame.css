@@ -97,3 +97,7 @@
     .display-none{ /*감추기*/
         display:none;
     }
+    
+    .dropdown-toggle:hover .dropdown-menu {
+	    display: block;
+	}

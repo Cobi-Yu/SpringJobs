@@ -244,6 +244,7 @@
             success:function(data){
                 console.log(data);
                 cpjt=data.cpjt;
+                console.log(cpjt.length);
                 $.get('/view/developer/projectList/eachProject.html',function(data){
                 	$('.eachProject').remove();
                 	for(var i =0;i<cpjt.length;i++){
@@ -261,19 +262,15 @@
                 		$('.list-detail-btn').bootstrapToggle();
 					}
                 });
+                if(cpjt.length==0){
+                	callModal('알림','검색조건이 없습니다.');
+                }
             }
         });
     }
     //검색 요청 끝
-
-	$(document).on('frameComplete',function(event){
-        search.cpjmnp=null;
-        search.cpjmap=null;
-        search.cpjyr=null;
-        
-        request();
-        
-    	//검색 태그 추가 function
+    
+    //검색 태그 추가 function
     	var addSearchTag = function(cls ,text, color) {
     		color="default";
     		var tagDelete = $("<a></a>").addClass('tag-delete').text(' X');
@@ -298,25 +295,25 @@
     				});
     				$('#search-api').val('');
     			}else if(tag.hasClass('cpjm-tag')){//급여태그삭제
-    				var arr = $.makeArray(search.cpjsk);
-    				$.map(arr,function(val,i){
-    					if(tag.text().indexOf(val.label)!=-1){//해당태그가 맞다면
-    						search.cpjsk.splice(i,1);
-    					}
-    				});
+    				search.cpjmnp=null;
+    				search.cpjmap=null;
     			}else if(tag.hasClass('cpjyr-tag')){//경력태그삭제
-    				var arr = $.makeArray(search.cpjsk);
-    				$.map(arr,function(val,i){
-    					if(tag.text().indexOf(val.label)!=-1){//해당태그가 맞다면
-    						search.cpjsk.splice(i,1);
-    					}
-    				});
+    				search.cpjyr=null;
     			}
     			$(this).parent().remove();
+    			console.log(search);
+    			request();
     		});
     		//검색 태그 삭제 끝
     	}
     	//검색 태그 추가 function 끝
+
+	$(document).on('frameComplete',function(event){
+        search.cpjmnp=null;
+        search.cpjmap=null;
+        search.cpjyr=null;
+        
+        request();
         
         //검색 자동완성
                 $('#search-api').autocomplete({
