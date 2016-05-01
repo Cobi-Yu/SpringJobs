@@ -241,7 +241,8 @@
 			
 		<!-- portfolio 부분 클릭시 modal fade 시작 -->	
 		<!-- Portfolio Modals -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true" >
+     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -253,32 +254,29 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+							<div style="width:30%;">
+							<label> 태그입력</label>
+                 			  <input type="text" size="50">
+                 				</div>
+                 				<br>
+                 			  <button type="submit" class="btn btn-default" style="width:20%">
+                 			  <i class="fa fa-times"></i>Save</button>	
+		                   <button type="button" class="btn btn-default" data-dismiss="modal">
+		                   <i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+      </div><!-- modal-dialog modal-lg 끝  -->
     </div>
+    
+    
+    
+    
+    
     <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -289,33 +287,117 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <div class="modal-body" style="width:auto;height:auto;">
+                     		 <h2>학력</h2>
+           
+          			<table>
+          			 			
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>학교명</strong></td>
+          					<td><input type="text" id="" placeholder="학교명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead>    
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>전공명</strong></td>
+          					<td><input type="text" id="" placeholder="전공명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead> 
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>성적</strong></td>
+          					<td><input type="text" id="" placeholder="성적을 입력하세요. ex) x.x/4.0, x.x/4.5, x.x/5.0 ..."></td>
+          					<td>       <div class="col-md-5">
+                           </div>
+                            </td>     
+          				</tr>
+          				</thead> 
+          					<thead>
+          					<tr>
+          					<td class="success"><strong>재학기간</strong></td>
+          					<td><input type="date" id="" ></td>
+          					<td><input type="date" id="">
+                            </td>     
+          				</tr>
+          				</thead> 
+          		 		<thead>
+          					<tr>
+          					<td>
+          						<button type="button" class="btn btn-primary" ><strong>저장</strong></button>
+                       			<button type="button" class="btn btn-default"  onclick="add_item()"><strong>추가</strong></button>
+                            </td>     
+          				</tr>
+          				</thead> 
+          				      <div id="field"></div>
+  					</table>
+                  <div id="pre_set" style="display:none">
+                       <br>
+                      	<table>        			 			
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>학교명</strong></td>
+          					<td><input type="text" id="" placeholder="학교명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead>    
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>전공명</strong></td>
+          					<td><input type="text" id="" placeholder="전공명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead> 
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>성적</strong></td>
+          					<td><input type="text" id="" placeholder="성적을 입력하세요. ex) x.x/4.0, x.x/4.5, x.x/5.0 ..."></td>
+          					<td>       <div class="col-md-5">
+                           </div>
+                            </td>     
+          				</tr>
+          				</thead> 
+          					<thead>
+          					<tr>
+          					<td class="success"><strong>재학기간</strong></td>
+          					<td><input type="date" id="" ></td>
+          					<td><input type="date" id="">
+                            </td>     
+          				</tr>
+          				</thead> 
+          		 		<thead>
+          					<tr>
+          					<td >
+          						<button type="button" class="btn btn-primary" ><strong>저장</strong></button>
+                       			<button type="button" class="btn btn-default"  onclick="add_item()"><strong>추가</strong></button>
+                       		
+                            </td>                      
+          				</tr>
+          				</thead> 
+  					</table>
+                       	<button type="button" class="btn btn-default"  onclick="remove_item(this)"><strong>삭제</strong>
+                 
+                   <div id="field"></div>
+                </div>
+               </div>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    
     <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -326,31 +408,129 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <div class="modal-body" style="width:auto;height:auto;">
+                     		 <h2>경력</h2>
+           
+          			<table>
+          			 	<thead>
+          					<tr>
+          					<td class="success"><strong>직장명</strong></td>
+          					<td><input type="text" id="" placeholder="직장명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead>    
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>부서명</strong></td>
+          					<td><input type="text" id="" placeholder="부서명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead> 
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>희망급여</strong></td>
+          					<td>
+		                   		최소<input type="text" id=""  placeholder="예) 1백만원일경우 1000000">
+							</td>
+		                   	<td>	최대<input type="text" id=""  placeholder="예) 2백만원일경우 2000000">
+		                   		 </td>     
+          				</tr>
+          				</thead> 
+          					<thead>
+          					<tr>
+          					<td class="success"><strong>재직기간</strong></td>
+          					<td><input type="date" id="" ></td>
+          					<td><input type="date" id="">
+                            </td>     
+          				</tr>
+          				</thead> 
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>업무 기술</strong></td>
+          					<td><input type="text" id="" placeholder="업무를 간략하게 기술하세요."></td> 
+          				</tr>
+          				</thead> 
+          		 		<thead>
+          					<tr>
+          					<td>
+          						<button type="button" class="btn btn-primary" ><strong>저장</strong></button>
+                       			<button type="button" class="btn btn-default"  onclick="add_itemM()"><strong>추가</strong></button>
+                            </td>     
+          				</tr>
+          				</thead> 
+          				      <div id="fieldD"></div>
+  					</table>
+                  <div id="pre_setT" style="display:none">
+                       <br>
+                      	<table>        			 			
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>학교명</strong></td>
+          					<td><input type="text" id="" placeholder="학교명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead>    
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>전공명</strong></td>
+          					<td><input type="text" id="" placeholder="전공명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead> 
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>성적</strong></td>
+          					<td><input type="text" id="" placeholder="성적을 입력하세요. ex) x.x/4.0, x.x/4.5, x.x/5.0 ..."></td>
+          					<td>       <div class="col-md-5">
+                           </div>
+                            </td>     
+          				</tr>
+          				</thead> 
+          					<thead>
+          					<tr>
+          					<td class="success"><strong>재학기간</strong></td>
+          					<td><input type="date" id="" ></td>
+          					<td><input type="date" id="">
+                            </td>     
+          				</tr>
+          				</thead> 
+          		 		<thead>
+          					<tr>
+          					<td >
+          						<button type="button" class="btn btn-primary" ><strong>저장</strong></button>
+                       			<button type="button" class="btn btn-default"  onclick="add_item()"><strong>추가</strong></button>
+                       		
+                            </td>                      
+          				</tr>
+          				</thead> 
+  					</table>
+                       	<button type="button" class="btn btn-default"  onclick="remove_item(this)"><strong>삭제</strong>
+                 
+                   <div id="field"></div>
+                </div>
+               </div>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+       
+       
+       
+       
+       
+       
+    
+       
+       
+       
+       
     </div>
     <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
@@ -464,163 +644,11 @@
         </div>
     </div>
     <!--섹션 2 끝-->
-           <!-- <section id="two">
-               <h2 class="shareTech">포트폴리오</h2>
-               <button class="accordion">노출태그</button>
-               <div class="panel">
-                   <label> 태그입력</label>
-                   <input type="text" size="70">
-                   <button type="submit" class="btn btn-default" style="width:20%"><strong>저장</strong></button>
-               </div>
-
-
-               <button class="accordion">학력</button>
-               <div class="panel">
-
-
-
-                   <form class="form-horizontal">
-                       <div class="form-group form-group-md">
-                           <label class="col-md-2 control-label" for="formGroupInputMedium">학교명</label>
-                           <div class="col-md-5">
-
-                               <input class="form-control" type="text" id="formGroupInputLarge" placeholder="학교명을 입력하세요.">
-                           </div>
-
-                           <div class="input-group ">
-                               <button type="submit" class="btn btn-default">
-                                   <span class="glyphicon glyphicon-search"></span> Search
-                               </button>
-                           </div>
-                       </div>
-                       <div class="form-group form-group-md">
-                           <label class="col-md-2 control-label" for="formGroupInputMedium">전공명</label>
-                           <div class="col-md-5">
-
-                               <input class="form-control" type="text" id="formGroupInputLarge" placeholder="전공을 입력하세요.">
-                           </div>
-
-                           <div class="input-group ">
-                               <button type="submit" class="btn btn-default">
-                                   <span class="glyphicon glyphicon-search"></span> Search
-                               </button>
-                           </div>
-                       </div>
-
-                       <div class="form-group form-group-md">
-                           <label class="col-md-2 control-label" for="formGroupInputMedium">성적</label>
-                           <div class="col-md-5">
-
-                               <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex) x.x/4.0, x.x/4.5, x.x/5.0 ...">
-                           </div>
-                       </div>
-                       프로젝트 주제 끝
-                       <div class="form-inline form-group-md form-group">
-                           <label class="col-md-2 control-label" for="formGroupInputMedium">재학 기간</label>
-                           <div class="col-md-3">
-                               <input type="date" class="form-control" id="exampleInputEmail3">
-
-                           </div>
-
-
-
-                           <div class="col-md-3">
-                               <input class="form-control" type="date" id="exampleInputPassword3">
-                           </div>
-                       </div>
-
-
-
-                       <button type="button" class="btn btn-default" style="width:20%"><strong>저장</strong></button>
-                       <button type="button" class="btn btn-default" style="width:20%" onclick="add_item()"><strong>추가</strong></button>
-                   </form>
-                   <div id="pre_set" style="display:none">
-
-                       <br>
-
-                       <form class="form-horizontal">
-                           <div class="form-group form-group-md">
-                               <label class="col-md-2 control-label" for="formGroupInputMedium">학교명</label>
-                               <div class="col-md-5">
-
-                                   <input class="form-control" type="text" id="formGroupInputLarge" placeholder="학교명을 입력하세요.">
-                               </div>
-
-                               <div class="input-group ">
-                                   <button type="button" class="btn btn-default">
-                                       <span class="glyphicon glyphicon-search"></span> Search
-                                   </button>
-                               </div>
-                           </div>
-                           <div class="form-group form-group-md">
-                               <label class="col-md-2 control-label" for="formGroupInputMedium">전공명</label>
-                               <div class="col-md-5">
-
-                                   <input class="form-control" type="text" id="formGroupInputLarge" placeholder="전공을 입력하세요.">
-                               </div>
-
-                               <div class="input-group ">
-                                   <button type="button" class="btn btn-default">
-                                       <span class="glyphicon glyphicon-search"></span> Search
-                                   </button>
-                               </div>
-                           </div>
-
-                           <div class="form-group form-group-md">
-                               <label class="col-md-2 control-label" for="formGroupInputMedium">성적</label>
-                               <div class="col-md-5">
-
-                                   <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex) x.x/4.0, x.x/4.5, x.x/5.0 ...">
-                               </div>
-                           </div>
-                           프로젝트 주제 끝
-                           <div class="form-inline form-group-md form-group">
-                               <label class="col-md-2 control-label" for="formGroupInputMedium">재학 기간</label>
-                               <div class="col-md-3">
-                                   <input type="date" class="form-control" id="exampleInputEmail3">
-
-                               </div>
-
-
-
-                               <div class="col-md-3">
-                                   <input class="form-control" type="date" id="exampleInputPassword3">
-                               </div>
-                           </div>
-
-                           <button type="button" class="btn btn-default" style="width:20%"><strong>저장</strong></button>
-                           <button type="button" class="btn btn-default" style="width:20%" onclick="add_item()"><strong>추가</strong></button>
-                       </form>
-                       <input type="button" value="삭제" onclick="remove_item(this)">
-                   </div>
-                   <div id="field"></div>
-                   <br>
-
-               </div>
-
+           <!-- 
                <button class="accordion">경력</button>
                <div class="panel">
 
 
-
-                   <form class="form-horizontal">
-                       <div class="form-group form-group-md">
-                           <label class="col-md-2 control-label" for="formGroupInputMedium">회사명</label>
-                           <div class="col-md-5">
-
-                               <input class="form-control" type="text" id="formGroupInputLarge" placeholder="회사명을 입력하세요.">
-                           </div>
-
-
-                       </div>
-                       <div class="form-group form-group-md">
-                           <label class="col-md-2 control-label" for="formGroupInputMedium">부서명</label>
-                           <div class="col-md-5">
-
-                               <input class="form-control" type="text" id="formGroupInputLarge" placeholder="전공을 입력하세요.">
-                           </div>
-
-                       </div>
 
                        <div class="form-group form-group-md">
                            <label class="col-md-2 control-label" for="formGroupInputMedium">급여</label>
@@ -770,6 +798,14 @@
         document.getElementById('field').appendChild(div);
     }
     /* 포트폴리오 부분 학력에추가버튼 누를때 끝*/
+    	/* 포트폴리오 부분 경력에추가버튼 누를때 */
+    function add_itemM() {
+        // pre_set 에 있는 내용을 읽어와서 처리..
+        var div = document.createElement('div');
+        div.innerHTML = document.getElementById('pre_setT').innerHTML;
+        document.getElementById('fieldD').appendChild(div);
+    }
+    /* 포트폴리오 부분 경력에추가버튼 누를때 끝*/
     
     /* 포트폴리오 부분 학력추가란에 삭제 버튼 */
     function remove_item(obj) {
@@ -777,7 +813,12 @@
         document.getElementById('field').removeChild(obj.parentNode);
     }
     /* 포트폴리오 부분 학력추가란에 삭제 버튼 끝*/
-    
+        /* 포트폴리오 부분 경력추가란에 삭제 버튼 */
+    function remove_item(obj) {
+        // obj.parentNode 를 이용하여 삭제
+        document.getElementById('fieldD').removeChild(obj.parentNode);
+    }
+    /* 포트폴리오 부분 경력추가란에 삭제 버튼 끝*/
     /* 플러스 버튼 누르면 아코디언 발생 */
     var acc = document.getElementsByClassName("accordion");
     var i;
