@@ -42,7 +42,11 @@
     <!--외부작업물 CSS 잠시 따옴 04/29 끝 -->
     <!-- 다음api cdn -->
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-    
+    <!-- 태그입력 -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-tagsinput/1.3.6/jquery.tagsinput.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-tagsinput/1.3.6/jquery.tagsinput.min.css">
+
+ 
 </head>
 
 <body>
@@ -360,8 +364,11 @@
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
 							<div style="width:30%;">
-							<label> 태그입력</label>
-                 			  <input type="text" size="50">
+
+				<label> 태그입력</label>     
+			<input id="tags_1" type="text" class="tags" />
+
+
                  				</div>
                  				<br>
                  			  <button type="submit" class="btn btn-default" style="width:20%">
@@ -625,16 +632,6 @@
                 </div>
             </div>
         </div>
-       
-       
-       
-       
-       
-       
-    
-       
-       
-       
        
     </div>
    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true" >
@@ -908,6 +905,18 @@
         }).open();
     }
 	
+	//태그입력
+    function onAddTag(tag) {
+		alert("Added a tag: " + tag);
+	}
+	function onRemoveTag(tag) {
+		alert("Removed a tag: " + tag);
+	}
+	
+	$(function() {
+		$('#tags_1').tagsInput();
+	});
+
 </script>
 
 </html>
