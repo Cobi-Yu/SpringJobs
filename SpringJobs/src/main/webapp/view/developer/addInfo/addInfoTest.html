@@ -40,6 +40,8 @@
     <link href="/view/common/login/css/freelancer.css" rel="stylesheet">
 
     <!--외부작업물 CSS 잠시 따옴 04/29 끝 -->
+    <!-- 다음api cdn -->
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     
 </head>
 
@@ -143,16 +145,19 @@
                                </tr>
                                <tr>
                                    <thead>
+                                   
+                                   
+                                   
+
+
+
                                        <td class="bg-info" style="width: 20%; text-align: center; padding-top: 1em;"><strong>거주지 주소</strong></td>
                                        <td colspan="3">
-                                       	   <div id=adr style="text-align: left;"></div>
-                                       
-                                           <!-- <input class="form-control" type="text" id="uadr" style="width:100%">
-                                           <div class="text-right">
-                                           <button type="submit" class="btn btn-default" style="width:auto; height: auto; margin-top: 1em;">
-                                               <span class="glyphicon glyphicon-search" style="color: black"></span> 주소검색
-                                           </button>
-                                           </div> -->
+                                            <input type="text" id="sample4_postcode" placeholder="우편번호">
+                                            <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+										    <input type="text" id="sample4_roadAddress" placeholder="도로명주소">
+											<input type="text" id="sample4_jibunAddress" placeholder="지번주소">
+											<span id="guide" style="color:#999"></span>
                                        </td>
                                    </thead>
                                </tr>
@@ -341,7 +346,7 @@
 			
 		<!-- portfolio 부분 클릭시 modal fade 시작 -->	
 		<!-- Portfolio Modals -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true" style="height: 80%;">
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true" >
      <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -352,26 +357,17 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8">
+                    <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <img src="img/portfolio/cabin.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+							<div style="width:30%;">
+							<label> 태그입력</label>
+                 			  <input type="text" size="50">
+                 				</div>
+                 				<br>
+                 			  <button type="submit" class="btn btn-default" style="width:20%">
+                 			  <i class="fa fa-times"></i>Save</button>	
+		                   <button type="button" class="btn btn-default" data-dismiss="modal">
+		                   <i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -379,7 +375,13 @@
         </div>
       </div><!-- modal-dialog modal-lg 끝  -->
     </div>
+    
+    
+    
+    
+    
     <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+         <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -390,33 +392,253 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/cake.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <div class="modal-body" style="width:auto;height:auto;">
+                     		 <h2>학력</h2>
+           
+          			<table>
+          			 			
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>학교명</strong></td>
+          					<td><input type="text" id="" placeholder="학교명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead>    
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>전공명</strong></td>
+          					<td><input type="text" id="" placeholder="전공명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead> 
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>성적</strong></td>
+          					<td><input type="text" id="" placeholder="성적을 입력하세요. ex) x.x/4.0, x.x/4.5, x.x/5.0 ..."></td>
+          					<td>       <div class="col-md-5">
+                           </div>
+                            </td>     
+          				</tr>
+          				</thead> 
+          					<thead>
+          					<tr>
+          					<td class="success"><strong>재학기간</strong></td>
+          					<td><input type="date" id="" ></td>
+          					<td><input type="date" id="">
+                            </td>     
+          				</tr>
+          				</thead> 
+          		 		<thead>
+          					<tr>
+          					<td>
+          						<button type="button" class="btn btn-primary" ><strong>저장</strong></button>
+                       			<button type="button" class="btn btn-default"  onclick="add_item()"><strong>추가</strong></button>
+                            </td>     
+          				</tr>
+          				</thead> 
+          				      <div id="field"></div>
+  					</table>
+                  <div id="pre_set" style="display:none">
+                       <br>
+                      	<table>        			 			
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>학교명</strong></td>
+          					<td><input type="text" id="" placeholder="학교명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead>    
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>전공명</strong></td>
+          					<td><input type="text" id="" placeholder="전공명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead> 
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>성적</strong></td>
+          					<td><input type="text" id="" placeholder="성적을 입력하세요. ex) x.x/4.0, x.x/4.5, x.x/5.0 ..."></td>
+          					<td>       <div class="col-md-5">
+                           </div>
+                            </td>     
+          				</tr>
+          				</thead> 
+          					<thead>
+          					<tr>
+          					<td class="success"><strong>재학기간</strong></td>
+          					<td><input type="date" id="" ></td>
+          					<td><input type="date" id="">
+                            </td>     
+          				</tr>
+          				</thead> 
+          		 		<thead>
+          					<tr>
+          					<td >
+          						<button type="button" class="btn btn-primary" ><strong>저장</strong></button>
+                       			<button type="button" class="btn btn-default"  onclick="add_item()"><strong>추가</strong></button>
+                       		
+                            </td>                      
+          				</tr>
+          				</thead> 
+  					</table>
+                       	<button type="button" class="btn btn-default"  onclick="remove_item(this)"><strong>삭제</strong>
+                 
+                   <div id="field"></div>
+                </div>
+               </div>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+    
     <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body" style="width:auto;height:auto;">
+                     		 <h2>경력</h2>
+           
+          			<table>
+          			 	<thead>
+          					<tr>
+          					<td class="success"><strong>직장명</strong></td>
+          					<td><input type="text" id="" placeholder="직장명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead>    
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>부서명</strong></td>
+          					<td><input type="text" id="" placeholder="부서명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead> 
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>희망급여</strong></td>
+          					<td>
+		                   		최소<input type="text" id=""  placeholder="예) 1백만원일경우 1000000">
+							</td>
+		                   	<td>	최대<input type="text" id=""  placeholder="예) 2백만원일경우 2000000">
+		                   		 </td>     
+          				</tr>
+          				</thead> 
+          					<thead>
+          					<tr>
+          					<td class="success"><strong>재직기간</strong></td>
+          					<td><input type="date" id="" ></td>
+          					<td><input type="date" id="">
+                            </td>     
+          				</tr>
+          				</thead> 
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>업무 기술</strong></td>
+          					<td><input type="text" id="" placeholder="업무를 간략하게 기술하세요."></td> 
+          				</tr>
+          				</thead> 
+          		 		<thead>
+          					<tr>
+          					<td>
+          						<button type="button" class="btn btn-primary" ><strong>저장</strong></button>
+                       			<button type="button" class="btn btn-default"  onclick="add_itemM()"><strong>추가</strong></button>
+                            </td>     
+          				</tr>
+          				</thead> 
+          				      <div id="fieldD"></div>
+  					</table>
+                  <div id="pre_setT" style="display:none">
+                       <br>
+                      	<table>        			 			
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>학교명</strong></td>
+          					<td><input type="text" id="" placeholder="학교명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead>    
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>전공명</strong></td>
+          					<td><input type="text" id="" placeholder="전공명을 입력하세요."></td>
+          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
+                            </td>     
+          				</tr>
+          				</thead> 
+          				<thead>
+          					<tr>
+          					<td class="success"><strong>성적</strong></td>
+          					<td><input type="text" id="" placeholder="성적을 입력하세요. ex) x.x/4.0, x.x/4.5, x.x/5.0 ..."></td>
+          					<td>       <div class="col-md-5">
+                           </div>
+                            </td>     
+          				</tr>
+          				</thead> 
+          					<thead>
+          					<tr>
+          					<td class="success"><strong>재학기간</strong></td>
+          					<td><input type="date" id="" ></td>
+          					<td><input type="date" id="">
+                            </td>     
+          				</tr>
+          				</thead> 
+          		 		<thead>
+          					<tr>
+          					<td >
+          						<button type="button" class="btn btn-primary" ><strong>저장</strong></button>
+                       			<button type="button" class="btn btn-default"  onclick="add_item()"><strong>추가</strong></button>
+                       		
+                            </td>                      
+          				</tr>
+          				</thead> 
+  					</table>
+                       	<button type="button" class="btn btn-default"  onclick="remove_item(this)"><strong>삭제</strong>
+                 
+                   <div id="field"></div>
+                </div>
+               </div>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+       
+       
+       
+       
+       
+    
+       
+       
+       
+       
+    </div>
+   <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true" >
+     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -428,32 +650,37 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+							<div style="width:30%;">
+							<label> 보유기술</label>
+                 			    <div class="checkbox">
+                       <label>
+                           <input type="checkbox" value="">Option 1</label>
+                       <label class="checkbox-inline">
+                           <input type="checkbox" value="">Option 3</label>
+                       <label class="checkbox-inline">
+                           <input type="checkbox" value="">Option 3</label>
+                       <label class="checkbox-inline">
+                           <input type="checkbox" value="">Option 3</label>
+                       <label class="checkbox-inline">
+                           <input type="checkbox" value="">Option 3</label>
+                       <label class="checkbox-inline">
+                           <input type="checkbox" value="">Option 3</label>
+                           </div>
+                 				<br>
+                 			  <button type="submit" class="btn btn-default" style="width:20%">
+                 			  <i class="fa fa-times"></i>Save</button>	
+		                   <button type="button" class="btn btn-default" data-dismiss="modal">
+		                   <i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+      </div>
     </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+   </div> 
+     <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true" >
+     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
@@ -465,68 +692,21 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/game.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+							<div style="width:30%;">
+							<label> 외국어 및 자격증</label>
+                 				<br>
+                 			  <button type="submit" class="btn btn-default" style="width:20%">
+                 			  <i class="fa fa-times"></i>Save</button>	
+		                   <button type="button" class="btn btn-default" data-dismiss="modal">
+		                   <i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+      </div>
     </div>
-    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/safe.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   </div> 
     <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -564,286 +744,7 @@
             </div>
         </div>
     </div>
-    <!--섹션 2 끝-->
-           <!-- <section id="two">
-               <h2 class="shareTech">포트폴리오</h2>
-               <button class="accordion">노출태그</button>
-               <div class="panel">
-                   <label> 태그입력</label>
-                   <input type="text" size="70">
-                   <button type="submit" class="btn btn-default" style="width:20%"><strong>저장</strong></button>
-               </div>
 
-
-               <button class="accordion">학력</button>
-               <div class="panel">
-
-
-
-                   <form class="form-horizontal">
-                       <div class="form-group form-group-md">
-                           <label class="col-md-2 control-label" for="formGroupInputMedium">학교명</label>
-                           <div class="col-md-5">
-
-                               <input class="form-control" type="text" id="formGroupInputLarge" placeholder="학교명을 입력하세요.">
-                           </div>
-
-                           <div class="input-group ">
-                               <button type="submit" class="btn btn-default">
-                                   <span class="glyphicon glyphicon-search"></span> Search
-                               </button>
-                           </div>
-                       </div>
-                       <div class="form-group form-group-md">
-                           <label class="col-md-2 control-label" for="formGroupInputMedium">전공명</label>
-                           <div class="col-md-5">
-
-                               <input class="form-control" type="text" id="formGroupInputLarge" placeholder="전공을 입력하세요.">
-                           </div>
-
-                           <div class="input-group ">
-                               <button type="submit" class="btn btn-default">
-                                   <span class="glyphicon glyphicon-search"></span> Search
-                               </button>
-                           </div>
-                       </div>
-
-                       <div class="form-group form-group-md">
-                           <label class="col-md-2 control-label" for="formGroupInputMedium">성적</label>
-                           <div class="col-md-5">
-
-                               <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex) x.x/4.0, x.x/4.5, x.x/5.0 ...">
-                           </div>
-                       </div>
-                       프로젝트 주제 끝
-                       <div class="form-inline form-group-md form-group">
-                           <label class="col-md-2 control-label" for="formGroupInputMedium">재학 기간</label>
-                           <div class="col-md-3">
-                               <input type="date" class="form-control" id="exampleInputEmail3">
-
-                           </div>
-
-
-
-                           <div class="col-md-3">
-                               <input class="form-control" type="date" id="exampleInputPassword3">
-                           </div>
-                       </div>
-
-
-
-                       <button type="button" class="btn btn-default" style="width:20%"><strong>저장</strong></button>
-                       <button type="button" class="btn btn-default" style="width:20%" onclick="add_item()"><strong>추가</strong></button>
-                   </form>
-                   <div id="pre_set" style="display:none">
-
-                       <br>
-
-                       <form class="form-horizontal">
-                           <div class="form-group form-group-md">
-                               <label class="col-md-2 control-label" for="formGroupInputMedium">학교명</label>
-                               <div class="col-md-5">
-
-                                   <input class="form-control" type="text" id="formGroupInputLarge" placeholder="학교명을 입력하세요.">
-                               </div>
-
-                               <div class="input-group ">
-                                   <button type="button" class="btn btn-default">
-                                       <span class="glyphicon glyphicon-search"></span> Search
-                                   </button>
-                               </div>
-                           </div>
-                           <div class="form-group form-group-md">
-                               <label class="col-md-2 control-label" for="formGroupInputMedium">전공명</label>
-                               <div class="col-md-5">
-
-                                   <input class="form-control" type="text" id="formGroupInputLarge" placeholder="전공을 입력하세요.">
-                               </div>
-
-                               <div class="input-group ">
-                                   <button type="button" class="btn btn-default">
-                                       <span class="glyphicon glyphicon-search"></span> Search
-                                   </button>
-                               </div>
-                           </div>
-
-                           <div class="form-group form-group-md">
-                               <label class="col-md-2 control-label" for="formGroupInputMedium">성적</label>
-                               <div class="col-md-5">
-
-                                   <input class="form-control" type="text" id="formGroupInputLarge" placeholder="ex) x.x/4.0, x.x/4.5, x.x/5.0 ...">
-                               </div>
-                           </div>
-                           프로젝트 주제 끝
-                           <div class="form-inline form-group-md form-group">
-                               <label class="col-md-2 control-label" for="formGroupInputMedium">재학 기간</label>
-                               <div class="col-md-3">
-                                   <input type="date" class="form-control" id="exampleInputEmail3">
-
-                               </div>
-
-
-
-                               <div class="col-md-3">
-                                   <input class="form-control" type="date" id="exampleInputPassword3">
-                               </div>
-                           </div>
-
-                           <button type="button" class="btn btn-default" style="width:20%"><strong>저장</strong></button>
-                           <button type="button" class="btn btn-default" style="width:20%" onclick="add_item()"><strong>추가</strong></button>
-                       </form>
-                       <input type="button" value="삭제" onclick="remove_item(this)">
-                   </div>
-                   <div id="field"></div>
-                   <br>
-
-               </div>
-
-               <button class="accordion">경력</button>
-               <div class="panel">
-
-
-
-                   <form class="form-horizontal">
-                       <div class="form-group form-group-md">
-                           <label class="col-md-2 control-label" for="formGroupInputMedium">회사명</label>
-                           <div class="col-md-5">
-
-                               <input class="form-control" type="text" id="formGroupInputLarge" placeholder="회사명을 입력하세요.">
-                           </div>
-
-
-                       </div>
-                       <div class="form-group form-group-md">
-                           <label class="col-md-2 control-label" for="formGroupInputMedium">부서명</label>
-                           <div class="col-md-5">
-
-                               <input class="form-control" type="text" id="formGroupInputLarge" placeholder="전공을 입력하세요.">
-                           </div>
-
-                       </div>
-
-                       <div class="form-group form-group-md">
-                           <label class="col-md-2 control-label" for="formGroupInputMedium">급여</label>
-                           <label class="col control-label" for="formGroupInputMedium">(단위: 원)</label>
-                           <div class="col-md-2">
-                               <div class="col-md">
-                                   <input class="form-control" type="text" id="formGroupInputLarge" placeholder="">
-                               </div>
-                           </div>
-                       </div>
-                       프로젝트 주제 끝
-                       <div class="form-inline form-group-md form-group">
-                           <label class="col-md-2 control-label" for="formGroupInputMedium">재직 기간</label>
-                           <div class="col-md-3">
-                               <input type="date" class="form-control" id="exampleInputEmail3">
-
-                           </div>
-                           <div class="col-md-3">
-                               <input class="form-control" type="date" id="exampleInputPassword3">
-                           </div>
-                       </div>
-
-                       <div class="form-group form-group-md">
-                           <label class="col-md-2 control-label" for="formGroupInputMedium">업무 기술</label>
-                           <div class="col-md-5">
-
-                               <input class="form-control" type="text" id="formGroupInputLarge" placeholder="업무를 간략하게 기술하세요.">
-                           </div>
-
-                       </div>
-
-                       <button type="button" class="btn btn-default" style="width:20%"><strong>저장</strong></button>
-                   </form>
-               </div>
-
-               <button class="accordion">보유기술</button>
-               <div class="panel">
-                   <div class="checkbox">
-                       <label>
-                           <input type="checkbox" value="">Option 1</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-
-                   </div>
-                   <div class="checkbox">
-                       <label>
-                           <input type="checkbox" value="">Option 1</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-
-                   </div>
-                   <div class="checkbox">
-                       <label>
-                           <input type="checkbox" value="">Option 1</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-
-                   </div>
-               </div>
-
-               <button class="accordion">외국어</button>
-               <div class="panel">
-                   <p>Lorem ipsum...</p>
-               </div>
-
-               <button class="accordion">시험성적</button>
-               <div class="panel">
-                   <p>Lorem ipsum...</p>
-               </div>
-
-               <button class="accordion">프로젝트</button>
-               <div class="panel">
-                   <p>Lorem ipsum...</p>
-               </div>
-
-               <button class="accordion">자격증</button>
-               <div class="panel">
-                   <p>Lorem ipsum...</p>
-               </div>
-
-               <button class="accordion">희망하는 연락방법</button>
-               <div class="panel">
-                   <p>Lorem ipsum...</p>
-               </div>
-
-           </section> -->
-			<!-- 
-                     <section id="three">
-                     </section>
-                      -->
-           <!--
-           <section id="four">
-               <h2 class="shareTech">Section 4</h2>
-               <p>
-                   If you're rendering trigger id elements dynamically it's best to make sure that you're setting the height of the element as well; particularly if the element height is small.
-               </p>
-           </section>
-           -->
        </div>
        <!-- 섹션 끝 -->
        </div>
@@ -871,6 +772,14 @@
         document.getElementById('field').appendChild(div);
     }
     /* 포트폴리오 부분 학력에추가버튼 누를때 끝*/
+    	/* 포트폴리오 부분 경력에추가버튼 누를때 */
+    function add_itemM() {
+        // pre_set 에 있는 내용을 읽어와서 처리..
+        var div = document.createElement('div');
+        div.innerHTML = document.getElementById('pre_setT').innerHTML;
+        document.getElementById('fieldD').appendChild(div);
+    }
+    /* 포트폴리오 부분 경력에추가버튼 누를때 끝*/
     
     /* 포트폴리오 부분 학력추가란에 삭제 버튼 */
     function remove_item(obj) {
@@ -878,7 +787,12 @@
         document.getElementById('field').removeChild(obj.parentNode);
     }
     /* 포트폴리오 부분 학력추가란에 삭제 버튼 끝*/
-    
+        /* 포트폴리오 부분 경력추가란에 삭제 버튼 */
+    function remove_item(obj) {
+        // obj.parentNode 를 이용하여 삭제
+        document.getElementById('fieldD').removeChild(obj.parentNode);
+    }
+    /* 포트폴리오 부분 경력추가란에 삭제 버튼 끝*/
     /* 플러스 버튼 누르면 아코디언 발생 */
     var acc = document.getElementsByClassName("accordion");
     var i;
@@ -941,6 +855,59 @@
         });	//등록버튼시 이벤트 끝
 
 	});	//trigger 이벤트 끝
+	
+	//주소검색
+	   //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+    function sample4_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+                var extraRoadAddr = ''; // 도로명 조합형 주소 변수
+
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraRoadAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraRoadAddr !== ''){
+                    extraRoadAddr = ' (' + extraRoadAddr + ')';
+                }
+                // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+                if(fullRoadAddr !== ''){
+                    fullRoadAddr += extraRoadAddr;
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample4_postcode').value = data.zonecode; //5자리 새우편번호 사용
+                document.getElementById('sample4_roadAddress').value = fullRoadAddr;
+                document.getElementById('sample4_jibunAddress').value = data.jibunAddress;
+
+                // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+                if(data.autoRoadAddress) {
+                    //예상되는 도로명 주소에 조합형 주소를 추가한다.
+                    var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
+                    document.getElementById('guide').innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
+
+                } else if(data.autoJibunAddress) {
+                    var expJibunAddr = data.autoJibunAddress;
+                    document.getElementById('guide').innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
+
+                } else {
+                    document.getElementById('guide').innerHTML = '';
+                }
+            }
+        }).open();
+    }
+	
 </script>
 
 </html>
