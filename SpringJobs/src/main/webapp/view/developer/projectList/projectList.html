@@ -131,22 +131,23 @@
 										data-off="접기" checked="false">
 								</div>
 								<div class="fold-list cpjar-list"
-									style="margin-left: 20px; font-size: 12px;"
-									style="display:none;">
-									<div class="checkbox">
-										<input type="checkbox" class="cpjar-check" value="46">
-										<p class="cpjar-option">경기도 성남시</p>
-									</div>
+									style="font-size: 12px; display:none;">
+									<input id="cpjar" placeholder="Enter your address" type="text" size="30"></input>
+<!-- 									<div class="checkbox"> -->
+<!-- 										<input type="checkbox" class="cpjar-check" value="46"> -->
+<!-- 										<p class="cpjar-option">경기도 성남시</p> -->
+<!-- 									</div> -->
 
-									<div class="checkbox">
-										<input type="checkbox" class="cpjar-check" value="45">
-										<p class="cpjar-option">서울시 강남구</p>
-									</div>
-									<div class="checkbox">
-										<input type="checkbox" class="cpjar-check" value="47">
-										<p class="cpjar-option">서울시 구로구</p>
-									</div>
-								</div></td>
+<!-- 									<div class="checkbox"> -->
+<!-- 										<input type="checkbox" class="cpjar-check" value="45"> -->
+<!-- 										<p class="cpjar-option">서울시 강남구</p> -->
+<!-- 									</div> -->
+<!-- 									<div class="checkbox"> -->
+<!-- 										<input type="checkbox" class="cpjar-check" value="47"> -->
+<!-- 										<p class="cpjar-option">서울시 구로구</p> -->
+<!-- 									</div> -->
+								</div>
+							</td>
 						</tr>
 						<tr>
 							<td><strong>사용API</strong>
@@ -219,10 +220,29 @@
 	</div>
 	<div id="footer"></div>
 </body>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAy61MRXpbyyOmzf8HPiOLe-FX-24VuTjQ&libraries=places&callback=initAutocomplete"
+        async defer></script>
 <script>
     var search={cpjar:[],cpjsk:[],cpjmnp,cpjmap,cpjyr};
     var cpjt;
     
+    //지역 자동완성
+    function initAutocomplete() {
+   	  	autocomplete = new google.maps.places.Autocomplete((document.getElementById('cpjar')),{types: ['geocode']});
+   	 	autocomplete.addListener('place_changed', fillInAddress);
+   	}
+    //지역 검색 완료 콜백
+    function fillInAddress(){
+    	var cpjarText = $('#cpjar').val();
+    	addSearchTag('cpjar-tag', cpjarText, 'primary');//사용자 정의 function
+    	search.cpjar.push(cpjarText);
+    	request();
+    	$('#cpjar').val('');
+    }
+    //지역 검색 완료 콜백 끝
+  //지역 자동완성 끝
+    
+       
 	$(function() {
 		$('#header').load('/view/common/login/frameHeader.html');
 		$('#footer').load('/view/common/login/frameFooter.html');
@@ -259,8 +279,9 @@
                 		$('.table-cpjmap:eq('+i+')').text(cpjt[i].cpjmap);
                 		$('.table-cpjwt:eq('+i+')').text(cpjt[i].cpjwt);
                 		$('.table-cpjint:eq('+i+')').text(cpjt[i].cpjint);
-                		$('.list-detail-btn').bootstrapToggle();
+                		redirect($('.table-cpjnm:eq('+i+')'),'/view/company/getProjectView/getProjectView.html?cpjno='+cpjt[i].cpjno);
 					}
+                	$('.list-detail-btn').bootstrapToggle();
                 });
                 if(cpjt.length==0){
                 	callModal('알림','검색조건이 없습니다.');
@@ -276,8 +297,8 @@
     		var tagDelete = $("<a></a>").addClass('tag-delete').text(' X');
     		$('#input-tag').append(
     				$("<button></button>").addClass('btn tag btn-sm btn-' + color).addClass(cls).text(text).append(tagDelete));
-    		//검색 태그 삭제
-    		$('.tag-delete').click(function() {
+			//검색 태그 삭제
+			$('.tag-delete').click(function() {
     			var tag = $(this).parent('button');
     			if(tag.hasClass('cpjar-tag')){//지역태그 삭제
     				var arr = $.makeArray(search.cpjar);
@@ -362,7 +383,7 @@
                         search.cpjsk.push(ui.item.value);
                         request();
 					}
-                }).autocomplete("widget").addClass("fixed-height");;
+                }).autocomplete("widget").addClass("fixed-height");
         //검색 자동완성 끝
 
         //좌측메뉴접기

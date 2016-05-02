@@ -19,6 +19,9 @@ var addLoading = function(){
 	if($('.wrap-loading')){
 		$('body').append(loading);
 	}
+	 $(window).scroll(function() {  
+		 $('.wrap-loading').animate({"top":$(window).scrollTop()+"px"});
+		 });
 };
 
 var removeLoading = function(){
@@ -67,3 +70,11 @@ var callModal = function(title, msg, url){
 	});
 };
 //모달 창 끝
+
+//query string 파싱
+function getUrlParams() {
+    var params = {};
+    window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(str, key, value) { params[key] = value; });
+    return params;
+} 
+//query string 파싱 끝
