@@ -24,14 +24,15 @@ public class CompanyController {
 	@RequestMapping( value="/addProject" , method=RequestMethod.POST)
 	public void addProject(@RequestBody Cpjts cpjts, Model model){
 		System.out.println("addProject Test :"+cpjts.toString());
-		
-		model.addAttribute("cpjno",companyService.addProject(cpjts));
+		cpjts.setCpjno(companyService.addProject(cpjts));
+		companyService.addProjectSkills(cpjts);
+		model.addAttribute("cpjno",cpjts.getCpjno());
 	}
 	
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-	@RequestMapping( value="/addProjectView" , method=RequestMethod.GET)
-	public void addProjectView(@RequestParam("cpjno") int cpjno, Model model) throws Exception{
-		System.out.println("addProjectView Test :"+cpjno);
+	@RequestMapping( value="/getProjectView" , method=RequestMethod.GET)
+	public void getProjectView(@RequestParam("cpjno") int cpjno, Model model) throws Exception{
+		System.out.println("getProjectView Test :"+cpjno);
 		Cpjts cpjts = companyService.getProject(cpjno);
 		System.out.println("cotroller부분 cpjts :"+cpjts);
 		model.addAttribute("cpjts", cpjts);
