@@ -34,4 +34,8 @@ public class CompanyServiceImpl implements CompanyService{
 	public void addCompany(Cinfos cinfos){
 		companyDao.addCompany(cinfos);
 	}
+	@Override
+	public void addProjectSkills(Cpjts cpjts) {
+		companyDao.addProjectSkills(cpjts);
+	}
 }

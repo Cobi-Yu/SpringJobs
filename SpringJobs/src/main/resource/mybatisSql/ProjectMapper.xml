@@ -33,53 +33,89 @@
 	<insert 	id="addProject"		parameterType="com.springjobs.domain.Cpjts" >
 	 	INSERT
 		INTO CPJTS(cpjnm, cpjsd, cpjed, cpjint, cpjchk, cpjyr, cpjnpl, cpjmnp, cpjmap, cpjhtn, cpjrd, cpjrg, cpjwt, cpjar, cno) 
-		VALUES(#{cpjnm},#{cpjsd},#{cpjed},#{cpjint},#{cpjchk},#{cpjyr},#{cpjnpl},#{cpjmnp},#{cpjmap},1,curdate(),#{cpjrg},#{cpjwt},#{cpjar},#{cno});
+		VALUES(#{cpjnm},#{cpjsd},#{cpjed},#{cpjint},'0',#{cpjyr},#{cpjnpl},#{cpjmnp},#{cpjmap},1,curdate(),#{cpjrg},#{cpjwt},#{cpjar},#{cno});
 		
 	    <selectKey keyProperty="cpjno" resultType="INTEGER">
 	        SELECT LAST_INSERT_ID()
 	    </selectKey>
 	</insert>
 	
+	<insert id="addProjectSkills" parameterType="com.springjobs.domain.Cpjts">
+	    INSERT
+	    INTO CPJTSKILLS
+	    VALUES
+	    <foreach collection="cpjsk" item="item" separator=" , ">
+	        ( #{cpjno},#{item.skno} )
+	    </foreach>
+	</insert>
+	
 	<select id="getProject"		parameterType="int"		resultMap="projectSelectMap">
-		SELECT
-		cpjnm, cpjint, cpjchk, cpjyr, cpjnpl, cpjmnp, cpjmap, cpjrg, cpjwt, cpjar 
-		FROM CPJTS
-		WHERE cpjno = #{cpjno}
+		SELECT 
+		* FROM
+		(SELECT pj.*,pjsk.SKNO FROM CPJTS pj LEFT OUTER JOIN CPJTSKILLS pjsk ON pj.cpjno=pjsk.cpjno) sub
+		LEFT OUTER JOIN SKILLS sk
+		ON sk.skno=sub.skno
+		<where>
+		    cpjno=#{cpjno}
+		</where>
 	</select>
 	
 	<select id="getProjectList"		parameterType="com.springjobs.common.Search"	resultMap="projectSelectMap">
-		select * from
-		(select CP.CPJNO ,CIF.CNM from CPJTS CP, CPJTSKILLS CPSK, CINFOS CIF
-			<where>
-				CP.CPJNO=CPSK.CPJNO AND CIF.cno=CP.cno
-				<if test="cpjar.size>=1">
-		            AND
-					<foreach collection="cpjar" item="item" separator="OR">
-						cpjar=#{item}
-					</foreach>
-		        </if>
-		        <if test="cpjsk.size>=1">
-					AND
-					<foreach collection="cpjsk" item="item" separator="OR">
-						CPSK.skno=#{item}
-					</foreach>
-		        </if>
-		        <if test="cpjmnp!=0 and cpjmap!=0">
-					AND cpjmnp&lt;=#{cpjmnp} AND cpjmap&gt;=#{cpjmap}
-		        </if>
-		        <if test="cpjyr!=0">
-					AND cpjyr=#{cpjyr}
-		        </if>
-		    </where>
-		) cond,
-		(select CP.CPJNO, CP.CPJNM, CP.CPJINT, CP.CPJCHK, CP.CPJYR, CP.CPJNPL, CP.CPJMNP, CP.CPJMAP, CP.CPJHTN, 
-				CP.CPJRD, CP.CPJED, CP.CPJSD, CP.CPJRG, CP.CPJWT, CP.CPJAR, CP.CNO, SK.SKNO, SK.SKNM
-		from CPJTS CP 
-		LEFT OUTER JOIN 
-			(select sk.skno,sknm,cpjno 
-		     from SKILLS sk, CPJTSKILLS cpsk 
-		     where sk.skno=cpsk.skno)SK 
-		ON CP.cpjno=SK.cpjno) data
-		where cond.cpjno=data.cpjno
+	    select * from CPJTS pj left outer join CPJTSKILLS pjsk on pj.cpjno=pjsk.cpjno 
+		left outer join SKILLS sk on pjsk.skno=sk.skno 
+		<where>
+			<if test="cpjar.size>=1">
+				OR
+				<foreach collection="cpjar" item="item" separator="OR">
+					cpjar=#{item}
+				</foreach>
+	        </if>
+	        <if test="cpjsk.size>=1">
+				OR
+				<foreach collection="cpjsk" item="item" separator="OR">
+					sk.skno=#{item}
+				</foreach>
+	        </if>
+	        <if test="cpjmnp!=0 and cpjmap!=0">
+				AND cpjmnp&lt;=#{cpjmnp} AND cpjmap&gt;=#{cpjmap}
+	        </if>
+	        <if test="cpjyr!=0">
+				AND cpjyr=#{cpjyr}
+	        </if>
+		 </where>
+
+<!-- 		select * from -->
+<!-- 		(select CP.CPJNO ,CIF.CNM from CPJTS CP, CPJTSKILLS CPSK, CINFOS CIF -->
+<!-- 			<where> -->
+<!-- 				CP.CPJNO=CPSK.CPJNO AND CIF.cno=CP.cno -->
+<!-- 				<if test="cpjar.size>=1"> -->
+<!-- 		            AND -->
+<!-- 					<foreach collection="cpjar" item="item" separator="OR"> -->
+<!-- 						cpjar=#{item} -->
+<!-- 					</foreach> -->
+<!-- 		        </if> -->
+<!-- 		        <if test="cpjsk.size>=1"> -->
+<!-- 					AND -->
+<!-- 					<foreach collection="cpjsk" item="item" separator="OR"> -->
+<!-- 						CPSK.skno=#{item} -->
+<!-- 					</foreach> -->
+<!-- 		        </if> -->
+<!-- 		        <if test="cpjmnp!=0 and cpjmap!=0"> -->
+<!-- 					AND cpjmnp&lt;=#{cpjmnp} AND cpjmap&gt;=#{cpjmap} -->
+<!-- 		        </if> -->
+<!-- 		        <if test="cpjyr!=0"> -->
+<!-- 					AND cpjyr=#{cpjyr} -->
+<!-- 		        </if> -->
+<!-- 		    </where> -->
+<!-- 		) cond, -->
+<!-- 		(select CP.CPJNO, CP.CPJNM, CP.CPJINT, CP.CPJCHK, CP.CPJYR, CP.CPJNPL, CP.CPJMNP, CP.CPJMAP, CP.CPJHTN,  -->
+<!-- 				CP.CPJRD, CP.CPJED, CP.CPJSD, CP.CPJRG, CP.CPJWT, CP.CPJAR, CP.CNO, SK.SKNO, SK.SKNM -->
+<!-- 		from CPJTS CP  -->
+<!-- 		LEFT OUTER JOIN  -->
+<!-- 			(select sk.skno,sknm,cpjno  -->
+<!-- 		     from SKILLS sk, CPJTSKILLS cpsk  -->
+<!-- 		     where sk.skno=cpsk.skno)SK  -->
+<!-- 		ON CP.cpjno=SK.cpjno) data -->
+<!-- 		where cond.cpjno=data.cpjno -->
 	</select>
 </mapper>

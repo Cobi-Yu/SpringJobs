@@ -15,4 +15,6 @@ public interface CompanyDao {
 	public Crecs getJob(int reno) throws Exception ;
 
 	public void addCompany(Cinfos cinfos);
+	
+	public void addProjectSkills(Cpjts cpjts);
 }

@@ -49,4 +49,9 @@ public class CompanyDaoImpl implements CompanyDao{
 	public void addCompany(Cinfos cinfos){
 		sqlSession.insert("AddCompanyMapper.addCompany", cinfos);
 	}
+
+	@Override
+	public void addProjectSkills(Cpjts cpjts) {
+		sqlSession.insert("ProjectMapper.addProjectSkills",cpjts);
+	}
 }

@@ -12,6 +12,8 @@ public interface CompanyService {
 	
 	public Cpjts getProject(int cpjno) throws Exception;
 	
+	public void addProjectSkills(Cpjts cpjts);
+	
 	public Crecs getJob(int reno) throws Exception ;
 	
 	public void addCompany(Cinfos cinfos);
