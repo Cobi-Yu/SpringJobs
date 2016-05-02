@@ -206,13 +206,11 @@
         }
         
         section {
-            background-color: #white;
-            height: auto;
+            height: 500px;
             /*프로필 등록을 위해서 section의 세로 사이즈 조정함 - 오병소 (160405 - UI 작업)*/
             margin-bottom: 1em;
-            padding: 1em 1em .5em 1em;
-           	border-collapse: collapse; 
-			border: 1px solid black;  
+            border-width:5px;
+            border-style: outset;
         }
         
         section + section {
@@ -268,7 +266,18 @@
                 width: 100%;
             }
         }
-        
+		.adp{
+			background-color: #5ab97e;
+			width: 100%;
+			padding: 0em 1em 1em 4em;
+			color: white;
+		}
+		.adc{
+			margin-left: 10em;
+		}
+		.adm{
+			margin-right: 2em; 
+		}      
         .adp{
 			background-color: #5ab97e;
 			width: 100%;
