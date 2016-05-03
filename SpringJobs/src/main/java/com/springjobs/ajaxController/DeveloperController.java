@@ -2,12 +2,12 @@ package com.springjobs.ajaxController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springjobs.common.Search;
 import com.springjobs.domain.Users;
@@ -30,5 +30,14 @@ public class DeveloperController {
 	public void addInfo(@RequestBody Users users, Model model){
 		System.out.println("DeveloperController에서 users : "+users);
 		model.addAttribute("users", developerService.addInfo(users));
+	}
+
+	@RequestMapping( value="/getUtag", method=RequestMethod.GET)
+	public void getUtag(@RequestParam("uno") int uno, Model model) throws Exception{
+		
+		System.out.println("DeveloperContoller에서 uno:"+uno);
+		model.addAttribute("utags", developerService.getUtag(uno));
+		
+		System.out.println("developerController에서 getUtag :"+developerService.getUtag(uno));
 	}
 }

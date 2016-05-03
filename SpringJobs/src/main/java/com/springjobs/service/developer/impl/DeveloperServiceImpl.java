@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.springjobs.common.Search;
 import com.springjobs.domain.Cpjts;
+import com.springjobs.domain.UTags;
 import com.springjobs.service.developer.DeveloperService;
 
 @Service("developerServiceImpl")
@@ -23,7 +24,15 @@ public class DeveloperServiceImpl implements DeveloperService {
 		return developerDao.getProjectList(search);
 	}
 	
+	@Override
 	public int addInfo(Users users){
 		return developerDao.addInfo(users);
 	}
+
+	@Override
+	public List<UTags> getUtag(int uno) throws Exception {
+		return developerDao.getUtag(uno);
+	}
+	
+	
 }

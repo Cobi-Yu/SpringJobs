@@ -22,9 +22,9 @@
 	</resultMap>
 	
 	<resultMap id="utagsSelectMap" type="com.springjobs.domain.UTags">
-	<result property="uexno" column="UEXNO" jdbcType="INTEGER" />
-	<result property="uno" column="UNO" jdbcType="INTEGER" />
-	<result property="uextg" column="UEXTG" jdbcType="VARCHAR" />
+		<result property="uexno" column="UEXNO" jdbcType="INTEGER" />
+		<result property="uextg" column="UEXTG" jdbcType="VARCHAR" />
+		<result property="uno" column="UNO" jdbcType="INTEGER" />
 	</resultMap>
 	
 	<!-- SQL : INSERT -->
@@ -72,5 +72,14 @@
 	        SELECT LAST_INSERT_ID()
 	    </selectKey>
 	</insert>
+	
+	<select id="getUtag"	 parameterType="int"      resultMap="utagsSelectMap" >
+		SELECT
+		uextg
+		FROM
+		UTAGS 
+		WHERE
+		uno=#{uno};
+	</select>
 
 </mapper>

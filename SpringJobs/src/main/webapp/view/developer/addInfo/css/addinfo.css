@@ -206,15 +206,15 @@
         }
         
         section {
-            height: 500px;
             /*프로필 등록을 위해서 section의 세로 사이즈 조정함 - 오병소 (160405 - UI 작업)*/
+            padding-bottom: 1em;
             margin-bottom: 1em;
             border-width:5px;
             border-style: outset;
         }
-        
+/*         
         section + section {
-            height: auto/* note the section height here! */
+            height: autonote the section height here!
         }
         
         section + section + section {
@@ -230,7 +230,7 @@
             font-size: 1.5em;
             line-height: 1.6em;
             width: 50%;
-        }
+        } */
         /*sub {
           background:#A76AD9;
           color:#fff;

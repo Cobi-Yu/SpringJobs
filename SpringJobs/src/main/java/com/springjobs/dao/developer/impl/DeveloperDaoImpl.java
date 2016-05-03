@@ -11,6 +11,7 @@ import com.springjobs.common.Search;
 import com.springjobs.dao.developer.DeveloperDao;
 import com.springjobs.domain.Users;
 import com.springjobs.domain.Cpjts;
+import com.springjobs.domain.UTags;
 
 @Repository("developerDaoImpl")
 public class DeveloperDaoImpl implements DeveloperDao {
@@ -28,10 +29,18 @@ public class DeveloperDaoImpl implements DeveloperDao {
 		return sqlSession.selectList("ProjectMapper.getProjectList", search);
 	}
 	
+	@Override
 	public int addInfo(Users users){
 		sqlSession.insert("UserMapper.addInfo", users);
 		int uno = users.getUno();
 		System.out.println("dao impl에서 uno 값은??"+ uno);
 		return uno;
 	}
+
+	@Override
+	public List<UTags> getUtag(int uno) throws Exception {
+		return sqlSession.selectList("UserMapper.getUtag", uno);
+	}
+	
+	
 }
