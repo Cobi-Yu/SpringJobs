@@ -93,6 +93,8 @@ $(window).resize(function(){
 	$('.navbar-nav').css('left',$(window).width()/90+'%');
 	
 });
+
+redirect($('#index'),'/view/index.html');
 redirect($('#signUp'),'/view/common/addUser/addUser.html');
 redirect($('#addJob'),'/view/company/addJob/addJob.html');
 redirect($('#getJob'),'/view/company/getJob/getJob.html');
