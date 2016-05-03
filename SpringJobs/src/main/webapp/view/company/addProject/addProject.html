@@ -285,7 +285,6 @@
 			//중복체크
 			var bool = true;
 			$.map(cpjsk, function(val, i) {
-				console.log(val.skno);
 				if (val.skno == ui.item.value) {
 					bool = false;
 					return;
@@ -308,7 +307,27 @@
 			}
 			var tagDelete = $("<a></a>").addClass('tag-delete').text(' X');
     		$('#cpjskList').append(
-					$("<button></button>").addClass('btn btn-sm btn-default').text(ui.item.label));
+					$("<button></button>").addClass('btn btn-sm btn-default').text(ui.item.label).append(tagDelete).val(ui.item.value));
+    		$('.tag-delete').click(function(){
+    			var tag = $(this).parent();
+    			for(var i =0;i<cpjsk.length; i++){
+    				if(cpjsk[i].skno==tag.val()){
+    					cpjsk.splice(i,1);
+    					tag.remove();
+    					if(cpjsk.length==0){
+    						$('#cpjskList').parent().remove();
+    					}
+    					break;
+    				}
+    			}
+//     			$.map(cpjsk,function(val,i){
+//     				console.log(cpjsk);
+// 					if(tag.val()==val.skno){//해당태그가 맞다면
+// 						cpjsk.splice(i,1);
+// 						return "";
+// 					}
+// 				});
+    		});
 		}
 	}).autocomplete("widget").addClass("fixed-height");
 	//스킬 검색 자동완성 끝
