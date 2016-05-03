@@ -96,11 +96,11 @@ $(window).resize(function(){
 
 redirect($('#index'),'/view/index.html');
 redirect($('#signUp'),'/view/common/addUser/addUser.html');
-redirect($('#addJob'),'/view/company/addJob/addJob.html');
+redirect($('#addJob'),'/view/company/addJob/addJob.html',true);
 redirect($('#getJob'),'/view/company/getJob/getJob.html');
 redirect($('#projectList'),'/view/developer/projectList/projectList.html');
-redirect($('#addInfo'),'/view/developer/addInfo/addInfoTest.html'); // 개인이력관리 링크
+redirect($('#addInfo'),'/view/developer/addInfo/addInfoTest.html',true); // 개인이력관리 링크
 redirect($('#introduction'),'/view/common/introduction/springjobs.html'); // 스프링잡스 소개
-redirect($('#addProject'),'/view/company/addProject/addProject.html');
+redirect($('#addProject'),'/view/company/addProject/addProject.html',true);
 redirect($('#SpringJobsIntro'),'/view/common/login/SpringJobs.html');
 redirect($('#frame'),'/view/common/login/frame.html');

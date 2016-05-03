@@ -33,9 +33,7 @@ public class CompanyController {
 	@RequestMapping( value="/getProjectView" , method=RequestMethod.GET)
 	public void getProjectView(@RequestParam("cpjno") int cpjno, Model model) throws Exception{
 		System.out.println("getProjectView Test :"+cpjno);
-		Cpjts cpjts = companyService.getProject(cpjno);
-		System.out.println("cotroller부분 cpjts :"+cpjts);
-		model.addAttribute("cpjts", cpjts);
+		model.addAttribute("cpjt", companyService.getProject(cpjno));
 	}
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 	

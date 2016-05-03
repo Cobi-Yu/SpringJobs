@@ -4,208 +4,254 @@
 <title>Bootstrap Example</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker3.css" rel="stylesheet"/>
-	<link rel="stylesheet" href="/view/common/login/css/frame.css">	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>	
-	<!-- bootstrap toggle -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.1/js/bootstrap-toggle.min.js"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-toggle/2.2.1/css/bootstrap-toggle.min.css" rel="stylesheet">
-    <!-- bootstrap toggle end-->
-    <!--파일첨부-->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.1/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.3.1/js/fileinput.min.js" type="text/javascript"></script>
-	
-	<style>
-		.adp{
-			background-color: #5ab97e;
-			width: 100%;
-			padding: 0em 1em 1em 4em;
-			color: white;
-		}
-		.adc{
-			margin-left: 10em;
-		}
-		.adm{
-			margin-right: 2em; 
-		}
-	</style>
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://t1.java78.com:8080/view/common/login/css/frame.css">
+ <style>
+        .adp {
+            background-color: #6666FF;
+            width: 100%;
+            padding: 0em 1em 1em 4em;
+            color: white;
+        }
+        
+        .tabsize {
+            width:80%;
+            float: left;
+        }
+        .tabmar{
+            margin-left: 10em;
+        }
+        
+        .navbar {
+	        margin-bottom: 0;
+	        border-radius: 0;
+	        margin-bottom: 0px;
+	    }
+     section{
+         border-style: outset; 
+         border-width: 7px; 
+         background-color:white; 
+         padding-left:15px; 
+         padding-bottom:10px;
+         margin-top:10px;
+     }
+     .btn-detail{
+         padding:0px; 
+         background-color:white; 
+         width:100%; 
+         border-style:none;
+     }
+     .detail{
+         padding: 10px;
+         display:none;
+     }
+     .tag{
+     	margin:3px;
+     }
+    </style>
+
 </head>
 <body>
 	<div id="header"></div>
 	<!--본문 시작-->
 	<div class="container-fluid text-center">
 		<div class="row content">
-			<!--사이드바 시작-->
 			<div class="col-sm-2 sidenav"></div>
-			<!--사이드바 끝-->
-				<!-- 본문입력 시작 -->
-				<div class="col-md-8 text-left main">
-					<div class="table-responsive adc">
-	                    <table class="table table-bordered table-striped nanum" style="width:80%;">
-	                       <tbody>
-	                       <tr>
-			                   <thead>
-			                   	  <td>
-				                     <div class="col-md-12 adp">
-				                          <h1>프로젝트 등록</h1> 상세하게 작성해 주실수록 더 많은 지원자에게 노출됩니다.
-				                     </div>
-			                       </td>
-			                   </thead>
-		                   </tr>
-		                   <tr> 
-	                        	<td><h3>프로젝트 주제</h3>
-	                        		<div class="col-md-12" id="cpjnm"></div>
-								</td>
-						   </tr>
-						   <tr>
-						   		<td><h3>예상 기간</h3>
-						   			<div class="col-md-3">
-							   	   	시작일 
-							   	   	<div id="cpjsd" style="width:110%"></div>
-							   	   	</div>
-									<div class="col-md-3">
-									종료일 
-									<div id="cpjed" style="width:110%"></div>
-									</div>
-						   		</td>
-						   </tr>
-						    
-						   <tr>		 	
-						  		<td><h3>프로젝트 설명</h3>
-								<div class="col-md-12" id="cpjint" ></div>	
-	                       </tr>
-	                       
-		                   <tr>
-		                   		<td><h3>요구되는 기술</h3>
-		                   		<div class="panel panel-default">
-								  <div class="panel-body" id="cpjsk">
-								    
-								  </div>
-								</div>
-		                   		</td>   
-		                   </tr>
-		                   <tr>
-		                   		<td><h3>프로젝트 경력여부</h3>
-                                    <div class="col-md-3" id="cpjchk"> </div>
+			<div class="col-md-8 text-left main" style="background-color:#f1f1f1">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <section>
+                        <table width="100%">
+                            <tr>
+                                <td width="30%">
+                                    <img src="http://t1.java78.com:8080/view/resources/img/spring.jpg" width="80%">
                                 </td>
-		                   </tr>
-		                    
-		                   <tr>
-		                   		<td><h3>모집인원</h3>
-		                   		 	<div class="col-md-3" id="cpjnpl" style="width:25%"></div>
-		                   		</td>
-		                   </tr>
-		                   <tr>
-		                   		<td><h3>급여</h3>
-		                   		<div class="col-md-3">
-		                   		최소<div id="cpjmnp" style="width: 120%"></div>
-		                   		</div>
-		                   		<div class="col-md-3">
-		                   		최대<div id="cpjmap" style="width: 120%"></div>
-		                   		</div>
-		                   		</td>
-		                   </tr>
-		                   <tr>
-		                   		<td><h3>게시자</h3>
-		                   		<div class="col-md-3" id="cpjrg" style="width: 25%"></div> 
-		                   		</td>
-		                   </tr>
-		                   <tr>
-		                   		<td><h3>근무형태</h3>
-		                   			<div class="col-md-3" id="cpjwt"></div>
-		                   		</td>
-		                   </tr>
-		                   <tr>
-		                   		<td><h3>지역</h3>
-		                   			<div class="col-md-12" id="cpjar"></div>
-		                   		</td>
-		                   </tr>
-		                   <tr>
-                                <td><h3>첨부파일 등록</h3>
-                                    <div class="container kv-main col-md-12">
-
-                                        <form enctype="multipart/form-data">
-                                            <script>
-                                                $(document).on('ready', function () {
-                                                    $("#file-0b").fileinput();
-                                                });
-                                            </script>
-                                        </form>
-
-                                        <form enctype="multipart/form-data">
-                                
-                                                <input id="cpjfnm" class="file" type="file" multiple data-preview-file-type="any" data-upload-url="#">
-                                      
-                                            <div class="btn ">
+                                <td width="70%">
+                                    <h1 id="cpjnm"></h1>
+                                    <h4><a>Company name</a></h4>
+                                    <h5>게시자 : <span id="cpjrg"></span></h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="col-md-4">
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading" style="height:100px;">
+                                                <div class="col-md-4" style="padding:0px;">
+                                                    <span class="glyphicon glyphicon-usd" aria-hidden="true" style="font-size:5em; margin:0px;"></span>
+                                                </div>
+                                                <div class="col-md-8" style="margin-top:5px">
+                                                    <strong style="font-size:20px;">평균</strong>
+                                                    <h4><span id="cpjmAvg"></span>원</h4>
+                                                </div>
                                             </div>
-                                        </form>
+                                            <div class="detail">
+                                                <div>최저금액 : <span id="cpjmnp"></span>원</div>
+                                                <div>최고금액 : <span id="cpjmap"></span>원</div>
+                                            </div>
+                                            <button class="btn btn-detail btn-default">
+                                                자세히 보기
+                                            </button>
+                                        </div>
                                     </div>
+                                    <div class="col-md-4">
+                                        <div class="panel panel-primary" style="border-color:#5CB85C;">
+                                            <div class="panel-heading" style="height:100px; background-color:#5CB85C; background-color:#5CB85C; border-color:#5CB85C;">
+                                                <div class="col-md-4" style="padding:0px;">
+                                                    <span class="glyphicon glyphicon-calendar" aria-hidden="true" style="font-size:5em; margin:0px;"></span>
+                                                </div>
+                                                <div class="col-md-8" style="margin-top:5px">
+                                                    <strong style="font-size:20px;">진행기간</strong>
+                                                    <h4>6개월</h4>
+                                                </div>
+                                            </div>
+                                            <div class="detail">
+                                                <div>시작일 : <span id="cpjsd"></span>일</div>
+                                                <div>마감일 : <span id="cpjed"></span>일</div>
+                                            </div>
+                                            <button class="btn btn-detail btn-default">
+                                                자세히 보기
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="panel panel-primary" style="border-color:#D9534F;">
+                                            <div class="panel-heading" style="height:100px; background-color:#5CB85C; background-color:#D9534F; border-color:#D9534F;">
+                                                <div class="col-md-4" style="padding:0px;">
+                                                    <span class="glyphicon glyphicon-wrench" aria-hidden="true" style="font-size:5em; margin:0px;"></span>
+                                                </div>
+                                                <div class="col-md-8" style="margin-top:5px">
+                                                    <strong style="font-size:20px;">사용기술</strong>
+                                                    <h4>Spring</h4>
+                                                </div>
+                                            </div>
+                                            <div class="detail" id="cpjskList">
+                                            </div>
+                                            <button class="btn btn-detail btn-default">
+                                                자세히 보기
+                                            </button>
+                                        </div>
+                                    </div>
+
                                 </td>
-                            </tr>   
-		                   <tr>
-		                   		<td>
-		                   		<button type="button" class="btn btn-default">수정</button> 
-								<button type="button" class="btn btn-primary" id="join">확인</button> 	 
-								</td>
-		                   </tr>       
-	                      </tbody>
-	                       
-						</table>
-					</div>
-				</div>
-			<!--사이드바 시작-->
-			<div class="col-sm-2 sidenav"></div>
-			<!--사이드바 끝-->
+                            </tr>
+                    </table>
+                    </section>
+                    <section>
+                        <table class="table">
+                            <tr>
+                                <td width="30%" style="text-align: center;">
+                                    <h5>지역</h5>
+                                </td>
+                                <td width="25%" style="text-align: center;">
+                                    <h5>프로젝트 공고기간</h5>
+                                </td>
+                                <td width="15%" style="text-align: center;">
+                                    <h5>경력</h5>
+                                </td>
+                                <td width="15%" style="text-align: center;">
+                                    <h5>고용형태</h5>
+                                </td>
+                                <td width="15%" style="text-align: center;">
+                                    <h5>근무형태</h5>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;vertical-align:middle;">
+                                    <strong style="font-size:2em;" id="cpjar"></strong>
+                                </td>
+                                <td style="text-align: center;vertical-align:middle;">
+                                    <strong style="font-size:2em;"><span id="cpjrdGap"></span>일 남음</strong>
+                                    <div><span id="cpjrd"></span> 까지</div>
+                                </td>
+                                <td style="text-align: center;vertical-align:middle;">
+                                    <strong style="font-size:2em;"><span id="cpjyr"></span>년</strong>이상
+                                </td>
+                                <td style="text-align: center;vertical-align:middle;">
+                                    <strong style="font-size:2em;"><span id="cpjnpl"></span>명</strong>
+                                </td>
+                                <td style="text-align: center;vertical-align:middle;">
+                                    <strong style="font-size:2em;" id="cpjwt"></strong>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">상세설명</div>
+                            <div class="panel-body" id="cpjint">
+                            </div>
+                        </div>
+                    </section>
+                    <section style="padding:200px;">
+                    </section>
+                    <section style="padding:200px;">
+                    </section>
+                </div>
+                <div class="col-md-1"></div>
+			</div>
+			<div class="col-sm-2 sidenav" ></div>
 		</div>
 	</div>
 	<div id="footer"></div>
 </body>
 <script>
-
-	$(document).ready(function() {
-			$('#header').load('/view/common/login/frameHeader.html');
-			$('#footer').load('/view/common/login/frameFooter.html');
+	$(function(){
+		$('#header').load('http://t1.java78.com:8080/view/common/login/frameHeader.html');
+		$('#footer').load('http://t1.java78.com:8080/view/common/login/frameFooter.html');
 	});
-	
-	
-	$(document).on('frameComplete',function(event){
-			$.ajax({
-				url : contextRoot+"/company/getProjectView?cpjno="+getUrlParams().cpjno,
-				method : "GET",
-				dataType : "json",
-				headers : {
-						   "Accept" : "application/json",
-						   "Content-Type" : "application/json"
-				},
-				beforeSend : addLoading,
-				complete : removeLoading,
-				success : function(data) {
-					console.log(data.cpjts);
-					$('#cpjnm').text(data.cpjts.cpjnm);
-					$('#cpjsd').text(data.cpjts.cpjsd);
-					$('#cpjed').text(data.cpjts.cpjed);
-					$('#cpjint').text(data.cpjts.cpjint);
-					$('#cpjchk').text(data.cpjts.cpjchk);
-					$('#cpjnpl').text(data.cpjts.cpjnpl);
-					$('#cpjmnp').text(data.cpjts.cpjmnp);
-					$('#cpjmap').text(data.cpjts.cpjmap);
-					$('#cpjrg').text(data.cpjts.cpjrg);
-					$('#cpjwt').text(data.cpjts.cpjwt);
-					$('#cpjar').text(data.cpjts.cpjar);
-					$.map(data.cpjts.cpjsk,function(val,i){
-						$('#cpjsk').append(
-			    				$("<button></button>").addClass('btn tag btn-sm btn-default').text(val.sknm));
-					});
-				},
-				error:function(req,status,error){
-					callModal('경고','알수없는 에러');
-					user=null;
-				}
-			 });
-		});
-		
+   $(document).on('frameComplete',function(event){
+	   $.ajax({
+           type:'get',
+           url: contextRoot+"/company/getProjectView?cpjno="+getUrlParams().cpjno,
+           dataType : "json",
+           beforeSend : addLoading,
+			complete : removeLoading,
+           headers : {
+				"Accept" : "application/json",
+				"Content-Type" : "application/json"
+			},
+           success:function(data){
+        	   console.log(data);
+	       		$.map(data.cpjt.cpjsk,function(val,i){
+	       			$('#cpjskList').append($('<button></button>').addClass('btn tag btn-sm btn-default').text(val.sknm));
+				});
+	       		var cpjrd = data.cpjt.cpjrd;
+	       		var cpjrdGap = ( new Date(cpjrd).getTime() - new Date().getTime())/1000/60/60/24;
+	       		var cpjmAvg = (data.cpjt.cpjmap+data.cpjt.cpjmnp)/2
+	       		$('#cpjnm').text(data.cpjt.cpjnm);
+				$('#cpjsd').text(data.cpjt.cpjsd);
+				$('#cpjed').text(data.cpjt.cpjed);
+				$('#cpjint').text(data.cpjt.cpjint);
+				$('#cpjchk').text(data.cpjt.cpjchk);
+				$('#cpjnpl').text(data.cpjt.cpjnpl);
+				$('#cpjmnp').text(data.cpjt.cpjmnp);
+				$('#cpjmap').text(data.cpjt.cpjmap);
+				$('#cpjrg').text(data.cpjt.cpjrg);
+				$('#cpjwt').text(data.cpjt.cpjwt);
+				$('#cpjar').text(data.cpjt.cpjar);
+				$('#cpjyr').text(data.cpjt.cpjyr);
+				$('#cpjrd').text(data.cpjt.cpjrd);
+				$('#cpjrdGap').text(parseInt(cpjrdGap));
+				$('#cpjmAvg').text(cpjmAvg);
+           }
+       });
+	   
+	   //자세히보기
+	   $('.btn-detail').click(function(){
+	        console.log($(this).prev());
+	        if($(this).prev().css('display')=='none'){
+	           $(this).prev().slideDown();
+	        } else{
+	           $(this).prev().slideUp();
+	        }
+	    });
+	   //자세히보기 끝
+   });
+    
 </script>
 
 </html>

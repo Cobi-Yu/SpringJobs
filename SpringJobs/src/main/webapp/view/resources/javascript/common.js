@@ -3,11 +3,15 @@ var nodeContextRoot = "http://52.79.155.246:1337";//Node ContextRoot
 var user;//현재 로그인한 사용자
 
 //redirect할 함수 시작
-var redirect = function(id,url){
-	id.click(function(event){
-		event.preventDefault();
-		location.href=url;
-	});
+var redirect = function(id,url,login){
+		id.click(function(event){
+			event.preventDefault();
+			if( (login!=null) && (user==null) ){
+				callModal('경고','로그인 해주세요');
+			}else{
+				location.href=url;
+			}
+		});
 };
 //redirect할 함수 끝
 
@@ -19,9 +23,6 @@ var addLoading = function(){
 	if($('.wrap-loading')){
 		$('body').append(loading);
 	}
-	 $(window).scroll(function() {  
-		 $('.wrap-loading').animate({"top":$(window).scrollTop()+"px"});
-		 });
 };
 
 var removeLoading = function(){
