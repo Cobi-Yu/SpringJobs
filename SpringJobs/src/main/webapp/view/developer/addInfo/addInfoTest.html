@@ -152,7 +152,7 @@
                                        <td style="width: 20%; text-align: center; padding-top: 1em; border-right: hidden; border-left: hidden; border-bottom: hidden;"></td>
                                        <td colspan="3" style="border-right: hidden; border-bottom: hidden;">
                                        	   <div style="text-align: right;">
-												<a type="button" class="btn btn-danger" id="mypage" data-toggle="modal" data-target="#myModal">수정</a>                                       	   
+												<a type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">수정</a>                                       	   
                                        	   </div>
                                        </td>
                                    </thead>
@@ -279,7 +279,8 @@
 	                    </a>
 	                </div>
 	                <div class="col-sm-2 portfolio-item" style="margin-right: 2em;">
-	                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+	                    <!-- <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal"> -->
+	                    <a id="portfolio2" data-toggle="modal" data-target="#portfolioModal2" class="portfolio-link">
 	                        <div class="caption">
 	                            <div class="caption-content">
 	                                <i class="fa fa-search-plus fa-3x">학력</i>
@@ -289,7 +290,9 @@
 	                    </a>
 	                </div>
 	                <div class="col-sm-2 portfolio-item" style="margin-right: 2em;">
-	                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+	                    <!-- <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal"> -->
+	                    <a id="portfolio3" data-toggle="modal" data-target="#portfolioModal3" class="portfolio-link">
+	                    
 	                        <div class="caption">
 	                            <div class="caption-content">
 	                                <i class="fa fa-search-plus fa-3x">경력</i>
@@ -303,7 +306,8 @@
                 <!-- portfolio 부분 두번째줄 시작 -->
                 <div class="col-md-12">
 	                <div class="col-sm-2 portfolio-item" style="margin-right: 2em;">
-	                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+	                    <!-- <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal"> -->
+	                    <a id="portfolio4" data-toggle="modal" data-target="#portfolioModal4" class="portfolio-link"> 
 	                        <div class="caption">
 	                            <div class="caption-content">
 	                                <i class="fa fa-search-plus fa-3x">보유기술</i>
@@ -313,7 +317,8 @@
 	                    </a>
 	                </div>
 	                <div class="col-sm-2 portfolio-item" style="margin-right: 2em;">
-	                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+	                    <!-- <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal"> -->
+	                    <a id="portfolio5" data-toggle="modal" data-target="#portfolioModal5" class="portfolio-link">
 	                        <div class="caption">
 	                            <div class="caption-content">
 	                                <i class="fa fa-search-plus fa-3x">외국어 및 자격증</i>
@@ -323,7 +328,8 @@
 	                    </a>
 	                </div>
 	                <div class="col-sm-2 portfolio-item" style="margin-right: 2em;">
-	                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+	                    <!-- <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal"> -->
+	                    <a id="portfolio6" data-toggle="modal" data-target="#portfolioModal6" class="portfolio-link">
 	                        <div class="caption">
 	                            <div class="caption-content">
 	                                <i class="fa fa-search-plus fa-3x">포트폴리오</i>
@@ -795,85 +801,7 @@
         		}
     });
     // esc키 누르면 모달창 꺼짐 끝
-    
-	//trigger이벤트 시작
-	$(document).on('frameComplete', function(event) {
-
-				$('#nm').text(user.unm);
-				$('#enm').text(user.uenm);
-				$('#bd').text(user.ubd);
-				$('#sx').text(user.usx);
-				$('#phone').text(user.upho);
-				$('#url').text(user.uurl);
-				$('#adr').text(user.uadr);
-
-				//등록버튼시 이벤트 시작
-				$('#join').click(
-						function() {
-
-							console.log('{"uenm":"' + $("#uenm").val()
-									+ '","ubd":"' + $("#ubd").val()
-									+ '","usx":"' + $("#usx").val()
-									+ '","upho":"' + $("#uphone").val()
-									+ '","uurl":"' + $("#uurl").val()
-									+ '","uadr":"' + $("#uadr").val()
-									+ '","uno":"' + user.uno + '"}')
-
-							$.ajax({
-								url : contextRoot + "/developer/addInfo",
-								method : "POST",
-								dataType : "json",
-								data : '{"uenm":"' + $("#uenm").val()
-										+ '","ubd":"' + $("#ubd").val()
-										+ '","usx":"' + $("#usx").val()
-										+ '","upho":"' + $("#uphone").val()
-										+ '","uurl":"' + $("#uurl").val()
-										+ '","uadr":"' + $("#uadr").val()
-										+ '","uno":"' + user.uno + '"}',
-								headers : {
-									"Accept" : "application/json",
-									"Content-Type" : "application/json"
-								},
-								beforeSend : addLoading,
-								complete : removeLoading,
-								success : function(data) {
-									console.log(data);
-									/* callModal('프로젝트등록','등록완료',contextRoot+"/company/addProjectView?cpjno="+data.cpjno); */
-									/*                		callModal('개인신상정보','수정완료', contextRoot+"/view/common/login/frame.html");
-									 */$("#myModal").modal("hide");
-								}
-							});
-						}); //등록버튼시 이벤트 끝
-
-				//노출태그 저장 버튼시 이벤트 시작
-				
-
-				$('#save').click(function() {
-							console.log($("#uextg").val().split(","));
-							console.log(user.uno);
-							
-							console.log(JSON.stringify($("#uextg").val().split(",")));
-							$.ajax({
-								url : contextRoot + "/developer/uTags",
-								method : "POST",
-								dataType : "json",
-								data : JSON.stringify($("#uextg").val().split(",")),
-								headers : {
-									"Accept" : "application/json",
-									"Content-Type" : "application/json"
-								},
-								beforeSend : addLoading,
-								complete : removeLoading,
-								success : function(data) {
-									for(var i =0;i<uextg.length;i++){
-				                		$('#cuextg').prepend(data);
-									}
-									callModal('노출태그', '등록완료'); /*,contextRoot+"/developer/addInfoTest"?cpjno="+data.cpjno*/
-								}
-							});
-						}); //노출태그 등록 이벤트 끝
-
-			}); //trigger 이벤트 끝
+			
 	$(document).on('frameComplete',function(event){
 		
 		//디폴트 값을 개인신상정보에 넣어주기 위한 .text 
@@ -948,6 +876,34 @@
             }); //등록 내부 첫 ajax 끝 
         });	//등록버튼시 이벤트 끝
         
+        //노출태그 저장 버튼시 이벤트 시작
+		$('#save').click(function() {
+					console.log($("#uextg").val().split(","));
+					console.log(user.uno);
+					console.log(JSON.stringify($("#uextg").val().split(",")));
+					
+					$.ajax({
+						url : contextRoot + "/developer/uTags",
+						method : "POST",
+						dataType : "json",
+						data : JSON.stringify($("#uextg").val().split(",")),
+						headers : {
+							"Accept" : "application/json",
+							"Content-Type" : "application/json"
+						},
+						beforeSend : addLoading,
+						complete : removeLoading,
+						success : function(data) {
+							
+							/* for(var i =0;i<uextg.length;i++){
+		                		$('#cuextg').prepend(data);
+							} */
+							
+							callModal('노출태그', '등록완료', contextRoot+"/view/developer/addInfo/addInfoTest.html"); /*,contextRoot+"/developer/addInfoTest"?cpjno="+data.cpjno*/
+						}
+					});
+		}); //노출태그 등록 이벤트 끝
+	        
         $('#portfolio1').click(function() {
         	$.ajax({
 				url : contextRoot + "/developer/getUtag?uno="+user.uno,
