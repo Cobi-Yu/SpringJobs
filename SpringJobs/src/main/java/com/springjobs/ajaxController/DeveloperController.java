@@ -1,5 +1,9 @@
 package com.springjobs.ajaxController;
 
+
+import java.util.Iterator;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -39,5 +43,16 @@ public class DeveloperController {
 		model.addAttribute("utags", developerService.getUtag(uno));
 		
 		System.out.println("developerController에서 getUtag :"+developerService.getUtag(uno));
+	}
+	
+	@RequestMapping(value="/uTags", method=RequestMethod.POST)
+	public void uTags(@RequestBody List<String> uextg, Model model){			
+		System.out.println("!@!#!#@!#???");
+//		System.out.println("uno : "+uno);
+		System.out.println("uextg : "+uextg.toString());
+		for (String string : uextg) {
+			System.out.println(string);
+		}
+//		model.addAttribute("utags", developerService.uTags(search));
 	}
 }

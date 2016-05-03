@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
     <!-- Latest compiled and minified JavaScript -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
-
+<!-- cdn 추가작업 0428 끝 -->
 	<link rel="stylesheet" href="/view/common/login/css/frame.css">
 	<link rel="stylesheet" href="/view/developer/addInfo/css/addinfo.css">
 	
@@ -351,12 +351,11 @@
 							<div style="width:30%;">
 
 				<label> 태그입력</label>     
-			<input id="tags_1" type="text" class="tags" />
-
-
+			<input id="uextg" type="text" class="tags" />
+			<button>태그 등록</button>
                  				</div>
                  				<br>
-                 			  <button type="submit" class="btn btn-default" style="width:20%">
+                 			  <button id="save" type="submit" class="btn btn-default" style="width:20%">
                  			  <i class="fa fa-times"></i>Save</button>	
 		                   <button type="button" class="btn btn-default" data-dismiss="modal">
 		                   <i class="fa fa-times"></i> Close</button>
@@ -735,54 +734,137 @@
 <div id="footer"></div>
 </body>
 <script>
+	var search={uextg:[]};
 
-	$(function(){
+	
+	$(function() {
 		$('#header').load('/view/common/login/frameHeader.html');
 		$('#footer').load('/view/common/login/frameFooter.html');
 	});
 
 	/* 포트폴리오 부분 학력에추가버튼 누를때 */
-    function add_item() {
-        // pre_set 에 있는 내용을 읽어와서 처리..
-        var div = document.createElement('div');
-        div.innerHTML = document.getElementById('pre_set').innerHTML;
-        document.getElementById('field').appendChild(div);
-    }
-    /* 포트폴리오 부분 학력에추가버튼 누를때 끝*/
-    	/* 포트폴리오 부분 경력에추가버튼 누를때 */
-    function add_itemM() {
-        // pre_set 에 있는 내용을 읽어와서 처리..
-        var div = document.createElement('div');
-        div.innerHTML = document.getElementById('pre_setT').innerHTML;
-        document.getElementById('fieldD').appendChild(div);
-    }
-    /* 포트폴리오 부분 경력에추가버튼 누를때 끝*/
-    
-    /* 포트폴리오 부분 학력추가란에 삭제 버튼 */
-    function remove_item(obj) {
-        // obj.parentNode 를 이용하여 삭제
-        document.getElementById('field').removeChild(obj.parentNode);
-    }
-    /* 포트폴리오 부분 학력추가란에 삭제 버튼 끝*/
-        /* 포트폴리오 부분 경력추가란에 삭제 버튼 */
-    function remove_item(obj) {
-        // obj.parentNode 를 이용하여 삭제
-        document.getElementById('fieldD').removeChild(obj.parentNode);
-    }
-    /* 포트폴리오 부분 경력추가란에 삭제 버튼 끝*/
-    /* 플러스 버튼 누르면 아코디언 발생 */
-    var acc = document.getElementsByClassName("accordion");
-    var i;
+	function add_item() {
+		// pre_set 에 있는 내용을 읽어와서 처리..
+		var div = document.createElement('div');
+		div.innerHTML = document.getElementById('pre_set').innerHTML;
+		document.getElementById('field').appendChild(div);
+	}
+	/* 포트폴리오 부분 학력에추가버튼 누를때 끝*/
+	/* 포트폴리오 부분 경력에추가버튼 누를때 */
+	function add_itemM() {
+		// pre_set 에 있는 내용을 읽어와서 처리..
+		var div = document.createElement('div');
+		div.innerHTML = document.getElementById('pre_setT').innerHTML;
+		document.getElementById('fieldD').appendChild(div);
+	}
+	/* 포트폴리오 부분 경력에추가버튼 누를때 끝*/
 
-    for (i = 0; i < acc.length; i++) {
-        acc[i].onclick = function () {
-            this.classList.toggle("active");
-            this.nextElementSibling.classList.toggle("show");
-        }
-    }
-    /* 플러스 버튼 누르면 아코디언 발생 끝*/
-    
+	/* 포트폴리오 부분 학력추가란에 삭제 버튼 */
+	function remove_item(obj) {
+		// obj.parentNode 를 이용하여 삭제
+		document.getElementById('field').removeChild(obj.parentNode);
+	}
+	/* 포트폴리오 부분 학력추가란에 삭제 버튼 끝*/
+	/* 포트폴리오 부분 경력추가란에 삭제 버튼 */
+	function remove_item(obj) {
+		// obj.parentNode 를 이용하여 삭제
+		document.getElementById('fieldD').removeChild(obj.parentNode);
+	}
+	/* 포트폴리오 부분 경력추가란에 삭제 버튼 끝*/
+	/* 플러스 버튼 누르면 아코디언 발생 */
+	var acc = document.getElementsByClassName("accordion");
+	var i;
+
+	for (i = 0; i < acc.length; i++) {
+		acc[i].onclick = function() {
+			this.classList.toggle("active");
+			this.nextElementSibling.classList.toggle("show");
+		}
+	}
+	/* 플러스 버튼 누르면 아코디언 발생 끝*/
+
 	//trigger이벤트 시작
+	$(document).on(
+			'frameComplete',
+			function(event) {
+
+				$('#nm').text(user.unm);
+				$('#enm').text(user.uenm);
+				$('#bd').text(user.ubd);
+				$('#sx').text(user.usx);
+				$('#phone').text(user.upho);
+				$('#url').text(user.uurl);
+				$('#adr').text(user.uadr);
+
+				//등록버튼시 이벤트 시작
+				$('#join').click(
+						function() {
+
+							console.log('{"uenm":"' + $("#uenm").val()
+									+ '","ubd":"' + $("#ubd").val()
+									+ '","usx":"' + $("#usx").val()
+									+ '","upho":"' + $("#uphone").val()
+									+ '","uurl":"' + $("#uurl").val()
+									+ '","uadr":"' + $("#uadr").val()
+									+ '","uno":"' + user.uno + '"}')
+
+							$.ajax({
+								url : contextRoot + "/developer/addInfo",
+								method : "POST",
+								dataType : "json",
+								data : '{"uenm":"' + $("#uenm").val()
+										+ '","ubd":"' + $("#ubd").val()
+										+ '","usx":"' + $("#usx").val()
+										+ '","upho":"' + $("#uphone").val()
+										+ '","uurl":"' + $("#uurl").val()
+										+ '","uadr":"' + $("#uadr").val()
+										+ '","uno":"' + user.uno + '"}',
+								headers : {
+									"Accept" : "application/json",
+									"Content-Type" : "application/json"
+								},
+								beforeSend : addLoading,
+								complete : removeLoading,
+								success : function(data) {
+									console.log(data);
+									/* callModal('프로젝트등록','등록완료',contextRoot+"/company/addProjectView?cpjno="+data.cpjno); */
+									/*                		callModal('개인신상정보','수정완료', contextRoot+"/view/common/login/frame.html");
+									 */$("#myModal").modal("hide");
+								}
+							});
+						}); //등록버튼시 이벤트 끝
+
+				//노출태그 저장 버튼시 이벤트 시작
+				
+
+				$('#save').click(function() {
+							console.log($("#uextg").val().split(","));
+							console.log(search.uextg);
+							console.log(user.uno);
+							console.log(uextg.length);
+							
+							console.log(JSON.stringify($("#uextg").val().split(",")));
+							$.ajax({
+								url : contextRoot + "/developer/uTags",
+								method : "POST",
+								dataType : "json",
+								data : JSON.stringify($("#uextg").val().split(",")),
+								headers : {
+									"Accept" : "application/json",
+									"Content-Type" : "application/json"
+								},
+								beforeSend : addLoading,
+								complete : removeLoading,
+								success : function(data) {
+									for(var i =0;i<uextg.length;i++){
+				                		$('#cuextg').prepend(data);
+									}
+									callModal('노출태그', '등록완료'); /*,contextRoot+"/developer/addInfoTest"?cpjno="+data.cpjno*/
+								}
+							});
+						}); //노출태그 등록 이벤트 끝
+
+			}); //trigger 이벤트 끝
 	$(document).on('frameComplete',function(event){
 		
 		//디폴트 값을 개인신상정보에 넣어주기 위한 .text 
@@ -856,8 +938,63 @@
                 } //success fuction 
             }); //등록 내부 첫 ajax 끝 
         });	//등록버튼시 이벤트 끝
-	});	//trigger 이벤트 끝
-	
+	//주소검색
+	//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+	function sample4_execDaumPostcode() {
+		new daum.Postcode(
+				{
+					oncomplete : function(data) {
+						// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+						// 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
+						// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+						var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
+						var extraRoadAddr = ''; // 도로명 조합형 주소 변수
+
+						// 법정동명이 있을 경우 추가한다. (법정리는 제외)
+						// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+						if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+							extraRoadAddr += data.bname;
+						}
+						// 건물명이 있고, 공동주택일 경우 추가한다.
+						if (data.buildingName !== '' && data.apartment === 'Y') {
+							extraRoadAddr += (extraRoadAddr !== '' ? ', '
+									+ data.buildingName : data.buildingName);
+						}
+						// 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+						if (extraRoadAddr !== '') {
+							extraRoadAddr = ' (' + extraRoadAddr + ')';
+						}
+						// 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
+						if (fullRoadAddr !== '') {
+							fullRoadAddr += extraRoadAddr;
+						}
+
+						// 우편번호와 주소 정보를 해당 필드에 넣는다.
+						document.getElementById('sample4_postcode').value = data.zonecode; //5자리 새우편번호 사용
+						document.getElementById('sample4_roadAddress').value = fullRoadAddr;
+						document.getElementById('sample4_jibunAddress').value = data.jibunAddress;
+
+						// 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+						if (data.autoRoadAddress) {
+							//예상되는 도로명 주소에 조합형 주소를 추가한다.
+							var expRoadAddr = data.autoRoadAddress
+									+ extraRoadAddr;
+							document.getElementById('guide').innerHTML = '(예상 도로명 주소 : '
+									+ expRoadAddr + ')';
+
+						} else if (data.autoJibunAddress) {
+							var expJibunAddr = data.autoJibunAddress;
+							document.getElementById('guide').innerHTML = '(예상 지번 주소 : '
+									+ expJibunAddr + ')';
+
+						} else {
+							document.getElementById('guide').innerHTML = '';
+						}
+					}
+				}).open();
+	}
+
 		//주소검색
 	    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
 	    function sample4_execDaumPostcode() {
@@ -911,7 +1048,7 @@
 	   	 }
 	
 	//태그입력
-    function onAddTag(tag) {
+	function onAddTag(tag) {
 		alert("Added a tag: " + tag);
 	}
 	function onRemoveTag(tag) {
@@ -919,7 +1056,7 @@
 	}
 	
 	$(function() {
-		$('#tags_1').tagsInput();
+		$('#uextg').tagsInput();
 	});
 
 </script>

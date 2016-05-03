@@ -12,5 +12,7 @@ public interface DeveloperService {
 	
 	public int addInfo(Users users);
 	
+	public List<UTags> uTags(Search search);
+	
 	public List<UTags> getUtag(int uno) throws Exception;
 }
