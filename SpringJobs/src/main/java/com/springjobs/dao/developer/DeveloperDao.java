@@ -14,5 +14,5 @@ public interface DeveloperDao {
 	
 	public List<UTags> uTags(Search search);
 	
-	public List<UTags> getUtag(int uno) throws Exception;
+	public List<String> getUtag(int uno) throws Exception;
 }

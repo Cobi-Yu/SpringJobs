@@ -44,7 +44,7 @@ public class DeveloperDaoImpl implements DeveloperDao {
 
 
 	@Override
-	public List<UTags> getUtag(int uno) throws Exception {
+	public List<String> getUtag(int uno) throws Exception {
 		return sqlSession.selectList("UserMapper.getUtag", uno);
 	}
 	

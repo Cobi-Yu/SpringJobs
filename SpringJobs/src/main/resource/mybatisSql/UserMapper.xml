@@ -73,7 +73,7 @@
 	    </selectKey>
 	</insert>
 	
-	<select id="getUtag"	 parameterType="int"      resultMap="utagsSelectMap" >
+	<select id="getUtag"	 parameterType="int"      resultType="String" >
 		SELECT
 		uextg
 		FROM
