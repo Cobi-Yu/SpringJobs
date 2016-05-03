@@ -29,16 +29,8 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
     <!-- Latest compiled and minified JavaScript -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
-<!-- cdn 추가작업 0428 끝 -->
 	<link rel="stylesheet" href="/view/common/login/css/frame.css">
-	<link rel="stylesheet" href="/view/developer/addInfo/css/addinfo.css">
-	
-	<!--외부작업물 CSS 잠시 따옴 04/29 -->
-
-    <!-- Custom CSS -->
     <link href="/view/common/login/css/freelancer.css" rel="stylesheet">
-
-    <!--외부작업물 CSS 잠시 따옴 04/29 끝 -->
     <!-- 다음api cdn -->
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     <!-- 태그입력 -->
@@ -58,12 +50,13 @@
 
 	<!-- 본문입력란 -->
 	<div class="container">
-		<div class="col-md-1"></div>
 		<!-- row 시작 -->
         <div class="row">
-         <div class="col-md-8 content">
+		<div class="col-md-1"></div>
+         <div class="col-md-8">
 			<!-- 개인신상 부분 섹션 1 시작 -->
-            <section id="one" style="padding-top:3em; padding-left: 3em; margin-top: 2em;">
+            <section id="one" style="padding-top:3em; padding-bottom: 2em; padding-left: 3em; margin-top: 2em;
+                        			 border-width:5px; border-style: outset;">
                 <h2 class="shareTech">개인신상</h2>
                 신상정보를 입력하고 프로젝트 참여기회를 얻으세요!
                 <!--프로필 등록 화면의 위치 조정을 위하여 class="h1-wrap"을 주석처리하고 row로 대체함 - 오병소 (160405 - UI작업)-->
@@ -83,8 +76,8 @@
                            <div class="fileinput-preview fileinput-exists thumbnail" style="width: 120px; height: 160px;"></div>
                            <div style="width:120px;">
                                <span class="btn btn-default btn-file" style="width:100%;"><span class="fileinput-new" >사진 수정하기</span>
-                               <span class="fileinput-exists">바꾸기</span>
-                               <input type="file" name="...">
+	                               <span class="fileinput-exists">바꾸기</span>
+	                               <input type="file" name="...">
                                </span>
                                <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput" style="width:100%">
                                삭제</a>
@@ -119,11 +112,6 @@
                                        <td class="active" style="text-align: center; padding-top: 1em;"><strong>성별</strong></td>
                                        <td class="col-md-4">
                                        	   <div id=sx style="text-align: left;"></div>
-                                       
-                                          <!--  <select class="form-control" id="usx">
-                                               <option>남성</option>
-                                               <option>여성</option>
-                                           </select> -->
                                        </td>
                                    </thead>
                                </tr>
@@ -132,12 +120,10 @@
                                        <td class="active" style="width: 20%; text-align: center; padding-top: 1em;"><strong>핸드폰 번호</strong></td>
                                        <td>
                                        	   <div id=phone style="text-align: left;"></div>  
-                                       	   <!-- <input class="form-control" type="text" id="uphone" placeholder="ex) 010-3333-4444"> -->
                                        </td>
                                        <td class="active" style="text-align: center; padding-top: 1em;"><strong>주요 URL</strong></td>
                                        <td class="col-md-4">
                                        	   <div id=url style="text-align: left;"></div>
-                                           <!-- <input class="form-control" type="text" id="uurl" placeholder="ex)www.github.com/Yimkm"> -->
                                        </td>
                                    </thead>
                                </tr>
@@ -255,8 +241,9 @@
            <!--섹션 1 끝-->
            
            <!--섹션 2 시작-->
-			<section id="portfolio" style="padding-top:2em; padding-left: 3em;">
-			        <div class="container">
+			<section id="portfolio" style="padding-top:2em; padding-bottom: 2em; padding-left: 3em; margin-top: 2em;
+										   border-width:5px; border-style: outset;">
+			<div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <h2>Portfolio</h2>
@@ -732,14 +719,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+             </div>
+          </div>
+       </div>
 
        </div>
        <!-- 섹션 끝 -->
+       <div class="col-md-1"></div>       
        </div>
-       <div class="col-md-1"></div>
        <!-- row 끝 --> 
     </div>
 	<!-- 본문입력 끝  -->	
