@@ -80,10 +80,12 @@
                            </div>
                            <div class="fileinput-preview fileinput-exists thumbnail" style="width: 120px; height: 160px;"></div>
                            <div style="width:120px;">
-                               <span class="btn btn-default btn-file" style="width:100%;"><span class="fileinput-new" >Select image</span><span class="fileinput-exists">Change</span>
+                               <span class="btn btn-default btn-file" style="width:100%;"><span class="fileinput-new" >사진 수정하기</span>
+                               <span class="fileinput-exists">바꾸기</span>
                                <input type="file" name="...">
                                </span>
-                               <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput" style="width:100%">Remove</a>
+                               <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput" style="width:100%">
+                               삭제</a>
                            </div>
                        </div>
                    </div> <!-- 개인신상 이미지 끝 -->
@@ -93,11 +95,11 @@
                            <tbody>
                                <tr>
                                    <thead>
-                                       <td class="bg-info" style="text-align: center; padding-top: 1em;" ><strong>이름</strong></td>
+                                       <td class="active" style="text-align: center; padding-top: 1em;" ><strong>이름</strong></td>
                                        <td class="col-md-3">
                                            <div id="nm" style="text-align: left;"></div>
                                        </td>
-                                       <td class="bg-info" style="text-align: center; padding-top: 1em;"><strong>영문</strong></td>
+                                       <td class="active" style="text-align: center; padding-top: 1em;"><strong>영문</strong></td>
                                        <td class="col-md-4">
                                        	   <div id=enm style="text-align: left;"></div>
                                           <!--  <input class="form-control" type="text" id="uenm" placeholder="ex) Hong GilDong"> -->
@@ -107,12 +109,12 @@
                                
                                <tr>
                                    <thead>
-                                       <td class="bg-info" style="text-align: center; padding-top: 1em;"><strong>생년월일</strong></td>
+                                       <td class="active" style="text-align: center; padding-top: 1em;"><strong>생년월일</strong></td>
                                        <td class="col-md-3">
                                        	   <div id=bd style="text-align: left;"></div>                                       
                                            <!-- <input class="form-control" type="date" id="ubd"> -->
                                        </td>
-                                       <td class="bg-info" style="text-align: center; padding-top: 1em;"><strong>성별</strong></td>
+                                       <td class="active" style="text-align: center; padding-top: 1em;"><strong>성별</strong></td>
                                        <td class="col-md-4">
                                        	   <div id=sx style="text-align: left;"></div>
                                        
@@ -125,12 +127,12 @@
                                </tr>
                                <tr>
                                    <thead>
-                                       <td class="bg-info" style="width: 20%; text-align: center; padding-top: 1em;"><strong>핸드폰 번호</strong></td>
+                                       <td class="active" style="width: 20%; text-align: center; padding-top: 1em;"><strong>핸드폰 번호</strong></td>
                                        <td>
                                        	   <div id=phone style="text-align: left;"></div>  
                                        	   <!-- <input class="form-control" type="text" id="uphone" placeholder="ex) 010-3333-4444"> -->
                                        </td>
-                                       <td class="bg-info" style="text-align: center; padding-top: 1em;"><strong>주요 URL</strong></td>
+                                       <td class="active" style="text-align: center; padding-top: 1em;"><strong>주요 URL</strong></td>
                                        <td class="col-md-4">
                                        	   <div id=url style="text-align: left;"></div>
                                            <!-- <input class="form-control" type="text" id="uurl" placeholder="ex)www.github.com/Yimkm"> -->
@@ -139,7 +141,7 @@
                                </tr>
                                <tr>
                                    <thead>
-                                       <td class="bg-info" style="width: 20%; text-align: center; padding-top: 1em;"><strong>거주지 주소</strong></td>
+                                       <td class="active" style="width: 20%; text-align: center; padding-top: 1em;"><strong>거주지 주소</strong></td>
                                        <td colspan="3">
                                             <div id="adr" style="text-align: left;" >
                                        </td>
@@ -150,7 +152,7 @@
                                        <td style="width: 20%; text-align: center; padding-top: 1em; border-right: hidden; border-left: hidden; border-bottom: hidden;"></td>
                                        <td colspan="3" style="border-right: hidden; border-bottom: hidden;">
                                        	   <div style="text-align: right;">
-												<a type="button" class="btn btn-default" id="mypage" href="#" data-toggle="modal" data-target="#myModal">수정</a>                                       	   
+												<a type="button" class="btn btn-danger" id="mypage" data-toggle="modal" data-target="#myModal">수정</a>                                       	   
                                        	   </div>
                                        </td>
                                    </thead>
@@ -264,12 +266,15 @@
              <!-- portfolio 부분 첫번째 줄 시작 -->
               <div class="col-md-12" style="margin-top: 2em;">
 	                <div class="col-sm-2 portfolio-item" style="margin-right: 2em;">
-	                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+	                    <!-- <a id="#portfolioModal1" class="portfolio-link" data-toggle="modal"> -->
+	                    <a id="portfolio1" data-toggle="modal" data-target="#portfolioModal1" class="portfolio-link">
+	                    	<!-- 이미지에 마우스 올릴때 아래의 색상 -->
 	                        <div class="caption">
 	                            <div class="caption-content">
-	                                <i class="fa fa-search-plus fa-3x"></i>
+	                                <i class="fa fa-search-plus fa-3x">노출태그</i>
 	                            </div>
 	                        </div>
+	                        <!-- 이미지에 마우스 올릴때 색상 끝 -->
 	                        <img src="img/portfolio/cabin.png" class="img-responsive" alt="">
 	                    </a>
 	                </div>
@@ -277,7 +282,7 @@
 	                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
 	                        <div class="caption">
 	                            <div class="caption-content">
-	                                <i class="fa fa-search-plus fa-3x"></i>
+	                                <i class="fa fa-search-plus fa-3x">학력</i>
 	                            </div>
 	                        </div>
 	                        <img src="img/portfolio/cake.png" class="img-responsive" alt="">
@@ -287,7 +292,7 @@
 	                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
 	                        <div class="caption">
 	                            <div class="caption-content">
-	                                <i class="fa fa-search-plus fa-3x"></i>
+	                                <i class="fa fa-search-plus fa-3x">경력</i>
 	                            </div>
 	                        </div>
 	                        <img src="img/portfolio/circus.png" class="img-responsive" alt="">
@@ -301,7 +306,7 @@
 	                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
 	                        <div class="caption">
 	                            <div class="caption-content">
-	                                <i class="fa fa-search-plus fa-3x"></i>
+	                                <i class="fa fa-search-plus fa-3x">보유기술</i>
 	                            </div>
 	                        </div>
 	                        <img src="img/portfolio/game.png" class="img-responsive" alt="">
@@ -311,7 +316,7 @@
 	                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
 	                        <div class="caption">
 	                            <div class="caption-content">
-	                                <i class="fa fa-search-plus fa-3x"></i>
+	                                <i class="fa fa-search-plus fa-3x">외국어 및 자격증</i>
 	                            </div>
 	                        </div>
 	                        <img src="img/portfolio/safe.png" class="img-responsive" alt="">
@@ -321,7 +326,7 @@
 	                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
 	                        <div class="caption">
 	                            <div class="caption-content">
-	                                <i class="fa fa-search-plus fa-3x"></i>
+	                                <i class="fa fa-search-plus fa-3x">포트폴리오</i>
 	                            </div>
 	                        </div>
 	                        <img src="img/portfolio/submarine.png" class="img-responsive" alt="">
@@ -333,26 +338,28 @@
         </div>
 		</section>
 			
-		<!-- portfolio 부분 클릭시 modal fade 시작 -->	
-		<!-- Portfolio Modals -->
+	<!-- portfolio 부분 클릭시 modal fade 시작 -->	
+	<!-- Portfolio Modals -->
+    <!-- 첫번째 tag modal 시작 -->
     <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true" >
      <div class="modal-dialog modal-lg">
         <div class="modal-content">
+        	<!-- 닫는 modal 시작  -->
             <div class="close-modal" data-dismiss="modal">
                 <div class="lr">
                     <div class="rl">
                     </div>
                 </div>
-            </div>
+            </div> 
+            <!-- 닫는 modal 끝 -->
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
 							<div style="width:30%;">
-
-				<label> 태그입력</label>     
-			<input id="uextg" type="text" class="tags" />
-			<button>태그 등록</button>
+							<label> 태그입력</label>     
+								<input id="uextg" type="text" class="tags" />
+							<button>태그 등록</button>
                  				</div>
                  				<br>
                  			  <button id="save" type="submit" class="btn btn-default" style="width:20%">
@@ -365,8 +372,8 @@
             </div>
         </div>
       </div><!-- modal-dialog modal-lg 끝  -->
-    </div>
-
+    </div><!-- 첫번째 tag modal 끝 -->
+    <!-- 두번째 tag modal 시작 -->
     <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
          <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -486,7 +493,7 @@
             </div>
         </div>
     </div>
-    
+    <!-- 두번째 tag modal 끝 -->
     
     <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -734,8 +741,6 @@
 <div id="footer"></div>
 </body>
 <script>
-	var search={uextg:[]};
-
 	
 	$(function() {
 		$('#header').load('/view/common/login/frameHeader.html');
@@ -783,10 +788,16 @@
 	}
 	/* 플러스 버튼 누르면 아코디언 발생 끝*/
 
+    // esc키 누르면 모달창 꺼짐 시작
+    $(window).bind('keydown', function(event) {
+        	if(event.keyCode === 27) {
+        		$('.portfolio-modal').portfolio-modal('hide', event);
+        		}
+    });
+    // esc키 누르면 모달창 꺼짐 끝
+    
 	//trigger이벤트 시작
-	$(document).on(
-			'frameComplete',
-			function(event) {
+	$(document).on('frameComplete', function(event) {
 
 				$('#nm').text(user.unm);
 				$('#enm').text(user.uenm);
@@ -839,9 +850,7 @@
 
 				$('#save').click(function() {
 							console.log($("#uextg").val().split(","));
-							console.log(search.uextg);
 							console.log(user.uno);
-							console.log(uextg.length);
 							
 							console.log(JSON.stringify($("#uextg").val().split(",")));
 							$.ajax({
@@ -938,6 +947,25 @@
                 } //success fuction 
             }); //등록 내부 첫 ajax 끝 
         });	//등록버튼시 이벤트 끝
+        
+        $('#portfolio1').click(function() {
+        	$.ajax({
+				url : contextRoot + "/developer/getUtag?uno="+user.uno,
+				method : "GET",
+				dataType : "json",
+				headers : {
+					"Accept" : "application/json",
+					"Content-Type" : "application/json"
+				},
+				//로딩 이미지 추가 필수부분 시작
+				beforeSend : addLoading,
+				complete : removeLoading,
+				//로딩 이미지 추가 필수부분 끝
+				success : function(data, status) {
+					console.log(data);
+				}
+			});
+        });
 	//주소검색
 	//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
 	function sample4_execDaumPostcode() {
@@ -994,58 +1022,6 @@
 					}
 				}).open();
 	}
-
-		//주소검색
-	    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
-	    function sample4_execDaumPostcode() {
-	        new daum.Postcode({
-	            oncomplete: function(data) {
-	                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
-	
-	                // 도로명 주소의 노출 규칙에 따라 주소를 조합한다.
-	                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-	                var fullRoadAddr = data.roadAddress; // 도로명 주소 변수
-	                var extraRoadAddr = ''; // 도로명 조합형 주소 변수
-	
-	                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-	                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-	                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-	                    extraRoadAddr += data.bname;
-	                }
-	                // 건물명이 있고, 공동주택일 경우 추가한다.
-	                if(data.buildingName !== '' && data.apartment === 'Y'){
-	                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-	                }
-	                // 도로명, 지번 조합형 주소가 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-	                if(extraRoadAddr !== ''){
-	                    extraRoadAddr = ' (' + extraRoadAddr + ')';
-	                }
-	                // 도로명, 지번 주소의 유무에 따라 해당 조합형 주소를 추가한다.
-	                if(fullRoadAddr !== ''){
-	                    fullRoadAddr += extraRoadAddr;
-	                }
-	
-	                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-	                document.getElementById('sample4_postcode').value = data.zonecode; //5자리 새우편번호 사용
-	                document.getElementById('sample4_roadAddress').value = fullRoadAddr;
-	                document.getElementById('sample4_jibunAddress').value = data.jibunAddress;
-	
-	                // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-	                if(data.autoRoadAddress) {
-	                    //예상되는 도로명 주소에 조합형 주소를 추가한다.
-	                    var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
-	                    document.getElementById('guide').innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
-	
-	                } else if(data.autoJibunAddress) {
-	                    var expJibunAddr = data.autoJibunAddress;
-	                    document.getElementById('guide').innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
-	
-	                } else {
-	                    document.getElementById('guide').innerHTML = '';
-	                }
-	            }
-	        }).open();
-	   	 }
 	
 	//태그입력
 	function onAddTag(tag) {
@@ -1058,6 +1034,8 @@
 	$(function() {
 		$('#uextg').tagsInput();
 	});
+	
+});
 
 </script>
 
