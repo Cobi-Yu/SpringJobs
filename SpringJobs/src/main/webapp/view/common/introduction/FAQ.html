@@ -19,15 +19,16 @@
 		<div class="row content">
 			<div class="col-sm-2 sidenav"></div>
 			<div class="col-md-8 text-left main">
-			<ul class="nav nav-tabs">
-				<li class="active"> <a href="springjobs.html">SpringJobs소개</a></li>
-				<li> <a href="FAQ.html">기업 FAQ</a></li>
-				<li><a href="FAQ2.html">프리랜서 FAQ</a></li>			
-			</ul><hr>
+			<!-- 탭바 메뉴 -->
+			<ul class="nav nav-pills">
+					<li ><a data-toggle="pill" href="springjobs.html" onclick="location.href='springjobs.html';">SpringJobs소개</a></li>
+					<li> <a data-toggle="pill" href="FAQ.html" onclick="location.href='FAQ.html';">기업 FAQ</a></li>
+					<li> <a data-toggle="pill" href="FAQ2.html" onclick="location.href='FAQ2.html';">프리랜서 FAQ</a></li>
+				</ul><hr>
 				
-			<!-- 기업관련 FAQ -->
-				<h3>기업 FAQ</h3>
-				
+				<!-- 끝 -->
+			<!-- 기업 FAQ글 시작 -->
+			<h2><strong>기업FAQ</strong></h2><br>				
 			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 				<div class="panel panel-default">
 					<div class="panel-heading" role="tab" id="headingOne">
@@ -217,12 +218,13 @@
 					</div>				
 				</div>			
 			</div>
-			<!-- 기업관련 FAQ끝 -->					
-						
-			</div>
+			
+			<!-- 기업 FAQ 끝 -->
+			</div>		
 			<div class="col-sm-2 sidenav"></div>
 		</div>
 	</div>
+	
 	<div id="footer"></div>
 </body>
 <script>

@@ -19,14 +19,19 @@
 		<div class="row content">
 			<div class="col-sm-2 sidenav"></div>
 			<div class="col-md-8 text-left main">
-			<ul class="nav nav-tabs">
-				<li class="active"> <a href="springjobs.html">SpringJobs소개</a></li>
-				<li> <a href="FAQ.html">기업 FAQ</a></li>
-				<li><a href="FAQ2.html">프리랜서 FAQ</a></li>			
-			</ul><hr>
+			<!-- 탭바 메뉴 -->
+				<ul class="nav nav-pills">
+					<li ><a data-toggle="pill" href="springjobs.html" onclick="location.href='springjobs.html';">SpringJobs소개</a></li>
+					<li> <a data-toggle="pill" href="FAQ.html" onclick="location.href='FAQ.html';">기업 FAQ</a></li>
+					<li> <a data-toggle="pill" href="FAQ2.html" onclick="location.href='FAQ2.html';">프리랜서 FAQ</a></li>
+				</ul><hr>
+				<!-- 끝 -->
 			<!-- 프리랜서 FAQ시작 -->
-			<h3>프리랜서 FAQ</h3>
-			<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		
+		
+		<h2><strong>프리랜서 FAQ</strong></h2><br>
+		<!-- accordion시작 -->
+		<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
 				<div class="panel panel-default">
 					<div class="panel-heading" role="tab" id="headingOne">
 						<h4 class="panel-title">
@@ -147,9 +152,9 @@
 					</div>				
 				</div>				
 				</div>
-					<!-- 프리랜서 관련 FAQ끝 -->			
+				<!-- accordion끝 -->
+			<!-- 프리랜서 관련 FAQ끝 -->						
 			</div>
-			
 			<div class="col-sm-2 sidenav"></div>
 		</div>
 	</div>
@@ -161,5 +166,11 @@
 		$('#footer').load('/view/common/login/frameFooter.html');
 	})
 </script>
-
+<script>
+$(document).ready(function(){
+    $(".nav-tabs a").click(function(){
+        $(this).tab('show');
+    });
+});
+</script>
 </html>
