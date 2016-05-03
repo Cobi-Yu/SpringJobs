@@ -792,6 +792,8 @@
         		}
     });
     // esc키 누르면 모달창 꺼짐 끝
+    
+	
 			
 	$(document).on('frameComplete',function(event){
 		
@@ -833,9 +835,7 @@
                 },
                 success: function (data) {
                 	console.log(data);
-                     /* callModal('프로젝트등록','등록완료',contextRoot+"/company/addProjectView?cpjno="+data.cpjno); */
-/*                		callModal('개인신상정보','수정완료', contextRoot+"/view/common/login/frame.html");
- */               		$("#myModal").modal("hide");
+               		$("#myModal").modal("hide");
  						$('.modal-backdrop').remove();//modal이 사라지고나서 로그인 해야 db에 있는 정보를 가져옴
  						
  						/* 로그인 ajax 시작 */
@@ -867,34 +867,6 @@
             }); //등록 내부 첫 ajax 끝 
         });	//등록버튼시 이벤트 끝
         
-        //노출태그 저장 버튼시 이벤트 시작
-		$('#save').click(function() {
-					console.log($("#uextg").val().split(","));
-					console.log(user.uno);
-					console.log(JSON.stringify($("#uextg").val().split(",")));
-					
-					$.ajax({
-						url : contextRoot + "/developer/uTags",
-						method : "POST",
-						dataType : "json",
-						data : JSON.stringify($("#uextg").val().split(",")),
-						headers : {
-							"Accept" : "application/json",
-							"Content-Type" : "application/json"
-						},
-						beforeSend : addLoading,
-						complete : removeLoading,
-						success : function(data) {
-							
-							/* for(var i =0;i<uextg.length;i++){
-		                		$('#cuextg').prepend(data);
-							} */
-							
-							callModal('노출태그', '등록완료', contextRoot+"/view/developer/addInfo/addInfoTest.html"); /*,contextRoot+"/developer/addInfoTest"?cpjno="+data.cpjno*/
-						}
-					});
-		}); //노출태그 등록 이벤트 끝
-	        
         $('#portfolio1').click(function() {
         	$.ajax({
 				url : contextRoot + "/developer/getUtag?uno="+user.uno,
@@ -909,6 +881,7 @@
 				complete : removeLoading,
 				//로딩 이미지 추가 필수부분 끝
 				success : function(data, status) {
+					
 					console.log(data);
 				}
 			});
@@ -969,7 +942,33 @@
 					}
 				}).open();
 	}
-	
+
+	$('#save').click(function() {
+		console.log($("#uextg").val().split(","));
+
+		console.log(user.uno);
+		
+		console.log(JSON.stringify($("#uextg").val().split(",")));
+		$.ajax({
+			url : contextRoot + "/developer/uTags",
+			method : "POST",
+			dataType : "json",
+			data : JSON.stringify($("#uextg").val().split(",")),
+			headers : {
+				"Accept" : "application/json",
+				"Content-Type" : "application/json"
+			},
+			beforeSend : addLoading,
+			complete : removeLoading,
+			success : function(data) {
+				for(var i =0;i<uextg.length;i++){
+            		$('#cuextg').prepend(data);
+				}
+				callModal('노출태그', '등록완료'); /*,contextRoot+"/developer/addInfoTest"?cpjno="+data.cpjno*/
+			}
+		});
+	}); //노출태그 등록 이벤트 끝
+
 	//태그입력
 	function onAddTag(tag) {
 		alert("Added a tag: " + tag);
@@ -981,9 +980,7 @@
 	$(function() {
 		$('#uextg').tagsInput();
 	});
-	
-});
-
+	});
 </script>
 
 </html>
