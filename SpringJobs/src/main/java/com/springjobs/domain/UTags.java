@@ -1,25 +1,26 @@
 package com.springjobs.domain;
 
+import java.util.List;
+
 public class UTags {
 
 	private int uexno;
-	private String uextg;
+	private List<String> uextg;
 	private int uno;
-	
+
 	public UTags() {
 		// TODO Auto-generated constructor stub
 	}
-	
 
-	
-	public UTags(int uexno, String uextg, int uno) {
+
+
+
+	public UTags(int uexno, List<String> uextg, int uno) {
 		super();
 		this.uexno = uexno;
 		this.uextg = uextg;
 		this.uno = uno;
 	}
-
-
 
 	public int getUexno() {
 		return uexno;
@@ -29,14 +30,13 @@ public class UTags {
 		this.uexno = uexno;
 	}
 
-	public String getUextg() {
+	public List<String> getUextg() {
 		return uextg;
 	}
 
-	public void setUextg(String uextg) {
+	public void setUextg(List<String> uextg) {
 		this.uextg = uextg;
 	}
-
 	public int getUno() {
 		return uno;
 	}
