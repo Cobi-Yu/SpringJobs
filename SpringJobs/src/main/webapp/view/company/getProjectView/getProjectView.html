@@ -79,8 +79,11 @@
 	                       
 		                   <tr>
 		                   		<td><h3>요구되는 기술</h3>
-		                   		기술명 
-		                   		<input type="text" id="cpjsk">
+		                   		<div class="panel panel-default">
+								  <div class="panel-body" id="cpjsk">
+								    
+								  </div>
+								</div>
 		                   		</td>   
 		                   </tr>
 		                   <tr>
@@ -116,7 +119,7 @@
 		                   </tr>
 		                   <tr>
 		                   		<td><h3>지역</h3>
-		                   			<div class="col-md-3" id="cpjar"></div>
+		                   			<div class="col-md-12" id="cpjar"></div>
 		                   		</td>
 		                   </tr>
 		                   <tr>
@@ -162,42 +165,14 @@
 <script>
 
 	$(document).ready(function() {
-
 			$('#header').load('/view/common/login/frameHeader.html');
 			$('#footer').load('/view/common/login/frameFooter.html');
 	});
 	
 	
-	
 	$(document).on('frameComplete',function(event){
-			
-			console.log(location.href);
-			
-				   //var ParameterObject = new Object();  
-				   var locate = location.href;  
-				 	
-				   /* 
-				   if(locate.indexOf("?")==-1){  
-				            return ParameterObject;  
-				   }  */ 
-				 
-				   var parameter = locate.split("?").pop(-1);
-				   console.log(parameter);
-				   
-				   //var paramAreay = parameter.split("&");  
-				   /* 
-				   for ( var i=0; i<paramAreay.length; i++ )  {  
-				         var tem = paramAreay[i].split("=");  
-				         ParameterObject[tem[0]] = tem[1];  
-				   }
-				   
-				   getUrlParameter = function () { 
-					   return ParameterObject; 
-				   }  
-				       return ParameterObject;   */ 		
-				       
 			$.ajax({
-				url : contextRoot+"/company/addProjectView?cpjno="+parameter,
+				url : contextRoot+"/company/getProjectView?cpjno="+getUrlParams().cpjno,
 				method : "GET",
 				dataType : "json",
 				headers : {
@@ -219,6 +194,10 @@
 					$('#cpjrg').text(data.cpjts.cpjrg);
 					$('#cpjwt').text(data.cpjts.cpjwt);
 					$('#cpjar').text(data.cpjts.cpjar);
+					$.map(data.cpjts.cpjsk,function(val,i){
+						$('#cpjsk').append(
+			    				$("<button></button>").addClass('btn tag btn-sm btn-default').text(val.sknm));
+					});
 				},
 				error:function(req,status,error){
 					callModal('경고','알수없는 에러');
