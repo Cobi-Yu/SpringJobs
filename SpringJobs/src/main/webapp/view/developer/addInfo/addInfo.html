@@ -332,7 +332,7 @@
 	<!-- portfolio 부분 클릭시 modal fade 시작 -->	
 	<!-- Portfolio Modals -->
     <!-- 첫번째 tag modal 시작 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true" >
+    <div class="portfolio-modal modal fade" id="pfModal1" tabindex="-1" role="dialog" aria-hidden="true" >
      <div class="modal-dialog modal-lg">
         <div class="modal-content">
         	<!-- 닫는 modal 시작  -->
@@ -349,14 +349,14 @@
                         <div class="modal-body">
 							<div style="width:30%;">
 							<label> 태그입력</label>     
-								<input id="uextg" type="text" class="tags" />
-							<button>태그 등록</button>
-                 				</div>
+								<input id="uextg" type="text" class="tags"/>
+								<button>태그 등록</button>
+                 			</div>
                  				<br>
-                 			  <button id="save" type="submit" class="btn btn-default" style="width:20%">
-                 			  <i class="fa fa-times"></i>Save</button>	
-		                   <button type="button" class="btn btn-default" data-dismiss="modal">
-		                   <i class="fa fa-times"></i> Close</button>
+                 		  <button id="save" type="submit" class="btn btn-default" style="width:20%">
+                 		  	 <i class="fa fa-times"></i>Save</button>	
+		                  <button type="button" class="btn btn-default" data-dismiss="modal">
+		                   	 <i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
                 </div>
@@ -787,8 +787,29 @@
     });
     // esc키 누르면 모달창 꺼짐 끝
     
-	
-			
+    $('#portfolio1').click(function() {
+       	$.ajax({
+			url : contextRoot + "/developer/getUtag?uno="+user.uno,
+			method : "GET",
+			dataType : "json",
+			headers : {
+				"Accept" : "application/json",
+				"Content-Type" : "application/json"
+			},
+			//로딩 이미지 추가 필수부분 시작
+			beforeSend : addLoading,
+			complete : removeLoading,
+			//로딩 이미지 추가 필수부분 끝
+			success : function(data, status) {
+				console.log(data.utags);
+				console.log(data.utags.toString());
+				$('#uextg').val(data.utags.toString());
+				$('#pfModal1').modal();
+				$('#uextg').tagsInput();
+			}
+		});
+    });
+    
 	$(document).on('frameComplete',function(event){
 		
 		//디폴트 값을 개인신상정보에 넣어주기 위한 .text 
@@ -860,26 +881,6 @@
                 } //success fuction 
             }); //등록 내부 첫 ajax 끝 
         });	//등록버튼시 이벤트 끝
-        
-        $('#portfolio1').click(function() {
-        	$.ajax({
-				url : contextRoot + "/developer/getUtag?uno="+user.uno,
-				method : "GET",
-				dataType : "json",
-				headers : {
-					"Accept" : "application/json",
-					"Content-Type" : "application/json"
-				},
-				//로딩 이미지 추가 필수부분 시작
-				beforeSend : addLoading,
-				complete : removeLoading,
-				//로딩 이미지 추가 필수부분 끝
-				success : function(data, status) {
-					
-					console.log(data);
-				}
-			});
-        });
 	//주소검색
 	//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
 	function sample4_execDaumPostcode() {
@@ -970,10 +971,6 @@
 	function onRemoveTag(tag) {
 		alert("Removed a tag: " + tag);
 	}
-	
-	$(function() {
-		$('#uextg').tagsInput();
-	});
 	});
 </script>
 
