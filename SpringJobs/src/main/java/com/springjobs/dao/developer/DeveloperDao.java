@@ -5,12 +5,15 @@ import java.util.Map;
 
 import com.springjobs.common.Search;
 import com.springjobs.domain.Cpjts;
+import com.springjobs.domain.Uscls;
 import com.springjobs.domain.Users;
 
 public interface DeveloperDao {
 	public List<Cpjts> getProjectList(Search search);
 	
 	public int addInfo(Users users);
+	
+	public int addAcademic(Uscls uscls);
 	
 	public int addTags(Map<String, Object> tagMap);
 	

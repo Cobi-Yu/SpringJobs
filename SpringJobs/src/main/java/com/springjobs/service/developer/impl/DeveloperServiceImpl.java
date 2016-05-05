@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.springjobs.common.Search;
 import com.springjobs.dao.developer.DeveloperDao;
 import com.springjobs.domain.Cpjts;
+import com.springjobs.domain.Uscls;
 import com.springjobs.domain.Users;
 import com.springjobs.service.developer.DeveloperService;
 
@@ -40,6 +41,9 @@ public class DeveloperServiceImpl implements DeveloperService {
 	public void deleteUtags(Users user) {
 		developerDao.deleteUtags(user);
 	}
-	
+	@Override
+	public int addAcademic(Uscls uscls){
+		return developerDao.addAcademic(uscls);
+	}
 	
 }

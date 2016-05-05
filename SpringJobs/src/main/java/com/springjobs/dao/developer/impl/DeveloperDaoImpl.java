@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.springjobs.common.Search;
 import com.springjobs.dao.developer.DeveloperDao;
 import com.springjobs.domain.Cpjts;
+import com.springjobs.domain.Uscls;
 import com.springjobs.domain.Users;
 
 
@@ -36,6 +37,16 @@ public class DeveloperDaoImpl implements DeveloperDao {
 		int uno = users.getUno();
 		System.out.println("dao impl에서 uno 값은??"+ uno);
 		return uno;
+	}
+	
+	@Override
+	public int addAcademic(Uscls uscls){
+		sqlSession.update("UserMapper.addAcademic", uscls);
+		int scno = uscls.getScno();
+		int uno = uscls.getUno();
+		System.out.println("dao impl에서 uno 값은??"+ uno);
+		System.out.println("dao impl에서 scno 값은??"+ scno);
+		return uno + scno;
 	}
 	
 	@Override

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springjobs.common.Search;
+import com.springjobs.domain.Uscls;
 import com.springjobs.domain.Users;
 import com.springjobs.service.developer.DeveloperService;
 
@@ -65,4 +66,12 @@ public class DeveloperController {
 		// 2. 새로 넣은 정보를 집어넣는다.
 		model.addAttribute("utags", developerService.addTags(map));
 	}
+	
+	@RequestMapping(value="/addAcademic", method=RequestMethod.POST)
+	public void addAcademic(@RequestBody Uscls uscls, Model model){
+		System.out.println("DeveloperController에서 uscls : "+uscls);
+		model.addAttribute("uscls", developerService.addAcademic(uscls));
+	}
+	
+	
 }

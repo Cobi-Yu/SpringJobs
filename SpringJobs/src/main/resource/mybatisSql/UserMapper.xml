@@ -27,6 +27,16 @@
 		<result property="uno" column="UNO" jdbcType="INTEGER" />
 	</resultMap>
 	
+	<resultMap id="usclsSelectMap" type="com.springjobs.domain.Uscls">
+		<result property="scno" column="SCNO" jdbcType="INTEGER" />
+		<result property="scnm" column="SCNM" jdbcType="VARCHAR" />
+		<result property="scmj" column="SCMJ" jdbcType="VARCHAR" />
+		<result property="scgr" column="SCGR" jdbcType="INTEGER" />
+		<result property="scsd" column="SCSD" jdbcType="DATE" />
+		<result property="sced" column="SCED" jdbcType="DATE" />
+		<result property="uno" column="UNO" jdbcType="INTEGER" />
+	</resultMap>
+	
 	<!-- SQL : INSERT -->
 	<insert id="addUser" parameterType="com.springjobs.domain.Users">
 		INSERT
@@ -49,6 +59,18 @@
 		FROM USERS
 		WHERE uem=#{uem};
 	</select>
+	
+	<update 	id="addAcademic"	parameterType="com.springjobs.domain.Uscls" >
+	 	UPDATE USCLS
+	 	<set>
+	 	scnm=#{scnm},
+	 	scmj=#{scmj},
+	 	scgr=#{scgr},
+	 	scsd=#{scsd},
+	 	sced=#{sced}, 	
+	 	</set>
+		WHERE uno=#{uno}
+	 </update>
 
 	<update id="addInfo" parameterType="com.springjobs.domain.Users">
 		UPDATE USERS
@@ -62,7 +84,9 @@
 		</set>
 		WHERE uno=#{uno}
 	</update>
-
+	
+	
+	
 	<delete id="removeTags" parameterType="com.springjobs.domain.Users">
 		DELETE
 		FROM
