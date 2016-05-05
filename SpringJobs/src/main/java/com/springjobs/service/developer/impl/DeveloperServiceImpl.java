@@ -1,6 +1,7 @@
 package com.springjobs.service.developer.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.springjobs.common.Search;
 import com.springjobs.dao.developer.DeveloperDao;
 import com.springjobs.domain.Cpjts;
-import com.springjobs.domain.UTags;
 import com.springjobs.domain.Users;
 import com.springjobs.service.developer.DeveloperService;
 
@@ -28,13 +28,17 @@ public class DeveloperServiceImpl implements DeveloperService {
 		return developerDao.addInfo(users);
 	}
 	@Override
-	public List<UTags> uTags(Search search) {
-		return developerDao.uTags(search);
+	public int addTags(Map<String, Object> tagMap) {
+		return developerDao.addTags(tagMap);
 	}
 
 	@Override
 	public List<String> getUtag(int uno) throws Exception {
 		return developerDao.getUtag(uno);
+	}
+	@Override
+	public void deleteUtags(Users user) {
+		developerDao.deleteUtags(user);
 	}
 	
 	

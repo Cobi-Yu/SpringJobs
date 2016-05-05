@@ -60,17 +60,23 @@
 			uurl=#{uurl},
 			uadr=#{uadr}
 		</set>
-		WHERE uno=#{uno};
+		WHERE uno=#{uno}
 	</update>
 
-	<insert id="uTags" parameterType="com.springjobs.domain.UTags">
+	<delete id="removeTags" parameterType="com.springjobs.domain.Users">
+		DELETE
+		FROM
+		UTAGS
+		WHERE uno=${uno}
+	</delete>
+	
+	<insert id="uTags" parameterType="map">
 		INSERT
-		INTO UTAGS(uextg, uno)
-		VALUES (#{uextg}, #{uno});
-		
-	    <selectKey keyProperty="uexno" resultType="INTEGER">
-	        SELECT LAST_INSERT_ID()
-	    </selectKey>
+		INTO UTAGS(uno, uextg)
+		VALUES
+	    <foreach collection="uextg" item="item" separator=" , ">
+	        ( #{uno},#{item} )
+	    </foreach>
 	</insert>
 	
 	<select id="getUtag"	 parameterType="int"      resultType="String" >

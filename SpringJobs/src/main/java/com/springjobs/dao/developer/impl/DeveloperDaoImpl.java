@@ -1,6 +1,7 @@
 package com.springjobs.dao.developer.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import com.springjobs.common.Search;
 import com.springjobs.dao.developer.DeveloperDao;
 import com.springjobs.domain.Cpjts;
-import com.springjobs.domain.UTags;
 import com.springjobs.domain.Users;
 
 
@@ -29,24 +29,32 @@ public class DeveloperDaoImpl implements DeveloperDao {
 	public List<Cpjts> getProjectList(Search search) {
 		return sqlSession.selectList("ProjectMapper.getProjectList", search);
 	}
+	
 	@Override
-
 	public int addInfo(Users users){
 		sqlSession.insert("UserMapper.addInfo", users);
 		int uno = users.getUno();
 		System.out.println("dao impl에서 uno 값은??"+ uno);
 		return uno;
 	}
+	
 	@Override
-	public List<UTags> uTags(Search search){
-		return sqlSession.selectList("UserMapper.uTags", search);
+	public int addTags(Map<String, Object> tagMap){
+		
+		System.out.println("DeveloperDaoImpl에서 tagMap :"+tagMap);
+		
+		return sqlSession.insert("UserMapper.uTags", tagMap);
 	}
-
 
 	@Override
 	public List<String> getUtag(int uno) throws Exception {
 		return sqlSession.selectList("UserMapper.getUtag", uno);
 	}
-	
+
+	@Override
+	public void deleteUtags(Users user) {
+		System.out.println("DeveloperDaoImpl에서 uno : "+user.getUno());
+		sqlSession.delete("UserMapper.removeTags", user);
+	}
 	
 }

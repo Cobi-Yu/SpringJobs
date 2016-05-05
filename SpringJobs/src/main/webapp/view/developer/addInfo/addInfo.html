@@ -331,39 +331,53 @@
 			
 	<!-- portfolio 부분 클릭시 modal fade 시작 -->	
 	<!-- Portfolio Modals -->
-    <!-- 첫번째 tag modal 시작 -->
-    <div class="portfolio-modal modal fade" id="pfModal1" tabindex="-1" role="dialog" aria-hidden="true" >
-     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-        	<!-- 닫는 modal 시작  -->
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div> 
-            <!-- 닫는 modal 끝 -->
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-							<div style="width:30%;">
-							<label> 태그입력</label>     
-								<input id="uextg" type="text" class="tags"/>
-								<button>태그 등록</button>
-                 			</div>
-                 				<br>
-                 		  <button id="save" type="submit" class="btn btn-default" style="width:20%">
+    		<!-- 첫번째 tag modal 시작 -->
+   			<!-- 노출태그 입력 Modal 시작 -->
+			<div class="modal fade" style="width: auto;" id="pfModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog modal-md" role="document">
+			    
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+			        <span aria-hidden="true" >x</span></button>
+			        <h4 class="modal-title" id="myModalLabel" align="left" >
+			        <b>노출태그</b>
+			        </h4>
+			      </div>
+			      <!-- 모달내용 -->
+			      <div class="modal-body">
+			    	<div class="row">
+					
+			      <!-- edit form column -->
+			      <div class="col-md-10 col-md-offset-2" >
+			      	<table style="border-collapse: collapse; ">
+				      	<tr>
+				      		<td class="col-md-2">
+				      			<div>  
+									<input id="uextg" type="text" class="tags"/>
+									<button style="margin-top: 1em; margin-bottom: 1em;">태그 등록</button>
+	                 			</div>
+				      		</td>
+				      	</tr>
+				      	<tr>
+				      	<td class="col-md-2">
+				         ✓ 나를 표현하고싶은 것이 있다면 무엇이든지 태그하세요!
+				      	</td>
+				      	</tr>
+			      	</table>
+			      </div>
+			  </div>
+			 </div>
+			      <div class="modal-footer">
+			        <button id="save" type="submit" class="btn btn-default" style="width:20%">
                  		  	 <i class="fa fa-times"></i>Save</button>	
-		                  <button type="button" class="btn btn-default" data-dismiss="modal">
+		            <button type="button" class="btn btn-default" data-dismiss="modal">
 		                   	 <i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div><!-- modal-dialog modal-lg 끝  -->
-    </div><!-- 첫번째 tag modal 끝 -->
+			      </div>
+			    </div>
+			  </div>
+			</div>    
+		   <!-- 노출태그 입력 Modal 끝  -->
     <!-- 두번째 tag modal 시작 -->
     <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
          <div class="modal-dialog modal-lg">
@@ -796,10 +810,10 @@
 				"Accept" : "application/json",
 				"Content-Type" : "application/json"
 			},
-			//로딩 이미지 추가 필수부분 시작
+			/*로딩 이미지 추가 필수부분 시작
 			beforeSend : addLoading,
 			complete : removeLoading,
-			//로딩 이미지 추가 필수부분 끝
+			로딩 이미지 추가 필수부분 끝*/
 			success : function(data, status) {
 				console.log(data.utags);
 				console.log(data.utags.toString());
@@ -904,8 +918,10 @@
 	           		+'","uno":"'+user.uno+'"}'
                 , headers: {
                       "Accept": "application/json"
-                    , "Content-Type": "application/json"
+                     ,"Content-Type": "application/json"
                 },
+				beforeSend : addLoading,
+				complete : removeLoading,
                 success: function (data) {
                 	console.log(data);
                		$("#myModal").modal("hide");
@@ -941,27 +957,34 @@
         });	//등록버튼시 이벤트 끝
 
 	$('#save').click(function() {
+		
+		var map = {};
+		
+		map.uno = user.uno;
+		map.uextg = $("#uextg").val().split(",");
+		
+		console.log(map);
 		console.log($("#uextg").val().split(","));
 
 		console.log(user.uno);
 		
 		console.log(JSON.stringify($("#uextg").val().split(",")));
+		
 		$.ajax({
 			url : contextRoot + "/developer/uTags",
 			method : "POST",
 			dataType : "json",
-			data : JSON.stringify($("#uextg").val().split(",")),
+			data : JSON.stringify(map),
 			headers : {
 				"Accept" : "application/json",
 				"Content-Type" : "application/json"
 			},
-			beforeSend : addLoading,
-			complete : removeLoading,
-			success : function(data) {
-				for(var i =0;i<uextg.length;i++){
+			success : function(event) { //data
+				/* for(var i =0;i<uextg.length;i++){
             		$('#cuextg').prepend(data);
-				}
-				callModal('노출태그', '등록완료'); /*,contextRoot+"/developer/addInfoTest"?cpjno="+data.cpjno*/
+				} */
+				event.stopPropagation();
+				callModal('노출태그', '등록완료',contextRoot+"/view/developer/addInfo/addInfo.html"); 
 			}
 		});
 	}); //노출태그 등록 이벤트 끝

@@ -1,7 +1,9 @@
 package com.springjobs.ajaxController;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -44,12 +46,23 @@ public class DeveloperController {
 	}
 	
 	@RequestMapping(value="/uTags", method=RequestMethod.POST)
-	public void uTags(@RequestBody List<String> uextg, Model model){			
-		System.out.println("!@!#!#@!#???");
-		System.out.println("uextg : "+uextg.toString());
-		for (String string : uextg) {
-			System.out.println(string);
-		}
-//		model.addAttribute("utags", developerService.uTags(search));
+	public void addTags(@RequestBody HashMap<String, Object> map, Model model){	
+	
+		System.out.println("DeveloperController HashMap :" + map);		
+		System.out.println("map.get(uno) 는??"+map.get("uno"));
+		System.out.println("map.get(uextg) 는??"+map.get("uextg"));
+		
+		String suno = map.get("uno").toString();
+		int uno = Integer.parseInt(suno);
+		System.out.println(uno);
+		
+		List<String> uextgs = (List<String>)map.get("uextg");
+				
+		Users user = new Users();
+		user.setUno(uno);
+		user.setUextg(uextgs);
+
+		developerService.deleteUtags(user);
+		model.addAttribute("utags", developerService.addTags(map));
 	}
 }
