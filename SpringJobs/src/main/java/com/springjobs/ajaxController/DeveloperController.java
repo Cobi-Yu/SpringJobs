@@ -3,7 +3,6 @@ package com.springjobs.ajaxController;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -21,6 +20,7 @@ import com.springjobs.service.developer.DeveloperService;
 @Controller
 @RequestMapping("/developer")
 public class DeveloperController {
+	
 	@Autowired
 	@Qualifier("developerServiceImpl")
 	private DeveloperService developerService;
@@ -48,21 +48,21 @@ public class DeveloperController {
 	@RequestMapping(value="/uTags", method=RequestMethod.POST)
 	public void addTags(@RequestBody HashMap<String, Object> map, Model model){	
 	
-		System.out.println("DeveloperController HashMap :" + map);		
-		System.out.println("map.get(uno) 는??"+map.get("uno"));
-		System.out.println("map.get(uextg) 는??"+map.get("uextg"));
+		System.out.println("DeveloperController HashMap :" + map);
 		
 		String suno = map.get("uno").toString();
 		int uno = Integer.parseInt(suno);
-		System.out.println(uno);
+		System.out.println("uno: "+uno);
 		
 		List<String> uextgs = (List<String>)map.get("uextg");
 				
 		Users user = new Users();
 		user.setUno(uno);
-		user.setUextg(uextgs);
-
+		
+		// 1. 기존에 있는 태그정보를 지운다.
 		developerService.deleteUtags(user);
+		
+		// 2. 새로 넣은 정보를 집어넣는다.
 		model.addAttribute("utags", developerService.addTags(map));
 	}
 }
