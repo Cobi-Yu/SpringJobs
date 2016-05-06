@@ -144,13 +144,20 @@
 								style="height: 50px; width: 80%" placeholder="프로젝트 주제를 입력하세요."></td>
 						</tr>
 						<tr>
-							<td><h3>예상 기간</h3>
+							<td><h3>프로젝트 예상 기간</h3>
 								<div class="col-md-5">
 									시작일 <input class="form-control" type="date" id="cpjsd"
 										style="width: 100%">
 								</div>
 								<div class="col-md-5">
 									종료일 <input class="form-control" type="date" id="cpjed"
+										style="width: 100%">
+								</div></td>
+						</tr>
+						<tr>
+							<td><h3>공고마감일</h3>
+								<div class="col-md-5">
+									마감일 <input class="form-control" type="date" id="cpjred"
 										style="width: 100%">
 								</div></td>
 						</tr>
@@ -378,6 +385,7 @@
 			postData.cpjwt	=	$("#cpjwt").val();
 			postData.cno	=	user.cno;
 			postData.cpjar	=	$("#cpjar").val();
+			postData.cpjred	=	$("#cpjred").val();
 			console.log(JSON.stringify(postData));
 			$.ajax({
 				url : contextRoot

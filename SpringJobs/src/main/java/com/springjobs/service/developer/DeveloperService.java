@@ -19,5 +19,9 @@ public interface DeveloperService {
 	
 	public List<String> getUtag(int uno) throws Exception;
 	
+	public int joinProject(Map<String, Integer> map);
+	
+	public List<Users> getJoinProjectList(Map<String,Integer> map);
+	
 	public void deleteUtags(Users user); 
 }

@@ -63,9 +63,20 @@ public class DeveloperDaoImpl implements DeveloperDao {
 	}
 
 	@Override
+	public int joinProject(Map<String, Integer> map) {
+		return sqlSession.insert("ProjectMapper.joinProject", map);
+	}
+
+	@Override
+	public List<Users> getJoinProjectList(Map<String, Integer> map) {
+		return sqlSession.selectList("ProjectMapper.getJoinProjectList",map);
+	}
+
+	@Override
 	public void deleteUtags(Users user) {
 		System.out.println("DeveloperDaoImpl에서 uno : "+user.getUno());
 		sqlSession.delete("UserMapper.removeTags", user);
 	}
+	
 	
 }

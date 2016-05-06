@@ -111,6 +111,39 @@
 .projectButton {
 	width: 10%;
 }
+.main{
+	background-color:#f1f1f1;
+}
+.container .jumbotron, .container-fluid .jumbotron{
+	background-color:white; padding:0px; height:345px; border: 0.5px solid black; margin-bottom:0px;
+}
+th{
+	height:50px; vertical-align: middle; background-color:#333;
+}
+td ul{
+	padding-left: 0px; list-style:none;
+}
+td ul li{
+	float: left; width:50%; text-align: center;
+}
+.leftCondition{
+	border-right: 1px solid #ddd;
+}
+strong{
+	font-size:1.5em;
+}
+.underLine{
+	border-bottom:2px solid #ddd;
+}
+.skillList{
+	padding-top:10px; height:65px;
+}
+.remainDate{
+	color:#ed6711;font-weight: bold;
+}
+.eachProject{
+	border-style:none;
+}
 </style>
 </head>
 <body>
@@ -121,95 +154,89 @@
 			<div class="col-sm-2 sidenav"></div>
 			<div class="col-md-8 text-left main">
 				<!--페이지 중앙 본문 중 좌측 메뉴-->
-				<div class="col-md-3 side-menu" style="padding: 0px;">
-					<table class="table table-hover">
-						<tr>
-							<td><strong>지역</strong>
-								<div class="toggleDiv" style="float: right;">
-									<input type="checkbox" class="fold" data-toggle="toggle"
-										data-size="mini" data-onstyle="default" data-on="펴기"
-										data-off="접기" checked="false">
-								</div>
-								<div class="fold-list cpjar-list"
-									style="font-size: 12px; display:none;">
-									<input id="cpjar" placeholder="Enter your address" type="text" size="30"></input>
-<!-- 									<div class="checkbox"> -->
-<!-- 										<input type="checkbox" class="cpjar-check" value="46"> -->
-<!-- 										<p class="cpjar-option">경기도 성남시</p> -->
-<!-- 									</div> -->
-
-<!-- 									<div class="checkbox"> -->
-<!-- 										<input type="checkbox" class="cpjar-check" value="45"> -->
-<!-- 										<p class="cpjar-option">서울시 강남구</p> -->
-<!-- 									</div> -->
-<!-- 									<div class="checkbox"> -->
-<!-- 										<input type="checkbox" class="cpjar-check" value="47"> -->
-<!-- 										<p class="cpjar-option">서울시 구로구</p> -->
-<!-- 									</div> -->
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td><strong>사용기술</strong>
-								<div class="toggleDiv" style="float: right;">
-									<input type="checkbox" class="fold pull-right"
-										data-toggle="toggle" data-size="mini" data-onstyle="default"
-										data-on="펴기" data-off="접기" checked="false">
-								</div>
-								<div class="fold-list api-list">
-									<input type="text" id="search-api"
-										placeholder="ex) java, servlet">
-								</div></td>
-						</tr>
-						<tr>
-							<td><strong>급여</strong>
-								<div class="toggleDiv" style="float: right;">
-									<input type="checkbox" class="fold pull-right"
-										data-toggle="toggle" data-size="mini" data-onstyle="default"
-										data-on="펴기" data-off="접기" checked="false">
-								</div>
-								<div class="fold-list cpjm-list">
-									<input type="text" id="cpjmnp" size="5"> ~ <input
-										type="text" id="cpjmap" size="5"> 만원
-									<button type="button" class="btn btn-default btn-xs"
-										style='float: right;'>추가</button>
-								</div></td>
-						</tr>
-						<tr>
-							<td><strong>경력연차</strong>
-								<div class="toggleDiv" style="float: right;">
-									<input type="checkbox" class="fold pull-right"
-										data-toggle="toggle" data-size="mini" data-onstyle="default"
-										data-on="펴기" data-off="접기" checked="false">
-								</div> <select class="form-control input-sm fold-list" id="cpjyr">
-									<option>무관</option>
-									<option>1년</option>
-									<option>2년</option>
-									<option>3년</option>
-									<option>4년</option>
-									<option>5년이상</option>
-							</select></td>
-						</tr>
-					</table>
+				<div class="col-md-3 side-menu" style="padding: 10px; ">
+					<div style="float:left; position:fixed; width:15%;">
+						<table class="table table-hover table-bordered" style="background-color:white;">
+							<tr>
+								<td style="background-color:#333; color:white;"><strong>검색</strong></td>
+							</tr>
+							<tr>
+								<td>지역
+									<div class="toggleDiv" style="float: right;">
+										<input type="checkbox" class="fold" data-toggle="toggle"
+											data-size="mini" data-onstyle="default" data-on="펴기"
+											data-off="접기" checked="false">
+									</div>
+									<div class="fold-list cpjar-list"
+										style="font-size: 12px; display:none;">
+										<input id="cpjar" placeholder="Enter your address" type="text" size="30"></input>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>사용기술
+									<div class="toggleDiv" style="float: right;">
+										<input type="checkbox" class="fold pull-right"
+											data-toggle="toggle" data-size="mini" data-onstyle="default"
+											data-on="펴기" data-off="접기" checked="false">
+									</div>
+									<div class="fold-list api-list">
+										<input type="text" id="search-api"
+											placeholder="ex) java, servlet">
+									</div></td>
+							</tr>
+							<tr>
+								<td>급여
+									<div class="toggleDiv" style="float: right;">
+										<input type="checkbox" class="fold pull-right"
+											data-toggle="toggle" data-size="mini" data-onstyle="default"
+											data-on="펴기" data-off="접기" checked="false">
+									</div>
+									<div class="fold-list cpjm-list">
+										<input type="text" id="cpjmnp" size="5"> ~ <input
+											type="text" id="cpjmap" size="5"> 만원
+										<button type="button" class="btn btn-default btn-xs"
+											style='float: right;'>추가</button>
+									</div></td>
+							</tr>
+							<tr>
+								<td>경력연차
+									<div class="toggleDiv" style="float: right;">
+										<input type="checkbox" class="fold pull-right"
+											data-toggle="toggle" data-size="mini" data-onstyle="default"
+											data-on="펴기" data-off="접기" checked="false">
+									</div> <select class="form-control input-sm fold-list" id="cpjyr">
+										<option>무관</option>
+										<option>1년</option>
+										<option>2년</option>
+										<option>3년</option>
+										<option>4년</option>
+										<option>5년이상</option>
+								</select></td>
+							</tr>
+						</table>
+						<table class="table table-strpied"
+							style="table-layout: fixed; width: 100%; word-break: break-all; background-color:white;">
+							<!--검색 태그-->
+							<tr>
+								<td style="background-color:#333; color:white;">현재검색조건</td>
+							</tr>
+							<tr>
+								<td id="input-tag" style="padding-bottom:20px;">
+								</td>
+							</tr>
+							<!-- 검색태그 끝-->
+						</table>
+					</div>
 				</div>
 				<!--페이지 중앙 본문 중 좌측 끝-->
 				<div class="col-md-9">
-					<!--페이지 중앙 본문 중 우측 본문 판낼-->
-					<table class="table table-strpied"
-						style="table-layout: fixed; width: 100%; word-break: break-all;">
-						<!--검색 태그-->
-						<tr>
-							<td id="input-tag"></td>
-						</tr>
-						<!-- 검색태그 끝-->
-					</table>
-					<table class="table table-strpied" id="cpjt-list">
+					<table class="table" style="border-style:none;">
+						<thead id="cpjt-list">
 						<!-- 리스트 들어갈 자리 -->
-						<tr>
-							<td></td>
-							<td></td>
-							<td></td>
-						</tr>
+							
+						<!-- 리스트 들어갈 자리 끝 -->
+						</thead>
 					</table>
 					<!--페이지 중앙 본문 중 우측 본문 판넬 끝-->
 				</div>
@@ -263,25 +290,34 @@
             data : JSON.stringify(search),
             success:function(data){
                 console.log(data);
-                cpjt=data.cpjt;
-                console.log(cpjt.length);
+                $('#cpjt-list').empty();
+                var cpjt=data.cpjt;
                 $.get('/view/developer/projectList/eachProject.html',function(data){
-                	$('.eachProject').remove();
-                	for(var i =0;i<cpjt.length;i++){
-                		$('#cpjt-list tbody').prepend(data);
+                	for(var i =0;i<cpjt.length;i+=2){
+						var template = $('<tr>').append( $('<td class="eachProject">').width('50%').css('padding','10px') ).append( $('<td class="eachProject">').width('50%').css('padding','10px') );
+                		$('#cpjt-list').append(template);
+                		for(var j =i; j<cpjt.length;j++){
+                			$('.eachProject:eq('+j+')').append(data);
+                		}
 					}
                 	for(var i =0;i<cpjt.length;i++){
-                		$('.table-cpjnm:eq('+i+')').text(cpjt[i].cpjnm);
-                		$('.table-cnm:eq('+i+')').text(cpjt[i].cnm);
-                		$('.table-cpjar:eq('+i+')').text(cpjt[i].cpjar);
-                		$('.table-cpjed:eq('+i+')').text(cpjt[i].cpjed);
-                		$('.table-cpjmnp:eq('+i+')').text(cpjt[i].cpjmnp);
-                		$('.table-cpjmap:eq('+i+')').text(cpjt[i].cpjmap);
-                		$('.table-cpjwt:eq('+i+')').text(cpjt[i].cpjwt);
-                		$('.table-cpjint:eq('+i+')').text(cpjt[i].cpjint);
-                		redirect($('.table-cpjnm:eq('+i+')'),'/view/company/getProjectView/getProjectView.html?cpjno='+cpjt[i].cpjno);
+                		var cpjred = cpjt[i].cpjred;
+                        var cpjrdGap = parseInt( ( new Date(cpjred).getTime() - new Date().getTime())/1000/60/60/24 );
+                        var cpjmAvg = (cpjt[i].cpjmap+cpjt[i].cpjmnp)/2;
+                        var cpjDuration = parseInt( ( new Date(cpjt[i].cpjed)-new Date(cpjt[i].cpjsd) )/1000/60/60/24);
+                		var cpjsk = cpjt[i].cpjsk;
+                        $('.cpjnm:eq('+i+')').text(cpjt[i].cpjnm);
+                		$('.cpjmAvg:eq('+i+')').text(cpjmAvg);
+                		$('.cpjDuration:eq('+i+')').text(cpjDuration);
+                		$('.cpjwt:eq('+i+')').text(cpjt[i].cpjwt);
+                		$('.cpjyr:eq('+i+')').text(cpjt[i].cpjyr);
+                		$('.cpjrdGap:eq('+i+')').text(cpjrdGap);
+                		$('.cpjred:eq('+i+')').text(cpjt[i].cpjred);
+                		for(var j=0;j<cpjsk.length;j++){
+                			$('.skillList:eq('+i+')').append($('<button type="button" class="btn btn-default btn-xs">').text(cpjsk[j].sknm));
+                		}
+                		redirect($('.jumbotron:eq('+i+')'),'/view/company/getProjectView/getProjectView.html?cpjno='+cpjt[i].cpjno);
 					}
-                	$('.list-detail-btn').bootstrapToggle();
                 });
                 if(cpjt.length==0){
                 	callModal('알림','검색조건이 없습니다.');
@@ -296,7 +332,7 @@
     		color="default";
     		var tagDelete = $("<a></a>").addClass('tag-delete').text(' X');
     		$('#input-tag').append(
-    				$("<button></button>").addClass('btn tag btn-sm btn-' + color).addClass(cls).text(text).append(tagDelete));
+    				$("<button></button>").addClass('btn tag btn-xs btn-' + color).addClass(cls).text(text).append(tagDelete));
 			//검색 태그 삭제
 			$('.tag-delete').click(function() {
     			var tag = $(this).parent('button');
@@ -335,7 +371,6 @@
         search.cpjyr=null;
         
         request();
-        
         //검색 자동완성
                 $('#search-api').autocomplete({
                     source: function(req,res){

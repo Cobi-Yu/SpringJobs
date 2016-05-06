@@ -37,8 +37,10 @@
          border-width: 7px; 
          background-color:white; 
          padding-left:15px; 
-         padding-bottom:10px;
+         padding-right:15px; 
+         padding-bottom:15px;
          margin-top:10px;
+         margin-bottom:20px;
      }
      .btn-detail{
          padding:0px; 
@@ -167,7 +169,7 @@
                                 </td>
                                 <td style="text-align: center;vertical-align:middle;">
                                     <strong style="font-size:2em;"><span id="cpjrdGap"></span>일 남음</strong>
-                                    <div><span id="cpjrd"></span> 까지</div>
+                                    <div><span id="cpjred"></span> 까지</div>
                                 </td>
                                 <td style="text-align: center;vertical-align:middle;">
                                     <strong style="font-size:2em;"><span id="cpjyr"></span>년</strong>이상
@@ -185,10 +187,9 @@
                             <div class="panel-body" id="cpjint">
                             </div>
                         </div>
-                    </section>
-                    <section style="padding:200px;">
-                    </section>
-                    <section style="padding:200px;">
+                        <div style="text-align:right;">
+                        	<button type ="button" class="btn btn-default" id="joinCompany">지원하기</button>
+                        </div>
                     </section>
                 </div>
                 <div class="col-md-1"></div>
@@ -219,13 +220,14 @@
 	       		$.map(data.cpjt.cpjsk,function(val,i){
 	       			$('#cpjskList').append($('<button></button>').addClass('btn tag btn-sm btn-default').text(val.sknm));
 				});
-	       		var cpjrd = data.cpjt.cpjrd;
-	       		var cpjrdGap = ( new Date(cpjrd).getTime() - new Date().getTime())/1000/60/60/24;
+	       		var cpjred = data.cpjt.cpjred;
+	       		var cpjrdGap = ( new Date(cpjred).getTime() - new Date().getTime())/1000/60/60/24;
 	       		var cpjmAvg = (data.cpjt.cpjmap+data.cpjt.cpjmnp)/2
+	       		var cpjint = data.cpjt.cpjint.replace(/\n/gi,'<br>');
 	       		$('#cpjnm').text(data.cpjt.cpjnm);
 				$('#cpjsd').text(data.cpjt.cpjsd);
 				$('#cpjed').text(data.cpjt.cpjed);
-				$('#cpjint').text(data.cpjt.cpjint);
+				$('#cpjint').html(cpjint);
 				$('#cpjchk').text(data.cpjt.cpjchk);
 				$('#cpjnpl').text(data.cpjt.cpjnpl);
 				$('#cpjmnp').text(data.cpjt.cpjmnp);
@@ -234,7 +236,7 @@
 				$('#cpjwt').text(data.cpjt.cpjwt);
 				$('#cpjar').text(data.cpjt.cpjar);
 				$('#cpjyr').text(data.cpjt.cpjyr);
-				$('#cpjrd').text(data.cpjt.cpjrd);
+				$('#cpjred').text(data.cpjt.cpjred);
 				$('#cpjrdGap').text(parseInt(cpjrdGap));
 				$('#cpjmAvg').text(cpjmAvg);
            }
@@ -250,7 +252,41 @@
 	        }
 	    });
 	   //자세히보기 끝
-   });
+	   
+	   //프로젝트 참여
+	   $('#joinCompany').click(function(){
+		   if(user==null){
+			   callModal('경고','로그인이 필요합니다.');
+		   }else{
+			   joinData = {};
+			   joinData.uno = user.uno;
+			   joinData.cpjno = getUrlParams().cpjno;
+			   $.ajax({
+				   	type:'POST',
+		           	url: contextRoot+"/developer/joinProject",
+		           	dataType : "json",
+		           	beforeSend : addLoading,
+					complete : removeLoading,
+					data : JSON.stringify(joinData),
+		           	headers : {
+						"Accept" : "application/json",
+						"Content-Type" : "application/json"
+					},
+					success:function(data){
+						if(data.result==1){
+							callModal('알림','프로젝트 참여 신청이 완료되었습니다.',location.href);
+						}else{
+							callModal('알림','이미 신청하셨습니다.');
+						}
+					},
+					error:function(){
+						callModal('경고','알수없는 에러');
+					}
+			   });
+		   }
+	   });
+	   //프로젝트 참여 끝
+ 	});
     
 </script>
 

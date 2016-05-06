@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.springjobs.common.Search;
 import com.springjobs.dao.developer.DeveloperDao;
+import com.springjobs.domain.Cpjjoin;
 import com.springjobs.domain.Cpjts;
 import com.springjobs.domain.Uscls;
 import com.springjobs.domain.Users;
@@ -45,5 +46,12 @@ public class DeveloperServiceImpl implements DeveloperService {
 	public int addAcademic(Uscls uscls){
 		return developerDao.addAcademic(uscls);
 	}
-	
+	@Override
+	public int joinProject(Map<String, Integer> map) {
+		return developerDao.joinProject(map);
+	}
+	@Override
+	public List<Users> getJoinProjectList(Map<String, Integer> map) {
+		return developerDao.getJoinProjectList(map);
+	}
 }

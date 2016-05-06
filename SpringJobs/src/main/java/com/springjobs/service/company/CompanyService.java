@@ -1,5 +1,6 @@
 package com.springjobs.service.company;
 
+
 import com.springjobs.domain.Cinfos;
 import com.springjobs.domain.Cpjts;
 import com.springjobs.domain.Crecs;

@@ -73,5 +73,25 @@ public class DeveloperController {
 		model.addAttribute("uscls", developerService.addAcademic(uscls));
 	}
 	
+	@RequestMapping(value="/joinProject", method=RequestMethod.POST)
+	public void joinProject(@RequestBody HashMap<String, Integer> map, Model model){
+		System.out.println("joinProject : "+map);
+		if(developerService.getJoinProjectList(map).size()>=1){
+			model.addAttribute("result",0);
+		}else {
+			model.addAttribute("result",developerService.joinProject(map));
+		}
+	}
+
+	@RequestMapping(value="/getJoinProjectUser", method=RequestMethod.POST)
+	public void getJoinProjectUser(@RequestBody HashMap<String, Integer> map, Model model){
+		System.out.println("getJoinProjectUser : "+map);
+		if(developerService.getJoinProjectList(map).size()>=1){
+			model.addAttribute("result",0);
+		}else{
+			model.addAttribute("result",1);
+		}
+	}
+	
 	
 }

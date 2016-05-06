@@ -15,7 +15,8 @@ public class Cpjts {
 	 private int cpjmnp;
 	 private int cpjmap;
 	 private int cpjhtn;
-	 private Date cpjrd;
+	 private Date cpjrsd;
+	 private Date cpjred;
 	 private Date cpjed;
 	 private Date cpjsd;
 	 private String cpjrg;
@@ -29,8 +30,8 @@ public class Cpjts {
 	}
 
 	public Cpjts(int cpjno, String cpjnm, String cpjint, List<Skills> cpjsk, String cpjchk, int cpjyr, int cpjnpl,
-			int cpjmnp, int cpjmap, int cpjhtn, Date cpjrd, Date cpjed, Date cpjsd, String cpjrg, String cpjwt,
-			String cpjar, int cno, String cnm) {
+			int cpjmnp, int cpjmap, int cpjhtn, Date cpjrsd, Date cpjred, Date cpjed, Date cpjsd, String cpjrg,
+			String cpjwt, String cpjar, int cno, String cnm) {
 		super();
 		this.cpjno = cpjno;
 		this.cpjnm = cpjnm;
@@ -42,7 +43,8 @@ public class Cpjts {
 		this.cpjmnp = cpjmnp;
 		this.cpjmap = cpjmap;
 		this.cpjhtn = cpjhtn;
-		this.cpjrd = cpjrd;
+		this.cpjrsd = cpjrsd;
+		this.cpjred = cpjred;
 		this.cpjed = cpjed;
 		this.cpjsd = cpjsd;
 		this.cpjrg = cpjrg;
@@ -132,12 +134,20 @@ public class Cpjts {
 		this.cpjhtn = cpjhtn;
 	}
 
-	public Date getCpjrd() {
-		return cpjrd;
+	public Date getCpjrsd() {
+		return cpjrsd;
 	}
 
-	public void setCpjrd(Date cpjrd) {
-		this.cpjrd = cpjrd;
+	public void setCpjrsd(Date cpjrsd) {
+		this.cpjrsd = cpjrsd;
+	}
+
+	public Date getCpjred() {
+		return cpjred;
+	}
+
+	public void setCpjred(Date cpjred) {
+		this.cpjred = cpjred;
 	}
 
 	public Date getCpjed() {
@@ -200,8 +210,9 @@ public class Cpjts {
 	public String toString() {
 		return "Cpjts [cpjno=" + cpjno + ", cpjnm=" + cpjnm + ", cpjint=" + cpjint + ", cpjsk=" + cpjsk + ", cpjchk="
 				+ cpjchk + ", cpjyr=" + cpjyr + ", cpjnpl=" + cpjnpl + ", cpjmnp=" + cpjmnp + ", cpjmap=" + cpjmap
-				+ ", cpjhtn=" + cpjhtn + ", cpjrd=" + cpjrd + ", cpjed=" + cpjed + ", cpjsd=" + cpjsd + ", cpjrg="
-				+ cpjrg + ", cpjwt=" + cpjwt + ", cpjar=" + cpjar + ", cno=" + cno + ", cnm=" + cnm + "]";
+				+ ", cpjhtn=" + cpjhtn + ", cpjrsd=" + cpjrsd + ", cpjred=" + cpjred + ", cpjed=" + cpjed + ", cpjsd="
+				+ cpjsd + ", cpjrg=" + cpjrg + ", cpjwt=" + cpjwt + ", cpjar=" + cpjar + ", cno=" + cno + ", cnm=" + cnm
+				+ "]";
 	}
 	 
 	 
