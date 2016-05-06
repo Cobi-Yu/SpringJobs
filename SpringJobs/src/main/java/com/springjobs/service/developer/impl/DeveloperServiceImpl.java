@@ -11,6 +11,7 @@ import com.springjobs.common.Search;
 import com.springjobs.dao.developer.DeveloperDao;
 import com.springjobs.domain.Cpjjoin;
 import com.springjobs.domain.Cpjts;
+import com.springjobs.domain.Uexps;
 import com.springjobs.domain.Uscls;
 import com.springjobs.domain.Users;
 import com.springjobs.service.developer.DeveloperService;
@@ -53,5 +54,9 @@ public class DeveloperServiceImpl implements DeveloperService {
 	@Override
 	public List<Users> getJoinProjectList(Map<String, Integer> map) {
 		return developerDao.getJoinProjectList(map);
+	}
+	@Override
+	public Uexps getUexps(int uno) throws Exception {
+		return developerDao.getUexps(uno);
 	}
 }

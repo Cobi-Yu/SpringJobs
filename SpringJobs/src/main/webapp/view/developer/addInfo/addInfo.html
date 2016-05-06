@@ -252,7 +252,7 @@
              <!-- portfolio 부분 첫번째 줄 시작 -->
               <div class="col-md-12">
 	                <div class="col-md-4 portfolio-item" >
-	                    <a id="portfolio1" data-toggle="modal" data-target="#portfolioModal1" class="portfolio-link">
+	                    <a id="portfolio1" class="portfolio-link">
 	                    	<!-- 이미지에 마우스 올릴때 아래의 색상 -->
 	                        <div class="caption">
 	                            <div class="caption-content">
@@ -264,7 +264,7 @@
 	                    </a>
 	                </div>
 	                <div class="col-md-4 portfolio-item">
-	                    <a id="portfolio2" data-toggle="modal" data-target="#pfModal2" class="portfolio-link">
+	                    <a id="portfolio2" class="portfolio-link">
 	                        <div class="caption">
 	                            <div class="caption-content">
 	                                <i class="fa fa-search-plus fa-3x">학력</i>
@@ -274,7 +274,7 @@
 	                    </a>
 	                </div>
 	                <div class="col-md-4 portfolio-item" >
-	                    <a id="portfolio3" data-toggle="modal" data-target="#portfolioModal3" class="portfolio-link">
+	                    <a id="portfolio3" class="portfolio-link">
 	                        <div class="caption">
 	                            <div class="caption-content">
 	                                <i class="fa fa-search-plus fa-3x">경력</i>
@@ -368,7 +368,7 @@
 			  </div>
 			 </div>
 			      <div class="modal-footer">
-			        <button id="addTags" type="submit" class="btn btn-default" style="width:20%">저장</button>	
+			        <button id="addTags" type="submit" class="btn btn-default">저장</button>	
 		            <button type="button" class="btn btn-default" data-dismiss="modal"> 닫기</button>
 			      </div>
 			    </div>
@@ -392,7 +392,7 @@
 			    	<div class="row">
 			
 			      <!-- edit form column -->
-			      <div class="col-md-10 col-md-offset-1" ">
+			      <div class="col-md-10 col-md-offset-1">
 			   
 			      	<table style="border-collapse: collapse;">
 			      	<tr>
@@ -416,7 +416,7 @@
 			      			성적
 			      		</td>
 			      		<td class="col-md-7" style="padding-top: 1em;">
-							<input type="text" id="scgr" placeholder="성적을 입력하세요.ex)x.x/4.5, x.x/5.0 ..." style="width: 100%;">
+							<input type="text" id="scgr" placeholder="성적을 입력하세요.ex)x.x/4.5, x.x/5.0 ..." style="width: 90%;">
                         </td>
 			      	</tr>
 			      	<tr>
@@ -445,139 +445,21 @@
 			  </div>
 			</div> 
     <!-- 두번째 tag modal 끝 -->
-    
-    <div class="portfolio-modal modal fade" id="pfModal3" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body" style="width:auto;height:auto;">
-                     		 <h2>경력</h2>
-           
-          			<table>
-          			 	<thead>
-          					<tr>
-          					<td class="success"><strong>직장명</strong></td>
-          					<td><input type="text" id="" placeholder="직장명을 입력하세요."></td>
-          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
-                            </td>     
-          				</tr>
-          				</thead>    
-          				<thead>
-          					<tr>
-          					<td class="success"><strong>부서명</strong></td>
-          					<td><input type="text" id="" placeholder="부서명을 입력하세요."></td>
-          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
-                            </td>     
-          				</tr>
-          				</thead> 
-          				<thead>
-          					<tr>
-          					<td class="success"><strong>희망급여</strong></td>
-          					<td>
-		                   		최소<input type="text" id=""  placeholder="예) 1백만원일경우 1000000">
-							</td>
-		                   	<td>	최대<input type="text" id=""  placeholder="예) 2백만원일경우 2000000">
-		                   		 </td>     
-          				</tr>
-          				</thead> 
-          					<thead>
-          					<tr>
-          					<td class="success"><strong>재직기간</strong></td>
-          					<td><input type="date" id="" ></td>
-          					<td><input type="date" id="">
-                            </td>     
-          				</tr>
-          				</thead> 
-          				<thead>
-          					<tr>
-          					<td class="success"><strong>업무 기술</strong></td>
-          					<td><input type="text" id="" placeholder="업무를 간략하게 기술하세요."></td> 
-          				</tr>
-          				</thead> 
-          		 		<thead>
-          					<tr>
-          					<td>
-          						<button type="button" class="btn btn-primary" ><strong>저장</strong></button>
-                       			<button type="button" class="btn btn-default"  onclick="add_itemM()"><strong>추가</strong></button>
-                            </td>     
-          				</tr>
-          				</thead> 
-          				      <div id="fieldD"></div>
-  					</table>
-                  <div id="pre_setT" style="display:none">
-                       <br>
-                      	<table>
-          			 	<thead>
-          					<tr>
-          					<td class="success"><strong>직장명</strong></td>
-          					<td><input type="text" id="" placeholder="직장명을 입력하세요."></td>
-          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
-                            </td>     
-          				</tr>
-          				</thead>    
-          				<thead>
-          					<tr>
-          					<td class="success"><strong>부서명</strong></td>
-          					<td><input type="text" id="" placeholder="부서명을 입력하세요."></td>
-          					<td><button type="submit" class="btn btn-default" style="height:22px">Search</button>
-                            </td>     
-          				</tr>
-          				</thead> 
-          				<thead>
-          					<tr>
-          					<td class="success"><strong>희망급여</strong></td>
-          					<td>
-		                   		최소<input type="text" id=""  placeholder="예) 1백만원일경우 1000000">
-							</td>
-		                   	<td>	최대<input type="text" id=""  placeholder="예) 2백만원일경우 2000000">
-		                   		 </td>     
-          				</tr>
-          				</thead> 
-          					<thead>
-          					<tr>
-          					<td class="success"><strong>재직기간</strong></td>
-          					<td><input type="date" id="" ></td>
-          					<td><input type="date" id="">
-                            </td>     
-          				</tr>
-          				</thead> 
-          				<thead>
-          					<tr>
-          					<td class="success"><strong>업무 기술</strong></td>
-          					<td><input type="text" id="" placeholder="업무를 간략하게 기술하세요."></td> 
-          				</tr>
-          				</thead> 
-          		 		<thead>
-          					<tr>
-          					<td>
-          						<button type="button" class="btn btn-primary" ><strong>저장</strong></button>
-                       			<button type="button" class="btn btn-default"  onclick="add_itemM()"><strong>추가</strong></button>
-                            </td>     
-          				</tr>
-          				</thead> 
-          				      <div id="fieldD"></div>
-  					</table>
-                       	<button type="button" class="btn btn-default"  onclick="remove_itemM(this)"><strong>삭제</strong>
-                 
-                   <div id="field"></div>
-                </div>
-               </div>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">
-                            <i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>    
-    </div>
+    <div class="modal fade" style="width: auto;" id="pfModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-md" role="document">    
+	     <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+			        <span aria-hidden="true" >x</span></button>
+			        <h4 class="modal-title" id="myModalLabel" align="left" >
+			        <b>경력</b></h4>
+			      </div> <!-- 모달헤더 끝  -->
+			      <!-- 모달내용 -->
+			      <div id="pfModal3table"></div>
+			      <!-- 모달내용 끝 -->
+	    </div><!-- 모달 콘텐츠 끝 -->
+	  </div>   
+    </div><!-- 세번째 모달 끝  -->
    <div class="portfolio-modal modal fade" id="pfModal4" tabindex="-1" role="dialog" aria-hidden="true" >
      <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -914,6 +796,34 @@
     			}
     		});
         });
+
+        
+        $('#portfolio3').click(function(){
+        	$('#pfModal3table').load('getUexps.html', function() {
+	           	$.ajax({
+	    			url : contextRoot + "/developer/getUexps?uno="+user.uno,
+	    			method : "GET",
+	    			dataType : "json",
+	    			headers : {
+	    				"Accept" : "application/json",
+	    				"Content-Type" : "application/json"
+	    			},
+	    			success : function(data, status) {
+	    				console.log(data.uexps);
+	    				$('#expcn').text(data.uexps.expcn);
+	    				$('#expdn').text(data.uexps.expdn);
+	    				$('#exped').text(data.uexps.exped);
+	    				$('#expsd').text(data.uexps.expsd);
+	    				$('#exppt').text(data.uexps.exppt);
+	    				$('#exppy').text(data.uexps.exppy);
+	    				$('#expwc').text(data.uexps.expwc);	   
+	    				$('#pfModal3').modal(); 
+	    			}
+	    		});
+        	});
+        });
+        
+        	
         
 		$('#addTags').click(function() {
 			

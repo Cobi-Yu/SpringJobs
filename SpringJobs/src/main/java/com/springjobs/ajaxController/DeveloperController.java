@@ -43,7 +43,6 @@ public class DeveloperController {
 		System.out.println("developerController에서 getUtag :"+developerService.getUtag(uno));
 		System.out.println("DeveloperContoller에서 uno:"+uno);
 		model.addAttribute("utags", developerService.getUtag(uno));
-	
 	}
 	
 	@RequestMapping(value="/uTags", method=RequestMethod.POST)
@@ -67,6 +66,7 @@ public class DeveloperController {
 		model.addAttribute("utags", developerService.addTags(map));
 	}
 	
+
 	@RequestMapping(value="/addAcademic", method=RequestMethod.POST)
 	public void addAcademic(@RequestBody Uscls uscls, Model model){
 		System.out.println("DeveloperController에서 uscls : "+uscls);
@@ -93,5 +93,11 @@ public class DeveloperController {
 		}
 	}
 	
+	@RequestMapping( value="/getUexps", method=RequestMethod.GET)
+	public void getUexps(@RequestParam("uno") int uno, Model model) throws Exception{
+		System.out.println("developerController에서 getUexps :"+developerService.getUexps(uno));
+		System.out.println("DeveloperContoller에서 uno:"+uno);
+		model.addAttribute("uexps", developerService.getUexps(uno));
+	}	
 	
 }

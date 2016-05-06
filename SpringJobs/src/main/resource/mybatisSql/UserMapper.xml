@@ -6,15 +6,15 @@
 
 <mapper namespace="UserMapper">
 	<resultMap id="userSelectMap" type="com.springjobs.domain.Users">
-		<result property="uno" column="UNO" jdbcType="INTEGER" />
-		<result property="unm" column="UNM" jdbcType="VARCHAR" />
+		<result property="uno"  column="UNO"  jdbcType="INTEGER" />
+		<result property="unm"  column="UNM"  jdbcType="VARCHAR" />
 		<result property="uenm" column="UENM" jdbcType="VARCHAR" />
-		<result property="uem" column="UEM" jdbcType="VARCHAR" />
-		<result property="upw" column="UPW" jdbcType="VARCHAR" />
-		<result property="uco" column="UCO" jdbcType="VARCHAR" />
-		<result property="usx" column="USX" jdbcType="VARCHAR" />
+		<result property="uem"  column="UEM"  jdbcType="VARCHAR" />
+		<result property="upw"  column="UPW"  jdbcType="VARCHAR" />
+		<result property="uco"  column="UCO"  jdbcType="VARCHAR" />
+		<result property="usx"  column="USX"  jdbcType="VARCHAR" />
 		<result property="ucnf" column="UCNF" jdbcType="VARCHAR" />
-		<result property="ubd" column="UBD" jdbcType="DATE" />
+		<result property="ubd"  column="UBD"  jdbcType="DATE" />
 		<result property="upho" column="UPHO" jdbcType="VARCHAR" />
 		<result property="uadr" column="UADR" jdbcType="VARCHAR" />
 		<result property="uurl" column="UURL" jdbcType="VARCHAR" />
@@ -27,6 +27,7 @@
 		<result property="uno" column="UNO" jdbcType="INTEGER" />
 	</resultMap>
 	
+
 	<resultMap id="usclsSelectMap" type="com.springjobs.domain.Uscls">
 		<result property="scno" column="SCNO" jdbcType="INTEGER" />
 		<result property="scnm" column="SCNM" jdbcType="VARCHAR" />
@@ -35,6 +36,17 @@
 		<result property="scsd" column="SCSD" jdbcType="DATE" />
 		<result property="sced" column="SCED" jdbcType="DATE" />
 		<result property="uno" column="UNO" jdbcType="INTEGER" />
+	</resultMap>
+
+	<resultMap id="uexpsSelectMap" type="com.springjobs.domain.Uexps">
+		<result property="expno" column="EXPNO" jdbcType="INTEGER" />
+		<result property="expcn" column="EXPCN" jdbcType="VARCHAR" />
+		<result property="expdn" column="EXPDN" jdbcType="VARCHAR" />
+		<result property="exppy" column="EXPPY" jdbcType="INTEGER" />
+		<result property="expsd" column="EXPSD" jdbcType="DATE" />
+		<result property="exped" column="EXPED" jdbcType="DATE" />
+		<result property="expwc" column="EXPWC" jdbcType="VARCHAR" />
+		<result property="uno" 	 column="UNO" 	jdbcType="INTEGER" />
 	</resultMap>
 	
 	<!-- SQL : INSERT -->
@@ -112,4 +124,12 @@
 		uno=#{uno};
 	</select>
 
+	<select id="getUexps"	 parameterType="int"	resultType="com.springjobs.domain.Uexps">
+		SELECT
+		*
+		FROM
+		UEXPS 
+		WHERE
+		uno=#{uno};
+	</select>
 </mapper>

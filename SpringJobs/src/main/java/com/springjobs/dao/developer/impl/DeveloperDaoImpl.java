@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.springjobs.common.Search;
 import com.springjobs.dao.developer.DeveloperDao;
 import com.springjobs.domain.Cpjts;
+import com.springjobs.domain.Uexps;
 import com.springjobs.domain.Uscls;
 import com.springjobs.domain.Users;
 
@@ -77,6 +78,10 @@ public class DeveloperDaoImpl implements DeveloperDao {
 		System.out.println("DeveloperDaoImpl에서 uno : "+user.getUno());
 		sqlSession.delete("UserMapper.removeTags", user);
 	}
-	
+
+	@Override
+	public Uexps getUexps(int uno) throws Exception {
+		return sqlSession.selectOne("UserMapper.getUexps", uno);
+	}
 	
 }
