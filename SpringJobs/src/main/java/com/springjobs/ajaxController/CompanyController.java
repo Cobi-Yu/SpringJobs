@@ -46,7 +46,7 @@ public class CompanyController {
 	@RequestMapping( value="/getJob", method=RequestMethod.GET )
 	public void getJob( @RequestParam("reno") int reno , Model model ) throws Exception {
 		
-		System.out.println("/getJob/getJob : POST");
+		System.out.println("/getJob/getJob : GET");
 		Crecs crecs = companyService.getJob(reno);
 		model.addAttribute("crecs", crecs);
 	
