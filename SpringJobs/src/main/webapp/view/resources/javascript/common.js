@@ -4,6 +4,7 @@ var user;//현재 로그인한 사용자
 
 //redirect할 함수 시작
 var redirect = function(id,url,login){
+		id.css('cursor', 'pointer');
 		id.click(function(event){
 			event.preventDefault();
 			if( (login!=null) && (user==null) ){

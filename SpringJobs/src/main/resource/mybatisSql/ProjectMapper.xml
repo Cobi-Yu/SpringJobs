@@ -35,6 +35,16 @@
 		<result property="cpjno" 		column="CPJNO" 		jdbcType="INTEGER" />
 		<result property="cpjconf" 		column="CPJCONF" 	jdbcType="CHAR" />
 	</resultMap>
+	
+	<resultMap id="joinProjectUserSelectMap" type="com.springjobs.domain.Users">
+	    <id		property="uno"			column="UNO" 		jdbcType="INTEGER" />
+		<result property="unm" 			column="UNM" 		jdbcType="INTEGER" />
+		<result property="cpjconf" 		column="CPJCONF" 	jdbcType="CHAR" />
+		<collection property="utags" ofType="com.springjobs.domain.UTags">
+		    <id property="uexno"		column="UEXNO"		jdbcType="INTEGER"/>
+	    	<result property="uextg"	column="UEXTG" 		jdbcType="VARCHAR"/>
+		</collection>
+	</resultMap>
 
 	<!-- SQL : INSERT -->
 	<insert 	id="addProject"		parameterType="com.springjobs.domain.Cpjts" >
@@ -125,5 +135,10 @@
 		        AND pjjoin.cpjconf = #{cpjconf}
 		    </if>
 		</where>
+	</select>
+	<select id="getJoinProjectUserList" parameterType="map" resultMap="joinProjectUserSelectMap">
+	    select * from 
+	    (SELECT user.* FROM USERS user ,CPJJOIN cpjoin where user.uno=cpjoin.uno and cpjno=#{cpjno} AND cpjconf = #{confirm})main 
+	 	left outer join UTAGS tags on tags.uno=main.uno;
 	</select>
 </mapper>

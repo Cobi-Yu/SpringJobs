@@ -36,9 +36,7 @@
          border-style: outset; 
          border-width: 7px; 
          background-color:white; 
-         padding-left:15px; 
-         padding-right:15px; 
-         padding-bottom:15px;
+         padding:15px; 
          margin-top:10px;
          margin-bottom:20px;
      }
@@ -55,6 +53,32 @@
      .tag{
      	margin:3px;
      }
+     .joinUserBox{
+    	width: 32%;
+    	display: inline-table;
+    	height:300px;
+    	cursor:pointer;
+     }
+     .joinUser{
+     	text-align: center;
+     	height:200px;
+     }
+     .joinUser img{
+     	border : 3px outset;
+     	width: 10em;
+     }
+     .btn-circle{
+		width: 50px;
+		height: 50px;
+		padding: 0px;
+		font-size: 20px;
+		line-height: 1.33;
+		border-radius: 35px;
+		margin: 5px;
+	}
+	.joinUserTag{
+		height:97px;
+	}
     </style>
 
 </head>
@@ -191,6 +215,12 @@
                         	<button type ="button" class="btn btn-default" id="joinCompany">지원하기</button>
                         </div>
                     </section>
+                    <section id="getJoinProjectUserList">
+                    	<h1>수락완료개발자</h1>
+                    </section>
+                    <section id="getJoinConfirmProjectUserList">
+                    	<h1>참여신청개발자</h1>
+                    </section>
                 </div>
                 <div class="col-md-1"></div>
 			</div>
@@ -205,6 +235,8 @@
 		$('#footer').load('http://t1.java78.com:8080/view/common/login/frameFooter.html');
 	});
    $(document).on('frameComplete',function(event){
+	   var cpjt;
+	   var projectJoinUserList;
 	   $.ajax({
            type:'get',
            url: contextRoot+"/company/getProjectView?cpjno="+getUrlParams().cpjno,
@@ -216,6 +248,7 @@
 				"Content-Type" : "application/json"
 			},
            success:function(data){
+        	   cpjt=data.cpjt;
         	   console.log(data);
 	       		$.map(data.cpjt.cpjsk,function(val,i){
 	       			$('#cpjskList').append($('<button></button>').addClass('btn tag btn-sm btn-default').text(val.sknm));
@@ -242,6 +275,40 @@
            }
        });
 	   
+	   $.ajax({
+		  	type:'POST',
+          	url: contextRoot+"/company/getJoinProjectUserList",
+          	dataType : "json",
+        	beforeSend : addLoading,
+			complete : removeLoading,
+           	headers : {
+				"Accept" : "application/json",
+				"Content-Type" : "application/json"
+			},
+			data:JSON.stringify(
+				{
+					cpjno:getUrlParams().cpjno,
+					confirm:"1"
+				}	
+			),
+			success:function(data){
+				var userList = data.userList;
+				console.log("userList : ");
+				console.log(userList);
+				$.get('getJoinProjectUser.html',function(data){
+					for(var i=0; i<userList.length; i++){
+						var joinUser = userList[i];
+						$('#getJoinProjectUserList').append(data).each(function(){
+							$('.unm:eq('+i+')').text(joinUser.unm);
+							for(var j =0;j<joinUser.utags.length;j++){
+								$('.uextg:eq('+i+')').append($('<button type="button" class="btn btn-primary btn-circle">').text(joinUser.utags[j]['uextg']));
+							}
+						});
+					}
+				});	
+			}
+	   });
+	   
 	   //자세히보기
 	   $('.btn-detail').click(function(){
 	        console.log($(this).prev());
@@ -257,6 +324,8 @@
 	   $('#joinCompany').click(function(){
 		   if(user==null){
 			   callModal('경고','로그인이 필요합니다.');
+		   }else if(user.cno==cpjt.cno){
+			   callModal('경고','자신의 프로젝트에 지원 할 수 없습니다.');
 		   }else{
 			   joinData = {};
 			   joinData.uno = user.uno;

@@ -1,5 +1,8 @@
 package com.springjobs.dao.company.impl;
 
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,6 +12,7 @@ import com.springjobs.dao.company.CompanyDao;
 import com.springjobs.domain.Cinfos;
 import com.springjobs.domain.Cpjts;
 import com.springjobs.domain.Crecs;
+import com.springjobs.domain.Users;
 
 @Repository("companyDaoImpl")
 public class CompanyDaoImpl implements CompanyDao{
@@ -24,21 +28,16 @@ public class CompanyDaoImpl implements CompanyDao{
 	public int addProject(Cpjts cpjts){
 		sqlSession.insert("ProjectMapper.addProject", cpjts);
 		int cpjno = cpjts.getCpjno();
-		System.out.println("dao impl에서 cpjno 값은??"+ cpjno);
 		return cpjno;
 	}
 	
-	public Cpjts getProject(int cpjno) throws Exception{
-		Cpjts cpjts = new Cpjts();
-		System.out.println("daoimpl에서 CPJTS:"+cpjts);
-		
+	public Cpjts getProjectView(int cpjno) throws Exception{
 		return sqlSession.selectOne("ProjectMapper.getProject", cpjno);	
 	}
 	
 	public int addJob(Crecs crecs){
 		sqlSession.insert("AddJobMapper.addJob", crecs);
 		int reno = crecs.getReno();
-		System.out.println("dao impl에서 reno 값은??"+ reno);
 		return reno;
 	}
 	
@@ -53,5 +52,10 @@ public class CompanyDaoImpl implements CompanyDao{
 	@Override
 	public void addProjectSkills(Cpjts cpjts) {
 		sqlSession.insert("ProjectMapper.addProjectSkills",cpjts);
+	}
+
+	@Override
+	public List<Users> getJoinProjectUserList(Map<String, Object> map) {
+		return sqlSession.selectList("ProjectMapper.getJoinProjectUserList", map);
 	}
 }

@@ -1,5 +1,7 @@
 package com.springjobs.ajaxController;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -33,7 +35,7 @@ public class CompanyController {
 	@RequestMapping( value="/getProjectView" , method=RequestMethod.GET)
 	public void getProjectView(@RequestParam("cpjno") int cpjno, Model model) throws Exception{
 		System.out.println("getProjectView Test :"+cpjno);
-		model.addAttribute("cpjt", companyService.getProject(cpjno));
+		model.addAttribute("cpjt", companyService.getProjectView(cpjno));
 	}
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 	
@@ -50,6 +52,11 @@ public class CompanyController {
 		Crecs crecs = companyService.getJob(reno);
 		model.addAttribute("crecs", crecs);
 	
+	}
+	
+	@RequestMapping( value="/getJoinProjectUserList" , method=RequestMethod.POST)
+	public void getJoinProjectUserList(@RequestBody HashMap<String, Object> map, Model model) throws Exception{
+		model.addAttribute("userList", companyService.getJoinProjectUserList(map));
 	}
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*	@RequestMapping( value="/getJob/{reno}", method=RequestMethod.POST )

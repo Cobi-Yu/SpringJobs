@@ -1,6 +1,7 @@
 package com.springjobs.domain;
 
 import java.sql.Date;
+import java.util.List;
 
 public class Users {
 	
@@ -18,13 +19,24 @@ public class Users {
 	private String uurl;
 	private String ures;
 	private int cno;
+	private List<UPhotos> uphots;
+	private List<UTags> utags;
+	private List<Uexps> upxps;
+	private List<Uscls> uslcs;
+	private List<Ucerts> ucerts;
+	private List<Ulans> ulans;
+	private List<UPjtNo> upjtno;
+	private List<Skills> skills;
+	private List<Cpjts> cpjts;
 	
 	public Users() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Users(int uno, String unm, String uenm, String uem, String upw, String uco, String usx, String ucnf,
-			Date ubd, String upho, String uadr, String uurl, String ures, int cno) {
+			Date ubd, String upho, String uadr, String uurl, String ures, int cno, List<UPhotos> uphots,
+			List<UTags> utags, List<Uexps> upxps, List<Uscls> uslcs, List<Ucerts> ucerts, List<Ulans> ulans,
+			List<UPjtNo> upjtno, List<Skills> skills, List<Cpjts> cpjts) {
 		super();
 		this.uno = uno;
 		this.unm = unm;
@@ -40,6 +52,15 @@ public class Users {
 		this.uurl = uurl;
 		this.ures = ures;
 		this.cno = cno;
+		this.uphots = uphots;
+		this.utags = utags;
+		this.upxps = upxps;
+		this.uslcs = uslcs;
+		this.ucerts = ucerts;
+		this.ulans = ulans;
+		this.upjtno = upjtno;
+		this.skills = skills;
+		this.cpjts = cpjts;
 	}
 
 	public int getUno() {
@@ -154,14 +175,86 @@ public class Users {
 		this.cno = cno;
 	}
 
+	public List<UPhotos> getUphots() {
+		return uphots;
+	}
+
+	public void setUphots(List<UPhotos> uphots) {
+		this.uphots = uphots;
+	}
+
+	public List<UTags> getUtags() {
+		return utags;
+	}
+
+	public void setUtags(List<UTags> utags) {
+		this.utags = utags;
+	}
+
+	public List<Uexps> getUpxps() {
+		return upxps;
+	}
+
+	public void setUpxps(List<Uexps> upxps) {
+		this.upxps = upxps;
+	}
+
+	public List<Uscls> getUslcs() {
+		return uslcs;
+	}
+
+	public void setUslcs(List<Uscls> uslcs) {
+		this.uslcs = uslcs;
+	}
+
+	public List<Ucerts> getUcerts() {
+		return ucerts;
+	}
+
+	public void setUcerts(List<Ucerts> ucerts) {
+		this.ucerts = ucerts;
+	}
+
+	public List<Ulans> getUlans() {
+		return ulans;
+	}
+
+	public void setUlans(List<Ulans> ulans) {
+		this.ulans = ulans;
+	}
+
+	public List<UPjtNo> getUpjtno() {
+		return upjtno;
+	}
+
+	public void setUpjtno(List<UPjtNo> upjtno) {
+		this.upjtno = upjtno;
+	}
+
+	public List<Skills> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<Skills> skills) {
+		this.skills = skills;
+	}
+
+	public List<Cpjts> getCpjts() {
+		return cpjts;
+	}
+
+	public void setCpjts(List<Cpjts> cpjts) {
+		this.cpjts = cpjts;
+	}
+
 	@Override
 	public String toString() {
 		return "Users [uno=" + uno + ", unm=" + unm + ", uenm=" + uenm + ", uem=" + uem + ", upw=" + upw + ", uco="
 				+ uco + ", usx=" + usx + ", ucnf=" + ucnf + ", ubd=" + ubd + ", upho=" + upho + ", uadr=" + uadr
-				+ ", uurl=" + uurl + ", ures=" + ures + ", cno=" + cno + "]";
+				+ ", uurl=" + uurl + ", ures=" + ures + ", cno=" + cno + ", uphots=" + uphots + ", utags=" + utags
+				+ ", upxps=" + upxps + ", uslcs=" + uslcs + ", ucerts=" + ucerts + ", ulans=" + ulans + ", upjtno="
+				+ upjtno + ", skills=" + skills + ", cpjts=" + cpjts + "]";
 	}
-	
-	
 	
 	
 } // end of class
