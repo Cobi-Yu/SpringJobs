@@ -1,0 +1,61 @@
+				<div class="modal-body">
+			    	<div class="row">
+			
+			      <!-- edit form column -->
+			      <div class="col-md-2"></div>
+			      <div class="col-md-8" >
+			      <table style="border-collapse: collapse;">			      	
+			      	<tr>
+			      		<td class="col-md-1" style="padding-top: 1em;">
+				      		<strong>학교명</strong>
+			      		</td>
+			      		<td class="col-md-1" style="padding-top: 1em;">
+			      			<input type="text" id="scnm" placeholder="학교명을 입력해주세요." style="width: 100%;">
+			      		</td>
+			      	</tr>
+			      	<tr>
+			      		<td class="col-md-1" style="padding-top: 1em;">
+			      			<strong>전공명</strong>
+			      		</td>
+			      		<td class="col-sm-1" style="padding-top: 1em;">
+			      			<input type="text" id="scmj" placeholder="전공명을 입력해주세요." style="width: 100%;">
+			      		</td>
+			      	</tr>
+			      	<tr>
+			      		<td class="col-md-1" style="padding-top: 1em;">
+			      			<strong>최종 성적</strong>
+			      		</td>
+			      		<td class="col-sm-1" style="padding-top: 1em;">
+			        		<input type="text" id="scgr" placeholder="성적을 입력해주세요." style="width: 100%;">	      		
+                        </td>
+			      	</tr>
+			      	<tr>
+			      		<td class="col-md-1" style="padding-top: 1em;">
+			      			<strong>재학기간</strong>	
+			      		</td>
+			      		<td class="col-sm-2" style="padding-top: 1em;">
+                            입학일 <input type="date" id="scsd" style="width: 75%; height: 30%;"><br>
+                            졸업일 <input type="date" id="sced" style="width: 75%; height: 30%; margin-top: 1em;">                           
+                        </td> 
+			      	 </tr>  
+			      	</table>
+			      </div>
+			      <div class="col-md-1"></div>			     
+			  </div>
+			 </div>
+	       <div class="modal-footer">
+	         <button type="button" class="btn btn-default" data-dismiss="modal" id="removeUscls">취소</button>
+	         <button type="button" class="btn btn-orange" id="modifiedCompleteUscls">확인</button>
+	       </div> 
+	                       
+	       <script>
+	       
+	        $('#removeUscls').click(function(){
+	        	$('#pfModal2').modal('hide');
+	        	$('#pfModal2table').empty();
+	        });
+	        
+	        $('#modifiedCompleteUscls').click(function(){
+	        	
+	        })
+			</script>

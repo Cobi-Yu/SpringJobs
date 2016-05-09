@@ -1,0 +1,56 @@
+				<div class="modal-body">
+			    	<div class="row">
+			
+			      <!-- edit form column -->
+			      <div class="col-md-2"></div>
+			      <div class="col-md-8" >
+			      <table style="border-collapse: collapse;">
+			      	<tr>
+			      		<td class="col-md-1" style="padding-top: 1em;">
+				      		<strong>학교명</strong>
+			      		</td>
+			      		<td class="col-md-1" style="padding-top: 1em;">
+			      			<div id="scnm"></div>
+			      		</td>
+			      	</tr>
+			      	<tr>
+			      		<td class="col-md-1" style="padding-top: 1em;">
+			      			<strong>전공명</strong>
+			      		</td>
+			      		<td class="col-sm-1" style="padding-top: 1em;">
+			      			<div id="scmj"></div>
+			      		</td>
+			      	</tr>
+			      	<tr>
+			      		<td class="col-md-1" style="padding-top: 1em;">
+			      			<strong>최종 성적</strong>
+			      		</td>
+			      		<td class="col-sm-1" style="padding-top: 1em;">
+			        		<div id="scgr"></div>	      		
+                        </td>
+			      	</tr>
+			      	<tr>
+			      		<td class="col-md-1" style="padding-top: 1em;">
+			      			<strong>재학기간</strong>	
+			      		</td>
+			      		<td class="col-sm-2" style="padding-left: 0em; padding-top: 1em;">
+                            <div class="col-xs-5" id="scsd" style="padding-right: 0em;"></div>
+                            <div class="col-xs-1" style="padding:0em;">~</div>
+                            <div class="col-xs-5" id="sced" style="padding-left: 0em;"></div>                            
+                        </td>
+			      	 </tr>
+			      	</table>
+			      </div>
+			      <div class="col-md-1"></div>			     
+			  </div>
+			 </div>
+	       <div class="modal-footer">
+	         <button type="button" class="btn btn-default" data-dismiss="modal" id="removeUscls">취소</button>
+	         <button type="button" class="btn btn-orange" id="modifiedUscls">수정</button>
+	       </div>
+	       
+	       <script>
+	        $('#modifiedUscls').click(function() {
+	        	$('#pfModal2table').load('Uscls/modifiedUscls.html')
+	        });
+	       </script>
