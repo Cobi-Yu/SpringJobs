@@ -136,9 +136,16 @@
 		    </if>
 		</where>
 	</select>
+	
 	<select id="getJoinProjectUserList" parameterType="map" resultMap="joinProjectUserSelectMap">
 	    select * from 
 	    (SELECT user.* FROM USERS user ,CPJJOIN cpjoin where user.uno=cpjoin.uno and cpjno=#{cpjno} AND cpjconf = #{confirm})main 
 	 	left outer join UTAGS tags on tags.uno=main.uno;
 	</select>
+	
+	<update id="confirmProjectUser" parameterType="map">
+	    UPDATE CPJJOIN
+	    SET CPJCONF='1'
+		where cpjno=#{cpjno} and uno=#{uno}
+	</update>
 </mapper>

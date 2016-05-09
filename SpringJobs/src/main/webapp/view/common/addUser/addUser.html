@@ -103,10 +103,12 @@
 <script>
 	var uemConfirm=false;
 	var upwConfirm=false;
+	var joinUser;
 	$(function(){
 		$('#header').load('/view/common/login/frameHeader.html');
 		$('#footer').load('/view/common/login/frameFooter.html');
-	})
+	});
+	
 	<!-- 비밀번호 체크 -->
 	$('#joinupw').on('input',function(){
 		if($(this).val().length<8){
@@ -182,8 +184,26 @@
 				},
 				beforeSend : addLoading,
 				complete : removeLoading,
-				success : function(status){
-					callModal('회원가입','가입완료!!','/view/common/login/frame.html');
+				success : function(data){
+					joinUser=data.joinUser;
+					$.ajax({
+						url: nodeContextRoot+"/userEmailConfirm",
+						method : "POST",
+						dataType : "json",
+						data : JSON.stringify(
+							{
+								"uem":data.joinUser.uem,
+								"uno":data.joinUser.uno
+							}	
+						),
+						headers : {
+							"Accept" : "application/json",
+							"Content-Type" : "application/json"
+						},
+						beforeSend : addLoading,
+						complete : removeLoading,
+					});
+					callModal('회원가입','가입완료!! 메일인증을 진행해주세요.','/view/common/login/frame.html');
 				}
 			});
 		}

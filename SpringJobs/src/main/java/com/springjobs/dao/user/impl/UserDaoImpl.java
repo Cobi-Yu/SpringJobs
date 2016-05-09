@@ -19,8 +19,9 @@ public class UserDaoImpl implements UserDao{
 		this.sqlSession = sqlSession;
 	}
 	
-	public void addUser(Users user){
+	public Users addUser(Users user){
 		sqlSession.insert("UserMapper.addUser", user);
+		return user;
 	}
 
 	@Override
@@ -31,5 +32,10 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public int idDuplicateCheck(Users user) {
 		return sqlSession.selectOne("UserMapper.idDuplicateCheck",user);
+	}
+
+	@Override
+	public int userEmailConfirm(int uno) {
+		return sqlSession.update("UserMapper.userEmailConfirm",uno);
 	}
 }

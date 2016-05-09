@@ -31,13 +31,11 @@ public class CompanyController {
 		model.addAttribute("cpjno",cpjts.getCpjno());
 	}
 	
-////////////////////////////////////////////////////////////////////////////////////////////////////
 	@RequestMapping( value="/getProjectView" , method=RequestMethod.GET)
 	public void getProjectView(@RequestParam("cpjno") int cpjno, Model model) throws Exception{
 		System.out.println("getProjectView Test :"+cpjno);
 		model.addAttribute("cpjt", companyService.getProjectView(cpjno));
 	}
-////////////////////////////////////////////////////////////////////////////////////////////////////
 	
 	@RequestMapping( value="/addJob" , method=RequestMethod.POST)
 	public void addJob(@RequestBody Crecs crecs, Model model){
@@ -58,13 +56,9 @@ public class CompanyController {
 	public void getJoinProjectUserList(@RequestBody HashMap<String, Object> map, Model model) throws Exception{
 		model.addAttribute("userList", companyService.getJoinProjectUserList(map));
 	}
-	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-/*	@RequestMapping( value="/getJob/{reno}", method=RequestMethod.POST )
-	public void getJob(	@PathVariable int reno, 
-									 			Model model) throws Exception{
-		
-		System.out.println("/getJob/getJob : POST");
-		Crecs crecs = companyService.getJob(reno);
-		model.addAttribute("crecs", crecs);
-	}*/
+	
+	@RequestMapping( value="/confirmProjectUser" , method=RequestMethod.POST)
+	public void confirmProjectUser(@RequestBody HashMap<String, Integer> map, Model model){
+		model.addAttribute("confirmResult", companyService.confirmProjectUser(map));
+	}
 }

@@ -69,7 +69,7 @@
 	</resultMap>
 
 	<!-- SQL : INSERT -->
-	<insert id="addUser" parameterType="com.springjobs.domain.Users">
+	<insert id="addUser" parameterType="com.springjobs.domain.Users" useGeneratedKeys="true" keyProperty="uno" keyColumn="uno">
 		INSERT
 		INTO USERS(unm, uem, upw, ucnf)
 		VALUES (#{unm},#{uem},#{upw},'0');
@@ -181,4 +181,10 @@
 		ON DUPLICATE KEY UPDATE
 		scnm=#{scnm}, scmj=#{scmj}, scgr=#{scgr}, scsd=#{scsd}, sced=#{sced}, uno=#{uno};
 	</insert>
+	
+	<update id="userEmailConfirm"	parameterType="int">
+	    UPDATE USERS
+	    SET UCNF='1'
+	    WHERE uno=#{uno}
+	</update>
 </mapper>

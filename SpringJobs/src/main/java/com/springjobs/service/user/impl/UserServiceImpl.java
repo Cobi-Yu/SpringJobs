@@ -17,8 +17,8 @@ public class UserServiceImpl implements UserService{
 		this.userDao = userDao;
 	}
 	
-	public void addUser(Users user){
-		userDao.addUser(user);
+	public Users addUser(Users user){
+		return userDao.addUser(user);
 	}
 
 	@Override
@@ -29,5 +29,10 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public int idDuplicateCheck(Users user) {
 		return userDao.idDuplicateCheck(user);
+	}
+
+	@Override
+	public int userEmailConfirm(int uno) {
+		return userDao.userEmailConfirm(uno);
 	}
 }

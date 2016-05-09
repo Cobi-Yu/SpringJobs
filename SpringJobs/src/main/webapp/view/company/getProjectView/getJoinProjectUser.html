@@ -6,15 +6,37 @@
 	  	</div>
 	  	<div class="panel-footer joinUserTag" style="text-align:center;">
 			<h4 class="uextg">
-<!-- 				<button type="button" class="btn btn-primary btn-circle">TAG</button> -->
-<!-- 				<button type="button" class="btn btn-success btn-circle">TAG</button> -->
-<!-- 				<button type="button" class="btn btn-danger btn-circle">TAG</button> -->
-<!-- 				<button type="button" class="btn btn-warning btn-circle">TAG</button> -->
 			</h4>
 	  	</div>
   	</div>
 </div>
 
 <script>
-
+	$('.joinUserBox').off("click").on("click",function(){
+		$('#myModal').modal();
+		console.log($(this).attr('value'));
+		$('#accept-btn').attr('value',$(this).attr('value'));
+	});
+	$('#accept-btn').off("click").on("click",function(){
+		$('#myModal').modal('hide');
+		$.ajax({
+			type : 'POST',
+			url : contextRoot
+					+ "/company/confirmProjectUser",
+			dataType : "json",
+			beforeSend : addLoading,
+			complete : removeLoading,
+			headers : {
+				"Accept" : "application/json",
+				"Content-Type" : "application/json"
+			},
+			data : JSON.stringify({
+				cpjno : getUrlParams().cpjno,
+				uno : $('#accept-btn').attr('value')
+			}),
+			success : function(data) {
+				$('#confirmSuccessModal').modal();
+			}
+		});
+	});
 </script>

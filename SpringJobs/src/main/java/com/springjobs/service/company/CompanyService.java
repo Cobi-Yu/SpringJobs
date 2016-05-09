@@ -1,8 +1,11 @@
 package com.springjobs.service.company;
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.springframework.ui.Model;
 
 import com.springjobs.domain.Cinfos;
 import com.springjobs.domain.Cpjts;
@@ -24,4 +27,6 @@ public interface CompanyService {
 	public void addCompany(Cinfos cinfos);
 	
 	public List<Users> getJoinProjectUserList(Map<String, Object> map);
+	
+	public int confirmProjectUser(HashMap<String, Integer> map);
 }

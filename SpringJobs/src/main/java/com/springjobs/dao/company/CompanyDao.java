@@ -1,7 +1,9 @@
 package com.springjobs.dao.company;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 import com.springjobs.domain.Cinfos;
 import com.springjobs.domain.Cpjts;
@@ -23,4 +25,6 @@ public interface CompanyDao {
 	public void addProjectSkills(Cpjts cpjts);
 	
 	public List<Users> getJoinProjectUserList(Map<String, Object> map);
+	
+	public int confirmProjectUser(HashMap<String, Integer> map);
 }

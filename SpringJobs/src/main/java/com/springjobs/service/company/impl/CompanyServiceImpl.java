@@ -1,11 +1,13 @@
 package com.springjobs.service.company.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.springjobs.dao.company.CompanyDao;
 import com.springjobs.domain.Cinfos;
@@ -45,5 +47,9 @@ public class CompanyServiceImpl implements CompanyService{
 	@Override
 	public List<Users> getJoinProjectUserList(Map<String, Object> map) {
 		return companyDao.getJoinProjectUserList(map);
+	}
+	@Override
+	public int confirmProjectUser(HashMap<String, Integer> map) {
+		return companyDao.confirmProjectUser(map);
 	}
 }

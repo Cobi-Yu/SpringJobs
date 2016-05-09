@@ -1,5 +1,6 @@
 package com.springjobs.dao.company.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -58,4 +59,10 @@ public class CompanyDaoImpl implements CompanyDao{
 	public List<Users> getJoinProjectUserList(Map<String, Object> map) {
 		return sqlSession.selectList("ProjectMapper.getJoinProjectUserList", map);
 	}
+
+	@Override
+	public int confirmProjectUser(HashMap<String, Integer> map) {
+		return sqlSession.update("ProjectMapper.confirmProjectUser", map);
+	}
+	
 }

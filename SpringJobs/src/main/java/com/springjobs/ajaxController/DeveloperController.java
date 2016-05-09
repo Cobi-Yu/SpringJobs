@@ -94,8 +94,7 @@ public class DeveloperController {
 		System.out.println("developerController에서 getUexps :"+developerService.getUexps(uno));
 		System.out.println("DeveloperContoller에서 uno:"+uno);
 		model.addAttribute("uexps", developerService.getUexps(uno));
-	}	
-	
+	}
 	@RequestMapping( value="/addUexps", method=RequestMethod.POST)
 	public void addUexps(@RequestBody Uexps uexps, Model model){
 		System.out.println(uexps);
