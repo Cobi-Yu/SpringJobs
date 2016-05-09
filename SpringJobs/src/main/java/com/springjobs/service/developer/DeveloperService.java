@@ -16,8 +16,6 @@ public interface DeveloperService {
 	
 	public int addInfo(Users users);
 	
-/*	public int addAcademic(Uscls uscls);*/
-	
 	public int addTags(Map<String, Object> map);
 	
 	public List<String> getUtag(int uno) throws Exception;
@@ -40,4 +38,6 @@ public interface DeveloperService {
 	public Ucerts getUcerts(int uno) throws Exception;
 	
 	public Uscls getUscls(int uno) throws Exception;
+	
+	public void addUscls(Uscls uscls);
 }
