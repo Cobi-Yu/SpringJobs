@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springjobs.common.Search;
 import com.springjobs.domain.Uexps;
+import com.springjobs.domain.Uscls;
 import com.springjobs.domain.Users;
 import com.springjobs.service.developer.DeveloperService;
 
@@ -117,4 +118,10 @@ public class DeveloperController {
 		System.out.println("DeveloperContoller에서 uno:"+uno);
 		model.addAttribute("uscls", developerService.getUscls(uno));
 	}	
+	@RequestMapping( value="/addUscls", method=RequestMethod.POST)
+	public void addUscls(@RequestBody Uscls uscls, Model model){
+		System.out.println(uscls);
+		developerService.addUscls(uscls);
+//		model.addAttribute("uexps", developerService.addUexps(uexps));
+	}
 }
