@@ -85,36 +85,35 @@
 		  </div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
 		<!-- 추가완료 모달 시작 -->	                 
-	       <script>
-	       
-	        $('#removeUexps').click(function(){
-	        	$('#pfModal3').modal('hide');
-	        	$('#pfModal3table').empty();
-	        });
-	        
-	        $('#modifiedComplete').click(function(){
-	  	      $.ajax({
-	                url: contextRoot+"/developer/addUexps"
-	                , method: "POST"
-	                , dataType: "json"
-	                , data: 
-	                	'{"expcn":"' +$("#expcn").val() 
-	        		 	+'","expdn":"'+$("#expdn").val()
-	        		 	+'","exppy":"'+$("#exppy").val()
-	        		 	+'","expsd":"'+$("#expsd").val()
-		           		+'","exped":"'+$("#exped").val()
-		           		+'","expwc":"'+$("#expwc").val()
-		           		+'","exppt":"'+$("#exppt").val()
-		           		+'","uno":"'+user.uno+'"}'
-	                , headers: {
-	                      "Accept": "application/json"
-	                     ,"Content-Type": "application/json"
-	                },
-					beforeSend : addLoading,
-					complete : removeLoading,
-	                success: function (data) {
-	                	console.log(data);
-	                } //success fuction 
-	            }); //등록 내부 첫 ajax 끝 
-	        });
-			</script>
+       <script>
+        $('#removeUexps').click(function(){
+        	$('#pfModal3').modal('hide');
+        	$('#pfModal3table').empty();
+        });
+        
+        $('#modifiedComplete').click(function(){
+  	      $.ajax({
+                url: contextRoot+"/developer/addUexps"
+                , method: "POST"
+                , dataType: "json"
+                , data: 
+                	'{"expcn":"' +$("#expcn").val() 
+        		 	+'","expdn":"'+$("#expdn").val()
+        		 	+'","exppy":"'+$("#exppy").val()
+        		 	+'","expsd":"'+$("#expsd").val()
+	           		+'","exped":"'+$("#exped").val()
+	           		+'","expwc":"'+$("#expwc").val()
+	           		+'","exppt":"'+$("#exppt").val()
+	           		+'","uno":"'+user.uno+'"}'
+                , headers: {
+                      "Accept": "application/json"
+                     ,"Content-Type": "application/json"
+                },
+				beforeSend : addLoading,
+				complete : removeLoading,
+                success: function (data) {
+                	console.log(data);
+                } //success fuction 
+            }); //등록 내부 첫 ajax 끝 
+        });
+		</script>
