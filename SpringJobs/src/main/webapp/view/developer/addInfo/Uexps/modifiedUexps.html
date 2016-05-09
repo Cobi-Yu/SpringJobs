@@ -45,8 +45,7 @@
                             <strong>경력업무내용</strong>
                          </td>
                          <td class="col-sm-1" style="padding-top: 1em;">
-                              <textarea id="expwc" placeholder="내용을 입력해주세요." style="width: 100%;">	
-                              </textarea>
+                              <input type="text" id="expwc" placeholder="내용을 입력해주세요." style="width: 100%;">
                          </td>
                       </tr>
                       
@@ -67,8 +66,25 @@
 	       <div class="modal-footer">
 	         <button type="button" class="btn btn-default" data-dismiss="modal" id="removeUexps">취소</button>
 	         <button type="button" class="btn btn-orange" id="modifiedComplete">확인</button>
-	       </div> 
-	                       
+	       </div>
+       <!-- 추가완료 모달 시작 -->
+		<div class="modal fade" id="test">
+		  <div class="modal-dialog" style="width: 20%;">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title">등록완료!</h4>
+		      </div>
+		      <div class="modal-body">
+		        <p>다른것들도 추가해보세용!</p>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		<!-- 추가완료 모달 시작 -->	                 
 	       <script>
 	       
 	        $('#removeUexps').click(function(){
@@ -77,6 +93,28 @@
 	        });
 	        
 	        $('#modifiedComplete').click(function(){
-	        	
-	        })
+	  	      $.ajax({
+	                url: contextRoot+"/developer/addUexps"
+	                , method: "POST"
+	                , dataType: "json"
+	                , data: 
+	                	'{"expcn":"' +$("#expcn").val() 
+	        		 	+'","expdn":"'+$("#expdn").val()
+	        		 	+'","exppy":"'+$("#exppy").val()
+	        		 	+'","expsd":"'+$("#expsd").val()
+		           		+'","exped":"'+$("#exped").val()
+		           		+'","expwc":"'+$("#expwc").val()
+		           		+'","exppt":"'+$("#exppt").val()
+		           		+'","uno":"'+user.uno+'"}'
+	                , headers: {
+	                      "Accept": "application/json"
+	                     ,"Content-Type": "application/json"
+	                },
+					beforeSend : addLoading,
+					complete : removeLoading,
+	                success: function (data) {
+	                	console.log(data);
+	                } //success fuction 
+	            }); //등록 내부 첫 ajax 끝 
+	        });
 			</script>

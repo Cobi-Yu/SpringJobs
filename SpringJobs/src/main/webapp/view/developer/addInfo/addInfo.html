@@ -289,8 +289,7 @@
                 <!-- portfolio 부분 두번째줄 시작 -->
                 <div class="col-md-12" style="margin-bottom: 2em;">
 	                <div class="col-md-4 portfolio-item">
-	                    <!-- <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal"> -->
-	                    <a id="portfolio4" data-toggle="modal" data-target="#portfolioModal4" class="portfolio-link"> 
+	                    <a id="portfolio4" class="portfolio-link"> 
 	                        <div class="caption">
 	                            <div class="caption-content">
 	                                <i class="fa fa-search-plus fa-3x">보유기술</i>
@@ -300,8 +299,7 @@
 	                    </a>
 	                </div>
 	                <div class="col-md-4 portfolio-item">
-	                    <!-- <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal"> -->
-	                    <a id="portfolio5" data-toggle="modal" data-target="#portfolioModal5" class="portfolio-link">
+	                    <a id="portfolio5" class="portfolio-link">
 	                        <div class="caption">
 	                            <div class="caption-content">
 	                                <i class="fa fa-search-plus fa-3x">외국어 및 자격증</i>
@@ -459,77 +457,41 @@
 			      <!-- 모달내용 끝 -->
 	    </div><!-- 모달 콘텐츠 끝 -->
 	  </div>   
-    </div><!-- 세번째 모달 끝  -->
-   <div class="portfolio-modal modal fade" id="pfModal4" tabindex="-1" role="dialog" aria-hidden="true" >
-     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-							<div style="width:30%;">
-							<label> 보유기술</label>
-                 			    <div class="checkbox">
-                       <label>
-                           <input type="checkbox" value="">Option 1</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                       <label class="checkbox-inline">
-                           <input type="checkbox" value="">Option 3</label>
-                           </div>
-                 				<br>
-                 			  <button type="submit" class="btn btn-default" style="width:20%">
-                 			  <i class="fa fa-times"></i>Save</button>	
-		                   <button type="button" class="btn btn-default" data-dismiss="modal">
-		                   <i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
     </div>
-   </div> 
-     <div class="portfolio-modal modal fade" id="pfModal5" tabindex="-1" role="dialog" aria-hidden="true" >
-     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-							<div style="width:30%;">
-							<label> 외국어 및 자격증</label>
-                 				<br>
-                 			  <button type="submit" class="btn btn-default" style="width:20%">
-                 			  <i class="fa fa-times"></i>Save</button>	
-		                   <button type="button" class="btn btn-default" data-dismiss="modal">
-		                   <i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
+    <!-- 세번째 모달 끝  -->
+    <div class="modal fade" style="width: auto;" id="pfModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-md" role="document">    
+	     <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+			        <span aria-hidden="true" >x</span></button>
+			        <h4 class="modal-title" id="myModalLabel" align="left" >
+			        <b>보유기술</b></h4>
+			      </div> <!-- 모달헤더 끝  -->
+			      <!-- 모달내용 -->
+			      <div id="pfModal4table"></div>
+			      <!-- 모달내용 끝 -->
+	    </div><!-- 모달 콘텐츠 끝 -->
+	  </div>   
     </div>
-   </div> 
+    <!-- 네번째 모달 끝  -->
+
+    <div class="modal fade" style="width: auto;" id="pfModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-md" role="document">    
+	     <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+			        <span aria-hidden="true" >x</span></button>
+			        <h4 class="modal-title" id="myModalLabel" align="left" >
+			        <b>외국어 및 자격증</b></h4>
+			      </div> <!-- 모달헤더 끝  -->
+			      <!-- 모달내용 -->
+			      <div id="pfModal5table"></div>
+			      <!-- 모달내용 끝 -->
+	    </div><!-- 모달 콘텐츠 끝 -->
+	  </div>   
+    </div>
+    <!-- 다섯번째 모달 끝  -->
     <div class="portfolio-modal modal fade" id="pfModal6" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-content">
             <div class="close-modal" data-dismiss="modal">
@@ -796,10 +758,29 @@
     			}
     		});
         });
-
+		
+        $('#portfolio5').click(function(){
+        	$('#pfModal5table').load('Ulans/getUlans.html', function() {
+	           	$.ajax({
+	    			url : contextRoot + "/developer/getUlans?uno="+user.uno,
+	    			method : "GET",
+	    			dataType : "json",
+	    			headers : {
+	    				"Accept" : "application/json",
+	    				"Content-Type" : "application/json"
+	    			},
+	    			success : function(data, status) {
+	    				console.log(data.ulans);
+	    				$('#lgnm').text(data.ulans.lgnm);
+	    				$('#lglvl').text(data.ulans.lglvl);   
+	    				$('#pfModal5').modal(); 
+	    			}
+	    		});
+        	});
+        });         
         
         $('#portfolio3').click(function(){
-        	$('#pfModal3table').load('getUexps.html', function() {
+        	$('#pfModal3table').load('Uexps/getUexps.html', function() {
 	           	$.ajax({
 	    			url : contextRoot + "/developer/getUexps?uno="+user.uno,
 	    			method : "GET",
@@ -821,9 +802,7 @@
 	    			}
 	    		});
         	});
-        });
-        
-        	
+        }); 
         
 		$('#addTags').click(function() {
 			
