@@ -32,6 +32,8 @@ public interface DeveloperDao {
 	
 	public void addUexps(Uexps uexps);
 	
+	public void addUscls(Uscls uscls);
+	
 	public Ulans getUlans(int uno) throws Exception;
 	
 	public Ucerts getUcerts(int uno) throws Exception;

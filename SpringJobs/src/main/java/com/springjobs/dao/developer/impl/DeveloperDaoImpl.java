@@ -83,6 +83,11 @@ public class DeveloperDaoImpl implements DeveloperDao {
 	}
 
 	@Override
+	public void addUscls(Uscls uscls) {
+		System.out.println("DeveloperDaoImpl에서 uscls : "+uscls);
+		sqlSession.insert("UserMapper.addUscls", uscls);
+	}
+	@Override
 	public Ulans getUlans(int uno) throws Exception {
 		return sqlSession.selectOne("UserMapper.getUlans", uno);
 	}
