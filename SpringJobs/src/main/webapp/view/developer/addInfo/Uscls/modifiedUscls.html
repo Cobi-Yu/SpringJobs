@@ -56,6 +56,26 @@
 	        });
 	        
 	        $('#modifiedCompleteUscls').click(function(){
-	        	
-	        })
+	  	      $.ajax({
+	                url: contextRoot+"/developer/addUscls"
+	                , method: "POST"
+	                , dataType: "json"
+	                , data: 
+	                	'{"scnm":"' +$("#scnm").val() 
+	        		 	+'","scmj":"'+$("#scmj").val()
+	        		 	+'","scgr":"'+$("#scgr").val()
+	        		 	+'","scsd":"'+$("#scsd").val()
+		           		+'","sced":"'+$("#sced").val()
+		           		+'","uno":"'+user.uno+'"}'
+	                , headers: {
+	                      "Accept": "application/json"
+	                     ,"Content-Type": "application/json"
+	                },
+					beforeSend : addLoading,
+					complete : removeLoading,
+	                success: function (data) {
+	                	$("#updateCom").modal("show");
+	                } //success fuction 
+	            }); //등록 내부 첫 ajax 끝 
+	        });
 			</script>

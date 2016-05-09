@@ -136,7 +136,7 @@
                                        <td style="width: 20%; text-align: center; padding-top: 1em; border-right: hidden; border-left: hidden; border-bottom: hidden;"></td>
                                        <td colspan="3" style="border-right: hidden; border-bottom: hidden;">
                                        	   <div style="text-align: right;">
-												<a type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"></a>                                       	   
+												<a type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">수정</a>                                       	   
                                        	   </div>
                                        </td>
                                    </thead>
@@ -816,31 +816,6 @@
 			});
 		}); //노출태그 등록 이벤트 끝
 		
-/* 		$('#academic').click(function () {
-           
-            console.log('{"scnm":"' +$("#scnm").val() +'","scmj":"' 
-                	+$("#scmj").val()+'","scgr":"'+$("#scgr").val()+'","scsd":"' 
-                	+$("#scsd").val()+'","sced":"'+$("#sced").val()+'","uno":"'+user.uno+'"}')
-         $.ajax({
-                url: contextRoot+"/developer/addAcademic"
-                , method: "POST"
-                , dataType: "json"
-                , data: '{"scnm":"' +$("#scnm").val() +'","scmj":"' 
-            	+$("#scmj").val()+'","scgr":"'+$("#scgr").val()+'","scsd":"' 
-            	+$("#scsd").val()+'","sced":"'+$("#sced").val()+'","uno":"'+user.uno+'"}'
-                , headers: {
-                    "Accept": "application/json"
-                    , "Content-Type": "application/json"
-                }
-                ,beforeSend : addLoading
-				,complete : removeLoading
-                ,       success: function (data) {
-                	console.log(data);
-                	callModal('s','e!');
-                } //success fuction 
-            });
-           
-        }); */
 		
 	});
 </script>
