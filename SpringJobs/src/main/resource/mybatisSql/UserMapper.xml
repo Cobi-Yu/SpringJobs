@@ -27,7 +27,6 @@
 		<result property="uno" column="UNO" jdbcType="INTEGER" />
 	</resultMap>
 	
-
 	<resultMap id="usclsSelectMap" type="com.springjobs.domain.Uscls">
 		<result property="scno" column="SCNO" jdbcType="INTEGER" />
 		<result property="scnm" column="SCNM" jdbcType="VARCHAR" />
@@ -97,8 +96,6 @@
 		WHERE uno=#{uno}
 	</update>
 	
-	
-	
 	<delete id="removeTags" parameterType="com.springjobs.domain.Users">
 		DELETE
 		FROM
@@ -132,4 +129,12 @@
 		WHERE
 		uno=#{uno};
 	</select>
+	
+	<insert id="addUexps" 	 parameterType="com.springjobs.domain.Uexps">
+		INSERT
+		INTO UEXPS(expcn, expdn, exppy, expsd, exped, expwc, exppt, uno)
+		VALUES (#{expcn},#{expdn},#{exppy}, #{expsd}, #{exped}, #{expwc}, #{exppt}, #{uno})
+		ON DUPLICATE KEY UPDATE
+		expcn=#{expcn}, expdn=#{expdn}, exppy=#{exppy}, expsd=#{expsd}, exped=#{exped}, expwc=#{expwc}, exppt=#{exppt}, uno=#{uno};
+	</insert>
 </mapper>
