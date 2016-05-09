@@ -11,7 +11,9 @@ import org.springframework.stereotype.Repository;
 import com.springjobs.common.Search;
 import com.springjobs.dao.developer.DeveloperDao;
 import com.springjobs.domain.Cpjts;
+import com.springjobs.domain.Ucerts;
 import com.springjobs.domain.Uexps;
+import com.springjobs.domain.Ulans;
 import com.springjobs.domain.Uscls;
 import com.springjobs.domain.Users;
 
@@ -73,6 +75,22 @@ public class DeveloperDaoImpl implements DeveloperDao {
 	public Uexps getUexps(int uno) throws Exception {
 		return sqlSession.selectOne("UserMapper.getUexps", uno);
 	}
+
+	@Override
+	public void addUexps(Uexps uexps) {
+		System.out.println("DeveloperDaoImpl에서 uexps : "+uexps);
+		sqlSession.insert("UserMapper.addUexps", uexps);
+	}
+
+	@Override
+	public Ulans getUlans(int uno) throws Exception {
+		return sqlSession.selectOne("UserMapper.getUlans", uno);
+	}
+
+	@Override
+	public Ucerts getUcerts(int uno) throws Exception {
+		return sqlSession.selectOne("UserMapper.getUcerts", uno);
+	}	
 	
 	@Override
 	public Uscls getUscls(int uno) throws Exception {

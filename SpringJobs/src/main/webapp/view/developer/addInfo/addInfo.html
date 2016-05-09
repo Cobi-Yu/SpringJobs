@@ -720,7 +720,16 @@
 	    			success : function(data, status) {
 	    				console.log(data.ulans);
 	    				$('#lgnm').text(data.ulans.lgnm);
-	    				$('#lglvl').text(data.ulans.lglvl);   
+	    				$('#lglvl').text(data.ulans.lglvl);  
+	    				$('#ctnm').text(data.ucerts.ctnm);  
+	    				$('#ctag').text(data.ucerts.ctag);  
+	    				$('#ctuqno').text(data.ucerts.ctuqno);  
+	    				$('#ctsc').text(data.ucerts.ctsc);  
+	    				$('#cturl').text(data.ucerts.cturl);  
+	    				$('#ctdy').text(data.ucerts.ctdy);  
+	    				$('#ctsd').text(data.ucerts.ctsd);  
+	    				$('#cted').text(data.ucerts.cted);  
+	    				
 	    				$('#pfModal5').modal(); 
 	    			}
 	    		});

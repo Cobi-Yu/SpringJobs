@@ -5,7 +5,9 @@ import java.util.Map;
 
 import com.springjobs.common.Search;
 import com.springjobs.domain.Cpjts;
+import com.springjobs.domain.Ucerts;
 import com.springjobs.domain.Uexps;
+import com.springjobs.domain.Ulans;
 import com.springjobs.domain.Uscls;
 import com.springjobs.domain.Users;
 
@@ -27,6 +29,12 @@ public interface DeveloperDao {
 	public void deleteUtags(Users user);
 	
 	public Uexps getUexps(int uno) throws Exception;
+	
+	public void addUexps(Uexps uexps);
+	
+	public Ulans getUlans(int uno) throws Exception;
+	
+	public Ucerts getUcerts(int uno) throws Exception;
 	
 	public Uscls getUscls(int uno) throws Exception;
 }

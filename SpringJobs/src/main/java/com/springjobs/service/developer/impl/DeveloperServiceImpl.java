@@ -9,8 +9,11 @@ import org.springframework.stereotype.Service;
 
 import com.springjobs.common.Search;
 import com.springjobs.dao.developer.DeveloperDao;
+import com.springjobs.domain.Cpjjoin;
 import com.springjobs.domain.Cpjts;
+import com.springjobs.domain.Ucerts;
 import com.springjobs.domain.Uexps;
+import com.springjobs.domain.Ulans;
 import com.springjobs.domain.Uscls;
 import com.springjobs.domain.Users;
 import com.springjobs.service.developer.DeveloperService;
@@ -57,6 +60,18 @@ public class DeveloperServiceImpl implements DeveloperService {
 	@Override
 	public Uexps getUexps(int uno) throws Exception {
 		return developerDao.getUexps(uno);
+	}
+	@Override
+	public void addUexps(Uexps uexps) {
+		developerDao.addUexps(uexps);
+	}
+	@Override
+	public Ulans getUlans(int uno) throws Exception {
+		return developerDao.getUlans(uno);
+	}
+	@Override
+	public Ucerts getUcerts(int uno) throws Exception {
+		return developerDao.getUcerts(uno);
 	}
 	@Override
 	public Uscls getUscls(int uno) throws Exception {

@@ -4,18 +4,18 @@ public class Ulans {
 
 	private int lgno;
 	private String lgnm;
-	private String lglyl;
+	private String lglvl;
 	private int uno;
 	
 	public Ulans() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Ulans(int lgno, String lgnm, String lglyl, int uno) {
+	public Ulans(int lgno, String lgnm, String lglvl, int uno) {
 		super();
 		this.lgno = lgno;
 		this.lgnm = lgnm;
-		this.lglyl = lglyl;
+		this.lglvl = lglvl;
 		this.uno = uno;
 	}
 
@@ -35,12 +35,12 @@ public class Ulans {
 		this.lgnm = lgnm;
 	}
 
-	public String getLglyl() {
-		return lglyl;
+	public String getLglvl() {
+		return lglvl;
 	}
 
-	public void setLglyl(String lglyl) {
-		this.lglyl = lglyl;
+	public void setLglyl(String lglvl) {
+		this.lglvl = lglvl;
 	}
 
 	public int getUno() {
@@ -53,7 +53,7 @@ public class Ulans {
 
 	@Override
 	public String toString() {
-		return "Ulans [lgno=" + lgno + ", lgnm=" + lgnm + ", lglyl=" + lglyl + ", uno=" + uno + "]";
+		return "Ulans [lgno=" + lgno + ", lgnm=" + lgnm + ", lglvl=" + lglvl + ", uno=" + uno + "]";
 	}
 	
 }

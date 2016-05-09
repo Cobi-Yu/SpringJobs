@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springjobs.common.Search;
+import com.springjobs.domain.Uexps;
 import com.springjobs.domain.Users;
 import com.springjobs.service.developer.DeveloperService;
 
@@ -93,6 +94,22 @@ public class DeveloperController {
 		System.out.println("developerController에서 getUexps :"+developerService.getUexps(uno));
 		System.out.println("DeveloperContoller에서 uno:"+uno);
 		model.addAttribute("uexps", developerService.getUexps(uno));
+	}	
+	
+	@RequestMapping( value="/addUexps", method=RequestMethod.POST)
+	public void addUexps(@RequestBody Uexps uexps, Model model){
+		System.out.println(uexps);
+		developerService.addUexps(uexps);
+//		model.addAttribute("uexps", developerService.addUexps(uexps));
+	}
+
+	@RequestMapping( value="/getUlans", method=RequestMethod.GET)
+	public void getUlans(@RequestParam("uno") int uno, Model model) throws Exception{
+		System.out.println("developerController에서 getUlans :"+developerService.getUlans(uno));
+		System.out.println("DeveloperContoller에서 uno:"+uno);
+		
+		model.addAttribute("ucerts", developerService.getUcerts(uno));
+		model.addAttribute("ulans", developerService.getUlans(uno));
 	}	
 	
 	@RequestMapping( value="/getUscls", method=RequestMethod.GET)

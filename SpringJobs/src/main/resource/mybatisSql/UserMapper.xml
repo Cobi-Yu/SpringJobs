@@ -47,7 +47,27 @@
 		<result property="expwc" column="EXPWC" jdbcType="VARCHAR" />
 		<result property="uno" 	 column="UNO" 	jdbcType="INTEGER" />
 	</resultMap>
+
+	<resultMap id="ulansSelectMap" type="com.springjobs.domain.Ulans">
+		<result property="lgno"  column="LGNO"  jdbcType="INTEGER" />
+		<result property="lgnm"  column="LGNM"  jdbcType="VARCHAR" />
+		<result property="lglvl" column="LGLVL" jdbcType="VARCHAR" />
+		<result property="uno" 	 column="UNO" 	jdbcType="INTEGER" />
+	</resultMap>
 	
+	<resultMap id="ucertsSelectMap" type="com.springjobs.domain.Ucerts">
+		<result property="ctno"    column="CTNO"  	jdbcType="INTEGER" />
+		<result property="ctnm"    column="CTNM"  	jdbcType="VARCHAR" />
+		<result property="ctag"    column="CTAG"  	jdbcType="VARCHAR" />
+		<result property="ctuqno"  column="CTUQNO" 	jdbcType="INTEGER" />
+		<result property="ctsc"    column="CTSC" 	jdbcType="INTEGER" />
+		<result property="cturl"   column="CTURL"  	jdbcType="VARCHAR" />
+		<result property="ctdy"    column="CTDY"  	jdbcType="DATE" />
+		<result property="ctsd"    column="CTSD"  	jdbcType="DATE" />
+		<result property="cted"    column="CTED"  	jdbcType="DATE" />
+		<result property="uno" 	   column="UNO" 	jdbcType="INTEGER" /> 
+	</resultMap>
+
 	<!-- SQL : INSERT -->
 	<insert id="addUser" parameterType="com.springjobs.domain.Users">
 		INSERT
@@ -126,6 +146,25 @@
 		ON DUPLICATE KEY UPDATE
 		expcn=#{expcn}, expdn=#{expdn}, exppy=#{exppy}, expsd=#{expsd}, exped=#{exped}, expwc=#{expwc}, exppt=#{exppt}, uno=#{uno};
 	</insert>
+	
+	<select id="getUlans"	 parameterType="int"	resultType="com.springjobs.domain.Ulans">
+		SELECT
+		*
+		FROM
+		ULANS
+		WHERE
+		uno=#{uno};
+	</select>
+	
+	<select id="getUcerts"	 parameterType="int"	resultType="com.springjobs.domain.Ucerts">
+		SELECT
+		*
+		FROM
+		UCERTS
+		WHERE
+		uno=#{uno};
+	</select>
+	
 	<select id="getUscls"	 parameterType="int"	resultType="com.springjobs.domain.Uscls">
 		SELECT
 		*
