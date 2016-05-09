@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springjobs.common.Search;
+import com.springjobs.domain.Ucerts;
 import com.springjobs.domain.Uexps;
+import com.springjobs.domain.Ulans;
 import com.springjobs.domain.Uscls;
 import com.springjobs.domain.Users;
 import com.springjobs.service.developer.DeveloperService;
@@ -66,10 +68,7 @@ public class DeveloperController {
 		// 2. 새로 넣은 정보를 집어넣는다.
 		model.addAttribute("utags", developerService.addTags(map));
 	}
-	
 
-	
-	
 	@RequestMapping(value="/joinProject", method=RequestMethod.POST)
 	public void joinProject(@RequestBody HashMap<String, Integer> map, Model model){
 		System.out.println("joinProject : "+map);
@@ -100,7 +99,6 @@ public class DeveloperController {
 	public void addUexps(@RequestBody Uexps uexps, Model model){
 		System.out.println(uexps);
 		developerService.addUexps(uexps);
-//		model.addAttribute("uexps", developerService.addUexps(uexps));
 	}
 
 	@RequestMapping( value="/getUlans", method=RequestMethod.GET)
@@ -118,6 +116,16 @@ public class DeveloperController {
 		System.out.println("DeveloperContoller에서 uno:"+uno);
 		model.addAttribute("uscls", developerService.getUscls(uno));
 	}	
+	@RequestMapping( value="/addUlans", method=RequestMethod.POST)
+	public void addUlans(@RequestBody Ulans ulans, Model model){
+		System.out.println(ulans);
+		developerService.addUlans(ulans);
+	}
+	@RequestMapping( value="/addUcerts", method=RequestMethod.POST)
+	public void addUcerts(@RequestBody Ucerts ucerts, Model model){
+		System.out.println(ucerts);
+		developerService.addUcerts(ucerts);
+	}
 	@RequestMapping( value="/addUscls", method=RequestMethod.POST)
 	public void addUscls(@RequestBody Uscls uscls, Model model){
 		System.out.println(uscls);

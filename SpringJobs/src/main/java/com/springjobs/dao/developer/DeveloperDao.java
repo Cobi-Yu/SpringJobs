@@ -39,4 +39,9 @@ public interface DeveloperDao {
 	public Ucerts getUcerts(int uno) throws Exception;
 	
 	public Uscls getUscls(int uno) throws Exception;
+
+	public void addUlans(Ulans ulans);
+	
+	public void addUcerts(Ucerts ucerts);
+	
 }

@@ -101,5 +101,14 @@ public class DeveloperDaoImpl implements DeveloperDao {
 	public Uscls getUscls(int uno) throws Exception {
 		return sqlSession.selectOne("UserMapper.getUscls", uno);
 	}
-	
+
+	@Override
+	public void addUlans(Ulans ulans) {
+		sqlSession.insert("UserMapper.addUlans", ulans);
+	}
+
+	@Override
+	public void addUcerts(Ucerts ucerts) {
+		sqlSession.insert("UserMapper.addUcerts", ucerts);
+	}
 }

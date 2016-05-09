@@ -76,4 +76,12 @@ public class DeveloperServiceImpl implements DeveloperService {
 	public Uscls getUscls(int uno) throws Exception {
 		return developerDao.getUscls(uno);
 	}
+	@Override
+	public void addUlans(Ulans ulans) {
+		developerDao.addUlans(ulans);
+	}
+	@Override
+	public void addUcerts(Ucerts ucerts) {
+		developerDao.addUcerts(ucerts);
+	}
 }

@@ -39,5 +39,9 @@ public interface DeveloperService {
 	
 	public Uscls getUscls(int uno) throws Exception;
 	
+	public void addUlans(Ulans ulans);
+	
+	public void addUcerts(Ucerts ucerts);
+	
 	public void addUscls(Uscls uscls);
 }
