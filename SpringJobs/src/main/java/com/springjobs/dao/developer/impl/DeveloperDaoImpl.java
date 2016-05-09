@@ -41,16 +41,6 @@ public class DeveloperDaoImpl implements DeveloperDao {
 	}
 	
 	@Override
-	public int addAcademic(Uscls uscls){
-		sqlSession.update("UserMapper.addAcademic", uscls);
-		int scno = uscls.getScno();
-		int uno = uscls.getUno();
-		System.out.println("dao impl에서 uno 값은??"+ uno);
-		System.out.println("dao impl에서 scno 값은??"+ scno);
-		return uno + scno;
-	}
-	
-	@Override
 	public int addTags(Map<String, Object> tagMap){
 		
 		System.out.println("DeveloperDaoImpl에서 tagMap :"+tagMap);
@@ -82,6 +72,11 @@ public class DeveloperDaoImpl implements DeveloperDao {
 	@Override
 	public Uexps getUexps(int uno) throws Exception {
 		return sqlSession.selectOne("UserMapper.getUexps", uno);
+	}
+	
+	@Override
+	public Uscls getUscls(int uno) throws Exception {
+		return sqlSession.selectOne("UserMapper.getUscls", uno);
 	}
 	
 }

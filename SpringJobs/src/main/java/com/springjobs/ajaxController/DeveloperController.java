@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springjobs.common.Search;
-import com.springjobs.domain.Uscls;
 import com.springjobs.domain.Users;
 import com.springjobs.service.developer.DeveloperService;
 
@@ -67,11 +66,7 @@ public class DeveloperController {
 	}
 	
 
-	@RequestMapping(value="/addAcademic", method=RequestMethod.POST)
-	public void addAcademic(@RequestBody Uscls uscls, Model model){
-		System.out.println("DeveloperController에서 uscls : "+uscls);
-		model.addAttribute("uscls", developerService.addAcademic(uscls));
-	}
+	
 	
 	@RequestMapping(value="/joinProject", method=RequestMethod.POST)
 	public void joinProject(@RequestBody HashMap<String, Integer> map, Model model){
@@ -100,4 +95,10 @@ public class DeveloperController {
 		model.addAttribute("uexps", developerService.getUexps(uno));
 	}	
 	
+	@RequestMapping( value="/getUscls", method=RequestMethod.GET)
+	public void getUscls(@RequestParam("uno") int uno, Model model) throws Exception{
+		System.out.println("developerController에서 getUscls :"+developerService.getUscls(uno));
+		System.out.println("DeveloperContoller에서 uno:"+uno);
+		model.addAttribute("uscls", developerService.getUscls(uno));
+	}	
 }

@@ -14,7 +14,7 @@ public interface DeveloperDao {
 	
 	public int addInfo(Users users);
 	
-	public int addAcademic(Uscls uscls);
+/*	public int addAcademic(Uscls uscls);*/
 	
 	public int addTags(Map<String, Object> tagMap);
 	
@@ -27,4 +27,6 @@ public interface DeveloperDao {
 	public void deleteUtags(Users user);
 	
 	public Uexps getUexps(int uno) throws Exception;
+	
+	public Uscls getUscls(int uno) throws Exception;
 }
