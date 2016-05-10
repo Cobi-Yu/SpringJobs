@@ -61,6 +61,7 @@
 		<result property="ctag"    column="CTAG"  	jdbcType="VARCHAR" />
 		<result property="ctuqno"  column="CTUQNO" 	jdbcType="INTEGER" />
 		<result property="ctsc"    column="CTSC" 	jdbcType="INTEGER" />
+		<result property="ctgrd"    column="CTGRD" 	jdbcType="VARCHAR" />
 		<result property="cturl"   column="CTURL"  	jdbcType="VARCHAR" />
 		<result property="ctdy"    column="CTDY"  	jdbcType="DATE" />
 		<result property="ctsd"    column="CTSD"  	jdbcType="DATE" />
@@ -187,4 +188,27 @@
 	    SET UCNF='1'
 	    WHERE uno=#{uno}
 	</update>
+	
+	<insert id="addUlans" 	 parameterType="com.springjobs.domain.Ulans">
+		INSERT
+		INTO ULANS(lgnm, lglvl, uno)
+		VALUES (#{lgnm},#{lglvl},#{uno})
+		ON DUPLICATE KEY UPDATE
+		lgnm=#{lgnm}, lglvl=#{lglvl}, uno=#{uno};
+	</insert>
+	
+	<insert id="addUcerts" 	 parameterType="com.springjobs.domain.Ucerts">
+		INSERT
+		INTO UCERTS(ctnm, ctag, ctuqno, ctsc, ctgrd, cturl, ctdy, ctsd, cted, uno)
+		VALUES (#{ctnm}, #{ctag}, #{ctuqno}, #{ctsc}, #{ctgrd}, #{cturl}, #{ctdy}, #{ctsd}, #{cted},#{uno})
+		ON DUPLICATE KEY UPDATE
+		ctnm=#{ctnm}, ctag=#{ctag}, ctuqno=#{ctuqno}, ctsc=#{ctsc}, ctgrd=#{ctgrd}, cturl=#{cturl}, ctdy=#{ctdy}, ctsd=#{ctsd}, cted=#{cted}, uno=#{uno};
+	</insert>
+	
+	<update id="updateUres"	parameterType="com.springjobs.domain.Users">
+		UPDATE USERS
+		SET URES=#{ures}
+		WHERE uno=#{uno}
+	</update>
+	
 </mapper>
