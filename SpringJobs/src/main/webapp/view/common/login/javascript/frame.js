@@ -73,7 +73,7 @@ $('#loginButton').click(
 						location.reload();
 					} else {
 						user=null;
-						callModal('경고','아이디, 비밀번호가 맞지 않습니다.');
+						callModal('경고','계정정보가 올바르지 않습니다.');
 					}
 				},
 				error:function(req,status,error){

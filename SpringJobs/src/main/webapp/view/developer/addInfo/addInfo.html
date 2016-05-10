@@ -893,12 +893,15 @@
 		
 		// 간단 자기소개 작성 이벤트 시작
 		$('#updateUres').click(function(){
+			var uresData ={};
+			uresData.ures = $("#ures").val();
+			uresData.uno = user.uno;
+			console.log(uresData);
 			$.ajax({
 				url : contextRoot+"/developer/updateUres",
 				method : "POST",
 				dataType : "json",
-				data : '{"ures":"' + $("#ures").val()
-						+'","uno":"'+user.uno+ '"}',
+				data : JSON.stringify(uresData),
 				headers : {
 					"Accept" : "application/json",
 					"Content-Type" : "application/json"
@@ -915,22 +918,10 @@
 								"Content-Type" : "application/json"
 							},
 							success : function(data, status) {
-								console.log(data);
-								if (data.user) {
-									location.reload();
-								} else {
-									user=null;
-									callModal('경고','아이디, 비밀번호가 맞지 않습니다.');
-								}
-							},
-							error:function(req,status,error){
-								callModal('경고','알수없는 에러');
-								user=null;
+								callModal('등록완료','자기소개서 작성을 완료하였습니다.',contextRoot+"/view/developer/addInfo/addInfo.html");
 							}
 						});
-						/* 로그인 ajax 끝 */
-// 					callModal('등록완료','자기소개서 작성을 완료하였습니다.',contextRoot+"/view/developer/addInfo/addInfo.html");
-/* 					console.log(data); */
+					/* 로그인 ajax 끝 */
 				}
 			});
 		});

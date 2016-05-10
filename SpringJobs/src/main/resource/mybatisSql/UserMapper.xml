@@ -82,7 +82,7 @@
 		U.UNO,U.UNM,U.UENM,U.UEM,U.UPW,U.UCO,U.USX,U.UCNF,U.UBD,U.UPHO,U.UADR,UURL,URES,C.CNO
 		FROM USERS U left outer join CINFOS C
 		ON U.uno=C.uno WHERE U.uem=#{uem}
-		and U.upw=#{upw}
+		and U.upw=#{upw} and U.UCNF='1'
 	</select>
 
 	<select id="idDuplicateCheck" parameterType="com.springjobs.domain.Users"

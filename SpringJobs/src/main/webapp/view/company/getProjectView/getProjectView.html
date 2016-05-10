@@ -215,13 +215,13 @@
                             </div>
                         </div>
                         <div style="text-align:right;">
-                        	<button type ="button" class="btn btn-default" id="joinCompany">지원하기</button>
+                        	<button type ="button" class="btn btn-default" id="joinCompanyBtn">지원하기</button>
                         </div>
                     </section>
-                    <section id="getJoinProjectUserList">
+                    <section id="getJoinProjectUserList" class="admin">
                     	<h1>수락완료개발자</h1>
                     </section>
-                    <section id="getJoinConfirmProjectUserList">
+                    <section id="getJoinConfirmProjectUserList" class="admin">
                     	<h1>참여신청개발자</h1>
                     </section>
                 </div>
@@ -233,16 +233,30 @@
 	<div id="footer"></div>
 	
 	<!-- Modal -->
-	<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal fade" id="acceptModal" role="dialog">
 		<div class="modal-dialog modal-lg" style="width:700px;">
 			<div class="modal-content">
-				<div class="modal-header">
+				<div class="modal-header bg-primary">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">개발자 정보</h4>
 				</div>
-				<div class="modal-body">
-					This is Test
-				</div>
+				<div class="modal-body" style="list-style-type: none;" >
+	                <div class="container-fluid">
+	                    <div class="row">
+	                        <div class="col-md-3" style="text-align:center;"> 
+	                            <img class="img-circle" src="/view/resources/img/spring.jpg" style="border : 3px outset; width: 10em;">
+	                        </div>
+	                        <div class="col-md-9">
+	                            <div class="bs-example" data-example-id="large-well">
+	                            <h5>지원서</h5>
+	                                <pre>
+	                                	
+	                                </pre>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
 				<div class="modal-footer" style="text-align:center;">
 					<button type="button" class="btn btn-primary" id="accept-btn" data-dismiss="modal">수락</button>
 					<button type="button" class="btn btn-primary">자세히 보기</button>
@@ -270,210 +284,158 @@
 	    </div>
 	  </div>
 	</div>
+	<!-- small Modal -->
+	
+	<!-- 지원서 작성 모달 -->
+    <div class="modal fade" id="joinRequestModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">신청하기</h4>
+                </div>
+                <div class="modal-body" style="list-style-type: none;" >
+                    <h2><strong>지원서 작성</strong></h2>
+                        <p>해당프로젝트에 지원하려는 내용을 작성해 주세요,</p>
+                        <div class="form-group">
+                          <label for="comment">Comment:</label>
+                          <textarea class="form-control" rows="10" id="cpjjointxt"></textarea>
+                          <pre style="display:none;"></pre>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="joinProject">지원하기</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="close" style="display:none;">확인</button>
+					<button type="button" class="btn btn-default" id="modifyJoinProject" style="display:none;">수정하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 지원서 작성 모달 -->
+    
+	
 </body>
 <script>
 	$(function() {
 		$('#header').load('/view/common/login/frameHeader.html');
 		$('#footer').load('/view/common/login/frameFooter.html');
 	});
-	$(document)
-			.on(
-					'frameComplete',
-					function(event) {
+	$(document).on('frameComplete',function(event) {
 						var cpjt;
 						var projectJoinUserList;
-						$
-								.ajax({
-									type : 'get',
-									url : contextRoot
-											+ "/company/getProjectView?cpjno="
-											+ getUrlParams().cpjno,
-									dataType : "json",
-									beforeSend : addLoading,
-									complete : removeLoading,
-									headers : {
-										"Accept" : "application/json",
-										"Content-Type" : "application/json"
-									},
-									success : function(data) {
-										cpjt = data.cpjt;
-										console.log(data);
-										$
-												.map(
-														data.cpjt.cpjsk,
-														function(val, i) {
-															$('#cpjskList')
-																	.append(
-																			$(
-																					'<button></button>')
-																					.addClass(
-																							'btn tag btn-sm btn-default')
-																					.text(
-																							val.sknm));
-														});
-										var cpjred = data.cpjt.cpjred;
-										var cpjrdGap = (new Date(cpjred)
-												.getTime() - new Date()
-												.getTime())
-												/ 1000 / 60 / 60 / 24;
-										var cpjmAvg = (data.cpjt.cpjmap + data.cpjt.cpjmnp) / 2
-										var cpjint = data.cpjt.cpjint.replace(
-												/\n/gi, '<br>');
-										$('#cpjnm').text(data.cpjt.cpjnm);
-										$('#cpjsd').text(data.cpjt.cpjsd);
-										$('#cpjed').text(data.cpjt.cpjed);
-										$('#cpjint').html(cpjint);
-										$('#cpjchk').text(data.cpjt.cpjchk);
-										$('#cpjnpl').text(data.cpjt.cpjnpl);
-										$('#cpjmnp').text(data.cpjt.cpjmnp);
-										$('#cpjmap').text(data.cpjt.cpjmap);
-										$('#cpjrg').text(data.cpjt.cpjrg);
-										$('#cpjwt').text(data.cpjt.cpjwt);
-										$('#cpjar').text(data.cpjt.cpjar);
-										$('#cpjyr').text(data.cpjt.cpjyr);
-										$('#cpjred').text(data.cpjt.cpjred);
-										$('#cpjrdGap').text(parseInt(cpjrdGap));
-										$('#cpjmAvg').text(cpjmAvg);
-									}
+						$.ajax({
+							type : 'get',
+							url : contextRoot
+									+ "/company/getProjectView?cpjno="
+									+ getUrlParams().cpjno,
+							dataType : "json",
+							beforeSend : addLoading,
+							complete : removeLoading,
+							headers : {
+								"Accept" : "application/json",
+								"Content-Type" : "application/json"
+							},
+							success : function(data) {
+								cpjt = data.cpjt;
+								console.log(data);
+								$.map(data.cpjt.cpjsk,function(val, i) {
+									$('#cpjskList').append($('<button></button>').addClass('btn tag btn-sm btn-default').text(val.sknm));
 								});
+								var cpjred = data.cpjt.cpjred;
+								var cpjrdGap = (new Date(cpjred).getTime() - new Date().getTime())/ 1000 / 60 / 60 / 24;
+								var cpjmAvg = (data.cpjt.cpjmap + data.cpjt.cpjmnp) / 2
+								var cpjint = data.cpjt.cpjint.replace(/\n/gi, '<br>');
+								$('#cpjnm').text(data.cpjt.cpjnm);
+								$('#cpjsd').text(data.cpjt.cpjsd);
+								$('#cpjed').text(data.cpjt.cpjed);
+								$('#cpjint').html(cpjint);
+								$('#cpjchk').text(data.cpjt.cpjchk);
+								$('#cpjnpl').text(data.cpjt.cpjnpl);
+								$('#cpjmnp').text(data.cpjt.cpjmnp);
+								$('#cpjmap').text(data.cpjt.cpjmap);
+								$('#cpjrg').text(data.cpjt.cpjrg);
+								$('#cpjwt').text(data.cpjt.cpjwt);
+								$('#cpjar').text(data.cpjt.cpjar);
+								$('#cpjyr').text(data.cpjt.cpjyr);
+								$('#cpjred').text(data.cpjt.cpjred);
+								$('#cpjrdGap').text(parseInt(cpjrdGap));
+								$('#cpjmAvg').text(cpjmAvg);
+								if(user.cno != cpjt.cno){
+									$('.admin').hide();
+								}
+							}
+						});
 
 						//프로젝트 수락완료 개발자 리스트 시작
-						$
-								.ajax({
-									type : 'POST',
-									url : contextRoot
-											+ "/company/getJoinProjectUserList",
-									dataType : "json",
-									beforeSend : addLoading,
-									complete : removeLoading,
-									headers : {
-										"Accept" : "application/json",
-										"Content-Type" : "application/json"
-									},
-									data : JSON.stringify({
-										cpjno : getUrlParams().cpjno,
-										confirm : "1"
-									}),
-									success : function(data) {
-										var userList = data.userList;
-										console.log("userList : ");
-										console.log(userList);
-										$
-												.get(
-														'getJoinProjectUser.html',
-														function(data) {
-															for (var i = 0; i < userList.length; i++) {
-																var joinUser = userList[i];
-																$(
-																		'#getJoinProjectUserList')
-																		.append(
-																				data)
-																		.each(
-																				function() {
-																					$(
-																							'#getJoinProjectUserList > .joinUserBox:eq('
-																									+ i
-																									+ ')')
-																							.find(
-																									'.unm')
-																							.text(
-																									joinUser.unm);
-																					$(
-																							'#getJoinProjectUserList > .joinUserBox:eq('
-																									+ i
-																									+ ')')
-																							.attr(
-																									'value',
-																									joinUser.uno);
-																					for (var j = 0; j < joinUser.utags.length; j++) {
-																						$(
-																								'#getJoinProjectUserList > .joinUserBox:eq('
-																										+ i
-																										+ ')')
-																								.find(
-																										'.uextg')
-																								.append(
-																										$(
-																												'<button type="button" class="btn btn-primary btn-circle">')
-																												.text(
-																														joinUser.utags[j]['uextg']));
-																					}
-																				});
-															}
-														});
+						$.ajax({
+							type : 'POST',
+							url : contextRoot
+									+ "/company/getJoinProjectUserList",
+							dataType : "json",
+							beforeSend : addLoading,
+							complete : removeLoading,
+							headers : {
+								"Accept" : "application/json",
+								"Content-Type" : "application/json"
+							},
+							data : JSON.stringify({
+								cpjno : getUrlParams().cpjno,
+								confirm : "1"
+							}),
+							success : function(data) {
+								var userList = data.userList;
+								$.get('getJoinProjectUser.html',function(data) {
+									for (var i = 0; i < userList.length; i++) {
+										var joinUser = userList[i];
+										$('#getJoinProjectUserList').append(data).each(function() {
+											$('#getJoinProjectUserList > .joinUserBox:eq('+ i + ')').find('.unm').text(joinUser.unm);
+											$('#getJoinProjectUserList > .joinUserBox:eq('+ i + ')').attr('value',joinUser.uno);
+											for (var j = 0; j < joinUser.utags.length; j++) {
+												$('#getJoinProjectUserList > .joinUserBox:eq('+ i + ')').find('.uextg').append(
+														$('<button type="button" class="btn btn-primary btn-circle">').text(joinUser.utags[j]['uextg']));
+											}
+										});
 									}
 								});
+							}
+						});
 						//프로젝트 수락완료 개발자 리스트 끝
 
-						//프로젝트 수락완료 개발자 리스트 시작
-						$
-								.ajax({
-									type : 'POST',
-									url : contextRoot
-											+ "/company/getJoinProjectUserList",
-									dataType : "json",
-									beforeSend : addLoading,
-									complete : removeLoading,
-									headers : {
-										"Accept" : "application/json",
-										"Content-Type" : "application/json"
-									},
-									data : JSON.stringify({
-										cpjno : getUrlParams().cpjno,
-										confirm : "0"
-									}),
-									success : function(data) {
-										var userList = data.userList;
-										console.log("userList : ");
-										console.log(userList);
-										$
-												.get(
-														'getJoinProjectUser.html',
-														function(data) {
-															for (var i = 0; i < userList.length; i++) {
-																var joinUser = userList[i];
-																$(
-																		'#getJoinConfirmProjectUserList')
-																		.append(
-																				data)
-																		.each(
-																				function() {
-																					$(
-																							'#getJoinConfirmProjectUserList > .joinUserBox:eq('
-																									+ i
-																									+ ')')
-																							.find(
-																									'.unm')
-																							.text(
-																									joinUser.unm);
-																					$(
-																							'#getJoinConfirmProjectUserList > .joinUserBox:eq('
-																									+ i
-																									+ ')')
-																							.attr(
-																									'value',
-																									joinUser.uno);
-																					for (var j = 0; j < joinUser.utags.length; j++) {
-																						$(
-																								'#getJoinConfirmProjectUserList > .joinUserBox:eq('
-																										+ i
-																										+ ')')
-																								.find(
-																										'.uextg')
-																								.append(
-																										$(
-																												'<button type="button" class="btn btn-primary btn-circle">')
-																												.text(
-																														joinUser.utags[j]['uextg']));
-																					}
-																				});
-															}
-														});
+						//프로젝트 참여신청 개발자 리스트 시작
+						$.ajax({
+							type : 'POST',
+							url : contextRoot + "/company/getJoinProjectUserList",
+							dataType : "json",
+							beforeSend : addLoading,
+							complete : removeLoading,
+							headers : {
+								"Accept" : "application/json",
+								"Content-Type" : "application/json"
+							},
+							data : JSON.stringify({
+								cpjno : getUrlParams().cpjno,
+								confirm : "0"
+							}),
+							success : function(data) {
+								var userList = data.userList;
+								console.log("userList : ");
+								console.log(userList);
+								$.get('getJoinProjectUser.html',function(data) {
+									for (var i = 0; i < userList.length; i++) {
+										var joinUser = userList[i];
+										$('#getJoinConfirmProjectUserList').append(data).each(function() {
+											$('#getJoinConfirmProjectUserList > .joinUserBox:eq('+ i + ')').find('.unm').text(joinUser.unm);
+											$('#getJoinConfirmProjectUserList > .joinUserBox:eq('+ i + ')').attr('value',joinUser.uno);
+											for (var j = 0; j < joinUser.utags.length; j++) {
+												$('#getJoinConfirmProjectUserList > .joinUserBox:eq('+ i + ')').find('.uextg').append(
+													$('<button type="button" class="btn btn-primary btn-circle">').text(joinUser.utags[j]['uextg']));
+											}
+										});
 									}
 								});
-						//프로젝트 수락완료 개발자 리스트 끝
-
-						//프로젝트 
+							}
+						});
+						//프로젝트 참여신청 개발자 리스트 끝
 
 						//자세히보기
 						$('.btn-detail').click(function() {
@@ -485,54 +447,97 @@
 							}
 						});
 						//자세히보기 끝
-
+						
+						//프로젝트 신청 모달 호출 시 기존 신청자인지 판단
+						$('#joinRequestModal').on('show.bs.modal', function (e) {
+							var joinData={};
+							joinData.uno=user.uno;
+							joinData.cpjno=getUrlParams().cpjno;
+							$.ajax({
+								type : 'POST',
+								url : contextRoot+ "/developer/joinCheck",
+								dataType : "json",
+								beforeSend : addLoading,
+								complete : removeLoading,
+								data : JSON.stringify(joinData),
+								headers : {
+									"Accept" : "application/json",
+									"Content-Type" : "application/json"
+								},
+								success : function(data) {
+									if (data.result) {
+										console.log(data);
+										if(data.result.cpjconf=='0'){
+											$('#joinRequestModal').find('strong').text('이미 지원한 프로젝트입니다.');
+											$('#modifyJoinProject').show();
+											$('pre').show();
+											$('#modifyJoinProject').click(function(){
+												var text = $('pre').html();
+												$('#cpjjointxt').html(text.replace(/<br>/gi,"\n"));
+												$('pre').hide();
+												$('#cpjjointxt').show();
+												$('#joinRequestModal').find('#joinProject').show();
+												$('#modifyJoinProject').hide();
+											});
+										}else if(data.result.cpjconf=='1'){
+											$('#joinRequestModal').find('strong').text('프로젝트 참여가 확정되었습니다.');
+											$('#joinProject').hide();
+											$('#modifyJoinProject').hide();
+											$('pre').show();
+											$('#close').show();
+										}
+										$('#joinRequestModal').find('p').text('지원서 내용');
+										$('#joinRequestModal').find('#cpjjointxt').hide();
+										$('#joinRequestModal').find('#joinProject').hide();
+										$('pre').html(data.result.cpjjointxt.replace(/\n/gi,"<br>"));
+									}
+								},
+								error : function() {
+									callModal('경고','알수없는 에러');
+								}
+							});
+						});
+						//프로젝트 신청 모달 호출 시 기존 신청자인지 판단 끝
+						
+						//지원하기 버튼 모달창 호출
+						$('#joinCompanyBtn').click(function(){
+							if (user == null) {
+								callModal('경고', '로그인이 필요합니다.');
+							} else if (user.cno == cpjt.cno) {
+								callModal('경고','자신의 프로젝트에 지원 할 수 없습니다.');
+							}else{
+								$('#joinRequestModal').modal('show');
+							}
+						});
+						//지원하기 버튼 모달창 호출 끝
+						
 						//프로젝트 참여
-						$('#joinCompany')
-								.click(
-										function() {
-											if (user == null) {
-												callModal('경고', '로그인이 필요합니다.');
-											} else if (user.cno == cpjt.cno) {
-												callModal('경고',
-														'자신의 프로젝트에 지원 할 수 없습니다.');
-											} else {
-												joinData = {};
-												joinData.uno = user.uno;
-												joinData.cpjno = getUrlParams().cpjno;
-												$
-														.ajax({
-															type : 'POST',
-															url : contextRoot
-																	+ "/developer/joinProject",
-															dataType : "json",
-															beforeSend : addLoading,
-															complete : removeLoading,
-															data : JSON
-																	.stringify(joinData),
-															headers : {
-																"Accept" : "application/json",
-																"Content-Type" : "application/json"
-															},
-															success : function(
-																	data) {
-																if (data.result == 1) {
-																	callModal(
-																			'알림',
-																			'프로젝트 참여 신청이 완료되었습니다.',
-																			location.href);
-																} else {
-																	callModal(
-																			'알림',
-																			'이미 신청하셨습니다.');
-																}
-															},
-															error : function() {
-																callModal('경고',
-																		'알수없는 에러');
-															}
-														});
-											}
-										});
+						$('#joinProject').click(function() {
+							joinData = {};
+							joinData.uno = user.uno;
+							joinData.cpjno = getUrlParams().cpjno;
+							joinData.cpjjointxt = $('#cpjjointxt').val();
+							$.ajax({
+								type : 'POST',
+								url : contextRoot
+										+ "/developer/joinProject",
+								dataType : "json",
+								beforeSend : addLoading,
+								complete : removeLoading,
+								data : JSON
+										.stringify(joinData),
+								headers : {
+									"Accept" : "application/json",
+									"Content-Type" : "application/json"
+								},
+								success : function(data) {
+									callModal('알림','프로젝트 참여 신청이 완료되었습니다.',location.href);
+								},
+								error : function() {
+									callModal('경고','알수없는 에러');
+								}
+							});
+						});
 						//프로젝트 참여 끝
 					});
 	$('#confirmSuccessModalBtn').click(function(){

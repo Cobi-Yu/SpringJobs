@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.springjobs.common.Search;
+import com.springjobs.domain.Cpjjoin;
 import com.springjobs.domain.Cpjts;
 import com.springjobs.domain.Ucerts;
 import com.springjobs.domain.Uexps;
@@ -20,9 +21,11 @@ public interface DeveloperService {
 	
 	public List<String> getUtag(int uno) throws Exception;
 	
-	public int joinProject(Map<String, Integer> map);
+	public int joinProject(Map<String, Object> map);
 	
-	public List<Users> getJoinProjectList(Map<String,Integer> map);
+	public Cpjjoin getJoinInfo(Map<String, Object> map);
+	
+	public List<Users> getJoinProjectList(Map<String,Object> map);
 	
 	public void deleteUtags(Users user); 
 	
@@ -44,6 +47,9 @@ public interface DeveloperService {
 	public void addUcerts(Ucerts ucerts);
 	
 	public void addUscls(Uscls uscls);
+	
+	public Users getJoinProjectUser (Map<String,Object> map);
+	
 
 	public void updateUres(Users users);
 }

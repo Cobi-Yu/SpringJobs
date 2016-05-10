@@ -13,16 +13,33 @@
 
 <script>
 	$('.joinUserBox').off("click").on("click",function(){
-		$('#myModal').modal();
-		console.log($(this).attr('value'));
-		$('#accept-btn').attr('value',$(this).attr('value'));
-	});
-	$('#accept-btn').off("click").on("click",function(){
-		$('#myModal').modal('hide');
+		queryData = {};
+		queryData.uno=$(this).attr('value');
+		queryData.cpjno=getUrlParams().cpjno;
 		$.ajax({
 			type : 'POST',
-			url : contextRoot
-					+ "/company/confirmProjectUser",
+			url : contextRoot+ "/developer/getJoinProjectUser",
+			dataType : "json",
+			beforeSend : addLoading,
+			complete : removeLoading,
+			headers : {
+				"Accept" : "application/json",
+				"Content-Type" : "application/json"
+			},
+			data : JSON.stringify(queryData),
+			success : function(data) {
+				$('#acceptModal').modal();
+				var joinUser = data.joinUser;
+				$('#acceptModal').find('pre').text(joinUser.cpjjoins[0]['cpjjointxt']);
+				$('#accept-btn').attr('value',joinUser.uno)
+			}
+		});
+	});
+	$('#accept-btn').off("click").on("click",function(){
+		$('#acceptModal').modal('hide');
+		$.ajax({
+			type : 'POST',
+			url : contextRoot+ "/company/confirmProjectUser",
 			dataType : "json",
 			beforeSend : addLoading,
 			complete : removeLoading,

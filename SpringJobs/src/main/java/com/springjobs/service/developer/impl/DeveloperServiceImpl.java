@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.springjobs.common.Search;
 import com.springjobs.dao.developer.DeveloperDao;
+import com.springjobs.domain.Cpjjoin;
 import com.springjobs.domain.Cpjts;
 import com.springjobs.domain.Ucerts;
 import com.springjobs.domain.Uexps;
@@ -45,12 +46,8 @@ public class DeveloperServiceImpl implements DeveloperService {
 		developerDao.deleteUtags(user);
 	}
 	@Override
-	public int joinProject(Map<String, Integer> map) {
+	public int joinProject(Map<String, Object> map) {
 		return developerDao.joinProject(map);
-	}
-	@Override
-	public List<Users> getJoinProjectList(Map<String, Integer> map) {
-		return developerDao.getJoinProjectList(map);
 	}
 	@Override
 	public Uexps getUexps(int uno) throws Exception {
@@ -75,6 +72,18 @@ public class DeveloperServiceImpl implements DeveloperService {
 	@Override
 	public Uscls getUscls(int uno) throws Exception {
 		return developerDao.getUscls(uno);
+	}
+	@Override
+	public Cpjjoin getJoinInfo(Map<String, Object> map) {
+		return developerDao.getJoinInfo(map);
+	}
+	@Override
+	public List<Users> getJoinProjectList(Map<String, Object> map) {
+		return developerDao.getJoinProjectList(map);
+	}
+	@Override
+	public Users getJoinProjectUser(Map<String, Object> map) {
+		return developerDao.getJoinProjectUser(map);
 	}
 	@Override
 	public void addUlans(Ulans ulans) {

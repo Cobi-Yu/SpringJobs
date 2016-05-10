@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.springjobs.common.Search;
 import com.springjobs.dao.developer.DeveloperDao;
+import com.springjobs.domain.Cpjjoin;
 import com.springjobs.domain.Cpjts;
 import com.springjobs.domain.Ucerts;
 import com.springjobs.domain.Uexps;
@@ -56,12 +57,12 @@ public class DeveloperDaoImpl implements DeveloperDao {
 	}
 
 	@Override
-	public int joinProject(Map<String, Integer> map) {
+	public int joinProject(Map<String, Object> map) {
 		return sqlSession.insert("ProjectMapper.joinProject", map);
 	}
 
 	@Override
-	public List<Users> getJoinProjectList(Map<String, Integer> map) {
+	public List<Users> getJoinProjectList(Map<String, Object> map) {
 		return sqlSession.selectList("ProjectMapper.getJoinProjectList",map);
 	}
 
@@ -100,6 +101,16 @@ public class DeveloperDaoImpl implements DeveloperDao {
 	@Override
 	public Uscls getUscls(int uno) throws Exception {
 		return sqlSession.selectOne("UserMapper.getUscls", uno);
+	}
+
+	@Override
+	public Cpjjoin getJoinInfo(Map<String, Object> map) {
+		return sqlSession.selectOne("ProjectMapper.getJoinInfo",map);
+	}
+
+	@Override
+	public Users getJoinProjectUser(Map<String, Object> map) {
+		return sqlSession.selectOne("ProjectMapper.getJoinProjectUser",map);
 	}
 
 	@Override

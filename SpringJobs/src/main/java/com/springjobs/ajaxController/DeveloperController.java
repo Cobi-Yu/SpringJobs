@@ -68,24 +68,25 @@ public class DeveloperController {
 		// 2. 새로 넣은 정보를 집어넣는다.
 		model.addAttribute("utags", developerService.addTags(map));
 	}
-
-	@RequestMapping(value="/joinProject", method=RequestMethod.POST)
-	public void joinProject(@RequestBody HashMap<String, Integer> map, Model model){
-		System.out.println("joinProject : "+map);
+	@RequestMapping(value="/joinCheck", method=RequestMethod.POST)
+	public void joinCheck(@RequestBody HashMap<String, Object> map, Model model){
 		if(developerService.getJoinProjectList(map).size()>=1){
-			model.addAttribute("result",0);
-		}else {
-			model.addAttribute("result",developerService.joinProject(map));
+			model.addAttribute("result",developerService.getJoinInfo(map));
+		}else{
+			model.addAttribute("result",null);
 		}
 	}
+	
+
+	@RequestMapping(value="/joinProject", method=RequestMethod.POST)
+	public void joinProject(@RequestBody HashMap<String, Object> map, Model model){
+		System.out.println("joinProject : "+map);
+		model.addAttribute("result",developerService.joinProject(map));
+	}
 	@RequestMapping(value="/getJoinProjectUser", method=RequestMethod.POST)
-	public void getJoinProjectUser(@RequestBody HashMap<String, Integer> map, Model model){
+	public void getJoinProjectUser(@RequestBody HashMap<String, Object> map, Model model){
 		System.out.println("getJoinProjectUser : "+map);
-		if(developerService.getJoinProjectList(map).size()>=1){
-			model.addAttribute("result",0);
-		}else{
-			model.addAttribute("result",1);
-		}
+		model.addAttribute("joinUser",developerService.getJoinProjectUser(map));
 	}
 	@RequestMapping( value="/getUexps", method=RequestMethod.GET)
 	public void getUexps(@RequestParam("uno") int uno, Model model) throws Exception{

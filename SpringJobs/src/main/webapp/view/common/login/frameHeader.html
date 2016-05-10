@@ -101,9 +101,20 @@
 </div>
 
 <!-- 모달 들어갈 곳 시작 -->
-<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" id="confirmModal">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
+    	<div class="bg-primary modal-header" id="modalHeaderMsg">
+            
+	    </div>
+	
+		<div class="modal-body">
+        	<p id="modalMsg"></p>
+      	</div>
+
+      	<div class="modal-footer">
+        	<button type="button" class="btn btn-primary" id="modalBtn" data-dismiss="modal">확인</button>
+      	</div>
     </div>
   </div>
 </div>

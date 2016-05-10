@@ -33,6 +33,20 @@ var removeLoading = function(){
 };
 //로딩 이미지 끝
 
+//모달창
+var callModal = function(title, msg, url){
+	$('#confirmModal').modal();
+	$('#confirmModal').on('shown.bs.modal', function (e) {
+		$('#modalHeaderMsg').text(title);
+		$('#modalMsg').text(msg);
+		if(url){
+			redirect($('#modalBtn'),url);
+		}
+	});
+};
+//모달 창 끝
+
+
 //URL 파싱
 	var getUrlParameter = function (){  
 	 
@@ -57,21 +71,6 @@ var removeLoading = function(){
 		       return ParameterObject;  
 	   };  
 //URL 파싱 끝
-
-//모달창
-var callModal = function(title, msg, url){
-	$('.modal').modal({
-		remote : '/view/common/modal/modal.html',
-	});
-	$('.modal').on('shown.bs.modal', function (e) {
-		$('.modal-header').text(title);
-		$('#modalMsg').text(msg);
-		if(url){
-			redirect($('#modalBtn'),url);
-		}
-	});
-};
-//모달 창 끝
 
 //query string 파싱
 function getUrlParams() {
