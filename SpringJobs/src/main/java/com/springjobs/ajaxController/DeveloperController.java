@@ -78,7 +78,6 @@ public class DeveloperController {
 			model.addAttribute("result",developerService.joinProject(map));
 		}
 	}
-
 	@RequestMapping(value="/getJoinProjectUser", method=RequestMethod.POST)
 	public void getJoinProjectUser(@RequestBody HashMap<String, Integer> map, Model model){
 		System.out.println("getJoinProjectUser : "+map);
@@ -88,7 +87,6 @@ public class DeveloperController {
 			model.addAttribute("result",1);
 		}
 	}
-	
 	@RequestMapping( value="/getUexps", method=RequestMethod.GET)
 	public void getUexps(@RequestParam("uno") int uno, Model model) throws Exception{
 		System.out.println("developerController에서 getUexps :"+developerService.getUexps(uno));
@@ -100,7 +98,6 @@ public class DeveloperController {
 		System.out.println(uexps);
 		developerService.addUexps(uexps);
 	}
-
 	@RequestMapping( value="/getUlans", method=RequestMethod.GET)
 	public void getUlans(@RequestParam("uno") int uno, Model model) throws Exception{
 		System.out.println("developerController에서 getUlans :"+developerService.getUlans(uno));
@@ -109,7 +106,6 @@ public class DeveloperController {
 		model.addAttribute("ucerts", developerService.getUcerts(uno));
 		model.addAttribute("ulans", developerService.getUlans(uno));
 	}	
-	
 	@RequestMapping( value="/getUscls", method=RequestMethod.GET)
 	public void getUscls(@RequestParam("uno") int uno, Model model) throws Exception{
 		System.out.println("developerController에서 getUscls :"+developerService.getUscls(uno));
@@ -131,5 +127,12 @@ public class DeveloperController {
 		System.out.println(uscls);
 		developerService.addUscls(uscls);
 //		model.addAttribute("uexps", developerService.addUexps(uexps));
+	}
+	
+	@RequestMapping( value="/updateUres", method=RequestMethod.POST)
+	public void updateUres(@RequestBody Users users){
+		System.out.println(users.getUres());
+		System.out.println("DeveloperController에서 users : "+users);
+		developerService.updateUres(users);
 	}
 }

@@ -84,4 +84,8 @@ public class DeveloperServiceImpl implements DeveloperService {
 	public void addUcerts(Ucerts ucerts) {
 		developerDao.addUcerts(ucerts);
 	}
+	@Override
+	public void updateUres(Users users) {
+		developerDao.updateUres(users);
+	}
 }

@@ -111,4 +111,9 @@ public class DeveloperDaoImpl implements DeveloperDao {
 	public void addUcerts(Ucerts ucerts) {
 		sqlSession.insert("UserMapper.addUcerts", ucerts);
 	}
+
+	@Override
+	public void updateUres(Users users) {
+		sqlSession.update("UserMapper.updateUres", users);
+	}
 }

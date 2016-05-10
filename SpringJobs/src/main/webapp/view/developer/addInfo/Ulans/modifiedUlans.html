@@ -1,28 +1,157 @@
-<div class="portfolio-modal modal fade" id="pfModal5" tabindex="-1" role="dialog" aria-hidden="true" >
-     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-							<div style="width:30%;">
-							<label> 외국어 및 자격증</label>
-                 				<br>
-                 			  <button type="submit" class="btn btn-default" style="width:20%">
-                 			  <i class="fa fa-times"></i>Save</button>	
-		                   <button type="button" class="btn btn-default" data-dismiss="modal">
-		                   <i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-    </div>
-   </div> 
+				<div class="modal-body">
+			    	<div class="row">
+			
+			      <!-- edit form column -->
+			      <div class="col-md-2"></div>
+			      <div class="col-md-8" >
+			      <table style="border-collapse: collapse;">			      	
+			      	<tr>
+			      		<td class="col-md-1" style="padding-top: 1em; text-align: center;">
+				      		<strong>언어</strong>
+			      		</td>
+			      		<td class="col-md-2" style="padding-top: 1em;">
+			      			<input type="text" id="lgnm" placeholder="언어를 입력해주세요." style="width: 100%;">
+			      		</td>
+			      	</tr>
+			      	<tr>
+			      		<td class="col-md-1" style="padding-top: 1em; text-align: center;">
+			      			<strong>수준</strong>
+			      		</td>
+			      		<td class="col-sm-2" style="padding-top: 1em;">
+			      			<input type="text" id="lglvl" placeholder="수준을 입력해주세요." style="width: 100%;">
+			      		</td>
+			      	</tr>
+			      	
+			      	</table>
+			      </div>
+			      <div class="col-md-1"></div>			     
+			  </div>
+			 </div>
+		       <div class="modal-footer">
+		         <button type="button" class="btn btn-default" id="removeUlans">취소</button>
+		         <button type="button" class="btn btn-orange" id="modifiedComplete">확인</button>
+		       </div>
+	       
+	       <!-- 수정완료 모달 시작 -->
+			<div class="modal fade" id="updateCom">
+			  <div class="modal-dialog" style="width: 50%;">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title">수정완료!</h4>
+			      </div>
+			      <div class="modal-body">
+			        <p>다른것들도 수정해보세용!</p>
+			      </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-miss="modal">닫기</button>
+			      </div>
+			    </div><!-- /.modal-content -->
+			  </div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+			<!-- 수정완료 모달 끝 -->	
+		                 
+       <script>
+        $('#removeUlans').click(function(){
+        	$('#pfModal5table').load('Ulans/getUlans.html', function() {
+	           	$.ajax({
+	    			url : contextRoot + "/developer/getUlans?uno="+user.uno,
+	    			method : "GET",
+	    			dataType : "json",
+	    			headers : {
+	    				"Accept" : "application/json",
+	    				"Content-Type" : "application/json"
+	    			},
+	    			success : function(data, status) {
+	    				console.log(data.ulans);
+	    				$('#lgnm').text(data.ulans.lgnm);
+	    				$('#lglvl').text(data.ulans.lglvl);  
+	    				$('#ctnm').text(data.ucerts.ctnm);  
+	    				$('#ctag').text(data.ucerts.ctag);  
+	    				$('#ctuqno').text(data.ucerts.ctuqno);  
+	    				$('#ctsc').text(data.ucerts.ctsc);  
+	    				$('#cturl').text(data.ucerts.cturl);  
+	    				$('#ctdy').text(data.ucerts.ctdy);  
+	    				$('#ctsd').text(data.ucerts.ctsd);  
+	    				$('#cted').text(data.ucerts.cted);  
+	    			}
+	    		});
+        	});
+        });
+        
+        $('#modifiedComplete').click(function(){
+  	      $.ajax({
+                url: contextRoot+"/developer/addUlans"
+                , method: "POST"
+                , dataType: "json"
+                , data: 
+                	'{"lgnm":"' +$("#lgnm").val() 
+        		 	+'","lglvl":"'+$("#lglvl").val()
+        		 	+'","uno":"'+user.uno+'"}'
+                , headers: {
+                      "Accept": "application/json"
+                     ,"Content-Type": "application/json"
+                },
+				beforeSend : addLoading,
+				complete : removeLoading,
+                success: function (data) {
+                	$("#updateCom").modal("show");
+                } //success fuction 
+            }); //등록 내부 첫 ajax 끝 
+        });
+        
+        $('#removeUlans').click(function(){
+        	$('#pfModal5table').load('Ulans/getUlans.html', function() {
+	           	$.ajax({
+	    			url : contextRoot + "/developer/getUlans?uno="+user.uno,
+	    			method : "GET",
+	    			dataType : "json",
+	    			headers : {
+	    				"Accept" : "application/json",
+	    				"Content-Type" : "application/json"
+	    			},
+	    			success : function(data, status) {
+	    				console.log(data);
+	    				console.log(data.ulans);
+	    				
+	    				if(data.ucerts==null && data.ulans==null){
+	    					$('#pfModal5table').load('Ucerlans.html');
+	    				} else if (data.ucerts==null){
+	    					console.log(data.ulans)
+	    					$('#pfModal5table').load('Ucerts/addUcerts.html', function(){
+		    					$('#lgnm').text(data.ulans.lgnm);
+			    				$('#lglvl').text(data.ulans.lglvl);
+	    					});
+	    				} else if (data.ulans==null){
+	    					$('#pfModal5table').load('Ulans/addUlans.html', function(){
+			    				$('#ctnm').text(data.ucerts.ctnm);  
+			    				$('#ctag').text(data.ucerts.ctag);  
+			    				$('#ctuqno').text(data.ucerts.ctuqno);  
+			    				$('#ctsc').text(data.ucerts.ctsc);
+			    				$('#ctgrd').text(data.ucerts.ctgrd);
+			    				$('#cturl').text(data.ucerts.cturl);  
+			    				$('#ctdy').text(data.ucerts.ctdy);  
+			    				$('#ctsd').text(data.ucerts.ctsd);  
+			    				$('#cted').text(data.ucerts.cted);  
+	    					});
+	    					
+	    				} else {
+			    				$('#lgnm').text(data.ulans.lgnm);
+			    				$('#lglvl').text(data.ulans.lglvl);  
+			    				$('#ctnm').text(data.ucerts.ctnm);  
+			    				$('#ctag').text(data.ucerts.ctag);  
+			    				$('#ctuqno').text(data.ucerts.ctuqno);  
+			    				$('#ctsc').text(data.ucerts.ctsc);
+			    				$('#ctgrd').text(data.ucerts.ctgrd);
+			    				$('#cturl').text(data.ucerts.cturl);  
+			    				$('#ctdy').text(data.ucerts.ctdy);  
+			    				$('#ctsd').text(data.ucerts.ctsd);  
+			    				$('#cted').text(data.ucerts.cted);  
+	    				} 
+	    				
+	    				$('#pfModal5').modal();
+	    			}
+	    		});
+        	});
+        });
+		</script>

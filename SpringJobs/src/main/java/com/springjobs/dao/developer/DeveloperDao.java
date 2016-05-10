@@ -44,4 +44,5 @@ public interface DeveloperDao {
 	
 	public void addUcerts(Ucerts ucerts);
 	
+	public void updateUres(Users users);
 }

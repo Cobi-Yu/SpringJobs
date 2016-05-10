@@ -44,4 +44,6 @@ public interface DeveloperService {
 	public void addUcerts(Ucerts ucerts);
 	
 	public void addUscls(Uscls uscls);
+
+	public void updateUres(Users users);
 }

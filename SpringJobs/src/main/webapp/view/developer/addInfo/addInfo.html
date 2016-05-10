@@ -52,10 +52,22 @@
         <!-- <div class="row"> -->
 		<div class="col-md-1"></div>
          <div class="col-md-10">
-			<!-- 개인신상 부분 섹션 1 시작 -->
-            <section id="one" style="padding-top:3em; padding-bottom: 2em; padding-left: 3em; margin-top: 2em;
-                        			 border-width:5px; border-style: outset;">
-                <h2 class="shareTech">개인신상</h2>
+			<!-- 부트스트랩 탭 네비게이션 적용 시작 -->
+			<div role="tabpanel">
+			  <!-- 상단 탭 메뉴 이름들 시작 -->
+			  <ul class="nav nav-tabs" role="tablist" style="background-color: white;">
+			    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="pill">개인신상</a></li>
+			    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="pill">포트폴리오</a></li>
+			  </ul>
+			  <!-- 상단 탭 메뉴 이름들 끝 -->
+			  
+			<!-- 탭 안의 내용들 시작  -->  
+		    <div class="tab-content">
+		    <!-- 첫번째 탭(개인신상) 내용 시작 -->
+			 <div role="tabpanel" class="tab-pane active" id="home">  
+			<!-- 개인신상 부분 섹션 1 시작 -->			    
+             <section id="one" style="padding-top:2em; padding-bottom: 2em; padding-left: 3em; margin-top: 2em; border-width:5px; border-style: outset;">
+                <h2 class="shareTech">기본정보</h2>
                 신상정보를 입력하고 프로젝트 참여기회를 얻으세요!
                 <div class="row" style="margin-top: 2em;">
                     <!-- 개인신상 이미지 시작 -->
@@ -146,95 +158,28 @@
                    </div><!-- 개인신상 세부내용 끝 -->
                </div>
            </section><!-- 섹션1 끝 -->
-
-			<!-- 개인정보 수정 Modal 시작 -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-			  <div class="modal-dialog modal-md" role="document">
-			    
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-			        <span aria-hidden="true" >x</span></button>
-			        <h4 class="modal-title" id="myModalLabel" align="left" >
-			        <b>개인정보 수정</b></h4>
-			      </div>
-			      <!-- 모달내용 -->
-			      <div class="modal-body">
-			    	<div class="row">
+           
+           <section id="two" style="padding-top:2em; padding-bottom: 2em; padding-left: 3em; margin-top: 2em; border-width:5px; border-style: outset;">
+			 <h2 class="shareTech">간단 자기소개</h2>
+                자기소개로 열정을 표현해보세요!
+                <div class="row" style="margin-top: 2em;">
+                    	<div class="col-md-11">
+						    <textarea placeholder="자기소개는 간단히 작성해주시기 바랍니다." class="form-control" rows="10" id="ures"  
+						  			  style="background-color: #fdf5e6; text-align: left;">
+						    </textarea>
+						  	<div style="text-align: right; margin-top: 1em;">
+						  		<a type="button" class="btn btn-danger" id="updateUres">확인</a>
+						  	</div>
+						</div>
+                </div>
+           </section>
 			
-			      <!-- edit form column -->
-			      <div class="col-md-12 col-md-offset-1" >
-			      	<table style="border-collapse: collapse; ">
-			      	<tr>
-			      		<td class="col-md-2">
-				      		영문이름
-			      		</td>
-			      		<td class="col-md-6">
-			      			<input type="text" id="uenm" placeholder="ex) Hong GilDong" style="width: 70%;">
-			      		</td>
-			      	</tr>
-			      	<tr>
-			      		<td class="col-md-2">
-			      			생년월일
-			      		</td>
-			      		<td class="col-sm-3" style="padding-top: 1em;">
-			      			<input class="form-control" type="date" id="ubd" style="width: 70%;">
-			      		</td>
-			      	</tr>
-			      	<tr>
-			      		<td class="col-md-2">
-			      			성별
-			      		</td>
-			      		<td class="col-sm-3" style="padding-top: 1em;">
-							<select class="form-control" id="usx" style="width: 30%;">
-                              <option>남성</option>
-                              <option>여성</option>
-                            </select>			      		
-                        </td>
-			      	</tr>
-			      	<tr>
-			      		<td class="col-md-2">
-			      			핸드폰 번호
-			      		</td>
-			      		<td class="col-sm-3" style="padding-top: 1em;">
-			        		<input class="form-control" type="text" id="uphone" placeholder="ex) 010-3333-4444" style="width: 70%;">		      		
-                        </td>
-			      	</tr>
-			      	<tr>
-			      		<td class="col-md-2">
-			      			주요 URL
-			      		</td>
-			      		<td class="col-sm-3" style="padding-top: 1em;">
-                            <input class="form-control" type="text" id="uurl" placeholder="ex)www.github.com/Yimkm" style="width: 70%;">
-                        </td>
-			      	 </tr>
-			      	
-                     <tr>
-                         <td class="col-md-2">
-                            거주지 주소
-                         </td>
-                         <td class="col-sm-3" style="padding-top: 1em;">
-                              <input type="text" id="sample4_postcode" style="margin-right: 1em;" placeholder="우편번호">
-                              <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
-						      <input type="text" id="sample4_roadAddress" style="width: 70%; margin-top: 1em;"  placeholder="도로명/지번 주소">
-							  <input type="text" id="detail_address" style="width: 70%;" placeholder="상세주소">
-							  <span id="guide" style="color:#999"></span>
-                         </td>
-                      </tr>
-			      	
-			      	</table>
-			      </div>
-			  </div>
-			 </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
-			        <button type="button" class="btn btn-orange userInfoUpdate" id="join">저장</button>
-			      </div>
-			    </div>
-			  </div>
-			</div>    
-		   <!-- 개인정보 수정 Modal  -->
-           <!--섹션 1 끝-->
+           <!--섹션 1 끝-->			    
+	       </div>
+	       <!-- 첫번째 탭(개인신상 내용 끝 -->
+	       
+	       <!-- 두번째 탭(포트폴리오) 내용 시작 -->
+		   <div role="tabpanel" class="tab-pane" id="profile">
            
            <!--섹션 2 시작-->
 			<section id="portfolio" style="margin-top: 2em; margin-bottom: 2em; border-width:5px; border-style: outset;">
@@ -325,9 +270,107 @@
             <div class="col-md-1"></div>
             </div>
 		</section>
+		</div> <!-- 두번째 탭(포트폴리오) 내용 끝  -->
+	  </div><!-- 탭 안의 내용들 끝 -->  
+	 </div><!-- tabpanel 끝 -->
+     </div>
+     <!-- 섹션 끝 -->
+     <div class="col-md-1"></div>     
+     <!-- row 끝 -->
+	<!-- 본문입력 끝  -->	
+	
+	<!-- 탭별 모달창 총 집합 시작 -->
+			<!-- 개인정보 수정 Modal 시작 -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog modal-md" role="document">
+			    
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+			        <span aria-hidden="true" >x</span></button>
+			        <h4 class="modal-title" id="myModalLabel" align="left" >
+			        <b>개인정보 수정</b></h4>
+			      </div>
+			      <!-- 모달내용 -->
+			      <div class="modal-body">
+			    	<div class="row">
 			
-	<!-- portfolio 부분 클릭시 modal fade 시작 -->	
-	<!-- Portfolio Modals -->
+			      <!-- edit form column -->
+			      <div class="col-md-12 col-md-offset-1" >
+			      	<table style="border-collapse: collapse; ">
+			      	<tr>
+			      		<td class="col-md-2">
+				      		영문이름
+			      		</td>
+			      		<td class="col-md-6">
+			      			<input type="text" id="uenm" placeholder="ex) Hong GilDong" style="width: 70%;">
+			      		</td>
+			      	</tr>
+			      	<tr>
+			      		<td class="col-md-2">
+			      			생년월일
+			      		</td>
+			      		<td class="col-sm-3" style="padding-top: 1em;">
+			      			<input class="form-control" type="date" id="ubd" style="width: 70%;">
+			      		</td>
+			      	</tr>
+			      	<tr>
+			      		<td class="col-md-2">
+			      			성별
+			      		</td>
+			      		<td class="col-sm-3" style="padding-top: 1em;">
+							<select class="form-control" id="usx" style="width: 30%;">
+                              <option>남성</option>
+                              <option>여성</option>
+                            </select>			      		
+                        </td>
+			      	</tr>
+			      	<tr>
+			      		<td class="col-md-2">
+			      			핸드폰 번호
+			      		</td>
+			      		<td class="col-sm-3" style="padding-top: 1em;">
+			        		<input class="form-control" type="text" id="uphone" placeholder="ex) 010-3333-4444" style="width: 70%;">		      		
+                        </td>
+			      	</tr>
+			      	<tr>
+			      		<td class="col-md-2">
+			      			주요 URL
+			      		</td>
+			      		<td class="col-sm-3" style="padding-top: 1em;">
+                            <input class="form-control" type="text" id="uurl" placeholder="ex)www.github.com/Yimkm" style="width: 70%;">
+                        </td>
+			      	 </tr>
+			      	
+                     <tr>
+                         <td class="col-md-2">
+                            거주지 주소
+                         </td>
+                         <td class="col-sm-3" style="padding-top: 1em;">
+                              <input type="text" id="sample4_postcode" style="margin-right: 1em;" placeholder="우편번호">
+                              <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+						      <input type="text" id="sample4_roadAddress" style="width: 70%; margin-top: 1em;"  placeholder="도로명/지번 주소">
+							  <input type="text" id="detail_address" style="width: 70%;" placeholder="상세주소">
+							  <span id="guide" style="color:#999"></span>
+                         </td>
+                      </tr>
+			      	
+			      	</table>
+			      </div>
+			  </div>
+			 </div>
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-default" data-dismiss="modal">취소</button>
+			        <button type="button" class="btn btn-orange userInfoUpdate" id="join">저장</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>    
+		   <!-- 개인정보 수정 Modal 끝 -->
+		   
+			<!-- portfolio 부분 클릭시 modal fade 시작 -->	
+			<!-- Portfolio Modals -->
+			
     		<!-- 첫번째 tag modal 시작 -->
    			<!-- 노출태그 입력 Modal 시작 -->
 			<div class="modal fade" style="width: auto;" id="pfModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -374,136 +417,138 @@
 			</div>    
 		   <!-- 노출태그 입력 Modal 끝  -->
     
-    <!-- 두번째 tag modal 시작 -->
-	<div class="modal fade" style="width: auto;" id="pfModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog modal-md" role="document">    
-	     <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-			        <span aria-hidden="true" >x</span></button>
-			        <h4 class="modal-title" id="myModalLabel" align="left" >
-			        <b>학력</b></h4>
-			      </div> <!-- 모달헤더 끝  -->
-			      <!-- 모달내용 -->
-			      <div id="pfModal2table"></div>
-			      <!-- 모달내용 끝 -->
-	    </div><!-- 모달 콘텐츠 끝 -->
-	  </div>   
-    </div>
-    <!-- 두번째 tag modal 끝 -->
-    <div class="modal fade" style="width: auto;" id="pfModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog modal-md" role="document">    
-	     <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-			        <span aria-hidden="true" >x</span></button>
-			        <h4 class="modal-title" id="myModalLabel" align="left" >
-			        <b>경력</b></h4>
-			      </div> <!-- 모달헤더 끝  -->
-			      <!-- 모달내용 -->
-			      <div id="pfModal3table"></div>
-			      <!-- 모달내용 끝 -->
-	    </div><!-- 모달 콘텐츠 끝 -->
-	  </div>   
-    </div>
-    <!-- 세번째 모달 끝  -->
-    <div class="modal fade" style="width: auto;" id="pfModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog modal-md" role="document">    
-	     <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-			        <span aria-hidden="true" >x</span></button>
-			        <h4 class="modal-title" id="myModalLabel" align="left" >
-			        <b>보유기술</b></h4>
-			      </div> <!-- 모달헤더 끝  -->
-			      <!-- 모달내용 -->
-			      <div id="pfModal4table"></div>
-			      <!-- 모달내용 끝 -->
-	    </div><!-- 모달 콘텐츠 끝 -->
-	  </div>   
-    </div>
-    <!-- 네번째 모달 끝  -->
-
-    <div class="modal fade" style="width: auto;" id="pfModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-	  <div class="modal-dialog modal-md" role="document">    
-	     <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
-			        <span aria-hidden="true" >x</span></button>
-			        <h4 class="modal-title" id="myModalLabel" align="left" >
-			        <b>외국어 및 자격증</b></h4>
-			      </div> <!-- 모달헤더 끝  -->
-			      <!-- 모달내용 -->
-			      <div id="pfModal5table">
-			      </div>
-			      <!-- 모달내용 끝 -->
-	    </div><!-- 모달 콘텐츠 끝 -->
-	  </div>   
-    </div>
-    <!-- 다섯번째 모달 끝  -->
-    <div class="portfolio-modal modal fade" id="pfModal6" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-content">
-            <div class="close-modal" data-dismiss="modal">
-                <div class="lr">
-                    <div class="rl">
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="modal-body">
-                            <h2>Project Title</h2>
-                            <hr class="star-primary">
-                            <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
-                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       </div>
+		   <!-- 두번째 tag modal 시작 -->
+			<div class="modal fade" style="width: auto;" id="pfModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog modal-md" role="document">    
+			     <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+					        <span aria-hidden="true" >x</span></button>
+					        <h4 class="modal-title" id="myModalLabel" align="left" >
+					        <b>학력</b></h4>
+					      </div> <!-- 모달헤더 끝  -->
+					      <!-- 모달내용 -->
+					      <div id="pfModal2table"></div>
+					      <!-- 모달내용 끝 -->
+			    </div><!-- 모달 콘텐츠 끝 -->
+			  </div>   
+		    </div>
+		    <!-- 두번째 tag modal 끝 -->
+		    
+		    <!-- 세번째 모달 시작 -->
+		    <div class="modal fade" style="width: auto;" id="pfModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog modal-md" role="document">    
+			     <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+					        <span aria-hidden="true" >x</span></button>
+					        <h4 class="modal-title" id="myModalLabel" align="left" >
+					        <b>경력</b></h4>
+					      </div> <!-- 모달헤더 끝  -->
+					      <!-- 모달내용 -->
+					      <div id="pfModal3table"></div>
+					      <!-- 모달내용 끝 -->
+			    </div><!-- 모달 콘텐츠 끝 -->
+			  </div>   
+		    </div>
+		    <!-- 세번째 모달 끝  -->
+		    
+		    <!-- 네번째 모달 시작 -->
+		    <div class="modal fade" style="width: auto;" id="pfModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog modal-md" role="document">    
+			     <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+					        <span aria-hidden="true" >x</span></button>
+					        <h4 class="modal-title" id="myModalLabel" align="left" >
+					        <b>보유기술</b></h4>
+					      </div> <!-- 모달헤더 끝  -->
+					      <!-- 모달내용 -->
+					      <div id="pfModal4table"></div>
+					      <!-- 모달내용 끝 -->
+			    </div><!-- 모달 콘텐츠 끝 -->
+			  </div>   
+		    </div>
+		    <!-- 네번째 모달 끝  -->
+		
+			<!-- 다섯번째 모달 시작 -->
+		    <div class="modal fade" style="width: auto;" id="pfModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog modal-md" role="document">    
+			     <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close" >
+					        <span aria-hidden="true" >x</span></button>
+					        <h4 class="modal-title" id="myModalLabel" align="left" >
+					        <b>외국어 및 자격증</b></h4>
+					      </div> <!-- 모달헤더 끝  -->
+					      <!-- 모달내용 -->
+					      <div id="pfModal5table">
+					      </div>
+					      <!-- 모달내용 끝 -->
+			    </div><!-- 모달 콘텐츠 끝 -->
+			  </div>   
+		    </div>
+		    <!-- 다섯번째 모달 끝  -->
+		    
+		    <!-- 여섯번째 모달 시작 -->
+		    <div class="portfolio-modal modal fade" id="pfModal6" tabindex="-1" role="dialog" aria-hidden="true">
+		        <div class="modal-content">
+		            <div class="close-modal" data-dismiss="modal">
+		                <div class="lr">
+		                    <div class="rl">
+		                    </div>
+		                </div>
+		            </div>
+		            <div class="container">
+		                <div class="row">
+		                    <div class="col-lg-8 col-lg-offset-2">
+		                        <div class="modal-body">
+		                            <h2>Project Title</h2>
+		                            <hr class="star-primary">
+		                            <img src="img/portfolio/submarine.png" class="img-responsive img-centered" alt="">
+		                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
+		                            <ul class="list-inline item-details">
+		                                <li>Client:
+		                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
+		                                    </strong>
+		                                </li>
+		                                <li>Date:
+		                                    <strong><a href="http://startbootstrap.com">April 2014</a>
+		                                    </strong>
+		                                </li>
+		                                <li>Service:
+		                                    <strong><a href="http://startbootstrap.com">Web Development</a>
+		                                    </strong>
+		                                </li>
+		                            </ul>
+		                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+		                        </div>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
+		       </div>
+		       <!-- 여섯번째 모달 끝 -->
        
-       <!-- 추가완료 모달 시작 -->
-		<div class="modal fade" id="test">
-		  <div class="modal-dialog" style="width: 20%;">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title">등록완료!</h4>
-		      </div>
-		      <div class="modal-body">
-		        <p>다른것들도 추가해보세용!</p>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-		      </div>
-		    </div><!-- /.modal-content -->
-		  </div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
-		<!-- 추가완료 모달 시작 -->			
-					
-       </div>
-       <!-- 섹션 끝 -->
-       <div class="col-md-1"></div>     
-       <!-- row 끝 -->
-	<!-- 본문입력 끝  -->	
-			
+		       <!-- 추가완료 모달 시작 -->
+				<div class="modal fade" id="test">
+				  <div class="modal-dialog" style="width: 20%;">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title">등록완료!</h4>
+				      </div>
+				      <div class="modal-body">
+				        <p>다른것들도 추가해보세용!</p>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+				      </div>
+				    </div><!-- /.modal-content -->
+				  </div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+				<!-- 추가완료 모달 끝 -->			
+			<!-- 탭별 모달창 총집합 끝 -->				
 	</div>
 	<div class="col-sm-2 sidenav"></div>
 	</div>
@@ -620,7 +665,8 @@
 		$('#sx').text(user.usx);
 		$('#phone').text(user.upho);
 		$('#url').text(user.uurl);
-		$('#adr').text(user.uadr);		
+		$('#adr').text(user.uadr);	
+		$('#ures').text(user.ures);		
 		
 		//등록버튼시 이벤트 시작
         $('#join').click(function () {
@@ -758,34 +804,62 @@
         
 		
         $('#portfolio5').click(function(){
-        	$('#pfModal5table').load('Ulans/getUlans.html', function() {
-	           	$.ajax({
-	    			url : contextRoot + "/developer/getUlans?uno="+user.uno,
-	    			method : "GET",
-	    			dataType : "json",
-	    			headers : {
-	    				"Accept" : "application/json",
-	    				"Content-Type" : "application/json"
-	    			},
-	    			success : function(data, status) {
-	    				console.log(data.ulans);
-	    				$('#lgnm').text(data.ulans.lgnm);
-	    				$('#lglvl').text(data.ulans.lglvl);  
-	    				$('#ctnm').text(data.ucerts.ctnm);  
-	    				$('#ctag').text(data.ucerts.ctag);  
-	    				$('#ctuqno').text(data.ucerts.ctuqno);  
-	    				$('#ctsc').text(data.ucerts.ctsc);  
-	    				$('#cturl').text(data.ucerts.cturl);  
-	    				$('#ctdy').text(data.ucerts.ctdy);  
-	    				$('#ctsd').text(data.ucerts.ctsd);  
-	    				$('#cted').text(data.ucerts.cted);  
-	    				
-	    				$('#pfModal5').modal(); 
-	    			}
-	    		});
-        	});
+
+	        	$('#pfModal5table').load('Ulans/getUlans.html', function() {
+		           	$.ajax({
+		    			url : contextRoot + "/developer/getUlans?uno="+user.uno,
+		    			method : "GET",
+		    			dataType : "json",
+		    			headers : {
+		    				"Accept" : "application/json",
+		    				"Content-Type" : "application/json"
+		    			},
+		    			success : function(data, status) {
+		    				console.log(data);
+		    				console.log(data.ulans);
+		    				
+		    				if(data.ucerts==null && data.ulans==null){// 자격증과 외국어가 없을때
+		    					$('#pfModal5table').load('Ucerlans.html');
+		    				} else if (data.ucerts==null){//자격증만 없을때
+		    					console.log(data.ulans)
+		    					$('#pfModal5table').load('Ucerts/addUcerts.html', function(){
+			    					$('#lgnm').text(data.ulans.lgnm);
+				    				$('#lglvl').text(data.ulans.lglvl);
+		    					});
+		    				} else if (data.ulans==null){// 외국어만 없을때
+		    					$('#pfModal5table').load('Ulans/addUlans.html', function(){
+				    				$('#ctnm').text(data.ucerts.ctnm);  
+				    				$('#ctag').text(data.ucerts.ctag);  
+				    				$('#ctuqno').text(data.ucerts.ctuqno);  
+				    				$('#ctsc').text(data.ucerts.ctsc);
+				    				$('#ctgrd').text(data.ucerts.ctgrd);
+				    				$('#cturl').text(data.ucerts.cturl);  
+				    				$('#ctdy').text(data.ucerts.ctdy);  
+				    				$('#ctsd').text(data.ucerts.ctsd);  
+				    				$('#cted').text(data.ucerts.cted);  
+		    					});
+		    					
+		    				} else {//둘다 있을때
+				    				$('#lgnm').text(data.ulans.lgnm);
+				    				$('#lglvl').text(data.ulans.lglvl);  
+				    				$('#ctnm').text(data.ucerts.ctnm);  
+				    				$('#ctag').text(data.ucerts.ctag);  
+				    				$('#ctuqno').text(data.ucerts.ctuqno);  
+				    				$('#ctsc').text(data.ucerts.ctsc);
+				    				$('#ctgrd').text(data.ucerts.ctgrd);
+				    				$('#cturl').text(data.ucerts.cturl);  
+				    				$('#ctdy').text(data.ucerts.ctdy);  
+				    				$('#ctsd').text(data.ucerts.ctsd);  
+				    				$('#cted').text(data.ucerts.cted);  
+		    				} 
+		    				
+		    				$('#pfModal5').modal();
+		    			}
+		    		});
+	        	});
         });         
         
+      	//노출태그 등록 이벤트 시작
 		$('#addTags').click(function() {
 			
 			var map = {};
@@ -814,7 +888,53 @@
  					$("#test").modal("show");
 				}
 			});
-		}); //노출태그 등록 이벤트 끝
+		}); 
+		//노출태그 등록 이벤트 끝
+		
+		// 간단 자기소개 작성 이벤트 시작
+		$('#updateUres').click(function(){
+			$.ajax({
+				url : contextRoot+"/developer/updateUres",
+				method : "POST",
+				dataType : "json",
+				data : '{"ures":"' + $("#ures").val()
+						+'","uno":"'+user.uno+ '"}',
+				headers : {
+					"Accept" : "application/json",
+					"Content-Type" : "application/json"
+				},
+				success : function() {
+					/* 로그인 ajax 시작 */
+						$.ajax({
+							url : contextRoot + "/login",
+							method : "POST",
+							dataType : "json",
+							data : '{"uem":"' + user.uem + '","upw":"'+ user.upw + '"}',
+							headers : {
+								"Accept" : "application/json",
+								"Content-Type" : "application/json"
+							},
+							success : function(data, status) {
+								console.log(data);
+								if (data.user) {
+									location.reload();
+								} else {
+									user=null;
+									callModal('경고','아이디, 비밀번호가 맞지 않습니다.');
+								}
+							},
+							error:function(req,status,error){
+								callModal('경고','알수없는 에러');
+								user=null;
+							}
+						});
+						/* 로그인 ajax 끝 */
+// 					callModal('등록완료','자기소개서 작성을 완료하였습니다.',contextRoot+"/view/developer/addInfo/addInfo.html");
+/* 					console.log(data); */
+				}
+			});
+		});
+		// 간단 자기소개 작성 끝
 		
 		
 	});

@@ -39,10 +39,18 @@
 			      	</tr>
 			      	<tr>
 			      		<td class="col-md-2" style="padding-top: 1em; text-align: center;">
+			      			<strong>등급</strong>
+			      		</td>
+			      		<td class="col-sm-2" style="padding-top: 1em;">
+			      			<input type="text" id="ctgrd" placeholder="등급을 입력해주세요." style="width: 100%;">
+			      		</td>
+			      	</tr>			      
+			      	<tr>
+			      		<td class="col-md-2" style="padding-top: 1em; text-align: center;">
 			      			<strong>자격증 URL</strong>
 			      		</td>
 			      		<td class="col-sm-2" style="padding-top: 1em;">
-			      			<input type="text" id="cturl" placeholder="점수를 입력해주세요." style="width: 100%;">
+			      			<input type="text" id="cturl" placeholder="홈페이지 주소를 입력해주세요." style="width: 100%;">
 			      		</td>
 			      	</tr>				  
 			      	<tr>
@@ -79,24 +87,24 @@
 		         <button type="button" class="btn btn-orange" id="modifiedComplete">확인</button>
 		       </div>
 	       
-	       <!-- 수정완료 모달 시작 -->
-			<div class="modal fade" id="updateCom">
-			  <div class="modal-dialog" style="width: 50%;">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        <h4 class="modal-title">수정완료!</h4>
-			      </div>
-			      <div class="modal-body">
-			        <p>다른것들도 수정해보세용!</p>
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" id="close">닫기</button>
-			      </div>
-			    </div><!-- /.modal-content -->
-			  </div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
-			<!-- 수정완료 모달 끝 -->	
+		       <!-- 수정완료 모달 시작 -->
+				<div class="modal fade" id="updateCom">
+				  <div class="modal-dialog" style="width: 50%;">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        <h4 class="modal-title">수정완료!</h4>
+				      </div>
+				      <div class="modal-body">
+				        <p>다른것들도 수정해보세용!</p>
+				      </div>
+				      <div class="modal-footer">
+				        <button type="button" class="btn btn-default" data-miss="modal">닫기</button>
+				      </div>
+				    </div><!-- /.modal-content -->
+				  </div><!-- /.modal-dialog -->
+				</div><!-- /.modal -->
+				<!-- 수정완료 모달 끝 -->	
 		                 
        <script>
         $('#removeUlans').click(function(){
@@ -136,6 +144,7 @@
         		 	+'","ctag":"'+$("#ctag").val()
         		 	+'","ctuqno":"'+$("#ctuqno").val()
         		 	+'","ctsc":"'+$("#ctsc").val()
+        		 	+'","ctgrd":"'+$("#ctgrd").val()
         		 	+'","cturl":"'+$("#cturl").val()
         		 	+'","ctdy":"'+$("#ctdy").val()
         		 	+'","ctsd":"'+$("#ctsd").val()
@@ -154,11 +163,57 @@
         });
         
         $('#removeUlans').click(function(){
-        	$('#pfModal5table').load('Ulans/getUlans.html');
-
-        })
-        
-        $('#close').click(function(){
-        	$("#updateCom").modal("hide");
+        	$('#pfModal5table').load('Ulans/getUlans.html', function() {
+	           	$.ajax({
+	    			url : contextRoot + "/developer/getUlans?uno="+user.uno,
+	    			method : "GET",
+	    			dataType : "json",
+	    			headers : {
+	    				"Accept" : "application/json",
+	    				"Content-Type" : "application/json"
+	    			},
+	    			success : function(data, status) {
+	    				console.log(data);
+	    				console.log(data.ulans);
+	    				
+	    				if(data.ucerts==null && data.ulans==null){
+	    					$('#pfModal5table').load('Ucerlans.html');
+	    				} else if (data.ucerts==null){
+	    					console.log(data.ulans)
+	    					$('#pfModal5table').load('Ucerts/addUcerts.html', function(){
+		    					$('#lgnm').text(data.ulans.lgnm);
+			    				$('#lglvl').text(data.ulans.lglvl);
+	    					});
+	    				} else if (data.ulans==null){
+	    					$('#pfModal5table').load('Ulans/addUlans.html', function(){
+			    				$('#ctnm').text(data.ucerts.ctnm);  
+			    				$('#ctag').text(data.ucerts.ctag);  
+			    				$('#ctuqno').text(data.ucerts.ctuqno);  
+			    				$('#ctsc').text(data.ucerts.ctsc);
+			    				$('#ctgrd').text(data.ucerts.ctgrd);
+			    				$('#cturl').text(data.ucerts.cturl);  
+			    				$('#ctdy').text(data.ucerts.ctdy);  
+			    				$('#ctsd').text(data.ucerts.ctsd);  
+			    				$('#cted').text(data.ucerts.cted);  
+	    					});
+	    					
+	    				} else {
+			    				$('#lgnm').text(data.ulans.lgnm);
+			    				$('#lglvl').text(data.ulans.lglvl);  
+			    				$('#ctnm').text(data.ucerts.ctnm);  
+			    				$('#ctag').text(data.ucerts.ctag);  
+			    				$('#ctuqno').text(data.ucerts.ctuqno);  
+			    				$('#ctsc').text(data.ucerts.ctsc);
+			    				$('#ctgrd').text(data.ucerts.ctgrd);
+			    				$('#cturl').text(data.ucerts.cturl);  
+			    				$('#ctdy').text(data.ucerts.ctdy);  
+			    				$('#ctsd').text(data.ucerts.ctsd);  
+			    				$('#cted').text(data.ucerts.cted);  
+	    				} 
+	    				
+	    				$('#pfModal5').modal();
+	    			}
+	    		});
+        	});
         });
 		</script>

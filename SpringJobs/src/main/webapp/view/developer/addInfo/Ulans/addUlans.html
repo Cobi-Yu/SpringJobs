@@ -41,24 +41,25 @@
 			      <div class="col-md-8" >
 			      	<button class="accordion"><strong>외국어</strong></button>
 					<div class="panel">
-						<table style="border-collapse: collapse;">
+					      <table style="border-collapse: collapse;">			      	
 					      	<tr>
-					      		<td class="col-md-1" style="padding-top: 1em;">
+					      		<td class="col-md-1" style="padding-top: 1em; text-align: center;">
 						      		<strong>언어</strong>
 					      		</td>
-					      		<td class="col-md-1" style="padding-top: 1em;">
-					      			<div id="lgnm"></div>
+					      		<td class="col-md-2" style="padding-top: 1em;">
+					      			<input type="text" id="lgnm" placeholder="언어를 입력해주세요." style="width: 100%;">
 					      		</td>
 					      	</tr>
 					      	<tr>
-					      		<td class="col-md-1" style="padding-top: 1em;">
+					      		<td class="col-md-1" style="padding-top: 1em; text-align: center;">
 					      			<strong>수준</strong>
 					      		</td>
-					      		<td class="col-sm-1" style="padding-top: 1em;">
-					      			<div id="lglvl"></div>
+					      		<td class="col-sm-2" style="padding-top: 1em;">
+					      			<input type="text" id="lglvl" placeholder="수준을 입력해주세요." style="width: 100%;">
 					      		</td>
 					      	</tr>
-				      	</table>
+					      	
+					      	</table>
 				      	<div style="padding-top: 1em; text-align: right;">
 				      	<button type="button" class="btn btn-orange" id="modifiedUlans">수정</button>
 				      	</div>
@@ -169,11 +170,52 @@
 	        }
 	        
 	        $('#modifiedUlans').click(function() {
-	        	$('#pfModal5table').load('Ulans/modifiedUlans.html');		        	
+	    	      $.ajax({
+	                  url: contextRoot+"/developer/addUlans"
+	                  , method: "POST"
+	                  , dataType: "json"
+	                  , data: 
+	                  	'{"lgnm":"' +$("#lgnm").val() 
+	          		 	+'","lglvl":"'+$("#lglvl").val()
+	          		 	+'","uno":"'+user.uno+'"}'
+	                  , headers: {
+	                        "Accept": "application/json"
+	                       ,"Content-Type": "application/json"
+	                  },
+	  				beforeSend : addLoading,
+	  				complete : removeLoading,
+	                  success: function (data) {
+	                  	$("#updateCom").modal("show");
+	                  } //success fuction 
+	              }); //등록 내부 첫 ajax 끝 		        	
 	        });
 
 	        $('#modifiedUcerts').click(function() {
-	        	$('#pfModal5table').load('Ucerts/modifiedUcerts.html');		        	
+	        	 $.ajax({
+	                 url: contextRoot+"/developer/addUcerts"
+	                 , method: "POST"
+	                 , dataType: "json"
+	                 , data: 
+	                 	'{"ctnm":"' +$("#ctnm").val() 
+	         		 	+'","ctag":"'+$("#ctag").val()
+	         		 	+'","ctuqno":"'+$("#ctuqno").val()
+	         		 	+'","ctsc":"'+$("#ctsc").val()
+	         		 	+'","ctgrd":"'+$("#ctgrd").val()
+	         		 	+'","cturl":"'+$("#cturl").val()
+	         		 	+'","ctdy":"'+$("#ctdy").val()
+	         		 	+'","ctsd":"'+$("#ctsd").val()
+	         		 	+'","cted":"'+$("#cted").val()
+	         		 	+'","uno":"'+user.uno+'"}'
+	                 , headers: {
+	                       "Accept": "application/json"
+	                      ,"Content-Type": "application/json"
+	                 },
+	 				beforeSend : addLoading,
+	 				complete : removeLoading,
+	                 success: function (data) {
+	                 	$("#updateCom").modal("show");
+	                 } //success fuction 
+	             }); //등록 내부 첫 ajax 끝 	        	
 	        });
 	        
 	       </script>

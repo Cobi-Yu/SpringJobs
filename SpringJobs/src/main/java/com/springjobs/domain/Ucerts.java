@@ -9,6 +9,7 @@ public class Ucerts {
 	private String ctag;
 	private int ctuqno;
 	private int ctsc;
+	private String ctgrd;
 	private String cturl;
 	private Date ctdy;
 	private Date ctsd;
@@ -19,13 +20,14 @@ public class Ucerts {
 		// TODO Auto-generated constructor stub
 	}
 		
-	public Ucerts(int ctno, String ctnm, String ctag, int ctuqno, int ctsc, String cturl, Date ctdy, Date ctsd, Date cted, int uno) {
+	public Ucerts(int ctno, String ctnm, String ctag, int ctuqno, int ctsc, String ctgrd, String cturl, Date ctdy, Date ctsd, Date cted, int uno) {
 		super();
 		this.ctno = ctno;
 		this.ctnm = ctnm;
 		this.ctag = ctag;
 		this.ctuqno = ctuqno;
 		this.ctsc = ctsc;
+		this.ctgrd = ctgrd;
 		this.cturl = cturl;
 		this.ctdy = ctdy;
 		this.ctsd = ctsd;
@@ -67,6 +69,14 @@ public class Ucerts {
 
 	public int getCtsc() {
 		return ctsc;
+	}
+
+	public String getCtgrd() {
+		return ctgrd;
+	}
+
+	public void setCtgrd(String ctgrd) {
+		this.ctgrd = ctgrd;
 	}
 
 	public void setCtsc(int ctsc) {
@@ -116,7 +126,7 @@ public class Ucerts {
 	@Override
 	public String toString() {
 		return "Ucerts [ctno=" + ctno + ", ctnm=" + ctnm + ", ctag=" + ctag + ", ctuqno=" + ctuqno + ", ctsc=" + ctsc
-				+ ", cturl=" + cturl + ", uno=" + uno + "]";
+				+ ", ctgrd=" + ctgrd +  ", cturl=" + cturl + ", uno=" + uno + "]";
 	}
 	
 }
