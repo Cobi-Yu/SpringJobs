@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.springjobs.dao.user.UserDao;
+import com.springjobs.domain.UPhotos;
 import com.springjobs.domain.Users;
 import com.springjobs.service.user.UserService;
 
@@ -34,5 +35,15 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public int userEmailConfirm(int uno) {
 		return userDao.userEmailConfirm(uno);
+	}
+
+	@Override
+	public int uploadPhoto(UPhotos uPhotos) {
+		return userDao.uploadPhoto(uPhotos);
+	}
+
+	@Override
+	public UPhotos getUserPhoto(Users user) {
+		return userDao.getUserPhoto(user);
 	}
 }

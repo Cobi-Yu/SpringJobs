@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.springjobs.dao.user.UserDao;
+import com.springjobs.domain.UPhotos;
 import com.springjobs.domain.Users;
 
 @Repository("userDaoImpl")
@@ -37,5 +38,15 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public int userEmailConfirm(int uno) {
 		return sqlSession.update("UserMapper.userEmailConfirm",uno);
+	}
+
+	@Override
+	public int uploadPhoto(UPhotos uPhotos) {
+		return sqlSession.insert("UserMapper.uploadPhoto",uPhotos);
+	}
+
+	@Override
+	public UPhotos getUserPhoto(Users user) {
+		return sqlSession.selectOne("UserMapper.getUserPhoto",user);
 	}
 }

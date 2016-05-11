@@ -6,19 +6,25 @@
 
 <mapper namespace="UserMapper">
 	<resultMap id="userSelectMap" type="com.springjobs.domain.Users">
-		<result property="uno"  column="UNO"  jdbcType="INTEGER" />
-		<result property="unm"  column="UNM"  jdbcType="VARCHAR" />
-		<result property="uenm" column="UENM" jdbcType="VARCHAR" />
-		<result property="uem"  column="UEM"  jdbcType="VARCHAR" />
-		<result property="upw"  column="UPW"  jdbcType="VARCHAR" />
-		<result property="uco"  column="UCO"  jdbcType="VARCHAR" />
-		<result property="usx"  column="USX"  jdbcType="VARCHAR" />
-		<result property="ucnf" column="UCNF" jdbcType="VARCHAR" />
-		<result property="ubd"  column="UBD"  jdbcType="DATE" />
-		<result property="upho" column="UPHO" jdbcType="VARCHAR" />
-		<result property="uadr" column="UADR" jdbcType="VARCHAR" />
-		<result property="uurl" column="UURL" jdbcType="VARCHAR" />
-		<result property="ures" column="URES" jdbcType="VARCHAR" />
+		<result property="uno"  column="UNO"  	jdbcType="INTEGER" />
+		<result property="unm"  column="UNM"  	jdbcType="VARCHAR" />
+		<result property="uenm" column="UENM" 	jdbcType="VARCHAR" />
+		<result property="uem"  column="UEM"  	jdbcType="VARCHAR" />
+		<result property="upw"  column="UPW"  	jdbcType="VARCHAR" />
+		<result property="uco"  column="UCO"  	jdbcType="VARCHAR" />
+		<result property="usx"  column="USX"  	jdbcType="VARCHAR" />
+		<result property="ucnf" column="UCNF" 	jdbcType="VARCHAR" />
+		<result property="ubd"  column="UBD"  	jdbcType="DATE" />
+		<result property="upho" column="UPHO" 	jdbcType="VARCHAR" />
+		<result property="uadr" column="UADR" 	jdbcType="VARCHAR" />
+		<result property="uurl" column="UURL" 	jdbcType="VARCHAR" />
+		<result property="ures" column="URES" 	jdbcType="VARCHAR" />
+		<result property="cno" 	column="CNO" 	jdbcType="INTEGER" />
+		<collection property="uphots" ofType="com.springjobs.domain.UPhotos">
+		    <id property="phno"			column="PHNO"		jdbcType="INTEGER"/>
+	    	<result property="phot"		column="PHOT" 		jdbcType="VARCHAR"/>
+	    	<result property="uno"		column="UNO" 		jdbcType="INTEGER"/>
+		</collection>
 	</resultMap>
 	
 	<resultMap id="utagsSelectMap" type="com.springjobs.domain.UTags">
@@ -68,6 +74,12 @@
 		<result property="cted"    column="CTED"  	jdbcType="DATE" />
 		<result property="uno" 	   column="UNO" 	jdbcType="INTEGER" /> 
 	</resultMap>
+	
+	<resultMap id="uPhotoMap" type="com.springjobs.domain.UPhotos">
+	    <result property="phno"    column="phno"  	jdbcType="INTEGER" />
+	    <result property="phct"    column="phct"  	jdbcType="VARCHAR" />
+	    <result property="uno"    column="uno"  	jdbcType="INTEGER" />
+	</resultMap>
 
 	<!-- SQL : INSERT -->
 	<insert id="addUser" parameterType="com.springjobs.domain.Users" useGeneratedKeys="true" keyProperty="uno" keyColumn="uno">
@@ -77,11 +89,11 @@
 	</insert>
 
 	<select id="login" parameterType="com.springjobs.domain.Users"
-		resultType="com.springjobs.domain.Users">
+		resultMap="userSelectMap">
 		SELECT
-		U.UNO,U.UNM,U.UENM,U.UEM,U.UPW,U.UCO,U.USX,U.UCNF,U.UBD,U.UPHO,U.UADR,UURL,URES,C.CNO
+		U.UNO,U.UNM,U.UENM,U.UEM,U.UPW,U.UCO,U.USX,U.UCNF,U.UBD,U.UPHO,U.UADR,UURL,URES,C.CNO, PH.phno, PH.phot, PH.uno
 		FROM USERS U left outer join CINFOS C
-		ON U.uno=C.uno WHERE U.uem=#{uem}
+		ON U.uno=C.uno left outer join UPHOTS PH on PH.uno=U.uno WHERE U.uem=#{uem}
 		and U.upw=#{upw} and U.UCNF='1'
 	</select>
 
@@ -211,4 +223,13 @@
 		WHERE uno=#{uno}
 	</update>
 	
+	<insert id="uploadPhoto" parameterType="com.springjobs.domain.UPhotos">
+		insert into UPHOTS values(0,#{phot},#{uno}) 
+		on duplicate key update phot=#{phot};
+	</insert>
+	
+	<select id="getUserPhoto" parameterType="com.springjobs.domain.Users" resultMap="uPhotoMap">
+		select * from UPHOTS
+		where uno=#{uno}
+	</select>
 </mapper>

@@ -64,7 +64,14 @@
 			</list>
 		</property>	 
 	 </bean>
-
+	 
+	 <!--  fileupload관련 viewResolver -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize">
+			<value>102400000</value>
+		</property>
+	</bean>
+	<!--  fileupload관련 viewResolver -->
 
 	 <!-- /////// Client 로 전달되는 Domain Object  를 JSON Data  변환위한 설정            /////// -->
 	 <!-- Client  Response 받기원핟는 Content 타입을 선택,협상(Negotiation)하는 ViewResolver 설정 --> 

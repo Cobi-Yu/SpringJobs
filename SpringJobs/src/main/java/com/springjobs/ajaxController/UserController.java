@@ -1,6 +1,10 @@
 package com.springjobs.ajaxController;
 
 
+import java.io.File;
+import java.io.IOException;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +16,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import com.springjobs.domain.UPhotos;
 import com.springjobs.domain.Users;
 import com.springjobs.service.user.UserService;
 
@@ -79,6 +87,32 @@ public class UserController {
 	public void userEmailConfirm(@RequestParam("uno") int uno,  Model model){
 		System.out.println("confirm : "+ uno);
 		userService.userEmailConfirm(uno);
+	}
+
+	@RequestMapping(value="/user/getUserPhoto", method=RequestMethod.POST)
+	public void getUserPhoto(@RequestBody Users user,  Model model){
+		System.out.println("confirm : "+ user);
+		model.addAttribute("result",userService.getUserPhoto(user));
+	}
+	
+	@RequestMapping(value="/user/uploadPhoto", method=RequestMethod.POST)
+	public void uploadPhoto(MultipartHttpServletRequest request, HttpSession session,  Model model){
+		try {
+			Map<String, MultipartFile>	files = request.getFileMap();
+			CommonsMultipartFile cmf = (CommonsMultipartFile) files.get("uploadFile");
+			Users loginUser = (Users) session.getAttribute("user");
+			String path = "/view/resources/img/"+loginUser.getUno()+"@"+cmf.getOriginalFilename();
+			String realPath = request.getSession().getServletContext().getRealPath(path);
+			File file = new File(realPath);
+			cmf.transferTo(file);
+			UPhotos uPhotos = new UPhotos(0,path,loginUser.getUno());
+//			UPhotos uPhotos = new UPhotos(0,path,1);
+			userService.uploadPhoto(uPhotos);
+			model.addAttribute("result", 1);
+		} catch (IllegalStateException | IOException e) {
+			model.addAttribute("result", 0);
+			e.printStackTrace();
+		}
 	}
 	
 }

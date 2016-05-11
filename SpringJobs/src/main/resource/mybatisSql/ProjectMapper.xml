@@ -47,6 +47,7 @@
 		<collection property="uphots" ofType="com.springjobs.domain.UPhotos">
 		    <id property="phno"		column="PHNO"		jdbcType="INTEGER"/>
 	    	<result property="phot"	column="PHOT" 		jdbcType="VARCHAR"/>
+	    	<result property="uno"	column="UNO" 		jdbcType="INTEGER"/>
 		</collection>
 		<collection property="cpjjoins" ofType="com.springjobs.domain.Cpjjoin">
 		    <id property="uno"			column="uno"		jdbcType="INTEGER"/>
@@ -149,8 +150,8 @@
 	
 	<select id="getJoinProjectUserList" parameterType="map" resultMap="joinProjectUserSelectMap">
 	    select * from 
-	    (SELECT user.* FROM USERS user ,CPJJOIN cpjoin where user.uno=cpjoin.uno and cpjno=#{cpjno} AND cpjconf = #{confirm})main 
-	 	left outer join UTAGS tags on tags.uno=main.uno;
+	    (SELECT user.*,cpjoin.cpjjointxt FROM USERS user ,CPJJOIN cpjoin where user.uno=cpjoin.uno and cpjno=#{cpjno} AND cpjconf = #{confirm})main 
+	 	left outer join UTAGS tags on tags.uno=main.uno left outer join UPHOTS ph on ph.uno=main.uno;
 	</select>
 	
 	<update id="confirmProjectUser" parameterType="map">

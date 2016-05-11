@@ -17,11 +17,10 @@ $('head').append( $('<link rel="stylesheet" type="text/css"/>').attr('href', '/v
 				$('#loginul').load('/view/common/login/loginSucess.html', function() {
 					$('#uem').text(data.user.uem);
 					$(this).next().children('a').text(data.user.unm);
-					if(!data.user.upho){//사진이 없을때
+					if(!data.user.uphots[0]['phot']){//사진이 없을때
 						$( "#upho" ).attr( "src", "/view/resources/img/unknown.jpg");
 					}else{//사진이 있을때
-						$( "#upho" ).attr( "src", "/view/resources/img/unknown.jpg");
-//						$( "#upho" ).attr( "src", data.user.upho);// 제대로 사진데이터 입력되면 꼭 주석풀어야됨 위에꺼 지우고
+						$( "#upho" ).attr( "src", data.user.uphots[0]['phot']);
 					}
 				});
 				user=data.user;

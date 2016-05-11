@@ -22,6 +22,8 @@
         padding-top: 20px;
         background-color: #f1f1f1;
         height: 700px;
+        margin-bottom: -99999px;
+    	padding-bottom: 99999px;
     }
 
     /* Set black background color, white text and some padding */
@@ -100,4 +102,8 @@
     
     .dropdown-toggle:hover .dropdown-menu {
 	    display: block;
+	}
+	.text-center {
+	    text-align: center;
+	    overflow: hidden;
 	}
