@@ -7,7 +7,7 @@ public class Uscls {
 	private int scno;
 	private String scnm;
 	private String scmj;
-	private int scgr;
+	private Double scgr;
 	private Date scsd;
 	private Date sced;
 	private int uno;
@@ -16,7 +16,7 @@ public class Uscls {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Uscls(int scno, String scnm, String scmj, int scgr, Date scsd, Date sced, int uno) {
+	public Uscls(int scno, String scnm, String scmj, Double scgr, Date scsd, Date sced, int uno) {
 		super();
 		this.scno = scno;
 		this.scnm = scnm;
@@ -51,11 +51,11 @@ public class Uscls {
 		this.scmj = scmj;
 	}
 
-	public int getScgr() {
+	public Double getScgr() {
 		return scgr;
 	}
 
-	public void setScgr(int scgr) {
+	public void setScgr(Double scgr) {
 		this.scgr = scgr;
 	}
 

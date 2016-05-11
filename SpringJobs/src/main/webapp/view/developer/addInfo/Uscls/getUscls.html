@@ -50,7 +50,26 @@
 	       </div>
 	       
 	       <script>
-	        $('#modifiedUscls').click(function() {
-	        	$('#pfModal2table').load('Uscls/modifiedUscls.html')
+	        $('#modifiedUscls').click(function() { 
+	        	$('#pfModal2table').load('Uscls/modifying.html', function(){
+		           	$.ajax({
+		    			url : contextRoot + "/developer/getUscls?uno="+user.uno,
+		    			method : "GET",
+		    			dataType : "json",
+		    			headers : {
+		    				"Accept" : "application/json",
+		    				"Content-Type" : "application/json"
+		    			},
+		    			success : function(data, status) {
+				    				console.log(data.uscls);
+				    				$('#scnm').val(data.uscls.scnm);
+				    				$('#scmj').val(data.uscls.scmj);
+				    				$('#scgr').val(data.uscls.scgr);
+				    				$('#scsd').val(data.uscls.scsd);
+				    				$('#sced').val(data.uscls.sced);
+				    				
+		    			}
+		    		});	        		
+	        	});     	
 	        });
 	       </script>

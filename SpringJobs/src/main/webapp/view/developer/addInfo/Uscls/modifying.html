@@ -50,6 +50,7 @@
 	                       
 	       <script>
 	       
+	       
 	        $('#removeUscls').click(function(){
 	        	$('#pfModal2').modal('hide');
 	        	$('#pfModal2table').empty();
@@ -75,7 +76,7 @@
 					complete : removeLoading,
 	                success: function (data) {
 	                		$("#pfModal2").modal("hide");
-							callModal('학력','등록완료');
+							callModal('학력','수정완료');
 	                } //success fuction 
 	            }); //등록 내부 첫 ajax 끝 
 	        });

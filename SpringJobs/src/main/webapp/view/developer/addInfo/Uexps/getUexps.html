@@ -70,6 +70,27 @@
 	       </div>
 	       <script>
 	        $('#modifiedUexps').click(function() {
-	        	$('#pfModal3table').load('Uexps/modifiedUexps.html')
+	        	$('#pfModal3table').load('Uexps/modifyingUexps.html', function(){
+	               	$.ajax({
+	        			url : contextRoot + "/developer/getUexps?uno="+user.uno,
+	        			method : "GET",
+	        			dataType : "json",
+	        			headers : {
+	        				"Accept" : "application/json",
+	        				"Content-Type" : "application/json"
+	        			},
+	        			success : function(data, status) {	        	
+	        	    				console.log(data.uexps);
+	        	    				$('#expcn').val(data.uexps.expcn);
+	        	    				$('#expdn').val(data.uexps.expdn);
+	        	    				$('#exped').val(data.uexps.exped);
+	        	    				$('#expsd').val(data.uexps.expsd);
+	        	    				$('#exppt').val(data.uexps.exppt);
+	        	    				$('#exppy').val(data.uexps.exppy);
+	        	    				$('#expwc').val(data.uexps.expwc);	   
+	        	    			
+	        			}
+	        		});
+	        	});
 	        });
 	       </script>

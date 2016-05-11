@@ -148,7 +148,7 @@
                                        <td style="width: 20%; text-align: center; padding-top: 1em; border-right: hidden; border-left: hidden; border-bottom: hidden;"></td>
                                        <td colspan="3" style="border-right: hidden; border-bottom: hidden;">
                                        	   <div style="text-align: right;">
-												<a type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal">수정</a>                                       	   
+												<a type="button" class="btn btn-danger" id="profileUpdate">수정</a>                                       	   
                                        	   </div>
                                        </td>
                                    </thead>
@@ -281,7 +281,7 @@
 	
 	<!-- 탭별 모달창 총 집합 시작 -->
 			<!-- 개인정보 수정 Modal 시작 -->
-			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal fade" id="myprofileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 			  <div class="modal-dialog modal-md" role="document">
 			    
 			    <div class="modal-content">
@@ -303,7 +303,7 @@
 				      		영문이름
 			      		</td>
 			      		<td class="col-md-6">
-			      			<input type="text" id="uenm" placeholder="ex) Hong GilDong" style="width: 70%;">
+			      			<input class="form-control" type="text" id="uenm" placeholder="ex) BaekSeungHyun"style="width: 70%;">
 			      		</td>
 			      	</tr>
 			      	<tr>
@@ -528,26 +528,7 @@
 		            </div>
 		        </div>
 		       </div>
-		       <!-- 여섯번째 모달 끝 -->
-       
-		       <!-- 추가완료 모달 시작 -->
-				<div class="modal fade" id="test">
-				  <div class="modal-dialog" style="width: 20%;">
-				    <div class="modal-content">
-				      <div class="modal-header">
-				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        <h4 class="modal-title">등록완료!</h4>
-				      </div>
-				      <div class="modal-body">
-				        <p>다른것들도 추가해보세용!</p>
-				      </div>
-				      <div class="modal-footer">
-				        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
-				      </div>
-				    </div><!-- /.modal-content -->
-				  </div><!-- /.modal-dialog -->
-				</div><!-- /.modal -->
-				<!-- 추가완료 모달 끝 -->			
+		       <!-- 여섯번째 모달 끝 -->			
 			<!-- 탭별 모달창 총집합 끝 -->				
 	</div>
 	<div class="col-sm-2 sidenav"></div>
@@ -658,27 +639,39 @@
 	
 	$(document).on('frameComplete',function(event){
 		
-		//디폴트 값을 개인신상정보에 넣어주기 위한 .text
+		//개인신상정보에 DB정보를 넣어주기 위한 .text 시작
 		$('#nm').text(user.unm);
 		
 		if(user.uenm == null){$('#enm').text('내용이 없습니다.');} 
-		else { $('#enm').text(user.uenm); }
-		if(user.ubd == null){$('#bd').text('내용이 없습니다.');} 
-		else { $('#bd').text(user.ubd); }
-		if(user.usx == null){$('#sx').text('내용이 없습니다.');} 
-		else { $('#sx').text(user.usx); }
-		if(user.upho == null){$('#phone').text('내용이 없습니다.');} 
-		else { $('#phone').text(user.upho); }
-		if(user.uurl == null){$('#url').text('내용이 없습니다.');} 
-		else { $('#url').text(user.uurl); }
-		if(user.uadr == null){$('#adr').text('내용이 없습니다.');} 
-		else { $('#adr').text(user.uadr); }
+		else { $('#enm').text(user.uenm); $('#uenm').val(user.uenm);}
 		
-		$('#ures').text(user.ures);		
+		if(user.ubd == null){$('#bd').text('내용이 없습니다.');} 
+		else { $('#bd').text(user.ubd); $('#ubd').val(user.ubd);}
+		
+		if(user.usx == null){$('#sx').text('내용이 없습니다.');} 
+		else { $('#sx').text(user.usx); $('#usx').val(user.usx);}
+		
+		if(user.upho == null){$('#phone').text('내용이 없습니다.');} 
+		else { $('#phone').text(user.upho); $('#upho').val(user.upho);}
+		
+		if(user.uurl == null){$('#url').text('내용이 없습니다.');} 
+		else { $('#url').text(user.uurl); $('#uurl').val(user.uurl);}
+		
+		if(user.uadr == null){$('#adr').text('내용이 없습니다.');} 
+		else { $('#adr').text(user.uadr); $('#uadr').val(user.uadr);}
+		
+		$('#ures').text(user.ures);	
+		//개인신상정보에 DB정보를 넣어주기 위한 .text 끝
+		
+		// 기본정보 수정버튼 클릭시 이벤트
+		$('#profileUpdate').click(function(){	
+			console.log(user.uenm);
+			$('#myprofileModal').modal();	
+		});
 		
 		//등록버튼시 이벤트 시작
         $('#join').click(function () {
-	 
+	 	
          console.log('{"uenm":"' +$("#uenm").val() 
         		 	+'","ubd":"'+$("#ubd").val()
 	           		+'","usx":"'+$("#usx").val()
@@ -707,9 +700,8 @@
 				complete : removeLoading,
                 success: function (data) {
                 	console.log(data);
-               		$("#myModal").modal("hide");
+               		$("#myprofileModal").modal("hide");
  					$('.modal-backdrop').remove();//modal이 사라지고나서 로그인 해야 db에 있는 정보를 가져옴
- 						
  						/* 로그인 ajax 시작 */
  						$.ajax({
  							url : contextRoot + "/login",
@@ -722,19 +714,11 @@
  							},
  							success : function(data, status) {
  								console.log(data);
- 								if (data.user) {
- 									location.reload();
- 								} else {
- 									user=null;
- 									callModal('경고','아이디, 비밀번호가 맞지 않습니다.');
- 								}
- 							},
- 							error:function(req,status,error){
- 								callModal('경고','알수없는 에러');
- 								user=null;
+ 								location.reload();	
  							}
  						});
  						/* 로그인 ajax 끝 */
+						callModal('기본정보','수정완료');
                 } //success fuction 
             }); //등록 내부 첫 ajax 끝 
         });	//등록버튼시 이벤트 끝
@@ -773,41 +757,56 @@
 	    				"Content-Type" : "application/json"
 	    			},
 	    			success : function(data, status) {
-	    				console.log(data.uscls);
-	    				$('#scnm').text(data.uscls.scnm);
-	    				$('#scmj').text(data.uscls.scmj);
-	    				$('#scgr').text(data.uscls.scgr);
-	    				$('#scsd').text(data.uscls.scsd);
-	    				$('#sced').text(data.uscls.sced);  
-	    				$('#pfModal2').modal(); 
+	    				
+	    				if(data.uscls==null){
+	    					$('#pfModal2table').load('Uscls/modifiedUscls.html');
+	    				}else{
+	    					$('#pfModal2table').load('Uscls/getUscls.html', function(){
+			    				console.log(data.uscls);
+			    				$('#scnm').text(data.uscls.scnm);
+			    				$('#scmj').text(data.uscls.scmj);
+			    				$('#scgr').text(data.uscls.scgr);
+			    				$('#scsd').text(data.uscls.scsd);
+			    				$('#sced').text(data.uscls.sced);
+	    					});  
+	    				}
+	    				
+		    			$('#pfModal2').modal(); 
 	    			}
 	    		});
         	});
         });
         
         $('#portfolio3').click(function(){
-        	$('#pfModal3table').load('Uexps/getUexps.html', function() {
-	           	$.ajax({
-	    			url : contextRoot + "/developer/getUexps?uno="+user.uno,
-	    			method : "GET",
-	    			dataType : "json",
-	    			headers : {
-	    				"Accept" : "application/json",
-	    				"Content-Type" : "application/json"
-	    			},
-	    			success : function(data, status) {
-	    				console.log(data.uexps);
-	    				$('#expcn').text(data.uexps.expcn);
-	    				$('#expdn').text(data.uexps.expdn);
-	    				$('#exped').text(data.uexps.exped);
-	    				$('#expsd').text(data.uexps.expsd);
-	    				$('#exppt').text(data.uexps.exppt);
-	    				$('#exppy').text(data.uexps.exppy);
-	    				$('#expwc').text(data.uexps.expwc);	   
-	    				$('#pfModal3').modal(); 
-	    			}
-	    		});
-        	});
+
+           	$.ajax({
+    			url : contextRoot + "/developer/getUexps?uno="+user.uno,
+    			method : "GET",
+    			dataType : "json",
+    			headers : {
+    				"Accept" : "application/json",
+    				"Content-Type" : "application/json"
+    			},
+    			success : function(data, status) {
+    	        	
+    				if(data.uexps==null){
+    					$('#pfModal3table').load('Uexps/modifiedUexps.html');
+    				}else{
+    					$('#pfModal3table').load('Uexps/getUexps.html', function() {
+    	    				console.log(data.uexps);
+    	    				$('#expcn').text(data.uexps.expcn);
+    	    				$('#expdn').text(data.uexps.expdn);
+    	    				$('#exped').text(data.uexps.exped);
+    	    				$('#expsd').text(data.uexps.expsd);
+    	    				$('#exppt').text(data.uexps.exppt);
+    	    				$('#exppy').text(data.uexps.exppy);
+    	    				$('#expwc').text(data.uexps.expwc);	   
+    	    			});
+    				}
+    				
+    				$('#pfModal3').modal(); 
+    			}
+    		});
         }); 
         
 		

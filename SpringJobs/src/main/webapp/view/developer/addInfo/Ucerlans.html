@@ -190,7 +190,7 @@
 	  				beforeSend : addLoading,
 	  				complete : removeLoading,
 	                  success: function (data) {
-	                  	$("#updateCom").modal("show");
+	                  	callModal('외국어','수정완료');
 	                  } //success fuction 
 	              }); //등록 내부 첫 ajax 끝 		        	
 	        });
@@ -218,7 +218,7 @@
 	 				beforeSend : addLoading,
 	 				complete : removeLoading,
 	                 success: function (data) {
-	                 	$("#updateCom").modal("show");
+	                 	callModal('자격증','수정완료');
 	                 } //success fuction 
 	             }); //등록 내부 첫 ajax 끝 	        	
 	        });
