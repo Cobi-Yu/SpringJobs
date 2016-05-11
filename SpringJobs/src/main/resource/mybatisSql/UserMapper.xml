@@ -142,10 +142,10 @@
 	
 	<insert id="addUexps" 	 parameterType="com.springjobs.domain.Uexps">
 		INSERT
-		INTO UEXPS(expcn, expdn, exppy, expsd, exped, expwc, exppt, uno)
-		VALUES (#{expcn},#{expdn},#{exppy}, #{expsd}, #{exped}, #{expwc}, #{exppt}, #{uno})
+		INTO UEXPS(expcn, uno, expdn, exppy, expsd, exped, expwc, exppt)
+		VALUES (#{expcn}, #{uno}, #{expdn},#{exppy}, #{expsd}, #{exped}, #{expwc}, #{exppt})
 		ON DUPLICATE KEY UPDATE
-		expcn=#{expcn}, expdn=#{expdn}, exppy=#{exppy}, expsd=#{expsd}, exped=#{exped}, expwc=#{expwc}, exppt=#{exppt}, uno=#{uno};
+		expcn=#{expcn}, uno=#{uno}, expdn=#{expdn}, exppy=#{exppy}, expsd=#{expsd}, exped=#{exped}, expwc=#{expwc}, exppt=#{exppt};
 	</insert>
 	
 	<select id="getUlans"	 parameterType="int"	resultType="com.springjobs.domain.Ulans">
@@ -177,10 +177,10 @@
 	
 	<insert id="addUscls" 	 parameterType="com.springjobs.domain.Uscls">
 		INSERT
-		INTO USCLS(scnm, scmj, scgr, scsd, sced, uno)
-		VALUES (#{scnm},#{scmj},#{scgr}, #{scsd}, #{sced}, #{uno})
+		INTO USCLS(scnm, uno, scmj, scgr, scsd, sced)
+		VALUES (#{scnm}, #{uno}, #{scmj},#{scgr}, #{scsd}, #{sced})
 		ON DUPLICATE KEY UPDATE
-		scnm=#{scnm}, scmj=#{scmj}, scgr=#{scgr}, scsd=#{scsd}, sced=#{sced}, uno=#{uno};
+		scnm=#{scnm}, uno=#{uno}, scmj=#{scmj}, scgr=#{scgr}, scsd=#{scsd}, sced=#{sced};
 	</insert>
 	
 	<update id="userEmailConfirm"	parameterType="int">
@@ -191,18 +191,18 @@
 	
 	<insert id="addUlans" 	 parameterType="com.springjobs.domain.Ulans">
 		INSERT
-		INTO ULANS(lgnm, lglvl, uno)
-		VALUES (#{lgnm},#{lglvl},#{uno})
+		INTO ULANS(lgnm, uno, lglvl)
+		VALUES (#{lgnm}, #{uno}, #{lglvl})
 		ON DUPLICATE KEY UPDATE
-		lgnm=#{lgnm}, lglvl=#{lglvl}, uno=#{uno};
+		lgnm=#{lgnm}, uno=#{uno}, lglvl=#{lglvl};
 	</insert>
 	
 	<insert id="addUcerts" 	 parameterType="com.springjobs.domain.Ucerts">
 		INSERT
-		INTO UCERTS(ctnm, ctag, ctuqno, ctsc, ctgrd, cturl, ctdy, ctsd, cted, uno)
-		VALUES (#{ctnm}, #{ctag}, #{ctuqno}, #{ctsc}, #{ctgrd}, #{cturl}, #{ctdy}, #{ctsd}, #{cted},#{uno})
+		INTO UCERTS(ctnm, uno, ctag, ctuqno, ctsc, ctgrd, cturl, ctdy, ctsd, cted)
+		VALUES (#{ctnm}, #{uno}, #{ctag}, #{ctuqno}, #{ctsc}, #{ctgrd}, #{cturl}, #{ctdy}, #{ctsd}, #{cted})
 		ON DUPLICATE KEY UPDATE
-		ctnm=#{ctnm}, ctag=#{ctag}, ctuqno=#{ctuqno}, ctsc=#{ctsc}, ctgrd=#{ctgrd}, cturl=#{cturl}, ctdy=#{ctdy}, ctsd=#{ctsd}, cted=#{cted}, uno=#{uno};
+		ctnm=#{ctnm}, uno=#{uno}, ctag=#{ctag}, ctuqno=#{ctuqno}, ctsc=#{ctsc}, ctgrd=#{ctgrd}, cturl=#{cturl}, ctdy=#{ctdy}, ctsd=#{ctsd}, cted=#{cted};
 	</insert>
 	
 	<update id="updateUres"	parameterType="com.springjobs.domain.Users">

@@ -18,7 +18,12 @@
 			      			<strong>수준</strong>
 			      		</td>
 			      		<td class="col-sm-2" style="padding-top: 1em;">
-			      			<input type="text" id="lglvl" placeholder="수준을 입력해주세요." style="width: 100%;">
+			      			<select class="form-control" id="lglvl" style="width: 100%;">
+			      				<option>선택해주세요</option>
+			      				<option>초급수준</option>
+			      				<option>중급수준</option>
+			      				<option>고급수준</option>
+			      			</select>
 			      		</td>
 			      	</tr>
 			      	
@@ -31,8 +36,8 @@
 		         <button type="button" class="btn btn-default" id="removeUlans">취소</button>
 		         <button type="button" class="btn btn-orange" id="modifiedComplete">확인</button>
 		       </div>
-	       
-	       <!-- 수정완료 모달 시작 -->
+		  <!-- 	       
+	       수정완료 모달 시작
 			<div class="modal fade" id="updateCom">
 			  <div class="modal-dialog" style="width: 50%;">
 			    <div class="modal-content">
@@ -44,12 +49,12 @@
 			        <p>다른것들도 수정해보세용!</p>
 			      </div>
 			      <div class="modal-footer">
-			        <button type="button" class="btn btn-default" data-miss="modal">닫기</button>
+			        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
 			      </div>
-			    </div><!-- /.modal-content -->
-			  </div><!-- /.modal-dialog -->
-			</div><!-- /.modal -->
-			<!-- 수정완료 모달 끝 -->	
+			    </div>/.modal-content
+			  </div>/.modal-dialog
+			</div>/.modal
+			수정완료 모달 끝	 -->
 		                 
        <script>
         $('#removeUlans').click(function(){
@@ -95,7 +100,8 @@
 				beforeSend : addLoading,
 				complete : removeLoading,
                 success: function (data) {
-                	$("#updateCom").modal("show");
+                	$("#pfModal5").modal("hide");
+                    callModal('외국어','수정완료!');
                 } //success fuction 
             }); //등록 내부 첫 ajax 끝 
         });

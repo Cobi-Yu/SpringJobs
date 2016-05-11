@@ -658,14 +658,22 @@
 	
 	$(document).on('frameComplete',function(event){
 		
-		//디폴트 값을 개인신상정보에 넣어주기 위한 .text 
+		//디폴트 값을 개인신상정보에 넣어주기 위한 .text
 		$('#nm').text(user.unm);
-		$('#enm').text(user.uenm);
-		$('#bd').text(user.ubd);
-		$('#sx').text(user.usx);
-		$('#phone').text(user.upho);
-		$('#url').text(user.uurl);
-		$('#adr').text(user.uadr);	
+		
+		if(user.uenm == null){$('#enm').text('내용이 없습니다.');} 
+		else { $('#enm').text(user.uenm); }
+		if(user.ubd == null){$('#bd').text('내용이 없습니다.');} 
+		else { $('#bd').text(user.ubd); }
+		if(user.usx == null){$('#sx').text('내용이 없습니다.');} 
+		else { $('#sx').text(user.usx); }
+		if(user.upho == null){$('#phone').text('내용이 없습니다.');} 
+		else { $('#phone').text(user.upho); }
+		if(user.uurl == null){$('#url').text('내용이 없습니다.');} 
+		else { $('#url').text(user.uurl); }
+		if(user.uadr == null){$('#adr').text('내용이 없습니다.');} 
+		else { $('#adr').text(user.uadr); }
+		
 		$('#ures').text(user.ures);		
 		
 		//등록버튼시 이벤트 시작
@@ -885,7 +893,7 @@
 				},
 				success : function() {
 	           		$("#pfModal1").modal("hide");//modal이 사라지고나서 로그인 해야 db에 있는 정보를 가져옴
- 					$("#test").modal("show");
+ 					callModal('노출태그','등록완료!');
 				}
 			});
 		}); 
