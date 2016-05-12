@@ -36,6 +36,7 @@ var removeLoading = function(){
 //모달창
 var callModal = function(title, msg, url){
 	$('#confirmModal').modal();
+	$('#confirmModal').css('z-index', 999999);
 	$('#confirmModal').on('shown.bs.modal', function (e) {
 		$('#modalHeaderMsg').text(title);
 		$('#modalMsg').text(msg);

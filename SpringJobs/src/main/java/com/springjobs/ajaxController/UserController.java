@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,6 +20,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.springjobs.domain.UPhotos;
+import com.springjobs.domain.Upfurl;
 import com.springjobs.domain.Users;
 import com.springjobs.service.user.UserService;
 
@@ -126,6 +126,22 @@ public class UserController {
 		System.out.println("updateUserSkills : "+ user);
 		userService.deleteUserSkills(user);
 		model.addAttribute("result",userService.updateUserSkills(user));
+	}
+	
+	@RequestMapping(value="/user/insertUserPfUrl", method=RequestMethod.POST)
+	public void insertUserPfUrl(@RequestBody Upfurl upfurl,  Model model) {
+		model.addAttribute("result", userService.insertUserPfUrl(upfurl));
+	}
+
+	@RequestMapping(value="/user/getUserPfUrlList", method=RequestMethod.POST)
+	public void getUserPfUrlList(@RequestBody Upfurl upfurl,  Model model) {
+		System.out.println("result : "+userService.getUserPfUrlList(upfurl));
+		model.addAttribute("result", userService.getUserPfUrlList(upfurl));
+	}
+
+	@RequestMapping(value="/user/deleteUserPfUrl", method=RequestMethod.POST)
+	public void deleteUserPfUrl(@RequestBody Upfurl upfurl,  Model model) {
+		model.addAttribute("result", userService.deleteUserPfUrl(upfurl));
 	}
 	
 }

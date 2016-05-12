@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.springjobs.dao.user.UserDao;
 import com.springjobs.domain.Skills;
 import com.springjobs.domain.UPhotos;
+import com.springjobs.domain.Upfurl;
 import com.springjobs.domain.Users;
 import com.springjobs.service.user.UserService;
 
@@ -63,5 +64,20 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public int deleteUserSkills(Users user) {
 		return userDao.deleteUserSkills(user);
+	}
+
+	@Override
+	public int insertUserPfUrl(Upfurl upfurl) {
+		return userDao.insertUserPfUrl(upfurl);
+	}
+
+	@Override
+	public List<Upfurl> getUserPfUrlList(Upfurl upfurl) {
+		return userDao.getUserPfUrlList(upfurl);
+	}
+
+	@Override
+	public int deleteUserPfUrl(Upfurl upfurl) {
+		return userDao.deleteUserPfUrl(upfurl);
 	}
 }

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.springjobs.dao.user.UserDao;
 import com.springjobs.domain.Skills;
 import com.springjobs.domain.UPhotos;
+import com.springjobs.domain.Upfurl;
 import com.springjobs.domain.Users;
 
 @Repository("userDaoImpl")
@@ -66,5 +67,21 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public int deleteUserSkills(Users user) {
 		return sqlSession.insert("UserMapper.deleteUserSkills",user);
+	}
+
+	@Override
+	public int insertUserPfUrl(Upfurl upfurl) {
+		sqlSession.insert("UserMapper.insertUserPfUrl",upfurl);
+		return upfurl.getUpfurlno();
+	}
+
+	@Override
+	public List<Upfurl> getUserPfUrlList(Upfurl upfurl) {
+		return sqlSession.selectList("UserMapper.getUserPfUrlList",upfurl);
+	}
+
+	@Override
+	public int deleteUserPfUrl(Upfurl upfurl) {
+		return sqlSession.delete("UserMapper.deleteUserPfUrl",upfurl);
 	}
 }

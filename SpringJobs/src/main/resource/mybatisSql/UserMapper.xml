@@ -250,4 +250,18 @@
 	        (0,#{uno},#{skill.skno},5)
 	    </foreach>
 	</insert>
+	
+	<insert id="insertUserPfUrl" parameterType="com.springjobs.domain.Upfurl" useGeneratedKeys="true" keyProperty="upfurlno">
+	    insert into UPFURL
+	    values (0,#{url},#{uno})
+	</insert>
+	
+	<select id="getUserPfUrlList" parameterType="com.springjobs.domain.Upfurl" resultType="com.springjobs.domain.Upfurl">
+	    select *
+	    from UPFURL where uno=#{uno}
+	</select>
+	
+	<delete id="deleteUserPfUrl" parameterType="com.springjobs.domain.Upfurl">
+		delete from UPFURL where upfurlno=#{upfurlno}
+	</delete>
 </mapper>

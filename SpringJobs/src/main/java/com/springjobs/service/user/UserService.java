@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.springjobs.domain.Skills;
 import com.springjobs.domain.UPhotos;
+import com.springjobs.domain.Upfurl;
 import com.springjobs.domain.Users;
 
 public interface UserService {
@@ -24,4 +25,10 @@ public interface UserService {
 	public int updateUserSkills(Users user);
 	
 	public int deleteUserSkills(Users user);
+	
+	public int insertUserPfUrl(Upfurl upfurl);
+
+	public List<Upfurl> getUserPfUrlList(Upfurl upfurl);
+	
+	public int deleteUserPfUrl(Upfurl upfurl);
 }
