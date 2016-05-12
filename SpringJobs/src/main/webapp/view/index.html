@@ -3,68 +3,81 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Background images - fullPage.js</title>
+	<title>SpringJobs</title>
 	<meta name="author" content="Alvaro Trigo Lopez" />
-	<meta name="description" content="fullPage full-screen backgrounds." />
-	<meta name="keywords"  content="fullpage,jquery,demo,screen,fullscreen,backgrounds,full-screen" />
+	<meta name="description" content="fullPage fixed full-screen backgrounds." />
+	<meta name="keywords"  content="fullpage,jquery,demo,screen,fixed,fullscreen,backgrounds,full-screen" />
 	<meta name="Resource-type" content="Document" />
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-	<!-- fullpage CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.7.8/jquery.fullPage.min.css">
-	<link rel="stylesheet" type="text/css" href="examples.css" />
+    
+    
+
+	<link rel="stylesheet" type="text/css" href="/view/resources/css/fullpage.css" />
+	<link rel="stylesheet" type="text/css" href="/view/resources/css/example.css" />
 	<style>
+/* Style for our header texts
+	* --------------------------------------- */
+	h1{
+		font-size: 5em;
+		font-family: arial,helvetica;
+		 color: #fff;
+		margin:0;
+		padding:0;
+	}
 
-        /* Style for our header texts
-        * --------------------------------------- */
-        h1{
-            font-size: 5em;
-            font-family: arial,helvetica;
-            color: #fff;
-            margin:0;
-            padding:0;
-        }
+	/* Centered texts in each section
+	* --------------------------------------- */
+	.section{
+		text-align:center;
+		font-size:6em;
+	}
 
-        /* Centered texts in each section
-        * --------------------------------------- */
-        .section{
-            text-align:center;
-            font-size: 6em;
-        }
+	/* Backgrounds will cover all the section
+	* --------------------------------------- */
+	#section0{
+		background-size:cover;
+	}
+	#section1{
+		background-size: cover;
+	}
 
-        /* Backgrounds will cover all the section
-        * --------------------------------------- */
-        .section{
-            background-size: cover;
-        }
-
-        /* Defining each section background and styles
-        * --------------------------------------- */
-        #section0{
-            background-image: url(/view/resources/img/buildings.jpg);
-            /*opacity: .50; 배경의 투명도*/
-            padding: 10% 0 0 0;
-        }
-        #section1{
-            background-color: #60c7e6;
-            /*background-image: url(img/main2.jpg);*/
-            padding: 6% 0 0 0;
-        }
-
-        #first{
+	/* Defining each section background and styles
+	* --------------------------------------- */
+	#section0{
+		background-image: url(/view/resources/img/buildings.jpg);
+		padding: 10% 0 0 0;
+		z-index: 10;
+	}
+	#section1{
+		background-image: url(/view/resources/img/void.png);
+		padding: 6% 0 0 0;
+	}
+	
+ 		#first{
              text-shadow: -2px -2px 4px #888;   
              color: #fff;
              font-family:  Helvetica, Arial, sans-serif;
              font-size: 1em;
              font-weight: bold;
+            
         }
         #second{
             text-shadow: -2px -2px 4px #ffffff;  
             font-size: 0.5em;    
             font-family:  Helvetica, Arial, sans-serif;
         }
-
+        #second img{
+         left: 130%;
+		position:relative;
+		}
+		#second p{
+			display:none;
+			
+		}
+	
 	</style>
 
 	<!--[if IE]>
@@ -75,50 +88,61 @@
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/jquery.fullpage/2.5.9/jquery.fullPage.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.fullpage/2.5.9/jquery.fullPage.min.js"></script>
+    
+    <script type="text/javascript" src="/view/resources/javascript/jquery.fullPage.js"></script>
+	<script type="text/javascript" src="/view/resources/javascript/examples.js"></script>
 
-
+    
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
 				verticalCentered: false,
-                anchors: ['firstPage', 'secondPage'],
-				navigation: true,
-				navigationPosition: 'left',
-				navigationTooltips: ['Welcome!','SpringJobs?'],
-                responsiveWidth: 900,
-                fontSize:20
+                anchors:['fristPage','secondPage'],
+                responsiveWidth:900,
+                fontsize:20,
+                afterLoad: function(anchorLink, index){
+                    if(index == 2){
+						//moving the image
+						$('#section1').find('img').delay(500).animate({
+							left: '0%'
+						}, 1500, 'easeOutExpo');
 
+						$('#section1').find('p').first().fadeIn(1800, function(){
+							$('#section1').find('p').last().fadeIn(1800);
+						});;
+
+					}
+                    
+                    if(anchorLink == '3rdPage'){
+                        $('#section1').find('.intro').delay(500).animate({
+                            left: '0%'
+                        }, 1500, 'SpringJobs');
+                    }
+                }
 			});
-		});   
+		});
 	</script>
 
 </head>
 <body>
-
 <div id="fullpage">
-	<div class="section" id="section0">
-        <img src="/view/resources/img/SJ-logo.jpg" width="8%" height=auto alt="SJ" />
+	<div class="section " id="section0">
+        <img src="/view/resources/img/SJ-logo.jpg" width="8%" height=auto alt="fullPage"/>
         <div class="intro" id="first">
-            SpringJobs
-            <br>
-            <h2>프리랜서 여러분을 환영합니다.</h2>
-                <button type="button" id="myButton" class="btn btn-info btn-lg"  onclick="location.href='/view/common/login/frame.html';">
-                  	들어가보기
-                </button>
+            <p>SpringJobs</p>          
+            <p>프리랜서 여러분을 환영합니다.</p>
+              <button type="button" id="myButton" class="btn btn-info btn-lg" onclick="location.href='/view/common/login/frame.html';">
+            들어가기
+            </button>
         </div>
     </div>
-	    
-    <div class="section" id="section1" >
-            <img src="/view/resources/img/join2.jpg" width="50%" height=auto alt="work">
-            <div class="intro" id="second">
-                <strong>SpringJobs</strong>는 기업과 프리랜서 개발자의 
-                <br>매칭 사이트입니다.
-                <!--<br><strong>spring-cleaning your career!</strong>
-                <br>새로운 일을 원한다면 도전해보세요!-->
-            </div>
+	<div class="section" id="section1">
+		<div class="intro" id="second">
+        	<img src="/view/resources/img/workJob.jpg" width="30%" height=auto alt="cool"/><br> <br>    
+            <p><strong>SpringJobs</strong>는 기업과 프리랜서 개발자의 <br>매칭사이트입니다.</p>
+    	</div>
     </div>
 </div>
-
 </body>
 </html>
