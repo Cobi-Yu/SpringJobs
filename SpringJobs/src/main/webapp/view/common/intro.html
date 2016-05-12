@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/view/common/login/css/frame.css">
+
+<style>
+	#myVideo{
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		top:0;
+		right:0;
+		width: 100%;
+		height: 100%;
+		background-size: 100% 100%;
+ 		background-color: black; 
+  		background-position: center center;
+  		background-size: contain;
+   		object-fit: cover; /*cover video background */
+   		z-index:3;
+   		/* opacity: 2; */
+	}
+	
+	#blackbox{
+		opacity: 0.6;
+	}
+	
+	.countBox{
+		opacity: 0.7;
+	}
+	
+	@import url(http://fonts.googleapis.com/earlyaccess/nanumbrushscript.css);
+	@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+	@import url(http://fonts.googleapis.com/earlyaccess/nanumpenscript.css);
+	 
+	.minibox {
+	    font-family: "Nanum Gothic";
+	    font-style: normal;
+	    font-weight: 800;
+	    font-size: large;
+	}
+	
+	.detailminibox{
+	    font-family: "Nanum Gothic";
+	    font-style: normal;
+	    /* font-weight: 800; */
+	    font-size: 50pt;	
+	}
+</style>
+
+
+</head>
+<body>
+	<div id="header"></div>
+	<!--본문 시작-->
+	<div class="container-fluid text-center">
+		<div class="row content">
+			<div class="col-md-12 text-left" style="padding:0px; background-color: #f1f1f1;">
+			
+			<div id="blackbox" style="position:absolute; background-color: black; z-index: 2; width: 100%; height: 40em;"></div>
+			
+			<!-- 메인-1 시작 -->
+			<div class="col-md-12 text-center" style="padding-top: 40em;">	
+				<video autoplay loop muted id="myVideo" style="z-index: 1;">
+					<source src="/view/resources/img/flowers.mp4" type="video/mp4">
+					<source src="/view/resources/img/flowers.webm" type="video/webm">
+				</video>
+				<!-- class=layer 시작 -->
+				<div class="layer" style="position: absolute; z-index: 3; width: 100%; left: 0; top: 10%; color: white;">
+					<!-- Spring your Jobs 시작 -->
+					<div style="font-size: 8em;"><strong style="color: orange;">Spring</strong> your <strong style="color: orange;">Jobs</strong></div>
+					<div style="font-size: 3em;">새로운 프로젝트, 새로운 팀</div>
+					<div style="font-size: 2em;">- 웹/앱,프로그램,개발,디자인 -<br><br>
+					<!-- Spring your Jobs 끝 -->
+						<!-- 글자 밑 실선 시작-->
+						<div class="col-md-5"></div>
+						<div class="col-md-2" style="border: solid 1px white; opacity: 0.5;"></div>
+						<div class="col-md-5"></div><br>
+						<!-- 글자 밑 실선 끝-->
+						<!-- 프로젝트, 개발자, 기업 수 시작-->
+						<div class="col-md-12 countBox" style="padding-left: 13em; padding-right: 2em; background-color: black;">
+							<div class="col-md-3 text-center" style="height: 500px; background-color: black; padding-top: 1em;">
+								<div class="minibox" style="color: white;">등록된 프로젝트</div>
+								<div class="detailminibox" style="color: white;">365</div>
+							</div>
+							<div class="col-md-3 text-center" style="height: 500px; background-color: black; padding-top: 1em;">
+								<div class="minibox" style="color: white;">프리랜서 개발자</div>
+								<div class="detailminibox" style="color: white;">365</div>
+							</div>
+							<div class="col-md-3 text-center" style="height: 500px; background-color: black; padding-top: 1em;">
+								<div class="minibox" style="color: white;">기업</div>
+								<div class="detailminibox" style="color: white;">365</div>
+							</div>		
+					    </div>	
+					    <!-- 프로젝트, 개발자, 기업 수 끝-->			
+					</div>
+					<!-- 웹/앱, 프로그램, 개발, 디자인 글씨 밑 부분 끝-->
+				</div>
+				<!-- class=layer 끝 -->
+			</div>
+			<!-- 메인-1 끝 -->
+			
+			<div class="col-sm-2 sidenav"></div>
+			<div class="col-md-8 text-center" style="margin-top: 3em; margin-bottom: 5em;" >
+				<div style="margin-bottom: 3em;"><h1><Strong style="color: orange;">한눈에 보는 협업 가이드</Strong></h1>
+				<br><h2><Strong>SpringJobs</Strong></h2>는 뛰어난 프리랜서 개발자와<br>기업간의 프로젝트 협업을<br>매칭해주는 서비스입니다.</div>
+				<img src="/view/resources/img/homemain2.png" style="height: 40%; width: 100%;" >
+			</div>
+			<div class="col-sm-2 sidenav"></div>	
+			</div>
+			
+			</div>
+	</div>
+	<div id="footer"></div>
+</body>
+<script>
+	$(function(){
+		$('#header').load('/view/common/login/frameHeader.html');
+		$('#footer').load('/view/common/login/frameFooter.html');
+		$('video').get(0).play();
+	})
+</script>
+
+</html>

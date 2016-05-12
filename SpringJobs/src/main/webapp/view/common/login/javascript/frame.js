@@ -102,4 +102,4 @@ redirect($('#addInfo'),'/view/developer/addInfo/addInfo.html',true); // 개인�
 redirect($('#introduction'),'/view/common/introduction/springjobs.html'); // 스프링잡스 소개
 redirect($('#addProject'),'/view/company/addProject/addProject.html',true);
 redirect($('#SpringJobsIntro'),'/view/common/login/SpringJobs.html');
-redirect($('#frame'),'/view/common/login/frame.html');
+redirect($('#frame'),'/view/common/intro.html');
