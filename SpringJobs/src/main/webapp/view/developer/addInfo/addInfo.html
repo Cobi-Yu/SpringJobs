@@ -41,6 +41,7 @@
 	    padding-bottom: 99999px;
 	    background-color: #f1f1f1;
 	}
+	.ui-autocomplete { z-index:2147483647; }
 </style>
 </head>
 
@@ -538,7 +539,7 @@
 <div id="footer"></div>
 </body>
 <script>
-	
+var yskills=[]; //스킬목록
 	$(function() {
 		$('#header').load('/view/common/login/frameHeader.html');
 		$('#footer').load('/view/common/login/frameFooter.html');
@@ -639,7 +640,6 @@
 	// 주소검색 js 끝
 	
 	$(document).on('frameComplete',function(event){
-		
 		//사진업로드
 		$('#uploadPhoto').on("change",function(){
 			var data = new FormData();
@@ -651,11 +651,29 @@
 	            headers : {
 					"Accept" : "application/json",
 				},
+				beforeSend : addLoading,
+				complete : removeLoading,
 				processData: false,
 	            contentType: false,
 				success : function(data, status){
 					if(data.result==1){
-						callModal('알림','업로드 성공',location.href);
+						/* 로그인 ajax 시작 */
+						$.ajax({
+							url : contextRoot + "/login",
+							method : "POST",
+							dataType : "json",
+							data : '{"uem":"' + user.uem + '","upw":"'+ user.upw + '"}',
+							headers : {
+								"Accept" : "application/json",
+								"Content-Type" : "application/json"
+							},
+							beforeSend : addLoading,
+							complete : removeLoading,
+							success : function(data, status) {
+								callModal('알림','업로드 성공',location.href);
+							}
+						});
+						/* 로그인 ajax 끝 */
 					}else{
 						callModal('알림','업로드 실패',location.href);
 					}
@@ -679,8 +697,9 @@
 				"Accept" : "application/json",
 				"Content-Type" : "application/json"
 			},
+			beforeSend : addLoading,
+			complete : removeLoading,
 			success : function(data, status){
-				console.log(data);
 				if(data.result){
 					$('#userPhoto').attr("src",data.result.phot);
 				}
@@ -761,6 +780,8 @@
  								"Accept" : "application/json",
  								"Content-Type" : "application/json"
  							},
+ 							beforeSend : addLoading,
+ 							complete : removeLoading,
  							success : function(data, status) {
  								console.log(data);
  								location.reload();	
@@ -781,10 +802,8 @@
     				"Accept" : "application/json",
     				"Content-Type" : "application/json"
     			},
-    			/*로딩 이미지 추가 필수부분 시작
     			beforeSend : addLoading,
     			complete : removeLoading,
-    			로딩 이미지 추가 필수부분 끝*/
     			success : function(data, status) {
     				console.log(data.utags);
     				console.log(data.utags.toString());
@@ -805,6 +824,8 @@
 	    				"Accept" : "application/json",
 	    				"Content-Type" : "application/json"
 	    			},
+	    			beforeSend : addLoading,
+					complete : removeLoading,
 	    			success : function(data, status) {
 	    				
 	    				if(data.uscls==null){
@@ -836,6 +857,8 @@
     				"Accept" : "application/json",
     				"Content-Type" : "application/json"
     			},
+    			beforeSend : addLoading,
+				complete : removeLoading,
     			success : function(data, status) {
     	        	
     				if(data.uexps==null){
@@ -852,8 +875,101 @@
     	    				$('#expwc').text(data.uexps.expwc);	   
     	    			});
     				}
-    				
     				$('#pfModal3').modal(); 
+    			}
+    		});
+        }); 
+        
+        $('#portfolio4').click(function(){
+           	$.ajax({
+    			url : contextRoot + "/user/getUserSkills",
+    			method : "POST",
+    			dataType : "json",
+    			data : JSON.stringify({
+    				"uno" : user.uno
+    			}),
+    			headers : {
+    				"Accept" : "application/json",
+    				"Content-Type" : "application/json"
+    			},
+    			beforeSend : addLoading,
+				complete : removeLoading,
+    			success : function(data, status) {
+    				yskills=data.result;
+ 					$('#pfModal4table').load('Uskills/Uskills.html');
+ 					console.log(yskills);
+    				$('#pfModal4').modal();
+    				$('#pfModal4').on('shown.bs.modal', function (e) {
+    					update();
+     					//스킬 자동검색
+    					$('#yskills').autocomplete({
+    						source : function(req, res) {
+    							$.ajax({
+    								type : 'post',
+    								url : nodeContextRoot+"/skillCheck",
+    								dataType : "json",
+    								data : '{"sknm" : "' + req.term + '"}',
+    								headers : {
+    									"Accept" : "application/json",
+    									"Content-Type" : "application/json"
+    								},
+    								beforeSend : addLoading,
+    								complete : removeLoading,
+    								success : function(data) {
+    									res($.map(data, function(item, i) {
+    										return {
+    											label : item.SKNM,
+    											value : item.SKNO
+    										}
+    									}));
+    								}
+    							});
+    						},
+    						minLength : 1,
+    						select : function(event, ui) {
+    							//중복체크
+    							var bool = true;
+    							$.map(yskills, function(val, i) {
+    								if (val.skno == ui.item.value) {
+    									bool = false;
+    									return;
+    								}
+    							});
+    							event.preventDefault();
+    							$('#yskills').val('');
+    							if (!bool) {
+    								callModal('경고', '스킬 중복입니다.');
+    								return;
+    							}
+    							//중복체크 끝
+    					        yskills.push({"sknm":ui.item.label,"skno":ui.item.value});
+    					        update();
+    						}
+    					}).autocomplete("widget").addClass("fixed-height");
+    					//스킬 자동검색 끝
+   					});
+ 					//스킬 업데이트 트리거
+ 					var update = function(){
+ 						console.log(yskills);
+ 						$('#yskills-panel').empty();
+ 					    $.map(yskills,function(val,i){
+ 					    	var tag = $('<button type="button" class="btn btn-default btn-xs skillTag">');
+ 	 					    var delete_tag = $('<a class="delete-tag">').text('X');
+ 					        tag.text(val.sknm).attr('value',val.skno).append(delete_tag);
+ 					        $('#yskills-panel').append(tag);
+ 					    });
+ 					    $('.delete-tag').click(function(){
+ 					        var delete_value = $(this).parent().attr('value');
+ 					        $(this).parent().remove();
+ 					        for(var i=0;i<yskills.length;i++){
+ 					            if(yskills[i].skno==delete_value){
+ 					               yskills.splice(i,1);
+ 					                return;
+ 					           } 
+ 					        }
+ 					    });
+ 					}
+ 					//스킬 업데이트 트리거 끝
     			}
     		});
         }); 
@@ -870,6 +986,8 @@
 		    				"Accept" : "application/json",
 		    				"Content-Type" : "application/json"
 		    			},
+		    			beforeSend : addLoading,
+						complete : removeLoading,
 		    			success : function(data, status) {
 		    				console.log(data);
 		    				console.log(data.ulans);
@@ -939,6 +1057,8 @@
 					"Accept" : "application/json",
 					"Content-Type" : "application/json"
 				},
+				beforeSend : addLoading,
+				complete : removeLoading,
 				success : function() {
 	           		$("#pfModal1").modal("hide");//modal이 사라지고나서 로그인 해야 db에 있는 정보를 가져옴
  					callModal('노출태그','등록완료!');
@@ -958,6 +1078,8 @@
 				method : "POST",
 				dataType : "json",
 				data : JSON.stringify(uresData),
+				beforeSend : addLoading,
+				complete : removeLoading,
 				headers : {
 					"Accept" : "application/json",
 					"Content-Type" : "application/json"
@@ -973,6 +1095,8 @@
 								"Accept" : "application/json",
 								"Content-Type" : "application/json"
 							},
+							beforeSend : addLoading,
+							complete : removeLoading,
 							success : function(data, status) {
 								callModal('등록완료','자기소개서 작성을 완료하였습니다.',contextRoot+"/view/developer/addInfo/addInfo.html");
 							}

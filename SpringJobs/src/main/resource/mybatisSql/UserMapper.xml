@@ -232,4 +232,22 @@
 		select * from UPHOTS
 		where uno=#{uno}
 	</select>
+	
+	<select id="getUserSkills" parameterType="com.springjobs.domain.Users" resultType="com.springjobs.domain.Skills">
+		select sk.* from YSKILLS ysk
+		left outer join SKILLS sk 
+		on ysk.skno=sk.skno 
+		where ysk.uno=#{uno};
+	</select>
+	
+	<delete id="deleteUserSkills" parameterType="com.springjobs.domain.Users">
+		delete from YSKILLS where uno=#{uno}
+	</delete>
+	
+	<insert id="updateUserSkills" parameterType="com.springjobs.domain.Users">
+	    insert into YSKILLS values
+	    <foreach collection="skills" item="skill" separator=" , ">
+	        (0,#{uno},#{skill.skno},5)
+	    </foreach>
+	</insert>
 </mapper>

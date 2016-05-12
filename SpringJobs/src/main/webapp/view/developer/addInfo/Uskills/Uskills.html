@@ -1,0 +1,44 @@
+<div class="modal-body">
+   	<div class="row">
+
+     <!-- edit form column -->
+     <div class="col-md-2"></div>
+     <div class="col-md-8" >
+     	<h5>기술검색</h5>
+     	<input type="text" id="yskills" style="margin-bottom:20px;">
+	    <h5>현재 보유기술 목록</h5>
+	    <div class="alert alert-success" role="alert" id="yskills-panel">
+	    
+	    </div>
+     </div>
+     <div class="col-md-1"></div>			     
+ </div>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal" id="removeUscls">취소</button>
+  <button type="button" class="btn btn-orange" id="modifiedSkills">수정</button>
+</div>
+
+<script>
+$('#modifiedSkills').click(function(){
+	$.ajax({
+		url : contextRoot + "/user/updateUserSkills",
+		method : "POST",
+		dataType : "json",
+		data : JSON.stringify({
+			"uno" : user.uno,
+			"skills" : yskills
+		}),
+		headers : {
+			"Accept" : "application/json",
+			"Content-Type" : "application/json"
+		},
+		success : function(data, status) {
+			$("#pfModal4").modal("hide");
+			callModal('확인','기술등록완료');
+		}
+	});
+});
+
+</script>

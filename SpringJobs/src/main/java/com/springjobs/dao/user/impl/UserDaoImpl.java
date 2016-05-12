@@ -1,11 +1,14 @@
 package com.springjobs.dao.user.impl;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import com.springjobs.dao.user.UserDao;
+import com.springjobs.domain.Skills;
 import com.springjobs.domain.UPhotos;
 import com.springjobs.domain.Users;
 
@@ -48,5 +51,20 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public UPhotos getUserPhoto(Users user) {
 		return sqlSession.selectOne("UserMapper.getUserPhoto",user);
+	}
+
+	@Override
+	public List<Skills> getUserSkills(Users user) {
+		return sqlSession.selectList("UserMapper.getUserSkills",user);
+	}
+
+	@Override
+	public int updateUserSkills(Users user) {
+		return sqlSession.insert("UserMapper.updateUserSkills",user);
+	}
+
+	@Override
+	public int deleteUserSkills(Users user) {
+		return sqlSession.insert("UserMapper.deleteUserSkills",user);
 	}
 }

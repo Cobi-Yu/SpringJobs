@@ -85,13 +85,13 @@ public class UserController {
 	
 	@RequestMapping(value="/user/userEmailConfirm", method=RequestMethod.GET)
 	public void userEmailConfirm(@RequestParam("uno") int uno,  Model model){
-		System.out.println("confirm : "+ uno);
+		System.out.println("userEmailConfirm : "+ uno);
 		userService.userEmailConfirm(uno);
 	}
 
 	@RequestMapping(value="/user/getUserPhoto", method=RequestMethod.POST)
 	public void getUserPhoto(@RequestBody Users user,  Model model){
-		System.out.println("confirm : "+ user);
+		System.out.println("getUserPhoto : "+ user);
 		model.addAttribute("result",userService.getUserPhoto(user));
 	}
 	
@@ -113,6 +113,19 @@ public class UserController {
 			model.addAttribute("result", 0);
 			e.printStackTrace();
 		}
+	}
+	
+	@RequestMapping(value="/user/getUserSkills", method=RequestMethod.POST)
+	public void getUserSkills(@RequestBody Users user,  Model model){
+		System.out.println("getUserSkills : "+ user);
+		model.addAttribute("result",userService.getUserSkills(user));
+	}
+	
+	@RequestMapping(value="/user/updateUserSkills", method=RequestMethod.POST)
+	public void updateUserSkills(@RequestBody Users user,  Model model){
+		System.out.println("updateUserSkills : "+ user);
+		userService.deleteUserSkills(user);
+		model.addAttribute("result",userService.updateUserSkills(user));
 	}
 	
 }

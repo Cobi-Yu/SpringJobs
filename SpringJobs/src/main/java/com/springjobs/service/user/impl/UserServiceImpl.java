@@ -1,10 +1,13 @@
 package com.springjobs.service.user.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.springjobs.dao.user.UserDao;
+import com.springjobs.domain.Skills;
 import com.springjobs.domain.UPhotos;
 import com.springjobs.domain.Users;
 import com.springjobs.service.user.UserService;
@@ -45,5 +48,20 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public UPhotos getUserPhoto(Users user) {
 		return userDao.getUserPhoto(user);
+	}
+
+	@Override
+	public List<Skills> getUserSkills(Users user) {
+		return userDao.getUserSkills(user);
+	}
+
+	@Override
+	public int updateUserSkills(Users user) {
+		return userDao.updateUserSkills(user);
+	}
+
+	@Override
+	public int deleteUserSkills(Users user) {
+		return userDao.deleteUserSkills(user);
 	}
 }
