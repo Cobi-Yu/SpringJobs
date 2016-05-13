@@ -5,6 +5,8 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>SpringJobs</title>
 	<meta name="author" content="Alvaro Trigo Lopez" />
+	<meta name="description" content="fullPage full-screen navigation and sections control menu." />
+	<meta name="keywords"  content="fullpage,jquery,demo,screen,fullscreen,navigation,control arrows, dots" />
 	<meta name="description" content="fullPage fixed full-screen backgrounds." />
 	<meta name="keywords"  content="fullpage,jquery,demo,screen,fixed,fullscreen,backgrounds,full-screen" />
 	<meta name="Resource-type" content="Document" />
@@ -96,14 +98,15 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
-				verticalCentered: false,
-                anchors:['fristPage','secondPage'],
-                responsiveWidth:900,
-                fontsize:20,
-                afterLoad: function(anchorLink, index){
+                anchors : ['fristPage','secondPage'],
+                navigation: true,
+				navigationPosition: 'right',
+                responsiveWidth: 900,
+                fontsize : 20,
+                afterLoad : function(anchorLink, index){
                     if(index == 2){
 						//moving the image
-						$('#section1').find('img').delay(500).animate({
+						$('#section1').find('img').delay(-2).animate({
 							left: '0%'
 						}, 1500, 'easeOutExpo');
 
