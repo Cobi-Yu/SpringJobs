@@ -32,6 +32,20 @@ public class CompanyDaoImpl implements CompanyDao{
 		return cpjno;
 	}
 	
+	@Override
+	public Cinfos getComp(int uno) throws Exception {
+		return sqlSession.selectOne("AddCompanyMapper.getComp", uno);
+	}
+
+	@Override
+	public void addComp(Cinfos cinfos) {
+		System.out.println("CompanyDaoImpl에서 cinfos : "+cinfos);
+		sqlSession.insert("AddCompanyMapper.addComp", cinfos);
+	}
+	
+	
+	
+	
 	public Cpjts getProjectView(int cpjno) throws Exception{
 		return sqlSession.selectOne("ProjectMapper.getProject", cpjno);	
 	}

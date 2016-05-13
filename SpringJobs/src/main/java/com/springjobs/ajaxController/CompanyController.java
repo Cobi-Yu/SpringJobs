@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.springjobs.domain.Cinfos;
 import com.springjobs.domain.Cpjts;
 import com.springjobs.domain.Crecs;
 import com.springjobs.service.company.CompanyService;
@@ -30,6 +31,19 @@ public class CompanyController {
 		companyService.addProjectSkills(cpjts);
 		model.addAttribute("cpjno",cpjts.getCpjno());
 	}
+	
+	@RequestMapping( value="/getComp", method=RequestMethod.GET)
+	public void getComp(@RequestParam("uno") int uno, Model model) throws Exception{
+		System.out.println("companyController에서 getComp :"+companyService.getComp(uno));
+		System.out.println("companyController에서  uno :"+uno);
+		model.addAttribute("cinfos", companyService.getComp(uno));
+	}
+	@RequestMapping( value="/addComp", method=RequestMethod.POST)
+	public void addComp(@RequestBody Cinfos cinfos, Model model){
+		System.out.println(cinfos);
+		companyService.addComp(cinfos);
+	}
+	
 	
 	@RequestMapping( value="/getProjectView" , method=RequestMethod.GET)
 	public void getProjectView(@RequestParam("cpjno") int cpjno, Model model) throws Exception{

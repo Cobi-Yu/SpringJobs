@@ -7,7 +7,6 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 import com.springjobs.dao.company.CompanyDao;
 import com.springjobs.domain.Cinfos;
@@ -26,6 +25,18 @@ public class CompanyServiceImpl implements CompanyService{
 	public int addProject(Cpjts cpjts){
 		return companyDao.addProject(cpjts);
 	}
+	
+
+	@Override
+	public Cinfos getComp(int uno) throws Exception {
+		return companyDao.getComp(uno);
+	}
+	@Override
+	public void addComp(Cinfos cinfos) {
+		companyDao.addComp(cinfos);
+	}
+	
+	
 	public int addJob(Crecs crecs){
 		System.out.println("crecs 값은?:"+companyDao.addJob(crecs));
 		return companyDao.addJob(crecs);

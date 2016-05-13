@@ -5,16 +5,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.ui.Model;
-
 import com.springjobs.domain.Cinfos;
 import com.springjobs.domain.Cpjts;
 import com.springjobs.domain.Crecs;
+import com.springjobs.domain.Uexps;
 import com.springjobs.domain.Users;
 
 public interface CompanyService {
 	
 	public int addProject(Cpjts cpjts);
+	
+	public Cinfos getComp(int uno) throws Exception;
+
+	public void addComp(Cinfos cinfos);
 	
 	public int addJob(Crecs crecs);
 	
