@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MainMapper">
+	<resultMap id="userSelectMap" type="com.springjobs.domain.Users">
+		<result property="uno"  column="UNO"  	jdbcType="INTEGER" />
+		<result property="unm"  column="UNM"  	jdbcType="VARCHAR" />
+		<result property="uenm" column="UENM" 	jdbcType="VARCHAR" />
+		<result property="uem"  column="UEM"  	jdbcType="VARCHAR" />
+		<result property="upw"  column="UPW"  	jdbcType="VARCHAR" />
+		<result property="uco"  column="UCO"  	jdbcType="VARCHAR" />
+		<result property="usx"  column="USX"  	jdbcType="VARCHAR" />
+		<result property="ucnf" column="UCNF" 	jdbcType="VARCHAR" />
+		<result property="ubd"  column="UBD"  	jdbcType="DATE" />
+		<result property="upho" column="UPHO" 	jdbcType="VARCHAR" />
+		<result property="uadr" column="UADR" 	jdbcType="VARCHAR" />
+		<result property="uurl" column="UURL" 	jdbcType="VARCHAR" />
+		<result property="ures" column="URES" 	jdbcType="VARCHAR" />
+		<result property="cno" 	column="CNO" 	jdbcType="INTEGER" />
+		<collection property="uphots" ofType="com.springjobs.domain.UPhotos">
+		    <id property="phno"			column="PHNO"		jdbcType="INTEGER"/>
+	    	<result property="phot"		column="PHOT" 		jdbcType="VARCHAR"/>
+	    	<result property="uno"		column="UNO" 		jdbcType="INTEGER"/>
+		</collection>
+	</resultMap>		
+		
+	<resultMap id="projectSelectMap" type="com.springjobs.domain.Cpjts">
+		<id 	property="cpjno" 			column="CPJNO" 		jdbcType="INTEGER"/>
+		<result property="cpjnm"			column="CPJNM" 		jdbcType="VARCHAR" />
+		<result property="cpjint" 			column="CPJINT" 	jdbcType="VARCHAR" />
+		<result property="cpjchk" 			column="CPJCHK" 	jdbcType="CHAR" />
+		<result property="cpjyr"	 		column="CPJYR"  	jdbcType="VARCHAR" />
+		<result property="cpjnpl" 			column="CPJNPL" 	jdbcType="INTEGER" />
+		<result property="cpjmnp" 			column="CPJMNP" 	jdbcType="INTEGER" />
+		<result property="cpjmap" 			column="CPJMAP" 	jdbcType="INTEGER" />
+		<result property="cpjhtn" 	 		column="CPJHTN" 	jdbcType="INTEGER" />
+		<result property="cpjrsd" 			column="CPJRSD" 	jdbcType="DATE" />
+		<result property="cpjred" 			column="CPJRED" 	jdbcType="DATE" />
+		<result property="cpjsd" 			column="CPJSD" 	 	jdbcType="DATE" />
+		<result property="cpjed" 		    column="CPJED" 	 	jdbcType="DATE" />
+		<result property="cpjrg" 			column="CPJRG" 		jdbcType="VARCHAR" />
+		<result property="cpjwt" 			column="CPJWT" 		jdbcType="VARCHAR" />
+		<result property="cpjar" 			column="CPJAR" 		jdbcType="VARCHAR" />
+		<result property="cno" 			column="CNO" 			jdbcType="INTEGER" />
+		<result property="cnm" 			column="CNM" 			jdbcType="VARCHAR" />
+		<collection property="cpjsk" ofType="com.springjobs.domain.Skills">
+	    	<id property="skno" column="SKNO"/>
+	    	<result property="sknm" column="SKNM"/>
+		</collection>
+	</resultMap>
+
+	<resultMap id="AddCompanySelectMap" type="com.springjobs.domain.Cinfos">
+		<result property="cno" 				column="CNO" 		jdbcType="INTEGER"/>
+		<result property="cct"				column="CCT" 		jdbcType="VARCHAR" />
+		<result property="crgno"		 	column="CRGNO" 		jdbcType="INTEGER" />
+		<result property="cnm" 				column="CNM" 		jdbcType="VARCHAR" />
+		<result property="cscl" 			column="CSCL"	 	jdbcType="VARCHAR" />
+		<result property="clo" 				column="CLO"	 	jdbcType="VARCHAR" />
+		<result property="cnpl" 			column="CNPL" 		jdbcType="INTEGER" />
+		<result property="cint" 			column="CINT" 		jdbcType="VARCHAR" />
+		
+	</resultMap>
+
+	<select id="getTotalCount" resultType="hashmap">
+		select user.count, company.count, project.count 
+		from
+		(select count(*) count from USERS) user,
+		(select count(*) count from CINFOS) company,
+		(select count(*) count from CPJTS) project;
+	</select>
+
+</mapper>

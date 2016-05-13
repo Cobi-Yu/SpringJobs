@@ -1,6 +1,7 @@
 package com.springjobs.service.user.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -67,6 +68,11 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
+	public Map getTotalCount() {
+		return userDao.getTotalCount();
+	}
+	
+	@Override
 	public int insertUserPfUrl(Upfurl upfurl) {
 		return userDao.insertUserPfUrl(upfurl);
 	}
@@ -80,4 +86,10 @@ public class UserServiceImpl implements UserService{
 	public int deleteUserPfUrl(Upfurl upfurl) {
 		return userDao.deleteUserPfUrl(upfurl);
 	}
+
+	@Override
+	public Users getUserInfo(int uno) {
+		return userDao.getUserInfo(uno);
+	}
+	
 }

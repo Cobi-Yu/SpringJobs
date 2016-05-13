@@ -1,6 +1,7 @@
 package com.springjobs.dao.user.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -70,6 +71,13 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
+	public Map getTotalCount() {
+		System.out.println("어떻게하는거야!!!");
+		System.out.println("????"+sqlSession.selectOne("MainMapper.getTotalCount"));
+		return sqlSession.selectMap("MainMapper.getTotalCount", "key", "value");
+	}
+
+	@Override
 	public int insertUserPfUrl(Upfurl upfurl) {
 		sqlSession.insert("UserMapper.insertUserPfUrl",upfurl);
 		return upfurl.getUpfurlno();
@@ -84,4 +92,11 @@ public class UserDaoImpl implements UserDao{
 	public int deleteUserPfUrl(Upfurl upfurl) {
 		return sqlSession.delete("UserMapper.deleteUserPfUrl",upfurl);
 	}
+
+	@Override
+	public Users getUserInfo(int uno) {
+		System.out.println("UserDaoImpl에서 USER :"+sqlSession.selectOne("UserMapper.getUserInfo", uno));
+		return sqlSession.selectOne("UserMapper.getUserInfo", uno);
+	}
+	
 }

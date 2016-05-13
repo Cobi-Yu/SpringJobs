@@ -1,0 +1,172 @@
+<style>
+
+/* 아코디언 스타일 시작 */
+	button.accordion {
+	    background-color: pink;
+	    color: #444;
+	    cursor: pointer;
+	    padding: 18px;
+	    width: 100%;
+	    border: none;
+	    text-align: center;
+	    outline: none;
+	    font-size: 15px;
+	    transition: 0.4s;
+	}
+	
+	button.accordion.active, button.accordion:hover {
+	    background-color: #ddd;
+	}
+	
+	div.panel {
+	    background-color: white;
+	    max-height: 0;
+	    overflow: hidden;
+	    transition: 0.6s ease-in-out;
+	    opacity: 0;
+	}
+	
+	div.panel.show {
+	    opacity: 1;
+	    max-height: 500px;  
+	}
+/* 아코디언 스타일 끝 */
+
+</style>
+				<div class="modal-body">
+			    	<div class="row">
+			
+			      <!-- edit form column -->
+			      <div class="col-md-2"></div>
+			      <div class="col-md-8" >
+			      	<button class="accordion"><strong>외국어</strong></button>
+					<div class="panel">
+						<table style="border-collapse: collapse;">
+					      	<tr>
+					      		<td class="col-md-1" style="padding-top: 1em;">
+						      		<strong>언어</strong>
+					      		</td>
+					      		<td class="col-md-1" style="padding-top: 1em;">
+					      			<div id="lgnm"></div>
+					      		</td>
+					      	</tr>
+					      	<tr>
+					      		<td class="col-md-1" style="padding-top: 1em;">
+					      			<strong>수준</strong>
+					      		</td>
+					      		<td class="col-sm-1" style="padding-top: 1em;">
+					      			<div id="lglvl"></div>
+					      		</td>
+					      	</tr>
+				      	</table>		 
+					</div>
+					
+					<button class="accordion"><strong>자격증</strong></button>
+					<div class="panel">
+ 						<table style="border-collapse: collapse;">
+					      	<tr>
+					      		<td class="col-md-1" style="padding-top: 1em;">
+						      		<strong>자격증 이름</strong>
+					      		</td>
+					      		<td class="col-md-1" style="padding-top: 1em;">
+					      			<div id="ctnm"></div>
+					      		</td>
+					      	</tr>
+					      	<tr>
+					      		<td class="col-md-1" style="padding-top: 1em;">
+					      			<strong>인증기관</strong>
+					      		</td>
+					      		<td class="col-sm-1" style="padding-top: 1em;">
+					      			<div id="ctag"></div>
+					      		</td>
+					      	</tr>
+					      	<tr>
+					      		<td class="col-md-1" style="padding-top: 1em;">
+					      			<strong>자격증 번호</strong>
+					      		</td>
+					      		<td class="col-sm-1" style="padding-top: 1em;">
+					      			<div id="ctuqno"></div>
+					      		</td>
+					      	</tr>
+					      	<tr>
+					      		<td class="col-md-1" style="padding-top: 1em;">
+					      			<strong>점수</strong>
+					      		</td>
+					      		<td class="col-sm-1" style="padding-top: 1em;">
+					      			<div id="ctsc"></div>
+					      		</td>
+					      	</tr>
+					      	<tr>
+					      		<td class="col-md-1" style="padding-top: 1em;">
+					      			<strong>등급</strong>
+					      		</td>
+					      		<td class="col-sm-1" style="padding-top: 1em;">
+					      			<div id="ctgrd"></div>
+					      		</td>
+					      	</tr>					      
+					      	<tr>
+					      		<td class="col-md-1" style="padding-top: 1em;">
+					      			<strong>자격증 URL</strong>
+					      		</td>
+					      		<td class="col-sm-1" style="padding-top: 1em;">
+					      			<div id="cturl"></div>
+					      		</td>
+					      	</tr>
+					      	<tr>
+					      		<td class="col-md-1" style="padding-top: 1em;">
+					      			<strong>시험일</strong>
+					      		</td>
+					      		<td class="col-sm-1" style="padding-top: 1em;">
+					      			<div id="ctdy"></div>
+					      		</td>
+					      	</tr>
+					      	<tr>
+					      		<td class="col-md-1" style="padding-top: 1em;">
+					      			<strong>발급일</strong>
+					      		</td>
+					      		<td class="col-sm-1" style="padding-top: 1em;">
+					      			<div id="ctsd"></div>
+					      		</td>
+					      	</tr>
+					      	<tr>
+					      		<td class="col-md-1" style="padding-top: 1em;">
+					      			<strong>만료일</strong>
+					      		</td>
+					      		<td class="col-sm-1" style="padding-top: 1em;">
+					      			<div id="cted"></div>
+					      		</td>
+					      	</tr>
+				      	</table>
+					</div>
+						
+			      </div>
+			      <div class="col-md-1"></div>
+			  </div>
+			  <div class="col-lg-12" style="text-align: center;">✓ 개발자의 왹국어 및 자격증 정보입니다</div>
+			 </div>
+			 
+	       <div class="modal-footer">
+	         <button type="button" class="btn btn-default" data-dismiss="modal" id="removeUexps">닫기</button>
+	       </div>
+	       
+	       <script>
+
+	        var acc = document.getElementsByClassName("accordion");
+	        var i;
+
+	        for (i = 0; i < acc.length; i++) {
+	            acc[i].onclick = function(){
+	                this.classList.toggle("active");
+	                this.nextElementSibling.classList.toggle("show");
+	          }
+	        }
+	        
+	        $('#modifiedUlans').click(function() {
+	        	$('#pfModal5table').load('Ulans/modifiedUlans.html');		        	
+	        });
+
+	        $('#modifiedUcerts').click(function() {
+	        	$('#pfModal5table').load('Ucerts/modifiedUcerts.html');		        	
+	        });
+	        
+	       </script>

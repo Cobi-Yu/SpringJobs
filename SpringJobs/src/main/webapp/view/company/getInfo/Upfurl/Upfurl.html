@@ -1,0 +1,27 @@
+<div class="modal-body">
+   	<div class="row">
+     <div class="col-md-1"></div>
+     <div class="col-md-10" id="urlthumbnail">
+	    <h5>개발자의 프로젝트 미리보기</h5>
+     </div>
+     <div class="col-md-1"></div>
+ </div>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-default" data-dismiss="modal" id="removeUscls">닫기</button>
+</div>
+
+<script>
+//포트폴리오 썸네일 추가
+var addThumbnail2 = function(UPFURL){
+    var thumbUrl = "https://api.thumbalizr.com/?url="+UPFURL.url+"&amp;encoding=jpg&amp;api_key=&amp;quality=90&amp;mode=screen&amp;w=250";
+    var thumbnail = $('<a class="thumbnail">').attr("value",UPFURL.upfurlno).append( $('<img>').attr("src",thumbUrl) ).click(function(e){
+        e.preventDefault();
+        window.open("http://"+UPFURL.url);
+    });
+    $('#urlthumbnail').append(thumbnail);
+};
+//포트폴리오 썸네일 추가 끝
+
+</script>

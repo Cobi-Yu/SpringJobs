@@ -1,6 +1,7 @@
 package com.springjobs.service.user;
 
 import java.util.List;
+import java.util.Map;
 
 import com.springjobs.domain.Skills;
 import com.springjobs.domain.UPhotos;
@@ -26,9 +27,13 @@ public interface UserService {
 	
 	public int deleteUserSkills(Users user);
 	
+	public Map getTotalCount();
+	
 	public int insertUserPfUrl(Upfurl upfurl);
 
 	public List<Upfurl> getUserPfUrlList(Upfurl upfurl);
 	
 	public int deleteUserPfUrl(Upfurl upfurl);
+	
+	public Users getUserInfo(int uno);
 }

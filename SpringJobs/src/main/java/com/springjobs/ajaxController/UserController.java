@@ -128,6 +128,12 @@ public class UserController {
 		model.addAttribute("result",userService.updateUserSkills(user));
 	}
 	
+	@RequestMapping(value="/user/getTotalCount", method=RequestMethod.GET)
+	public void getTotalCount(Model model){
+		System.out.println("UserController의 getTotalCount!");
+		model.addAttribute("map",userService.getTotalCount());
+	}	
+	
 	@RequestMapping(value="/user/insertUserPfUrl", method=RequestMethod.POST)
 	public void insertUserPfUrl(@RequestBody Upfurl upfurl,  Model model) {
 		model.addAttribute("result", userService.insertUserPfUrl(upfurl));
@@ -144,4 +150,9 @@ public class UserController {
 		model.addAttribute("result", userService.deleteUserPfUrl(upfurl));
 	}
 	
+	@RequestMapping(value="/user/getUserInfo", method=RequestMethod.GET)
+	public void getUserInfo(@RequestParam("uno") int uno,  Model model) {
+		System.out.println("getUserinfo : "+userService.getUserInfo(uno));
+		model.addAttribute("userInfo", userService.getUserInfo(uno));
+	}
 }

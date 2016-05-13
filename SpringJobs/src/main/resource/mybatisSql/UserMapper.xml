@@ -264,4 +264,9 @@
 	<delete id="deleteUserPfUrl" parameterType="com.springjobs.domain.Upfurl">
 		delete from UPFURL where upfurlno=#{upfurlno}
 	</delete>
+	
+	<select id="getUserInfo" parameterType="int" resultType="com.springjobs.domain.Users">
+	    select *
+	    from USERS where uno=#{uno}
+	</select>
 </mapper>
