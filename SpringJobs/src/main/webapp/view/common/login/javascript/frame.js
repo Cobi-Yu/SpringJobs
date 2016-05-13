@@ -93,6 +93,10 @@ $(window).resize(function(){
 	
 });
 
+$('#addComp').click(function(){
+	callModal('?','?');
+});
+
 redirect($('#index'),'/view/index.html');
 redirect($('#signUp'),'/view/common/addUser/addUser.html');
 redirect($('#addJob'),'/view/company/addJob/addJob.html',true);
