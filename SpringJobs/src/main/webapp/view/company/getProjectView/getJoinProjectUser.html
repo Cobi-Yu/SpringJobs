@@ -37,6 +37,11 @@
 				$('#acceptModal').find('img').attr("src",imgSrc);
 				$('#acceptModal').find('pre').text(joinUser.cpjjoins[0]['cpjjointxt']);
 				$('#accept-btn').attr('value',joinUser.uno);
+				$('#userDetail').attr('value',joinUser.uno);
+				$('#userDetail').click(function(){
+// 					window.open('http://www.daum.net ', '_blank'); 
+					window.open(contextRoot+"/view/company/getInfo/getInfo.html?uno="+$(this).attr('value'),'_blank');
+				});
 				console.log(joinUser)
 			}
 		});

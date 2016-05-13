@@ -94,6 +94,11 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
+	public List<Users> getDeveloperList(List<Integer> sknoList) {
+		return sqlSession.selectList("UserMapper.getDeveloperList",sknoList);
+	}
+
+	@Override
 	public Users getUserInfo(int uno) {
 		System.out.println("UserDaoImpl에서 USER :"+sqlSession.selectOne("UserMapper.getUserInfo", uno));
 		return sqlSession.selectOne("UserMapper.getUserInfo", uno);

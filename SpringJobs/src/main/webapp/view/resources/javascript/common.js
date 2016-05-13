@@ -18,9 +18,12 @@ var redirect = function(id,url,login){
 
 //로딩 이미지 시작
 var addLoading = function(){
-	var loading ='<div class="wrap-loading"><img src="/view/resources/img/loading.gif" height="150" width="150"/></div>';
+//	var loading ='<div class="wrap-loading"><img src="/view/resources/img/loading.gif" height="150" width="150"/></div>';
+	var loading =$('<div class="wrap-loading">');
+	loading.append($('<img src="/view/resources/img/loading.gif" height="150" width="150"/>'));
 //	$('.content').addClass('display-none');
 //	$('#footer').addClass('display-none');
+	loading.css('z-index', 999999);
 	if($('.wrap-loading')){
 		$('body').append(loading);
 	}

@@ -25,6 +25,14 @@
 	    	<result property="phot"		column="PHOT" 		jdbcType="VARCHAR"/>
 	    	<result property="uno"		column="UNO" 		jdbcType="INTEGER"/>
 		</collection>
+		<collection property="upfurl" ofType="com.springjobs.domain.Upfurl">
+		    <id property="upfurlno"		column="UPFURLNO"	jdbcType="INTEGER"/>
+	    	<result property="url"		column="URL" 		jdbcType="VARCHAR"/>
+	    	<result property="uno"		column="UNO" 		jdbcType="INTEGER"/>
+		</collection>
+		<collection property="skills" ofType="com.springjobs.domain.Skills">
+		    <id property="skno"		column="SKNO"	jdbcType="INTEGER"/>
+		</collection>
 	</resultMap>
 	
 	<resultMap id="utagsSelectMap" type="com.springjobs.domain.UTags">
@@ -264,6 +272,17 @@
 	<delete id="deleteUserPfUrl" parameterType="com.springjobs.domain.Upfurl">
 		delete from UPFURL where upfurlno=#{upfurlno}
 	</delete>
+	
+	<select id="getDeveloperList" parameterType="java.util.List" resultMap="userSelectMap">
+	    select * from
+		(select user.uno, user.unm from USERS user, YSKILLS skill where skill.uno=user.uno 
+			<foreach collection="list" item="skno">
+			    and skill.skno=#{skno}
+			</foreach>
+		)sub
+		left outer join UPFURL upf on upf.uno=sub.uno
+		left outer join UPHOTS photo on photo.uno=sub.uno;
+	</select>
 	
 	<select id="getUserInfo" parameterType="int" resultType="com.springjobs.domain.Users">
 	    select *

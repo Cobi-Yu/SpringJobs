@@ -3,6 +3,7 @@ package com.springjobs.ajaxController;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -148,6 +149,11 @@ public class UserController {
 	@RequestMapping(value="/user/deleteUserPfUrl", method=RequestMethod.POST)
 	public void deleteUserPfUrl(@RequestBody Upfurl upfurl,  Model model) {
 		model.addAttribute("result", userService.deleteUserPfUrl(upfurl));
+	}
+	
+	@RequestMapping(value="/user/getDeveloperList", method=RequestMethod.POST)
+	public void getDeveloperList(@RequestBody List<Integer> sknoList,  Model model) {
+		model.addAttribute("result", userService.getDeveloperList(sknoList));
 	}
 	
 	@RequestMapping(value="/user/getUserInfo", method=RequestMethod.GET)

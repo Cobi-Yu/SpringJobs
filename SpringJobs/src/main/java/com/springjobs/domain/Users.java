@@ -29,6 +29,7 @@ public class Users {
 	private List<Skills> skills;
 	private List<Cpjts> cpjts;
 	private List<Cpjjoin> cpjjoins;
+	private List<Upfurl> upfurl;
 	
 	public Users() {
 		// TODO Auto-generated constructor stub
@@ -37,7 +38,7 @@ public class Users {
 	public Users(int uno, String unm, String uenm, String uem, String upw, String uco, String usx, String ucnf,
 			Date ubd, String upho, String uadr, String uurl, String ures, int cno, List<UPhotos> uphots,
 			List<UTags> utags, List<Uexps> upxps, List<Uscls> uslcs, List<Ucerts> ucerts, List<Ulans> ulans,
-			List<UPjtNo> upjtno, List<Skills> skills, List<Cpjts> cpjts, List<Cpjjoin> cpjjoins) {
+			List<UPjtNo> upjtno, List<Skills> skills, List<Cpjts> cpjts, List<Cpjjoin> cpjjoins, List<Upfurl> upfurl) {
 		super();
 		this.uno = uno;
 		this.unm = unm;
@@ -63,6 +64,7 @@ public class Users {
 		this.skills = skills;
 		this.cpjts = cpjts;
 		this.cpjjoins = cpjjoins;
+		this.upfurl = upfurl;
 	}
 
 	public int getUno() {
@@ -257,15 +259,22 @@ public class Users {
 		this.cpjjoins = cpjjoins;
 	}
 
+	public List<Upfurl> getUpfurl() {
+		return upfurl;
+	}
+
+	public void setUpfurl(List<Upfurl> upfurl) {
+		this.upfurl = upfurl;
+	}
+
 	@Override
 	public String toString() {
 		return "Users [uno=" + uno + ", unm=" + unm + ", uenm=" + uenm + ", uem=" + uem + ", upw=" + upw + ", uco="
 				+ uco + ", usx=" + usx + ", ucnf=" + ucnf + ", ubd=" + ubd + ", upho=" + upho + ", uadr=" + uadr
 				+ ", uurl=" + uurl + ", ures=" + ures + ", cno=" + cno + ", uphots=" + uphots + ", utags=" + utags
 				+ ", upxps=" + upxps + ", uslcs=" + uslcs + ", ucerts=" + ucerts + ", ulans=" + ulans + ", upjtno="
-				+ upjtno + ", skills=" + skills + ", cpjts=" + cpjts + ", Cpjjoins=" + cpjjoins + "]";
+				+ upjtno + ", skills=" + skills + ", cpjts=" + cpjts + ", cpjjoins=" + cpjjoins + ", upfurl=" + upfurl
+				+ "]";
 	}
-	
-	
-	
+
 } // end of class

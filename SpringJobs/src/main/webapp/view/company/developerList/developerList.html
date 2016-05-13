@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Bootstrap Example</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/view/common/login/css/frame.css">
+
+<style>
+	.section{
+		background-color:white; 
+		border: 1px outset #ddd;
+		margin:10px;
+		margin-left:0px;
+	}
+	.text-center{
+		text-align:center;
+		vertical-align: middle;
+	}
+	.skillsearch-div{
+		border-right:1px solid black;
+		height:80px;
+	}
+	.btn-sm{
+		margin-top:5px;
+		margin-bottom:5px;
+		margin-right:1px;
+	}
+	.list-div{
+		padding-left:0px;
+		padding-right:0px;
+	}
+	.developerInfo{
+		padding:3px;
+	}
+	.thumbnail{
+		height:370px;
+	}
+	.caption{
+		height:60%;
+		text-align:center;
+		cursor:pointer;
+		position:relative;
+		z-index: 2;
+	}
+	.caption:hover{
+		background-color:#f1f1f1;
+		opacity:0.7;
+	}
+	.panel-footer{
+		height:40%;
+		padding:0px;
+		padding-top:10px;
+		padding-bottom:10px;
+		text-align:center;
+	}
+	.caption>img{
+		height:80%;
+		position:relative;
+		z-index: 9999;
+	}
+	.panel-footer>img{
+		width:49%; 
+		height:100%;
+		cursor:pointer;
+	}
+	
+	
+</style>
+</head>
+<body>
+	<div id="header"></div>
+	<!--본문 시작-->
+	<div class="container-fluid text-center">
+		<div class="row content">
+			<div class="col-sm-2 sidenav"></div>
+			<div class="col-md-8 text-left main">
+			
+			
+			<div class="col-md-1 sidenav"></div>
+			<div class="col-md-10 main">
+				<h1>개발자 목록</h1>
+				<!-- 검색화면 시작 -->
+				<div class="section col-md-12">
+					<div class="col-md-4 text-center skillsearch-div">
+						<h4 style="color:#EC971F;">기술검색</h4>
+						<input type ="text">
+					</div>
+					<div class="col-md-8 text-center">
+						<button type="button" class="btn btn-warning btn-sm">Spring</button>
+						<button type="button" class="btn btn-warning btn-sm">Ajax</button>
+						<button type="button" class="btn btn-warning btn-sm">Nodejs</button>
+						<button type="button" class="btn btn-warning btn-sm">Jade</button>
+						<button type="button" class="btn btn-warning btn-sm">Express</button>
+						<button type="button" class="btn btn-warning btn-sm">Socketio</button>
+						<button type="button" class="btn btn-warning btn-sm">Oracle</button>
+						<button type="button" class="btn btn-warning btn-sm">Mysql</button>
+					</div>
+				</div>
+				<!-- 검색화면 끝 -->
+				
+				<!-- 개발자 목록 시작 -->
+				<div class="col-md-12 list-div">
+					  <div class="col-md-4 developerInfo">
+					    <div class="thumbnail">
+					      <div class="caption">
+					      	<img src="/view/resources/img/1@1.jpg" class="img-rounded">
+					      	<h3>유형환</h3>
+					      </div>
+					      <div class="panel-footer">
+				      		<img  src="https://api.thumbalizr.com/?url=www.naver.com&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
+					      	<img  src="https://api.thumbalizr.com/?url=www.daum.net&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
+					      </div>
+					    </div>
+					  </div>
+					  <div class="col-md-4 developerInfo">
+					    <div class="thumbnail">
+					      <div class="caption">
+					      	<img src="/view/resources/img/1@1.jpg" class="img-rounded">
+					      	<h3>유형환</h3>
+					      </div>
+					      <div class="panel-footer">
+				      		<img  src="https://api.thumbalizr.com/?url=www.naver.com&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
+					      	<img  src="https://api.thumbalizr.com/?url=www.daum.net&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
+					      </div>
+					    </div>
+					  </div>
+					  <div class="col-md-4 developerInfo">
+					    <div class="thumbnail">
+					      <div class="caption">
+					      	<img src="/view/resources/img/1@1.jpg" class="img-rounded">
+					      	<h3>유형환</h3>
+					      </div>
+					      <div class="panel-footer">
+				      		<img  src="https://api.thumbalizr.com/?url=www.naver.com&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
+					      	<img  src="https://api.thumbalizr.com/?url=www.daum.net&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
+					      </div>
+					    </div>
+					  </div>
+					  <div class="col-md-4 developerInfo">
+					    <div class="thumbnail">
+					      <div class="caption">
+					      	<img src="/view/resources/img/1@1.jpg" class="img-rounded">
+					      	<h3>유형환</h3>
+					      </div>
+					      <div class="panel-footer">
+				      		<img  src="https://api.thumbalizr.com/?url=www.naver.com&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
+					      	<img  src="https://api.thumbalizr.com/?url=www.daum.net&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
+					      </div>
+					    </div>
+					  </div>
+					  <div class="col-md-4 developerInfo">
+					    <div class="thumbnail">
+					      <div class="caption">
+					      	<img src="/view/resources/img/1@1.jpg" class="img-rounded">
+					      	<h3>유형환</h3>
+					      </div>
+					      <div class="panel-footer">
+				      		<img  src="https://api.thumbalizr.com/?url=www.naver.com&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
+					      	<img  src="https://api.thumbalizr.com/?url=www.daum.net&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
+					      </div>
+					    </div>
+					  </div>
+				</div>
+				<!-- 개발자 목록 끝 -->
+			</div>
+			<div class="col-md-1 sidenav"></div>
+			
+			</div>
+			<div class="col-sm-2 sidenav"></div>
+		</div>
+	</div>
+	<div id="footer"></div>
+</body>
+<script>
+	$(function(){
+		$('#header').load('/view/common/login/frameHeader.html');
+		$('#footer').load('/view/common/login/frameFooter.html');
+	})
+// 	$(document).on('frameComplete',function(event) {
+// 		$.ajax({
+// 			type : 'POST',
+// 			url : contextRoot+ "/user/getDeveloperList",
+// 			dataType : "json",
+// 			beforeSend : addLoading,
+// 			complete : removeLoading,
+// 			data : JSON.stringify({
+// 				uno:user.uno
+// 			}),
+// 			headers : {
+// 				"Accept" : "application/json",
+// 				"Content-Type" : "application/json"
+// 			},
+// 			success : function(data) {
+// 				var list = data.result;
+// 				console.log(list);
+// 			}
+// 		});
+// 	});
+</script>
+
+</html>

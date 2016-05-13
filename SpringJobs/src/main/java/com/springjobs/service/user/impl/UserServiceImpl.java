@@ -88,6 +88,11 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
+	public List<Users> getDeveloperList(List<Integer> sknoList) {
+		return userDao.getDeveloperList(sknoList);
+	}
+
+	@Override
 	public Users getUserInfo(int uno) {
 		return userDao.getUserInfo(uno);
 	}

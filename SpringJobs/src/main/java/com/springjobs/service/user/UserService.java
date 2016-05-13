@@ -35,5 +35,7 @@ public interface UserService {
 	
 	public int deleteUserPfUrl(Upfurl upfurl);
 	
+	public List<Users> getDeveloperList(List<Integer> sknoList);
+	
 	public Users getUserInfo(int uno);
 }

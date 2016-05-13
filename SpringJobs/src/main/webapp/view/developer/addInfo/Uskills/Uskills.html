@@ -36,6 +36,7 @@ $('#modifiedSkills').click(function(){
 		},
 		success : function(data, status) {
 			$("#pfModal4").modal("hide");
+			$('#insertUrl').val('');
 			callModal('확인','기술등록완료');
 		}
 	});
