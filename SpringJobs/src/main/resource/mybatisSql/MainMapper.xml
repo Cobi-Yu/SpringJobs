@@ -65,7 +65,7 @@
 	</resultMap>
 
 	<select id="getTotalCount" resultType="hashmap">
-		select user.count, company.count, project.count 
+		select user.count as user_count, company.count as company_count, project.count as project_count 
 		from
 		(select count(*) count from USERS) user,
 		(select count(*) count from CINFOS) company,
