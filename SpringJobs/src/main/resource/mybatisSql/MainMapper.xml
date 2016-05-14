@@ -5,7 +5,24 @@
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="MainMapper">
-	<resultMap id="userSelectMap" type="com.springjobs.domain.Users">
+	<resultMap id="getTotalCountMap" type="java.util.HashMap">
+	    <result property="userCount" column="userCount"/>
+	    <result property="companyCount" column="companyCount"/>
+	    <result property="projectCount" column="projectCount"/>
+	</resultMap>
+
+
+	<select id="getTotalCount" resultMap="getTotalCountMap">
+		select user.count as userCount, company.count as companyCount, project.count as projectCount 
+		from
+		(select count(*) count from USERS) user,
+		(select count(*) count from CINFOS) company,
+		(select count(*) count from CPJTS) project
+	</select>
+
+</mapper>
+
+<!-- 	<resultMap id="userSelectMap" type="com.springjobs.domain.Users">
 		<result property="uno"  column="UNO"  	jdbcType="INTEGER" />
 		<result property="unm"  column="UNM"  	jdbcType="VARCHAR" />
 		<result property="uenm" column="UENM" 	jdbcType="VARCHAR" />
@@ -44,8 +61,8 @@
 		<result property="cpjrg" 			column="CPJRG" 		jdbcType="VARCHAR" />
 		<result property="cpjwt" 			column="CPJWT" 		jdbcType="VARCHAR" />
 		<result property="cpjar" 			column="CPJAR" 		jdbcType="VARCHAR" />
-		<result property="cno" 			column="CNO" 			jdbcType="INTEGER" />
-		<result property="cnm" 			column="CNM" 			jdbcType="VARCHAR" />
+		<result property="cno" 			    column="CNO" 		jdbcType="INTEGER" />
+		<result property="cnm" 			    column="CNM" 		jdbcType="VARCHAR" />
 		<collection property="cpjsk" ofType="com.springjobs.domain.Skills">
 	    	<id property="skno" column="SKNO"/>
 	    	<result property="sknm" column="SKNM"/>
@@ -61,15 +78,4 @@
 		<result property="clo" 				column="CLO"	 	jdbcType="VARCHAR" />
 		<result property="cnpl" 			column="CNPL" 		jdbcType="INTEGER" />
 		<result property="cint" 			column="CINT" 		jdbcType="VARCHAR" />
-		
-	</resultMap>
-
-	<select id="getTotalCount" resultType="hashmap">
-		select user.count as user_count, company.count as company_count, project.count as project_count 
-		from
-		(select count(*) count from USERS) user,
-		(select count(*) count from CINFOS) company,
-		(select count(*) count from CPJTS) project;
-	</select>
-
-</mapper>
+	</resultMap> -->

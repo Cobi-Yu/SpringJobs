@@ -72,9 +72,8 @@ public class UserDaoImpl implements UserDao{
 
 	@Override
 	public Map getTotalCount() {
-		System.out.println("어떻게하는거야!!!");
-		System.out.println("????"+sqlSession.selectOne("MainMapper.getTotalCount"));
-		return sqlSession.selectMap("MainMapper.getTotalCount", "key", "value");
+		System.out.println("UserDaoImpl에서 getTotalCount :"+(Map)sqlSession.selectOne("MainMapper.getTotalCount"));
+		return (Map)sqlSession.selectOne("MainMapper.getTotalCount");
 	}
 
 	@Override

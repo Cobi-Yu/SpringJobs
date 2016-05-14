@@ -94,15 +94,15 @@
 							<div class="col-md-3"></div>
 							<div class="col-md-2 text-center" style="height: 500px; background-color: black; padding-top: 1em;">
 								<div class="minibox" style="color: white;">등록된 프로젝트</div>
-								<div class="detailminibox" id="addedProject" style="color: white;">365</div>
+								<div class="detailminibox" id="addedProject" style="color: white;"></div>
 							</div>
 							<div class="col-md-2 text-center" style="height: 500px; background-color: black; padding-top: 1em;">
 								<div class="minibox" style="color: white;">프리랜서 개발자</div>
-								<div class="detailminibox" id="freeDeveloper" style="color: white;">365</div>
+								<div class="detailminibox" id="freeDeveloper" style="color: white;"></div>
 							</div>
 							<div class="col-md-2 text-center" style="height: 500px; background-color: black; padding-top: 1em;">
 								<div class="minibox" style="color: white;">기업</div>
-								<div class="detailminibox" id="company" style="color: white;">365</div>
+								<div class="detailminibox" id="company" style="color: white;"></div>
 							</div>
 							<div class="col-md-3"></div>		
 					    </div>	
@@ -144,6 +144,9 @@
 				complete : removeLoading,
 				success : function(data, status) {
 					console.log(data);
+					$('#freeDeveloper').text(data.map.userCount);
+					$('#addedProject').text(data.map.projectCount);
+					$('#company').text(data.map.companyCount);
 				}
 			});
 		});
