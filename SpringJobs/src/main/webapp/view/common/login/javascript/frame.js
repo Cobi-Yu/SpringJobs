@@ -94,36 +94,40 @@ $(window).resize(function(){
 });
 
 
-$('#addComp').css('cursor','pointer').click(function(){
-	
-   	$.ajax({
-		url : contextRoot + "/company/getComp?uno="+user.uno,
-		method : "GET",
-		dataType : "json",
-		headers : {
-			"Accept" : "application/json",
-			"Content-Type" : "application/json"
-		},
-		success : function(data, status) {
-        	console.log(data.cinfos);
-			if(data.cinfos==null){
-				$('#pfModal7table').load('/view/company/addCompany/Cinfos/modifiedComp.html');
-			}else{
-				$('#pfModal7table').load('/view/company/addCompany/Cinfos/getComp.html', function() {
-    				console.log(data.cinfos);
-    				$('#cct').text(data.cinfos.cct);
-    				$('#crgno').text(data.cinfos.crgno);
-    				$('#cnm').text(data.cinfos.cnm);
-    				$('#cscl').text(data.cinfos.cscl);
-    				$('#clo').text(data.cinfos.clo);
-    				$('#cnpl').text(data.cinfos.cnpl);
-    				$('#cint').text(data.cinfos.cint);	   
-    			});
+
+$('#addComp').click(function(){
+	if( (user==null) ){
+		callModal('경고','로그인 해주세요');
+	}else{
+		$.ajax({
+			url : contextRoot + "/company/getComp?uno="+user.uno,
+			method : "GET",
+			dataType : "json",
+			headers : {
+				"Accept" : "application/json",
+				"Content-Type" : "application/json"
+			},
+			success : function(data, status) {
+	        	console.log(data.cinfos);
+				if(data.cinfos==null){
+					$('#pfModal7table').load('/view/company/addCompany/Cinfos/modifiedComp.html');
+				}else{
+					$('#pfModal7table').load('/view/company/addCompany/Cinfos/getComp.html', function() {
+	    				console.log(data.cinfos);
+	    				$('#cct').text(data.cinfos.cct);
+	    				$('#crgno').text(data.cinfos.crgno);
+	    				$('#cnm').text(data.cinfos.cnm);
+	    				$('#cscl').text(data.cinfos.cscl);
+	    				$('#clo').text(data.cinfos.clo);
+	    				$('#cnpl').text(data.cinfos.cnpl);
+	    				$('#cint').text(data.cinfos.cint);	   
+	    			});
+				}
+		
+				$('#pfModal7').modal(); 
 			}
-	
-			$('#pfModal7').modal(); 
-		}
-	});
+		});
+	}
 }); 
 
 
@@ -195,3 +199,4 @@ redirect($('#introduction'),'/view/common/introduction/springjobs.html'); // 스
 redirect($('#addProject'),'/view/company/addProject/addProject.html',true);
 redirect($('#SpringJobsIntro'),'/view/common/login/SpringJobs.html');
 redirect($('#frame'),'/view/common/intro.html');
+redirect($('#developerList'),'/view/company/developerList/developerList.html');

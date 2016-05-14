@@ -1,5 +1,6 @@
 package com.springjobs.service.user.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -89,7 +90,10 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<Users> getDeveloperList(List<Integer> sknoList) {
-		return userDao.getDeveloperList(sknoList);
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("size", sknoList.size());
+		map.put("list", sknoList);
+		return userDao.getDeveloperList(map);
 	}
 
 	@Override

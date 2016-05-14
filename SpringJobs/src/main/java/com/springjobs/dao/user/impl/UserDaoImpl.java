@@ -93,8 +93,8 @@ public class UserDaoImpl implements UserDao{
 	}
 
 	@Override
-	public List<Users> getDeveloperList(List<Integer> sknoList) {
-		return sqlSession.selectList("UserMapper.getDeveloperList",sknoList);
+	public List<Users> getDeveloperList(Map<String,Object> map) {
+		return sqlSession.selectList("UserMapper.getDeveloperList",map);
 	}
 
 	@Override

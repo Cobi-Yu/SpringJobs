@@ -667,24 +667,25 @@ var yskills=[]; //스킬목록
 				complete : removeLoading,
 				success : function(data, status) {
 					console.log('이 유저는? :'+data.userInfo.unm);
+					console.log(data.userInfo);
 					$('#nm').text(data.userInfo.unm);
 					
-					if(user.uenm == null){$('#enm').text('내용이 없습니다.');} 
+					if(data.userInfo.uenm == null){$('#enm').text('내용이 없습니다.');} 
 					else { $('#enm').text(data.userInfo.uenm);}
 					
-					if(user.ubd == null){$('#bd').text('내용이 없습니다.');} 
+					if(data.userInfo.ubd == null){$('#bd').text('내용이 없습니다.');} 
 					else { $('#bd').text(data.userInfo.ubd);}
 					
-					if(user.usx == null){$('#sx').text('내용이 없습니다.');} 
+					if(data.userInfo.usx == null){$('#sx').text('내용이 없습니다.');} 
 					else { $('#sx').text(data.userInfo.usx);}
 					
-					if(user.upho == null){$('#phone').text('내용이 없습니다.');} 
+					if(data.userInfo.upho == null){$('#phone').text('내용이 없습니다.');} 
 					else { $('#phone').text(data.userInfo.upho);}
 					
-					if(user.uurl == null){$('#url').text('내용이 없습니다.');} 
+					if(data.userInfo.uurl == null){$('#url').text('내용이 없습니다.');} 
 					else { $('#url').text(data.userInfo.uurl);}
 					
-					if(user.uadr == null){$('#adr').text('내용이 없습니다.');} 
+					if(data.userInfo.uadr == null){$('#adr').text('내용이 없습니다.');} 
 					else { $('#adr').text(data.userInfo.uadr);}
 					
 					$('#ures').text(data.userInfo.ures);	
@@ -778,10 +779,10 @@ var yskills=[]; //스킬목록
     	    				$('#expsd').text(data.uexps.expsd);
     	    				$('#exppt').text(data.uexps.exppt);
     	    				$('#exppy').text(data.uexps.exppy);
-    	    				$('#expwc').text(data.uexps.expwc);	   
+    	    				$('#expwc').text(data.uexps.expwc);
+    	    				$('#pfModal3').modal();
     	    			});
     				}
-    				$('#pfModal3').modal(); 
     			}
     		});
         }); 

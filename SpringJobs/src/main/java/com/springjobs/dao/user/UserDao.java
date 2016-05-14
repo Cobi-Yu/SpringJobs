@@ -35,7 +35,7 @@ public interface UserDao {
 	
 	public int deleteUserPfUrl(Upfurl upfurl);
 	
-	public List<Users> getDeveloperList(List<Integer> sknoList);
+	public List<Users> getDeveloperList(Map<String,Object> map);
 	
 	public Users getUserInfo(int uno);
 }

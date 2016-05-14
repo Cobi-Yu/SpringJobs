@@ -11,8 +11,72 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/view/common/login/css/frame.css">
-
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <style>
+.ui-autocomplete {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1000;
+	float: left;
+	display: none;
+	min-width: 160px;
+	_width: 160px;
+	padding: 4px 0;
+	margin: 2px 0 0 0;
+	list-style: none;
+	background-color: #ffffff;
+	border-color: #ccc;
+	border-color: rgba(0, 0, 0, 0.2);
+	border-style: solid;
+	border-width: 1px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+	*border-right-width: 2px;
+	*border-bottom-width: 2px; . ui-menu-item > a.ui-corner-all { display :
+	block;
+	padding: 3px 15px;
+	clear: both;
+	font-weight: normal;
+	line-height: 18px;
+	color: #555555;
+	white-space: nowrap; &. ui-state-hover , &.ui-state-active { color :
+	#ffffff;
+	text-decoration: none;
+	background-color: #0088cc;
+	border-radius: 0px;
+	-webkit-border-radius: 0px;
+	-moz-border-radius: 0px;
+	background-image: none;
+	}
+	}
+}
+
+.ui-menu .ui-menu-item a.ui-corner-all:hover, .ui-menu .ui-menu-item a.ui-corner-all:focus,
+	.ui-menu .ui-menu-item a.ui-corner-all:active {
+		background: #ff8a00 !important;
+		color: #000;
+		border-radius: 0;
+	}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover,
+	.ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus
+	{
+		background: #ff8a00;
+		border: none;
+		color: #000;
+		border-radius: 0
+	}
+	.ui-menu-item{
+		cursor:pointer;
+	}
 	.section{
 		background-color:white; 
 		border: 1px outset #ddd;
@@ -20,7 +84,7 @@
 		margin-left:0px;
 	}
 	.text-center{
-		text-align:center;
+		text-align:left;
 		vertical-align: middle;
 	}
 	.skillsearch-div{
@@ -32,7 +96,7 @@
 		margin-bottom:5px;
 		margin-right:1px;
 	}
-	.list-div{
+	#list-div{
 		padding-left:0px;
 		padding-right:0px;
 	}
@@ -41,6 +105,7 @@
 	}
 	.thumbnail{
 		height:370px;
+		border: 1px outset black;
 	}
 	.caption{
 		height:60%;
@@ -61,7 +126,7 @@
 		text-align:center;
 	}
 	.caption>img{
-		height:80%;
+		height:75%;
 		position:relative;
 		z-index: 9999;
 	}
@@ -90,83 +155,15 @@
 				<div class="section col-md-12">
 					<div class="col-md-4 text-center skillsearch-div">
 						<h4 style="color:#EC971F;">기술검색</h4>
-						<input type ="text">
+						<input type ="text" id="searchSkills">
 					</div>
-					<div class="col-md-8 text-center">
-						<button type="button" class="btn btn-warning btn-sm">Spring</button>
-						<button type="button" class="btn btn-warning btn-sm">Ajax</button>
-						<button type="button" class="btn btn-warning btn-sm">Nodejs</button>
-						<button type="button" class="btn btn-warning btn-sm">Jade</button>
-						<button type="button" class="btn btn-warning btn-sm">Express</button>
-						<button type="button" class="btn btn-warning btn-sm">Socketio</button>
-						<button type="button" class="btn btn-warning btn-sm">Oracle</button>
-						<button type="button" class="btn btn-warning btn-sm">Mysql</button>
+					<div class="col-md-8 text-center" id="tag-list">
 					</div>
 				</div>
 				<!-- 검색화면 끝 -->
-				
 				<!-- 개발자 목록 시작 -->
-				<div class="col-md-12 list-div">
-					  <div class="col-md-4 developerInfo">
-					    <div class="thumbnail">
-					      <div class="caption">
-					      	<img src="/view/resources/img/1@1.jpg" class="img-rounded">
-					      	<h3>유형환</h3>
-					      </div>
-					      <div class="panel-footer">
-				      		<img  src="https://api.thumbalizr.com/?url=www.naver.com&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
-					      	<img  src="https://api.thumbalizr.com/?url=www.daum.net&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col-md-4 developerInfo">
-					    <div class="thumbnail">
-					      <div class="caption">
-					      	<img src="/view/resources/img/1@1.jpg" class="img-rounded">
-					      	<h3>유형환</h3>
-					      </div>
-					      <div class="panel-footer">
-				      		<img  src="https://api.thumbalizr.com/?url=www.naver.com&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
-					      	<img  src="https://api.thumbalizr.com/?url=www.daum.net&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col-md-4 developerInfo">
-					    <div class="thumbnail">
-					      <div class="caption">
-					      	<img src="/view/resources/img/1@1.jpg" class="img-rounded">
-					      	<h3>유형환</h3>
-					      </div>
-					      <div class="panel-footer">
-				      		<img  src="https://api.thumbalizr.com/?url=www.naver.com&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
-					      	<img  src="https://api.thumbalizr.com/?url=www.daum.net&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col-md-4 developerInfo">
-					    <div class="thumbnail">
-					      <div class="caption">
-					      	<img src="/view/resources/img/1@1.jpg" class="img-rounded">
-					      	<h3>유형환</h3>
-					      </div>
-					      <div class="panel-footer">
-				      		<img  src="https://api.thumbalizr.com/?url=www.naver.com&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
-					      	<img  src="https://api.thumbalizr.com/?url=www.daum.net&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
-					      </div>
-					    </div>
-					  </div>
-					  <div class="col-md-4 developerInfo">
-					    <div class="thumbnail">
-					      <div class="caption">
-					      	<img src="/view/resources/img/1@1.jpg" class="img-rounded">
-					      	<h3>유형환</h3>
-					      </div>
-					      <div class="panel-footer">
-				      		<img  src="https://api.thumbalizr.com/?url=www.naver.com&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
-					      	<img  src="https://api.thumbalizr.com/?url=www.daum.net&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250">
-					      </div>
-					    </div>
-					  </div>
+				<div class="col-md-12" id="list-div">
+				
 				</div>
 				<!-- 개발자 목록 끝 -->
 			</div>
@@ -183,26 +180,118 @@
 		$('#header').load('/view/common/login/frameHeader.html');
 		$('#footer').load('/view/common/login/frameFooter.html');
 	})
-// 	$(document).on('frameComplete',function(event) {
-// 		$.ajax({
-// 			type : 'POST',
-// 			url : contextRoot+ "/user/getDeveloperList",
-// 			dataType : "json",
-// 			beforeSend : addLoading,
-// 			complete : removeLoading,
-// 			data : JSON.stringify({
-// 				uno:user.uno
-// 			}),
-// 			headers : {
-// 				"Accept" : "application/json",
-// 				"Content-Type" : "application/json"
-// 			},
-// 			success : function(data) {
-// 				var list = data.result;
-// 				console.log(list);
-// 			}
-// 		});
-// 	});
+	var skills=[];
+	var getImgTag = function(url){
+		var thumbUrl = "https://api.thumbalizr.com/?url="+url+
+				"&amp;amp;encoding=jpg&amp;amp;api_key=&amp;amp;quality=90&amp;amp;mode=screen&amp;amp;w=250";
+		return $('<img>').attr('src',thumbUrl).click(function(e){
+			event.stopPropagation();
+			window.open("http://"+url, "_blank");
+		});
+	}
+	$(document).on('frameComplete',function(event) {
+		var getList = function(){
+			$.ajax({
+				type : 'POST',
+				url : contextRoot+ "/user/getDeveloperList",
+				dataType : "json",
+				beforeSend : addLoading,
+				complete : removeLoading,
+				data : JSON.stringify(skills),
+				headers : {
+					"Accept" : "application/json",
+					"Content-Type" : "application/json"
+				},
+				success : function(data) {
+					$('#list-div').empty();
+					var list = data.result;
+					if(list.length==0){
+						callModal('알림','검색결과가 없습니다.');
+					}
+					$.each(list,function(i,developerInfo){
+						$.get("developerTemplate.html",function(data){
+						    var developerTemplate = $(data);
+						    developerTemplate.find('.thumbUphoto').attr('src',developerInfo['uphots'][0]['phot']);
+						    developerTemplate.find('.thumbUnm').text(developerInfo.unm);
+						    for(var j=0;j<developerInfo['upfurl'].length; j++){
+						    	var url = developerInfo.upfurl[j].url;
+						    	if(url!=null){
+						    		developerTemplate.find('.thumbList').append(getImgTag(url));
+						    	}
+						    	if(j==1){
+						    		break;
+						    	}
+						    }
+						    developerTemplate.click(function(){
+						    	window.open("http://t1.java78.com:8080/view/company/getInfo/getInfo.html?uno="+developerInfo.uno, "_blank");  
+						    })
+						    $("#list-div").append(developerTemplate);
+						});
+					})
+				}
+			});
+		}	
+		
+		
+		//스킬검색
+		$('#searchSkills').autocomplete({
+			source : function(req, res) {
+				$.ajax({
+					type : 'post',
+					url : nodeContextRoot + "/skillCheck",
+					dataType : "json",
+					data : '{"sknm" : "' + req.term + '"}',
+					beforeSend : addLoading,
+					complete : removeLoading,
+					headers : {
+						"Accept" : "application/json",
+						"Content-Type" : "application/json"
+					},
+					success : function(data) {
+						res($.map(data, function(item, i) {
+							return {
+								label : item.SKNM,
+								value : item.SKNO
+							}
+						}));
+					}
+				});
+			},
+			minLength : 1,
+			select : function(event, ui) {
+				var bool=true;	//중복체크 bool
+				$.map(skills,function(val,i){
+					if(val==ui.item.value){ //중복체크 loop
+						bool=false;
+						callModal('경고', '스킬 중복입니다.');
+						return;
+					}
+				});
+				event.preventDefault();
+				$('#searchSkills').val('');
+				if(bool){//중복이 아닐때 되야되는 이벤트
+					skills.push(ui.item.value);
+					var tag = $('<button type="button" class="btn btn-warning btn-sm">').text(ui.item.label).attr('value',ui.item.value);
+					var deleteBtn = $('<a>').text('   X').click(function(){
+						var index=0;
+						$(this).parent().remove();
+						$.each(skills,function(i,skill){
+							if(skills[i]==skill){
+								index=i;
+							}
+						});
+						skills.splice(index,1);
+						getList();
+					});
+					$('#tag-list').append(tag.append(deleteBtn));
+				}
+				getList();
+			}
+		});
+		
+		getList();
+		
+	});
 </script>
 
 </html>

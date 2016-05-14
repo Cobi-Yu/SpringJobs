@@ -274,14 +274,30 @@
 	</delete>
 	
 	<select id="getDeveloperList" parameterType="java.util.List" resultMap="userSelectMap">
-	    select * from
-		(select user.uno, user.unm from USERS user, YSKILLS skill where skill.uno=user.uno 
-			<foreach collection="list" item="skno">
-			    and skill.skno=#{skno}
-			</foreach>
-		)sub
-		left outer join UPFURL upf on upf.uno=sub.uno
-		left outer join UPHOTS photo on photo.uno=sub.uno;
+	    select t1.uno, t1.unm, pf.url, photo.phot
+		from
+		(
+			select skill.uno, user.unm
+			from YSKILLS skill, USERS user
+			where 
+			<if test="size!=0">
+				skill.skno in (
+					<foreach collection="list" item="skno" separator=" , ">
+					    #{skno}
+					</foreach>
+				)
+			and
+			</if>
+			user.uno=skill.uno
+			group by skill.uno
+			<if test="size!=0">
+				having count(skill.uno) = #{size}
+			</if>
+		)t1
+		left outer join UPFURL pf
+		on pf.uno=t1.uno
+		left outer join UPHOTS photo 
+		on photo.uno=t1.uno
 	</select>
 	
 	<select id="getUserInfo" parameterType="int" resultType="com.springjobs.domain.Users">
