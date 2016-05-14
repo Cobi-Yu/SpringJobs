@@ -94,7 +94,7 @@ $(window).resize(function(){
 });
 
 
-$('#addComp').click(function(){
+$('#addComp').css('cursor','pointer').click(function(){
 	
    	$.ajax({
 		url : contextRoot + "/company/getComp?uno="+user.uno,
@@ -185,12 +185,6 @@ $('#addComp').click(function(){
 	}    
 	// 주소검색 js 끝
    
-
-
-
-
-
-
 redirect($('#index'),'/view/index.html');
 redirect($('#signUp'),'/view/common/addUser/addUser.html');
 redirect($('#addJob'),'/view/company/addJob/addJob.html',true);

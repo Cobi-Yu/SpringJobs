@@ -12,7 +12,7 @@
                             <tr>
                                 <thead>
                                     <td>
-                                    <div class="col-md-12 adp">
+                                    <div class="col-md-12">
                           
                                             <h1>기업정보 등록</h1> 상세하게 작성해 주실수록 더 많은 지원자에게 노출됩니다.
                                     </div>
@@ -91,9 +91,10 @@
                             </tr>
                             <tr>
                                 <td>
-                                  <input type="text" style="width:60%" id="clo" placeholder="주소">
-                                   <input type="text" style="width:60%" id="cloo" placeholder="세부 주소를 입력해주세요.">
-                                  <input type="button" onclick="sample4_execDaumPostcode()" value="주소 검색"><br>
+                              <input type="text" id="sample4_postcode" style="margin-right: 1em;" placeholder="우편번호">
+                              <input type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br>
+						      <input type="text" id="sample4_roadAddress" style="width: 100%; margin-top: 1em;"  placeholder="도로명/지번 주소">
+							  <input type="text" id="detail_address" style="width: 100%;" placeholder="상세주소">
 
                 <!--등록버튼-->
                                 </td>
@@ -180,16 +181,23 @@
 	        $('#modifiedComp').click(function () {
 	        	   console.log('{"cct":"' +$("#cct").val() +'","crgno":"' 
 		                	+$("#crgno").val()+'","cnm":"'+$("#cnm").val()+'","cscl":"' 
-		                	+$("#cscl").val()+'","clo":"'+$("#clo").val()+$("#cloo").val()+'","cnpl":"' 
-		                	+$("#cnpl").val()+'","cint":"'+$("#cint").val()+'","cno":"'+user.cno+'"}')
+		                	+$("#cscl").val()+'","clo":"'+'","clo":"'+($("#sample4_roadAddress").val()+$("#detail_address").val())
+		                	+'","cnpl":"'+$("#cnpl").val()
+		                	+'","cint":"'+$("#cint").val()
+		                	+'","cno":"'+user.cno+'"}')
 	  	      $.ajax({
 	                url: contextRoot+"/company/addComp"
 	                , method: "POST"
 	                , dataType: "json"
-                	 , data: '{"cct":"'+$("#cct").val()+'","crgno":"'+$("#crgno").val() 
-		                	+'","cnm":"'+$("#cnm").val()+'","cscl":"'+$("#cscl").val()
-		                	+'","clo":"'+$("#clo").val()+$("#cloo").val()+'","cnpl":"'+$("#cnpl").val() 
-		                	+'","cint":"'+$("#cint").val()+'","cno":"'+user.cno+'","uno":"'+user.uno+'"}'	             
+                	 , data: '{"cct":"'+$("#cct").val()+
+                		 	 '","crgno":"'+$("#crgno").val() 
+		                	+'","cnm":"'+$("#cnm").val()
+		                	+'","cscl":"'+$("#cscl").val()
+		                	+'","clo":"'+($("#sample4_roadAddress").val()+$("#detail_address").val())
+		                	+'","cnpl":"'+$("#cnpl").val() 
+		                	+'","cint":"'+$("#cint").val()
+		                	+'","cno":"'+user.cno
+		                	+'","uno":"'+user.uno+'"}'	             
 	                , headers: {
 	                      "Accept": "application/json"
 	                     ,"Content-Type": "application/json"

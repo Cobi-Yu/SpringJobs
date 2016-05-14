@@ -11,7 +11,7 @@
                             <tr>
                                 <thead>
                                     <td>
-                                    <div class="col-md-12 adp">
+                                    <div class="col-md-12" style="margin-bottom: 1em;">
                           
                                             <h1>기업정보 등록</h1> 상세하게 작성해 주실수록 더 많은 지원자에게 노출됩니다.
                                     </div>
@@ -21,7 +21,7 @@
                            
                             <tr>
                                 <thead>
-                                    <td class="success"><strong>* 회사명</strong></td>
+                                    <td class="success"><strong>회사명</strong></td>
                                 </thead>
                             </tr>
                             <tr>
@@ -32,12 +32,12 @@
 
                             <tr>
                                 <thead>
-                                    <td class="success"><strong>* 사업 분야</strong></td>
+                                    <td class="success"><strong>사업 분야</strong></td>
                                 </thead>
                             </tr>
                             <tr>
                                 <td>
-                                   <select class="form-control" style="width:20%" id="cct">
+                                   <select class="form-control" style="width:50%" id="cct">
                                         <option>제조업</option>
                                         <option>서비스업</option>
                                         <option>IT</option>
@@ -47,7 +47,7 @@
                             </tr>
                             <tr>
                                 <thead>
-                                    <td class="success"><strong>* 사업자번호</strong></td>
+                                    <td class="success"><strong>사업자번호</strong></td>
                                 </thead>
                             </tr>
                             <tr>
@@ -57,7 +57,7 @@
                             </tr>
                               <tr>
                                 <thead>
-                                    <td class="success"><strong>* 회사 인원</strong></td>
+                                    <td class="success"><strong>회사 인원</strong></td>
                                 </thead>
                             </tr>
                             <tr>
@@ -70,12 +70,12 @@
                             </tr>
 							   <tr>
                                 <thead>
-                                    <td class="success"><strong>* 회사 규모</strong></td>
+                                    <td class="success"><strong>회사 규모</strong></td>
                                 </thead>
                             </tr>
                             <tr>
                                 <td>
-                                   <select class="form-control" style="width:20%" id="cscl">
+                                   <select class="form-control" style="width:50%" id="cscl">
                                         <option>소기업(1~100)</option>
                                         <option>중기업(101~500)</option>
                                         <option>중견기업(501~1000)</option>
@@ -85,14 +85,16 @@
                             </tr>
                                 <tr>
                                 <thead>
-                                    <td class="success"><strong>* 회사 위치</strong></td>
+                                    <td class="success"><strong>회사 위치</strong></td>
                                 </thead>
                             </tr>
                             <tr>
                                 <td>
-                                  <input type="text" style="width:60%" id="clo" placeholder="주소">
-                                   <input type="text" style="width:60%" id="cloo" placeholder="세부 주소를 입력해주세요.">
-                                  <input type="button" onclick="sample4_execDaumPostcode()" value="주소 검색"><br>
+                              <input type="text" id="sample4_postcode" style="margin-right: 1em;" placeholder="우편번호">
+                              <input type="button" onclick="sample4_execDaumPostcode()" value="주소 찾기"><br>
+						      <input type="text" id="sample4_roadAddress" style="width: 100%; margin-top: 1em;"  placeholder="도로명/지번 주소">
+							  <input type="text" id="detail_address" style="width: 100%;" placeholder="상세주소">
+                                  <br>
                                  
                 <!--등록버튼-->
                                 </td>
@@ -175,18 +177,26 @@
 	        
 	        
 	        $('#modifiedComp').click(function () {
-	        	   console.log('{"cct":"' +$("#cct").val() +'","crgno":"' 
-		                	+$("#crgno").val()+'","cnm":"'+$("#cnm").val()+'","cscl":"' 
-		                	+$("#cscl").val()+'","clo":"'+$("#clo").val()+$("#cloo").val()+'","cnpl":"' 
-		                	+$("#cnpl").val()+'","cint":"'+$("#cint").val()+'","cno":"'+user.cno+'"}')
+	        	   console.log('{"cct":"' +$("#cct").val() +
+	        		   		   '","crgno":"'+$("#crgno").val()+
+	        		   		   '","cnm":"'+$("#cnm").val()+
+	        		   		   '","cscl":"'+$("#cscl").val()+
+	        		   		   '","clo":"'+($("#sample4_roadAddress").val()+$("#detail_address").val())+
+	        		   		   '","cnpl":"'+$("#cnpl").val()+
+	        		   		   '","cint":"'+$("#cint").val()+
+	        		   		   '","cno":"'+user.cno+'"}')
 	  	      $.ajax({
 	                url: contextRoot+"/company/addComp"
 	                , method: "POST"
 	                , dataType: "json"
-                	 , data: '{"cct":"'+$("#cct").val()+'","crgno":"'+$("#crgno").val() 
-		                	+'","cnm":"'+$("#cnm").val()+'","cscl":"'+$("#cscl").val()
-		                	+'","clo":"'+$("#clo").val()+$("#cloo").val()+'","cnpl":"'+$("#cnpl").val() 
-		                	+'","cint":"'+$("#cint").val()+'","cno":"'+user.cno+'","uno":"'+user.uno+'"}'	             
+                	 , data: '{"cct":"' +$("#cct").val() +
+		  		   		     '","crgno":"'+$("#crgno").val()+
+				   		     '","cnm":"'+$("#cnm").val()+
+				   		     '","cscl":"'+$("#cscl").val()+
+				   		     '","clo":"'+($("#sample4_roadAddress").val()+$("#detail_address").val())+
+				   		     '","cnpl":"'+$("#cnpl").val()+
+				   		     '","cint":"'+$("#cint").val()+
+				   		     '","cno":"'+user.cno+'","uno":"'+user.uno+'"}'	             
 	                , headers: {
 	                      "Accept": "application/json"
 	                     ,"Content-Type": "application/json"
@@ -195,7 +205,7 @@
 					complete : removeLoading,
 					success: function (data) {
 		               		$("#pfModal7").modal("hide");
-							callModal('기업정보','등록완료');
+							callModal('기업정보','수정완료');
 				                								
 	                } //success fuction 
 	            }); //등록 내부 첫 ajax 끝 
