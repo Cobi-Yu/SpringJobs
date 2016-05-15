@@ -1,5 +1,5 @@
 <div class="col-md-4">
-  <table class="table" style="width: 100%; border: 2px solid black;">
+  <table class="table jumbotron" style="width: 100%;">
 	<thead>
 		<tr>
 			<td colspan="2" style="padding-left: 1em; padding-right: 1em;">
@@ -52,3 +52,9 @@
 		</tr>
   </table>	
 </div>
+
+<script>
+$('.jumbotron').css( 'cursor', 'pointer').click(function(){
+	callModal('프로젝트','로그인 또는 회원가입을 해주세요',contextRoot+'/view/common/addUser/addUser.html');
+});
+</script>
