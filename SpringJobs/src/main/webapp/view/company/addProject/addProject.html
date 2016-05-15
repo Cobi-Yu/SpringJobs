@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Bootstrap Example</title>
+<title>SpringJobs</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -126,23 +126,23 @@
 			<!-- 본문입력 시작 -->
 			<div class="col-md-8 text-left main">
 				<div class="table-responsive adc">
-					<table class="table table-bordered table-striped nanum"
-						style="width: 80%;">
+					<table class="table table-bordered table-striped nanum" style="width: 80%;">
 						<tbody>
-							<tr>
-						<thead>
-							<td>
-								<div class="col-md-12 adp">
-									<h1>프로젝트 등록</h1>
-									상세하게 작성해 주실수록 더 많은 지원자에게 노출됩니다.
-								</div>
-							</td>
-						</thead>
+						<tr>
+							<thead>
+								<td>
+									<div class="col-md-12" style="border: 1px solid black; color: white; padding-bottom: 1em; background-color: black;">
+										<h1>프로젝트 등록</h1>
+										상세하게 작성해 주실수록 더 많은 지원자에게 노출됩니다.
+									</div>
+								</td>
+							</thead>
 						</tr>
 						<tr>
 							<td><h3>프로젝트 주제</h3> <input type="text" id="cpjnm"
-								style="height: 50px; width: 80%" placeholder="프로젝트 주제를 입력하세요."></td>
-						</tr>
+								style="height: 50px; width: 80%" placeholder="프로젝트 주제를 입력하세요.">
+							</td>
+						</tr>						
 						<tr>
 							<td><h3>프로젝트 예상 기간</h3>
 								<div class="col-md-5">
@@ -152,65 +152,79 @@
 								<div class="col-md-5">
 									종료일 <input class="form-control" type="date" id="cpjed"
 										style="width: 100%">
-								</div></td>
-						</tr>
-						<tr>
-							<td><h3>공고마감일</h3>
-								<div class="col-md-5">
-									마감일 <input class="form-control" type="date" id="cpjred"
-										style="width: 100%">
-								</div></td>
-						</tr>
-						<tr>
-							<td><h3>프로젝트 설명</h3> <textarea name="content" id="cpjint"
-									rows="15" cols="60" placeholder="프로젝트를 설명해주세요."></textarea></td>
-						</tr>
-						<tr>
-							<td>
-								<h3>요구되는 기술</h3>
-								검색
-								<input type="text" id="cpjsk" style="margin-bottom:10px;">
+								</div>
+								<div class="col-md-5" style="margin-top: 1em;">
+									<strong style="color: red;">공고 마감일</strong> 
+									<input class="form-control" type="date" id="cpjred" style="width: 100%">
+								</div>
 							</td>
 						</tr>
 						<tr>
-							<td><h3>프로젝트 경력여부</h3> <input class="form-control"
+							<td>
+							<h3>프로젝트 설명</h3> 
+							<textarea name="content" id="cpjint"rows="15" cols="100" placeholder="프로젝트를 설명해주세요."
+							style="margin-left: 1em; margin-right: 1em;"></textarea>
+							
+							<div class="col-md-7" style="margin-right: 1em;">
+							<strong style="color: red; margin-top: 1em;">요구되는 기술</strong><br>
+							<input type="text" id="cpjsk" style="margin-bottom: 1em;"  placeholder="ex) Java">
+							</div>
+							<div class="col-md-4">
+							<strong style="color: red; margin-top: 1em;">프로젝트 경력여부</strong><br>
+							<input class="form-control"
 								type="checkbox" checked data-toggle="toggle" data-size="small"
-								data-on="없음" data-off="경력" id="cpjchk"
+								data-on="무관" data-off="경력" id="cpjchk"
 								style="display: inline-block;">
 
-								<div id="pre_set"></div></td>
-						</tr>
-						<tr>
-							<td><h3>모집인원</h3> <input type="text" id="cpjnpl"
-								style="width: 25%" placeholder="예) 5명일경우 5만 입력"></td>
-						</tr>
-						<tr>
-							<td><h3>급여</h3>
-								<div class="col-md-3 adm">
-									최소<input type="text" id="cpjmnp" style="width: 120%"
-										placeholder="예) 1백만원일경우 1000000">
-								</div>
-								<div class="col-md-3">
-									최대<input type="text" id="cpjmap" style="width: 120%"
-										placeholder="예) 2백만원일경우 2000000">
-								</div></td>
-						</tr>
-						<tr>
-							<td><h3>게시자</h3> <input type="text" id="cpjrg"
-								style="width: 25%" placeholder="예) 홍길동 or 비트교육센터"></td>
-						</tr>
-						<tr>
-							<td><h3>근무형태</h3> <select class="form-control"
-								style="width: 30%" id="cpjwt">
-									<option>근무형태</option>
-									<option>출퇴근</option>
-									<option>자택근무</option>
-							</select></td>
+								<div id="pre_set" style="margin-top: 1em;"></div>
+							</div>
+							</td>
+								
 						</tr>
 						<tr>
 							<td>
+							<div class="col-md-3" style="margin-right: 4em;">
+							<h3>모집인원</h3> <input type="text" id="cpjnpl"
+								style="width: 100%" placeholder="예) 5명일경우 5만 입력">
+							</div>
+							<div class="col-md-8">
+							<h3>급여</h3>
+								<div class="col-md-1" style="width: 15%">최소</div>
+								<div class="col-md-5" style="margin-left: -2em;">
+									<input type="text" id="cpjmnp" style="width: 100%"
+										placeholder="예) 1백만원일경우 1000000">
+								</div>
+								<div class="col-md-1" style="width: 15%; margin-left: -1em;">최대</div>
+								<div class="col-md-5" style="margin-left: -2em;">
+									<input type="text" id="cpjmap" style="width: 100%"
+										placeholder="예) 2백만원일경우 2000000">
+								</div>
+							</div>	
+							</td>
+						</tr>
+						<tr>
+							<td>
+							<div class="col-md-12">
+							<h3>게시자</h3> 
+							<input type="text" id="cpjrg" style="width: 25%" placeholder="예) 홍길동 or 비트교육센터">
+							</div>
+							</td>
+						</tr>
+						<tr>
+							
+							<td>
+							<div class="col-md-4">
+							<h3>근무형태</h3> 
+							<select class="form-control" style="width: 50%" id="cpjwt">
+									<option>근무형태</option>
+									<option>출퇴근</option>
+									<option>자택근무</option>
+							</select>
+							</div>
+							<div class="col-md-8">
 								<h3>지역</h3> 
-								<input type = "text" id="cpjar">
+								<input type = "text" id="cpjar" style="width: 100%;" placeholder="지역을 입력해주세요.">
+							</div>
 							</td>
 						</tr>
 						<tr>
@@ -327,6 +341,13 @@
     					break;
     				}
     			}
+//     			$.map(cpjsk,function(val,i){
+//     				console.log(cpjsk);
+// 					if(tag.val()==val.skno){//해당태그가 맞다면
+// 						cpjsk.splice(i,1);
+// 						return "";
+// 					}
+// 				});
     		});
 		}
 	}).autocomplete("widget").addClass("fixed-height");
@@ -334,7 +355,7 @@
 
 	//추가 및 삭제 버튼
 	$('#cpjchk').change(function() {
-		var chk = '<input class="form-control" type="text" id="cpjyr" style="width:25%" placeholder="예) 5년일경우 5 입력">';
+		var chk = '<input class="form-control" type="text" id="cpjyr" style="width:80%" placeholder="예) 5년 이상일 경우 5 입력">';
 		if ($('#cpjchk').prop("checked")) {
 			$('#cpjyr').remove();
 		} else {

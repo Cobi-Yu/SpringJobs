@@ -4,15 +4,12 @@
 <title>SpringJobs</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/view/common/login/css/frame.css">
-    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-    <script src="//apis.daum.net/maps/maps3.js?apikey=6e12305b1ecb1155af86b871c9f5cdb9&libraries=services"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+<script src="//apis.daum.net/maps/maps3.js?apikey=6e12305b1ecb1155af86b871c9f5cdb9&libraries=services"></script>
 
 
 <style>
@@ -118,8 +115,9 @@
 			<div class="col-sm-2 sidenav" style="background-color: white"></div>
 			<div class="col-md-8 text-center" style="margin-top: 3em; margin-bottom: 5em;" >
 				<div style="margin-bottom: 3em;">
-				<h1><Strong style="color: orange;">한눈에 보는 협업 가이드</Strong></h1>
-				<br><h2><Strong>SpringJobs</Strong></h2>는 뛰어난 프리랜서 개발자와<br>기업간의 프로젝트 협업을<br>매칭해주는 서비스입니다.</div>
+					<h1><Strong style="color: orange;">한눈에 보는 협업 가이드</Strong></h1>
+					<br><h2><Strong>SpringJobs</Strong></h2>는 뛰어난 프리랜서 개발자와<br>기업간의 프로젝트 협업을<br>매칭해주는 서비스입니다.
+				</div>
 				<img src="/view/resources/img/homemain2.png" style="height: 40%; width: 100%;" >
 			</div>
 			<div class="col-sm-2 sidenav" style="background-color: white"></div>
@@ -127,9 +125,17 @@
 			</div>
 			<div class="col-sm-2 sidenav" style="background-color: #F1F1F1;"></div>		
 			<div class="col-md-8 text-center" style="background-color: white;">
-			여기다 쓰면 됩니다.<br>여기다 쓰면 됩니다.<br>여기다 쓰면 됩니다.<br>여기다 쓰면 됩니다.<br>여기다 쓰면 됩니다.<br>여기다 쓰면 됩니다.<br>
-			여기다 쓰면 됩니다.<br>여기다 쓰면 됩니다.<br>여기다 쓰면 됩니다.<br>여기다 쓰면 됩니다.<br>여기다 쓰면 됩니다.<br>여기다 쓰면 됩니다.<br>
-			여기다 쓰면 됩니다.<br>여기다 쓰면 됩니다.<br>여기다 쓰면 됩니다.<br>여기다 쓰면 됩니다.<br>여기다 쓰면 됩니다.<br>여기다 쓰면 됩니다.<br>
+				<div class="col-md-12" style="margin-top: 3em; margin-bottom: 3em;">
+					<h2><strong>스프링잡스</strong> <strong style="color: skyblue;">프로젝트</strong> </h2>
+				</div>
+					<div class="col-md-12" id="cpjt-list">
+							<!-- project list 들어갈 곳 -->
+					</div>
+				<div class="col-md-12 text-center">
+					<input type="button" style="background-color: orange; margin-top: 1em; 
+												margin-bottom: 1em; color: white; font-size: 1.5em;" 
+						   						value="프로젝트 보러가기" id="lookProjects">
+				</div>
 			</div>	
 			<div class="col-sm-2 sidenav" style="background-color: #F1F1F1;"></div>					
 			</div>
@@ -158,12 +164,57 @@
 				}
 			});
 		});
-		/* $('video').get(0).play(); */
 	});
-	
-/* 	$(document).on('frameComplete',function(event){
-		
-	}); */
+
+	var search={cpjar:[],cpjsk:[],cpjmnp:null,cpjmap:null,cpjyr:null};
+    var cpjt;
+
+	$(document).on('frameComplete',function(event) {
+        
+        $.ajax({
+            type:'post',
+            url: contextRoot+"/developer/projectList",
+            dataType : "json",
+            beforeSend : addLoading,
+    		complete : removeLoading,
+            headers : {
+				"Accept" : "application/json",
+				"Content-Type" : "application/json"
+			},
+            data : JSON.stringify(search),
+            success:function(data){
+                console.log(data.cpjt);
+                $('#cpjt-list').empty();
+                var list=data.cpjt;
+                
+                $.get('/view/common/intro/introProjectTempl.html',function(data){
+                	
+                	for(var i =0; i<6; i++){
+					    var projectTemplate = $(data);
+					    
+                		var cpjred = list[i].cpjred;
+                        var cpjrdGap = parseInt( ( new Date(cpjred).getTime() - new Date().getTime())/1000/60/60/24 );
+                        var cpjmAvg = (list[i].cpjmap+list[i].cpjmnp)/2;
+                        var cpjDuration = parseInt( ( new Date(list[i].cpjed)-new Date(list[i].cpjsd) )/1000/60/60/24);
+                        
+					    projectTemplate.find('.cpjnm').text(list[i].cpjnm);
+					    projectTemplate.find('.cpjrdGap').text(cpjrdGap);
+					    projectTemplate.find('.cpjDuration').text(cpjDuration);
+					    projectTemplate.find('.cpjmAvg').text(cpjmAvg);
+					    projectTemplate.find('.cpjwt').text(list[i].cpjwt);
+					    projectTemplate.find('.cpjyr').text(list[i].cpjyr);
+                		
+                		$("#cpjt-list").append(projectTemplate);
+                		
+                		if(i==list.length) {
+                			break;
+                		}
+         			}
+                });
+            }
+        });
+
+	});
 </script>
 
 </html>
