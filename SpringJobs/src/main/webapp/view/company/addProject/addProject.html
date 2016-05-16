@@ -131,7 +131,7 @@
 						<tr>
 							<thead>
 								<td>
-									<div class="col-md-12" style="border: 1px solid black; color: white; padding-bottom: 1em; background-color: black;">
+									<div class="col-md-12" style="border: 1px solid white; color: white; padding-bottom: 1em; background-color: orange;">
 										<h1>프로젝트 등록</h1>
 										상세하게 작성해 주실수록 더 많은 지원자에게 노출됩니다.
 									</div>
@@ -249,8 +249,8 @@
 								</div></td>
 						</tr>
 						<tr>
-							<td>
-								<button type="button" class="btn btn-default">임시저장</button>
+							<td style="text-align: right;">
+								<button type="button" class="btn btn-default" id="notAdd">취소</button>
 								<button type="button" class="btn btn-primary" id="join">등록</button>
 							</td>
 						</tr>
@@ -418,6 +418,8 @@
 				}
 			});
 		});
+		
+		redirect($('#notAdd'),'/view/developer/projectList/projectList.html');
 	});
 </script>
 

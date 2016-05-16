@@ -316,7 +316,15 @@ strong{
                 		for(var j=0;j<cpjsk.length;j++){
                 			$('.skillList:eq('+i+')').append($('<button type="button" class="btn btn-default btn-xs">').text(cpjsk[j].sknm));
                 		}
-                		redirect($('.jumbotron:eq('+i+')'),'/view/company/getProjectView/getProjectView.html?cpjno='+cpjt[i].cpjno);
+                		
+                		if(user==null){
+                			$('.jumbotron').click(function(){
+                				callModal('프로젝트','로그인이 필요한 서비스입니다.');
+                			})
+                		} else{
+                			redirect($('.jumbotron:eq('+i+')'),'/view/company/getProjectView/getProjectView.html?cpjno='+cpjt[i].cpjno);
+                		}
+                		
 					}
                 });
                 if(cpjt.length==0){

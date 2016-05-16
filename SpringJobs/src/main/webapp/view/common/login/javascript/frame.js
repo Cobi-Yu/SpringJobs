@@ -188,7 +188,7 @@ $('#addComp').click(function(){
 				}).open();
 	}    
 	// 주소검색 js 끝
-   
+	
 redirect($('#index'),'/view/index.html');
 redirect($('#signUp'),'/view/common/addUser/addUser.html');
 redirect($('#addJob'),'/view/company/addJob/addJob.html',true);
@@ -200,3 +200,4 @@ redirect($('#addProject'),'/view/company/addProject/addProject.html',true);
 redirect($('#SpringJobsIntro'),'/view/common/login/SpringJobs.html');
 redirect($('#frame'),'/view/common/intro/intro.html');
 redirect($('#developerList'),'/view/company/developerList/developerList.html');
+redirect($('#myProject'),'/view/developer/myProject/myProject.html', true);

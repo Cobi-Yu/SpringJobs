@@ -77,6 +77,11 @@
         width:800px;  
     }
     
+    .table:hover{
+    	background-color: #F1F1F1;
+    	opacity: 0.9;
+    }
+    
     .wrap-loading{ /*화면 전체를 어둡게 합니다.*/
     	background-size: 100%;
     	background-color: rgba(0,0,0,0.3);

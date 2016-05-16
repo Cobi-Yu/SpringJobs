@@ -55,6 +55,11 @@
 	    /* font-weight: 800; */
 	    font-size: 50pt;	
 	}
+	
+	div {
+		text-overflow: clip;
+		text-overflow: ellipsis;
+	}
 </style>
 
 
@@ -197,6 +202,7 @@
                         var cpjrdGap = parseInt( ( new Date(cpjred).getTime() - new Date().getTime())/1000/60/60/24 );
                         var cpjmAvg = (list[i].cpjmap+list[i].cpjmnp)/2;
                         var cpjDuration = parseInt( ( new Date(list[i].cpjed)-new Date(list[i].cpjsd) )/1000/60/60/24);
+                        var cpjno = list[i].cpjno;
                         
 					    projectTemplate.find('.cpjnm').text(list[i].cpjnm);
 					    projectTemplate.find('.cpjrdGap').text(cpjrdGap);
@@ -207,6 +213,14 @@
                 		
                 		$("#cpjt-list").append(projectTemplate);
                 		
+                		if(user==null){
+                			$('.jumbotron').click(function(){
+                				callModal('프로젝트','로그인이 필요한 서비스입니다.');
+                			})
+                		} else{
+                			redirect($('.jumbotron:eq('+i+')'),'/view/company/getProjectView/getProjectView.html?cpjno='+list[i].cpjno);
+                		}
+                		
                 		if(i==list.length) {
                 			break;
                 		}
@@ -215,7 +229,6 @@
             }
         });
         
-
         redirect($('#lookProjects'),'/view/developer/projectList/projectList.html');
 	});
 </script>
