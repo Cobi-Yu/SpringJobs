@@ -4,6 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -61,6 +64,13 @@ public class CompanyServiceImpl implements CompanyService{
 	}
 	@Override
 	public int confirmProjectUser(HashMap<String, Integer> map) {
+		HttpClient httpClient = HttpClientBuilder.create().build();
+		String url= "http://52.79.155.246:1337/acceptProject?cpjno="+map.get("cpjno")+"&uno="+map.get("uno");
+		try {
+			httpClient.execute(new HttpGet(url));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return companyDao.confirmProjectUser(map);
 	}
 }
