@@ -1,0 +1,120 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Socket.IO chat</title>
+    <link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.5/bootstrap-notify.min.js"></script>
+    
+    <style>
+	   [data-notify="progressbar"] {
+	      margin-bottom: 0px;
+	      position: absolute;
+	      bottom: 0px;
+	      left: 0px;
+	      width: 100%;
+	      height: 5px;
+	   }
+	</style>
+  </head>
+  
+  <body>
+	  <input type="text" id="uem">
+	  <input type="text" id="upw">
+	  <button type="button" id="login">login</button>
+	  <br>
+	  <input type="text" id="cpjno">
+	  <button type="button" id="requestProject">request</button>
+	  
+	  <br>
+	  loginUser : <pre id="user"></pre>
+	  description : <pre id="notify"></pre>
+
+  </body>
+  
+  
+  
+    <script>
+      var user;
+      var socket = io("http://52.79.155.246:1337");
+      $(function(){
+        $.ajax({
+          url : "http://t1.java78.com:8080/loginCheck",
+          method : "POST",
+          dataType : "json",
+          headers : {
+            "Accept" : "application/json",
+            "Content-Type" : "application/json"
+          },
+          success : function(data, status) {
+            console.log(data);
+            if (data.user) {
+              user=data.user;
+              $('#user').text(JSON.stringify(user));
+              socket.emit('login', {uno:user.uno});  
+            }else{
+              user=null;
+              $('#user').text('not logined');
+            }
+          },
+        });
+      });
+      
+      $('#requestProject').click(function(){
+    	  console.log('test');
+    	  socket.emit('requestProject', {cpjno:$('#cpjno').val(),uno:user.uno});
+      });
+      
+      socket.on('requestProjectNotification',function(data){
+      	var notificationText = data.uno+"님이 "+data.cpjnm+"프로젝트에 지원하셨습니다.";
+      	$.notify(notificationText, {
+            animate: {
+               enter: 'animated rollIn',
+               exit: 'animated rollOut'
+            }
+         });
+      });
+
+      socket.on('acceptProjectNotification',function(data){
+      	var notificationText = data.cpjnm+"프로젝트에 신청 수락";
+      	$.notify(notificationText, {
+            animate: {
+               enter: 'animated rollIn',
+               exit: 'animated rollOut'
+            }
+         });
+      });
+      
+      $('#login').click(function(){
+        $.ajax({
+            url :"http://t1.java78.com:8080/login",
+            method : "POST",
+            dataType : "json",
+            data : JSON.stringify({
+              uem:$('#uem').val(),
+              upw:$('#upw').val()
+            }),
+            headers : {
+              "Accept" : "application/json",
+              "Content-Type" : "application/json"
+            },
+            success : function(data, status) {
+              console.log(data.user);
+              alert('succ');
+              location.reload();
+            }
+        });
+      });
+      
+    </script>
+    
+    
+    
+</html>

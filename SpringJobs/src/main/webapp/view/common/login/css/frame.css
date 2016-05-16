@@ -63,10 +63,6 @@
     .progress{
         margin:10px;
     }
-    .glyphicon{
-        font-size: 2em; 
-        color:white;
-      }
 
     th{
         text-align: center;
@@ -116,3 +112,11 @@
 	a{
 		cursor:pointer;
 	}
+	
+	.badge-notify{
+	    background: red;
+	    position: relative;
+	    top: -55px;
+	    left: 31px;
+  	}
+	

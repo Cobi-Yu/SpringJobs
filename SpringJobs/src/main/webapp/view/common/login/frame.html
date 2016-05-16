@@ -13,7 +13,9 @@
 <link rel="stylesheet" href="/view/common/login/css/frame.css">
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
     <script src="//apis.daum.net/maps/maps3.js?apikey=6e12305b1ecb1155af86b871c9f5cdb9&libraries=services"></script>
+<style>
 
+</style>
 </head>
 <body>
 	<div id="header"></div>
@@ -37,7 +39,11 @@
 	$(function(){
 		$('#header').load('/view/common/login/frameHeader.html');
 		$('#footer').load('/view/common/login/frameFooter.html');
-	})
+	});
+	$(document).on('frameComplete',function(event) {
+		springJobsNotify('test','this is test','http://www.naver.com');
+	});
+	
 </script>
 
 </html>
