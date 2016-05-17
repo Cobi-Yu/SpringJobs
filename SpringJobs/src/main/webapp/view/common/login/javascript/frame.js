@@ -287,3 +287,5 @@ $("#notiBtn").click(function(){
 addNotifyList('/view/common/login/image/company.png','test','this test','http://www.naver.com');
 addNotifyList('/view/common/login/image/company.png','test','this test','http://www.naver.com');
 addNotifyList('/view/common/login/image/company.png','test','this test','http://www.naver.com');
+
+$(document).trigger('notiUpdate');

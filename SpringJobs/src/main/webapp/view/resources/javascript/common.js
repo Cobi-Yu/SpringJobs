@@ -2,7 +2,7 @@ var contextRoot = "http://t1.java78.com:8080"; //Spring ContextRoot
 var nodeContextRoot = "http://52.79.155.246:1337";//Node ContextRoot
 var user;//현재 로그인한 사용자
 var socket;
-
+var notiCount=0;
 
 //redirect할 함수 시작
 var redirect = function(id,url,login){
@@ -100,3 +100,12 @@ var addNotifyList = function(image,title,description,url){
   $('.notistyle').append(litag);
 }
 //알림추가 끝
+
+$(document).on('notiUpdate',function(event) {
+	if(notiCount==0){
+		$('.badge-notify').css('display','none');
+	}else{
+		$('.badge-notify').text(notiCount);
+		$('.badge-notify').css('display','inline-block');
+	}
+});

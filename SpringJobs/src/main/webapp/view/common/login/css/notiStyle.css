@@ -27,6 +27,7 @@ body {
   display:none;
   right: 87%;
   top: -35%;
+  float: right;
 }
 .notiList:after {
   position: absolute;
@@ -189,4 +190,4 @@ section .menu a.podcast {
     padding-top: 4px;
     padding-bottom: 4px;
     padding-left: 8px;
-    }
+   }
