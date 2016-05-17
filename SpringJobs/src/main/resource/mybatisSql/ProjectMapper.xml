@@ -122,6 +122,30 @@
 		order by cpjrsd desc;
 	</select>
 	
+	
+	<select id="myProjectList"		parameterType="int"		resultMap="projectSelectMap">
+	    select pj.*
+	    from CPJTS pj , USERS us, CPJJOIN cp 
+		where
+		cp.CPJCONF='1'
+		and
+		pj.CPJNO=cp.CPJNO
+		and
+		cp.UNO=#{uno};
+	</select>	
+	
+	<select id="myPutProjectList"		parameterType="int"		resultMap="projectSelectMap">
+	    select pj.*
+	    from CPJTS pj , USERS us, CPJJOIN cp 
+		where
+		cp.CPJCONF='0'
+		and
+		pj.CPJNO=cp.CPJNO
+		and
+		cp.UNO=#{uno};
+	</select>
+
+	
 	<insert id="joinProject" parameterType="map">
 	    INSERT
 	    INTO CPJJOIN

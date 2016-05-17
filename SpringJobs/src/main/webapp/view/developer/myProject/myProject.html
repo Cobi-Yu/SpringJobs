@@ -44,7 +44,7 @@
 							</div>
 					 </div>
 					<div class="col-md-12" id="put-list" style="background-color: white; margin-top: 1em; padding-top: 2em; text-align: center; margin-bottom: 7em;">
-						<img src="/view/resources/img/SJ-logo2.png" style="background-color: white; margin-bottom: 5em;" width="10%">
+						<img class="pic" src="/view/resources/img/SJ-logo2.png" style="background-color: white; margin-bottom: 5em;" width="10%">
 					</div>
 				</div>
 			<div class="col-sm-2 sidenav"></div>
@@ -58,15 +58,21 @@
 		$('#header').load('/view/common/login/frameHeader.html');
 		$('#footer').load('/view/common/login/frameFooter.html');
 	});
-
+	
+	var map={};
 	var search={cpjar:[],cpjsk:[],cpjmnp:null,cpjmap:null,cpjyr:null};
-    var cpjt;
-
+	var list;
+	
 	$(document).on('frameComplete',function(event) {
 
+		map.uno = user.uno;
+		map.search = search;
+		
+		console.log(map);
+		
         $.ajax({
             type:'post',
-            url: contextRoot+"/developer/projectList",
+            url: contextRoot+"/developer/myProjectList",
             dataType : "json",
             beforeSend : addLoading,
     		complete : removeLoading,
@@ -74,25 +80,28 @@
 				"Accept" : "application/json",
 				"Content-Type" : "application/json"
 			},
-            data : JSON.stringify(search),
+            data : JSON.stringify(map),
             success:function(data){
-                console.log(data.cpjt);
+                console.log(data.myProject);
                 $('#part-list').empty();
-                var list=data.cpjt;
+                var list=data.myProject;
                 
+                if(list.length == 0){
+                	$.get('/view/developer/myProject/Exception.html', function(data){
+                		var Exception = $(data);
+                    	$("#part-list").append(Exception);
+                	});
+                } else {
                 $.get('/view/developer/myProject/PartMyProjectTempl.html',function(data){
                 	
-                	for(var i =0; i<6; i++){
+                	for(var i =0; i<list.length; i++){
 					    var projectTemplate = $(data);
 					    
-                		var cpjred = list[i].cpjred;
-                        var cpjrdGap = parseInt( ( new Date(cpjred).getTime() - new Date().getTime())/1000/60/60/24 );
                         var cpjmAvg = (list[i].cpjmap+list[i].cpjmnp)/2;
                         var cpjDuration = parseInt( ( new Date(list[i].cpjed)-new Date(list[i].cpjsd) )/1000/60/60/24);
                         var cpjno = list[i].cpjno;
                         
 					    projectTemplate.find('.cpjnm').text(list[i].cpjnm);
-					    projectTemplate.find('.cpjrdGap').text(cpjrdGap);
 					    projectTemplate.find('.cpjDuration').text(cpjDuration);
 					    projectTemplate.find('.cpjmAvg').text(cpjmAvg);
 					    projectTemplate.find('.cpjwt').text(list[i].cpjwt);
@@ -107,19 +116,16 @@
                 		} else{
                 			redirect($('.jumbotron:eq('+i+')'),'/view/company/getProjectView/getProjectView.html?cpjno='+list[i].cpjno);
                 		}
-                		
-                		if(i==list.length) {
-                			break;
-                		}
          			}
                 });
+              }
             }
         });        
 
         
         $.ajax({
             type:'post',
-            url: contextRoot+"/developer/projectList",
+            url: contextRoot+"/developer/myPutProjectList",
             dataType : "json",
             beforeSend : addLoading,
     		complete : removeLoading,
@@ -127,17 +133,26 @@
 				"Accept" : "application/json",
 				"Content-Type" : "application/json"
 			},
-            data : JSON.stringify(search),
+            data : JSON.stringify(map),
             success:function(data){
-                console.log(data.cpjt);
+                console.log(data.myPutProject);
                 $('#put-list').empty();
-                var list=data.cpjt;
+                var list=data.myPutProject;
+                console.log(list);
+                console.log(list.length);
+                
+                if(list.length == 0){
+                	$.get('/view/developer/myProject/Exception.html', function(data){
+                		var Exception = $(data);
+                    	$("#put-list").append(Exception);
+                	});
+                } else {
                 
                 $.get('/view/developer/myProject/PutMyProjectTempl.html',function(data){
-                	
-                	for(var i =0; i<6; i++){
-					    var projectTemplate = $(data);
 					    
+					  for(var i =0; i<list.length; i++){
+						var projectTemplate = $(data);
+						  
                 		var cpjred = list[i].cpjred;
                         var cpjrdGap = parseInt( ( new Date(cpjred).getTime() - new Date().getTime())/1000/60/60/24 );
                         var cpjmAvg = (list[i].cpjmap+list[i].cpjmnp)/2;
@@ -156,20 +171,15 @@
                 		if(user==null){
                 			$('.jumbotron').click(function(){
                 				callModal('프로젝트','로그인이 필요한 서비스입니다.');
-                			})
+                			});
                 		} else{
                 			redirect($('.jumbotron:eq('+i+')'),'/view/company/getProjectView/getProjectView.html?cpjno='+list[i].cpjno);
                 		}
-                		
-                		if(i==list.length) {
-                			break;
-                		}
-         			}
-                });
+					  }
+                	});
+               }
             }
         });
-        
-        redirect($('#lookProjects'),'/view/developer/projectList/projectList.html');
 	});
 </script>
 

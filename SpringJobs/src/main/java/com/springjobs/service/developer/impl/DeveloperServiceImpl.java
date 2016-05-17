@@ -1,10 +1,9 @@
 package com.springjobs.service.developer.impl;
 
-import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -32,7 +31,17 @@ public class DeveloperServiceImpl implements DeveloperService {
 	@Override
 	public List<Cpjts> getProjectList(Search search) {
 		return developerDao.getProjectList(search);
+	}	
+	@Override
+	public List<Cpjts> myProjectList(HashMap map) {
+		return developerDao.myProjectList(map);
 	}
+	@Override
+	public List<Cpjts> myPutProjectList(HashMap map) {
+		return developerDao.myPutProjectList(map);
+	}
+
+
 	@Override
 	public int addInfo(Users users){
 		return developerDao.addInfo(users);

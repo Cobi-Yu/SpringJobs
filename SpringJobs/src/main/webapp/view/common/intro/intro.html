@@ -193,6 +193,12 @@
                 $('#cpjt-list').empty();
                 var list=data.cpjt;
                 
+                if(list.length == 0){
+                	$.get('/view/common/intro/Exception.html', function(data){
+                		var Exception = $(data);
+                    	$("#cpjt-list").append(Exception);
+                	});
+                } else {
                 $.get('/view/common/intro/introProjectTempl.html',function(data){
                 	
                 	for(var i =0; i<6; i++){
@@ -226,6 +232,7 @@
                 		}
          			}
                 });
+               } 
             }
         });
         

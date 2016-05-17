@@ -1,5 +1,6 @@
 package com.springjobs.dao.developer.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,7 +35,19 @@ public class DeveloperDaoImpl implements DeveloperDao {
 	public List<Cpjts> getProjectList(Search search) {
 		return sqlSession.selectList("ProjectMapper.getProjectList", search);
 	}
-	
+
+	@Override
+	public List<Cpjts> myProjectList(HashMap map) {
+		System.out.println("developerdaoimpl에서 myProjectList :"+sqlSession.selectList("ProjectMapper.myProjectList", map.get("uno")));
+		return sqlSession.selectList("ProjectMapper.myProjectList", map.get("uno"));
+	}
+
+	@Override
+	public List<Cpjts> myPutProjectList(HashMap map) {
+		System.out.println("developerdaoimpl에서 myPutProjectList :"+sqlSession.selectList("ProjectMapper.myPutProjectList", map.get("uno")));
+		return sqlSession.selectList("ProjectMapper.myPutProjectList", map.get("uno"));
+	}
+
 	@Override
 	public int addInfo(Users users){
 		sqlSession.insert("UserMapper.addInfo", users);

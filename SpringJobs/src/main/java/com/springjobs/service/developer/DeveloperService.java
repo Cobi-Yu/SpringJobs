@@ -1,5 +1,6 @@
 package com.springjobs.service.developer;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +15,10 @@ import com.springjobs.domain.Users;
 
 public interface DeveloperService {
 	public List<Cpjts> getProjectList(Search search);
+
+	public List<Cpjts> myProjectList(HashMap map);
+	
+	public List<Cpjts> myPutProjectList(HashMap map);
 	
 	public int addInfo(Users users);
 	
@@ -49,7 +54,6 @@ public interface DeveloperService {
 	public void addUscls(Uscls uscls);
 	
 	public Users getJoinProjectUser (Map<String,Object> map);
-	
 
 	public void updateUres(Users users);
 }

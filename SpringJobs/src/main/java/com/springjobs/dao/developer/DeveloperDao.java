@@ -1,5 +1,6 @@
 package com.springjobs.dao.developer;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,6 +15,10 @@ import com.springjobs.domain.Users;
 
 public interface DeveloperDao {
 	public List<Cpjts> getProjectList(Search search);
+	
+	public List<Cpjts> myProjectList(HashMap map);
+	
+	public List<Cpjts> myPutProjectList(HashMap map);
 	
 	public int addInfo(Users users);
 	

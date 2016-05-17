@@ -34,6 +34,18 @@ public class DeveloperController {
 		System.out.println("test : "+search);
 		model.addAttribute("cpjt", developerService.getProjectList(search));
 	}
+
+	@RequestMapping( value="/myProjectList", method=RequestMethod.POST)
+	public void myProjectList(@RequestBody HashMap<String, Object> map, Model model){
+		System.out.println("myProjectList : "+map);
+		model.addAttribute("myProject", developerService.myProjectList(map));
+	}
+
+	@RequestMapping( value="/myPutProjectList", method=RequestMethod.POST)
+	public void myPutProjectList(@RequestBody HashMap<String, Object> map, Model model){
+		System.out.println("myPutProjectList : "+map);
+		model.addAttribute("myPutProject", developerService.myPutProjectList(map));
+	}
 	
 	@RequestMapping( value="/addInfo", method=RequestMethod.POST)
 	public void addInfo(@RequestBody Users users, Model model){
