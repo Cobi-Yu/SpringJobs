@@ -27,7 +27,8 @@
 			
 			
 			<!-- 본문입력란 -->
-			
+			<button id="testbtn">test</button>
+			<button id="testbtn2">test2</button>
 			
 			</div>
 			<div class="col-sm-2 sidenav"></div>
@@ -41,7 +42,14 @@
 		$('#footer').load('/view/common/login/frameFooter.html');
 	});
 	$(document).on('frameComplete',function(event) {
-		springJobsNotify('test','this is test','http://www.naver.com');
+		$('#testbtn').click(function(){
+			notiCount++;
+			$(document).trigger('notiUpdate');
+		});
+		$('#testbtn2').click(function(){
+			notiCount--;
+			$(document).trigger('notiUpdate');
+		});
 	});
 	
 </script>

@@ -161,4 +161,9 @@ public class UserController {
 		System.out.println("getUserinfo : "+userService.getUserInfo(uno));
 		model.addAttribute("userInfo", userService.getUserInfo(uno));
 	}
+	
+	@RequestMapping(value="/user/getNotifyList", method=RequestMethod.POST)
+	public void getNotifyList(@RequestBody Users user,  Model model) {
+		model.addAttribute("result", userService.getNotifyList(user));
+	}
 }

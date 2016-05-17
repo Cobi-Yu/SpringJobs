@@ -102,8 +102,9 @@ var addNotifyList = function(image,title,description,url){
 //알림추가 끝
 
 $(document).on('notiUpdate',function(event) {
-	if(notiCount==0){
+	if(notiCount<=0){
 		$('.badge-notify').css('display','none');
+		notiCount=0;
 	}else{
 		$('.badge-notify').text(notiCount);
 		$('.badge-notify').css('display','inline-block');

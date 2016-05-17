@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.springjobs.domain.Skills;
 import com.springjobs.domain.UPhotos;
+import com.springjobs.domain.Unotify;
 import com.springjobs.domain.Upfurl;
 import com.springjobs.domain.Users;
 
@@ -38,4 +39,6 @@ public interface UserService {
 	public List<Users> getDeveloperList(List<Integer> sknoList);
 	
 	public Users getUserInfo(int uno);
+	
+	public List<Unotify> getNotifyList(Users user);
 }

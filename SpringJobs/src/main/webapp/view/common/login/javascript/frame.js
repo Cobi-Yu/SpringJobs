@@ -89,14 +89,19 @@ var socket;
 				socket.on('requestProjectNotification',function(data){
 			      	var notificationText = data.unm+"님이 "+data.cpjnm+"프로젝트에 지원하셨습니다.";
 			      	springJobsNotify('test',notificationText,contextRoot+"/view/company/getProjectView/getProjectView.html?cpjno="+data.cpjno);
-			      });
+			      	notiCount++;
+				    $(document).trigger('notiUpdate');
+				});
 
 			      socket.on('acceptProjectNotification',function(data){
 			      	var notificationText = "'"+data.cpjnm+"'프로젝트 신청 수락 완료";
 			      	springJobsNotify('test',notificationText,contextRoot+"/view/company/getProjectView/getProjectView.html?cpjno="+data.cpjno);
+			      	notiCount++;
+				    $(document).trigger('notiUpdate');
 			      });
 				//socketio끝
-				
+			      notiCount=user.unotify.length;
+			      $(document).trigger('notiUpdate');
 			}else{
 				user=null;
 			}
@@ -279,13 +284,36 @@ redirect($('#developerList'),'/view/company/developerList/developerList.html');
 redirect($('#myProject'),'/view/developer/myProject/myProject.html', true);
 
 $("#notiBtn").click(function(){
-	  $(".notiList").fadeToggle();
-	  $("#notification_count").fadeOut("slow");
-	  return false;
+	notiCount=0;
+	$(document).trigger('notiUpdate');
+	//notify 목록 가져오기
+	$.ajax({
+		url : contextRoot + "/user/getNotifyList",
+		method : "POST",
+		dataType : "json",
+		headers : {
+			"Accept" : "application/json",
+			"Content-Type" : "application/json"
+		},
+		data:JSON.stringify(user),
+		beforeSend : addLoading,
+		complete : removeLoading,
+		success : function(data, status) {
+			for(var i =0; i<data.result.length;i++){
+				var notify = data.result[i];
+				console.log(notify);
+				var img;
+				if(notify.target=='developer'){
+					img='/view/common/login/image/company.png';
+				}else{
+					img='/view/common/login/image/personal.png';
+				}
+				addNotifyList(img,notify.title,notify.description,notify.url);
+			}
+		}
 	});
-
-addNotifyList('/view/common/login/image/company.png','test','this test','http://www.naver.com');
-addNotifyList('/view/common/login/image/company.png','test','this test','http://www.naver.com');
-addNotifyList('/view/common/login/image/company.png','test','this test','http://www.naver.com');
-
-$(document).trigger('notiUpdate');
+	//notify 목록 가져오기 끝
+	$(".notiList").fadeToggle();
+	$("#notification_count").fadeOut("slow");
+	return false;
+});

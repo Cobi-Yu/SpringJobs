@@ -196,4 +196,18 @@
 		and cpjjoin.cpjno=#{cpjno} and user.uno=#{uno}) main
 		left outer join UPHOTS upho on upho.uno=main.uno;
 	</select>
+	
+	<insert id="insertJoinProjectNotify" parameterType="map">
+		insert into UNOTIFY values
+		(0,'company','프로젝트 신청','description',
+		concat('/view/company/getProjectView/getProjectView.html?cpjno=',#{cpjno}),
+		'0',now(),#{uno});
+	</insert>
+	
+	<insert id="insertConfirmProjectNotify" parameterType="map">
+		insert into UNOTIFY values
+		(0,'developer','프로젝트 수락','description',
+		concat('/view/company/getProjectView/getProjectView.html?cpjno=',#{cpjno}),
+		'0',now(),#{uno});
+	</insert>
 </mapper>

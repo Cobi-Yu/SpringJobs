@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import com.springjobs.dao.user.UserDao;
 import com.springjobs.domain.Skills;
 import com.springjobs.domain.UPhotos;
+import com.springjobs.domain.Unotify;
 import com.springjobs.domain.Upfurl;
 import com.springjobs.domain.Users;
 
@@ -101,6 +102,11 @@ public class UserDaoImpl implements UserDao{
 	public Users getUserInfo(int uno) {
 		System.out.println("UserDaoImpl에서 USER :"+sqlSession.selectOne("UserMapper.getUserInfo", uno));
 		return sqlSession.selectOne("UserMapper.getUserInfo", uno);
+	}
+
+	@Override
+	public List<Unotify> getNotifyList(Users user) {
+		return sqlSession.selectList("UserMapper.getNotifyList",user);
 	}
 	
 }

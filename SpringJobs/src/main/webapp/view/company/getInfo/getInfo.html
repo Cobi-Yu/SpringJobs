@@ -962,7 +962,7 @@ var yskills=[]; //스킬목록
     	      e.stopPropagation();
     	      var thumbnail = $(this).parent();
     	      $.ajax({
-    	            url : "http://t1.java78.com:8080/user/deleteUserPfUrl",
+    	            url : contextRoot+"/user/deleteUserPfUrl",
     	            method : "POST",
     	            dataType : "json",
     	            headers : {

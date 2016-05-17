@@ -30,6 +30,7 @@ public class Users {
 	private List<Cpjts> cpjts;
 	private List<Cpjjoin> cpjjoins;
 	private List<Upfurl> upfurl;
+	private List<Unotify> unotify;
 	
 	public Users() {
 		// TODO Auto-generated constructor stub
@@ -38,7 +39,8 @@ public class Users {
 	public Users(int uno, String unm, String uenm, String uem, String upw, String uco, String usx, String ucnf,
 			Date ubd, String upho, String uadr, String uurl, String ures, int cno, List<UPhotos> uphots,
 			List<UTags> utags, List<Uexps> upxps, List<Uscls> uslcs, List<Ucerts> ucerts, List<Ulans> ulans,
-			List<UPjtNo> upjtno, List<Skills> skills, List<Cpjts> cpjts, List<Cpjjoin> cpjjoins, List<Upfurl> upfurl) {
+			List<UPjtNo> upjtno, List<Skills> skills, List<Cpjts> cpjts, List<Cpjjoin> cpjjoins, List<Upfurl> upfurl,
+			List<Unotify> unotify) {
 		super();
 		this.uno = uno;
 		this.unm = unm;
@@ -65,6 +67,7 @@ public class Users {
 		this.cpjts = cpjts;
 		this.cpjjoins = cpjjoins;
 		this.upfurl = upfurl;
+		this.unotify = unotify;
 	}
 
 	public int getUno() {
@@ -267,6 +270,14 @@ public class Users {
 		this.upfurl = upfurl;
 	}
 
+	public List<Unotify> getUnotify() {
+		return unotify;
+	}
+
+	public void setUnotify(List<Unotify> unotify) {
+		this.unotify = unotify;
+	}
+
 	@Override
 	public String toString() {
 		return "Users [uno=" + uno + ", unm=" + unm + ", uenm=" + uenm + ", uem=" + uem + ", upw=" + upw + ", uco="
@@ -274,7 +285,17 @@ public class Users {
 				+ ", uurl=" + uurl + ", ures=" + ures + ", cno=" + cno + ", uphots=" + uphots + ", utags=" + utags
 				+ ", upxps=" + upxps + ", uslcs=" + uslcs + ", ucerts=" + ucerts + ", ulans=" + ulans + ", upjtno="
 				+ upjtno + ", skills=" + skills + ", cpjts=" + cpjts + ", cpjjoins=" + cpjjoins + ", upfurl=" + upfurl
-				+ "]";
+				+ ", unotify=" + unotify + ", getUno()=" + getUno() + ", getUnm()=" + getUnm() + ", getUenm()="
+				+ getUenm() + ", getUem()=" + getUem() + ", getUpw()=" + getUpw() + ", getUco()=" + getUco()
+				+ ", getUsx()=" + getUsx() + ", getUcnf()=" + getUcnf() + ", getUbd()=" + getUbd() + ", getUpho()="
+				+ getUpho() + ", getUadr()=" + getUadr() + ", getUurl()=" + getUurl() + ", getUres()=" + getUres()
+				+ ", getCno()=" + getCno() + ", getUphots()=" + getUphots() + ", getUtags()=" + getUtags()
+				+ ", getUpxps()=" + getUpxps() + ", getUslcs()=" + getUslcs() + ", getUcerts()=" + getUcerts()
+				+ ", getUlans()=" + getUlans() + ", getUpjtno()=" + getUpjtno() + ", getSkills()=" + getSkills()
+				+ ", getCpjts()=" + getCpjts() + ", getCpjjoins()=" + getCpjjoins() + ", getUpfurl()=" + getUpfurl()
+				+ ", getUnotify()=" + getUnotify() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+				+ ", toString()=" + super.toString() + "]";
 	}
+
 
 } // end of class

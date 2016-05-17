@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.springjobs.dao.user.UserDao;
 import com.springjobs.domain.Skills;
 import com.springjobs.domain.UPhotos;
+import com.springjobs.domain.Unotify;
 import com.springjobs.domain.Upfurl;
 import com.springjobs.domain.Users;
 import com.springjobs.service.user.UserService;
@@ -99,6 +100,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public Users getUserInfo(int uno) {
 		return userDao.getUserInfo(uno);
+	}
+
+	@Override
+	public List<Unotify> getNotifyList(Users user) {
+		return userDao.getNotifyList(user);
 	}
 	
 }

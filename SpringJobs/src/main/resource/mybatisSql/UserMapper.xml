@@ -33,6 +33,15 @@
 		<collection property="skills" ofType="com.springjobs.domain.Skills">
 		    <id property="skno"		column="SKNO"	jdbcType="INTEGER"/>
 		</collection>
+		<collection property="unotify" ofType="com.springjobs.domain.Unotify">
+		    <id property="notino"			column="NOTINO"			jdbcType="INTEGER"/>
+		    <result property="target"		column="TARGET" 		jdbcType="VARCHAR"/>
+	    	<result property="title"		column="TITLE" 			jdbcType="VARCHAR"/>
+	    	<result property="description"	column="DESCRIPTION"	jdbcType="VARCHAR"/>
+	    	<result property="url"			column="URL" 			jdbcType="VARCHAR"/>
+	    	<result property="check"		column="CHECK" 			jdbcType="VARCHAR"/>
+	    	<result property="regDate"		column="REGDATE" 		jdbcType="VARCHAR"/>
+		</collection>
 	</resultMap>
 	
 	<resultMap id="utagsSelectMap" type="com.springjobs.domain.UTags">
@@ -99,10 +108,18 @@
 	<select id="login" parameterType="com.springjobs.domain.Users"
 		resultMap="userSelectMap">
 		SELECT
-		U.UNO,U.UNM,U.UENM,U.UEM,U.UPW,U.UCO,U.USX,U.UCNF,U.UBD,U.UPHO,U.UADR,UURL,URES,C.CNO, PH.phno, PH.phot, PH.uno
-		FROM USERS U left outer join CINFOS C
-		ON U.uno=C.uno left outer join UPHOTS PH on PH.uno=U.uno WHERE U.uem=#{uem}
-		and U.upw=#{upw} and U.UCNF='1'
+		U.UNO,U.UNM,U.UENM,U.UEM,U.UPW,U.UCO,U.USX,U.UCNF,U.UBD,U.UPHO,U.UADR,UURL,URES,C.CNO, PH.phno, PH.phot, PH.uno, N.notino
+		FROM USERS U 
+		left outer join
+		CINFOS C ON U.uno=C.uno 
+		left outer join 
+		UPHOTS PH on PH.uno=U.uno 
+		left outer join
+		UNOTIFY N on N.uno=U.uno
+		and U.UCNF='1'
+		and N.check='0'
+		WHERE U.uem=#{uem}
+		and U.upw=#{upw} 
 	</select>
 
 	<select id="idDuplicateCheck" parameterType="com.springjobs.domain.Users"
@@ -303,5 +320,13 @@
 	<select id="getUserInfo" parameterType="int" resultType="com.springjobs.domain.Users">
 	    select *
 	    from USERS where uno=#{uno}
+	</select>
+	
+	<select id="getNotifyList" parameterType="com.springjobs.domain.Users" resultType="com.springjobs.domain.Unotify">
+	    select * 
+	    from UNOTIFY noti 
+	    where uno=#{uno} 
+	    and regdate>= date_add(now(), interval -7 day) 
+	    order by regdate asc;
 	</select>
 </mapper>

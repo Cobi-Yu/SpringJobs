@@ -46,7 +46,7 @@
       var socket = io("http://52.79.155.246:1337");
       $(function(){
         $.ajax({
-          url : "http://t1.java78.com:8080/loginCheck",
+          url : contextRoot+"/loginCheck",
           method : "POST",
           dataType : "json",
           headers : {
@@ -94,7 +94,7 @@
       
       $('#login').click(function(){
         $.ajax({
-            url :"http://t1.java78.com:8080/login",
+            url : contextRoot+"/login",
             method : "POST",
             dataType : "json",
             data : JSON.stringify({
