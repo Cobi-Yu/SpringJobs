@@ -230,15 +230,15 @@ strong{
 					</div>
 				</div>
 				<!--페이지 중앙 본문 중 좌측 끝-->
-				<div class="col-md-9">
+				<div class="col-md-9" style=" text-align: center;">
 					<table class="table" style="border-style:none;">
 						<thead id="cpjt-list">
-						<!-- 리스트 들어갈 자리 -->
-							
+						<!-- 리스트 들어갈 자리 -->	
 						<!-- 리스트 들어갈 자리 끝 -->
 						</thead>
 					</table>
 					<!--페이지 중앙 본문 중 우측 본문 판넬 끝-->
+					<img class="picture" src="/view/resources/img/SJ-logo2.png" style="background-color: transparent; margin-bottom: 18em;" width="50%"/>
 				</div>
 				<!--페이지 중앙 본문 중 우측 본문 끝-->
 			</div>
@@ -324,6 +324,8 @@ strong{
                 		} else{
                 			redirect($('.jumbotron:eq('+i+')'),'/view/company/getProjectView/getProjectView.html?cpjno='+cpjt[i].cpjno);
                 		}
+                		
+                		$('.picture').hide();
                 		
 					}
                 });
@@ -514,6 +516,7 @@ strong{
 		request();
 	});
     //경력추가 끝
+    
 </script>
 
 </html>

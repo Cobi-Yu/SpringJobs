@@ -54,9 +54,6 @@ var springJobsNotify = function(title, message, url){
    });
 };
 //실시간 notify 끝
-	
-
-
 
 var socket;
 

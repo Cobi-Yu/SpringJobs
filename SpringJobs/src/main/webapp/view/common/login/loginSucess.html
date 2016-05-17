@@ -4,9 +4,8 @@
     }
 </style>
 
-<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <img
-	id="upho" class="img-circle" width="50" height="50">
-</a>
+<a class="dropdown-toggle" data-toggle="dropdown" href="#"> <img id="upho" class="img-circle" width="50" height="50"></a>
+
 <ul class="dropdown-menu"
 	style="width: 250px; padding: 0px; left: -300%; padding-bottom: 10px;">
 	<li style="text-align: center; background-color: #5F5F5F; color: white; height: 30px; line-height: 30px">
@@ -33,7 +32,7 @@ $('#logoutButton').click(function(){
             "Content-Type" : "application/json"
         },
         success : function(data, status){
-        	location.reload();
+        	location.href=contextRoot+"/view/common/intro/intro.html";
         },
         error:function(req,status,error){
 			alert('error');

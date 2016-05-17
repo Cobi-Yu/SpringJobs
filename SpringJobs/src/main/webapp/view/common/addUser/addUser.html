@@ -17,20 +17,20 @@
 	<div id="header"></div>
 	<!--본문 시작-->
 	<div class="container-fluid text-center">
-		<div class="row content">
+		<div class="row content" style="background-color: #f1f1f1;">
 			<div class="col-sm-3 sidenav"></div>
 			<div class="col-md-6 text-left main" style="background-image: url('/view/resources/img/flowers.jpg'); 
 														background-size: 120%; margin-top:5em; margin-bottom: 20em;">
 				<div class="addUserbox">
 					<form class="form-horizontal">
-						<h1 align="center" style="color: white;">Welcom to SpringJobs</h1>
+						<h1 align="center" style="color: white;">Welcome to SpringJobs</h1>
 						<h3 align="center" style="color: white;">새로운 프로젝트가 당신을 기다립니다.</h3>
 						<br> <br>
-						<table class="table table-bordered" style="width: 50%;" align="center">
+						<table class="table-bordered" style="width:50%; padding: 1em;" align="center">
 							<tbody id="joinForm">
 								<tr>
 									<thead>
-										<td style="background-color: orange; width: 25%;"><strong>ID/e-mail</strong></td>
+										<td style="background-color: orange; width: 25%; text-align: center;"><strong>ID/e-mail</strong></td>
 										<td><input class="form-control" type="text" id="joinuem"
 											placeholder="ID/e-mail을 입력하세요.">
 									    </td>
@@ -42,7 +42,7 @@
 								</tr>
 								<tr>
 									<thead>
-										<td style="background-color: orange;"><strong>암호</strong></td>
+										<td style="background-color: orange; text-align: center;"><strong>암호</strong></td>
 										<td><input class="form-control" type="password" id="joinupw"
 											placeholder="PW를 입력하세요.">
 										</td>
@@ -55,7 +55,7 @@
 								</tr>
 								<tr>
 									<thead>
-										<td style="background-color: orange;"><strong>암호 재입력</strong></td>
+										<td style="background-color: orange; text-align: center;"><strong>암호 재입력</strong></td>
 										<td><input class="form-control" type="password" id="joinreupw"
 											placeholder="PW를 입력하세요.">
 										</td>
@@ -66,7 +66,7 @@
 								</tr>
 								<tr>
 									<thead>
-										<td style="background-color: orange;"><strong>이름</strong></td>
+										<td style="background-color: orange; text-align: center;"><strong>이름</strong></td>
 										<td><input class="form-control" type="text" id="joinunm"
 											placeholder="이름을 입력하세요.">
 										</td>
@@ -79,7 +79,7 @@
 								</tr>
 								<tr>
 									<thead>
-										<td style="background-color: orange;"><strong>국적</strong></td>
+										<td style="background-color: orange; text-align: center;"><strong>국적</strong></td>
 										<td><input class="form-control" type="email" id="joinuco"
 											placeholder="국적">
 										</td>
@@ -94,7 +94,7 @@
 
 						<div align="center" style="margin-bottom: 2em;">
 							<button type="button" class="btn btn-primary" id="join">확인</button>
-							<button type="button" class="btn btn-default">취 소</button>
+							<button type="button" class="btn btn-default" id="cancel">취 소</button>
 						</div>
 					</form>
 				</div>
@@ -208,12 +208,16 @@
 						beforeSend : addLoading,
 						complete : removeLoading,
 					});
-					callModal('회원가입','가입완료!! 메일인증을 진행해주세요.','/view/common/login/frame.html');
+					callModal('회원가입','가입완료!! 메일인증을 진행해주세요.','/view/common/intro/intro.html');
 				}
 			});
 		}
 	});
 	<!-- 회원가입 버튼 끝-->
+	
+	$('#cancel').click(function(){
+		location.href="/view/common/intro/intro.html";
+	})
 </script>
 
 </html>
