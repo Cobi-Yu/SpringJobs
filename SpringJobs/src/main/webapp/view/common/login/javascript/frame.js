@@ -1,39 +1,40 @@
 $('head').append( $('<script></script>').attr('src', 'https://cdn.socket.io/socket.io-1.4.5.js') );
 $('head').append( $('<link rel="stylesheet" type="text/css"/>').attr('href', '/view/common/login/css/freelancer.css') );
+$('head').append( $('<link rel="stylesheet" type="text/css"/>').attr('href', '/view/common/login/css/notiStyle.css') );
 $('head').append( $('<link rel="stylesheet" type="text/css"/>').attr('href', 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css') );
 $('head').append( $('<script></script>').attr('src', 'https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.5/bootstrap-notify.min.js') );
 
 var notifyStyle = `<style>[data-notify="progressbar"] {
 	   margin-bottom: 0px;
-position: absolute;
-bottom: 0px;
-left: 0px;
-width: 100%;
-height: 5px;
-}
-.alert-minimalist {
-background-color: rgb(241, 242, 240);
-border-color: rgba(149, 149, 149, 0.3);
-border-radius: 3px;
-color: rgb(149, 149, 149);
-padding: 10px;
-cursor: pointer;
-}
-.alert-minimalist > [data-notify="icon"] {
-height: 50px;
-margin-right: 12px;
-}
-.alert-minimalist > [data-notify="title"] {
-color: rgb(51, 51, 51);
-display: block;
-font-weight: bold;
-margin-bottom: 5px;
-}
-.alert-minimalist > [data-notify="message"] {
-font-size: 80%;
-}
-</style>
-`;
+		position: absolute;
+		bottom: 0px;
+		left: 0px;
+		width: 100%;
+		height: 5px;
+		}
+		.alert-minimalist {
+		background-color: rgb(241, 242, 240);
+		border-color: rgba(149, 149, 149, 0.3);
+		border-radius: 3px;
+		color: rgb(149, 149, 149);
+		padding: 10px;
+		cursor: pointer;
+		}
+		.alert-minimalist > [data-notify="icon"] {
+		height: 50px;
+		margin-right: 12px;
+		}
+		.alert-minimalist > [data-notify="title"] {
+		color: rgb(51, 51, 51);
+		display: block;
+		font-weight: bold;
+		margin-bottom: 5px;
+		}
+		.alert-minimalist > [data-notify="message"] {
+		font-size: 80%;
+		}
+		</style>
+		`;
 $('head').append(notifyStyle);
 
 //실시간 notify
@@ -91,7 +92,7 @@ var socket;
 			      });
 
 			      socket.on('acceptProjectNotification',function(data){
-			      	var notificationText = data.cpjnm+"프로젝트에 신청 수락";
+			      	var notificationText = "'"+data.cpjnm+"'프로젝트 신청 수락 완료";
 			      	springJobsNotify('test',notificationText,contextRoot+"/view/company/getProjectView/getProjectView.html?cpjno="+data.cpjno);
 			      });
 				//socketio끝
@@ -260,6 +261,9 @@ $('#addComp').click(function(){
 				}).open();
 	}    
 	// 주소검색 js 끝
+	$(document).click(function(){
+	  $(".notiList").fadeOut();
+	});
 	
 redirect($('#index'),'/view/index.html');
 redirect($('#signUp'),'/view/common/addUser/addUser.html');
@@ -273,3 +277,9 @@ redirect($('#SpringJobsIntro'),'/view/common/login/SpringJobs.html');
 redirect($('#frame'),'/view/common/intro/intro.html');
 redirect($('#developerList'),'/view/company/developerList/developerList.html');
 redirect($('#myProject'),'/view/developer/myProject/myProject.html', true);
+
+$("#notiBtn").click(function(){
+	  $(".notiList").fadeToggle();
+	  $("#notification_count").fadeOut("slow");
+	  return false;
+	});

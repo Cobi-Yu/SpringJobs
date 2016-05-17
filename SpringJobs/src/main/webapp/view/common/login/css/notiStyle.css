@@ -1,0 +1,176 @@
+body {
+  background-color: #e3e5e7;
+  font: normal 16px/22px "GothamRoundedLight", sans-serif;
+}
+
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  font-size: 0;
+  height: 0;
+}
+
+.clearfix {
+  *display: inline-block;
+}
+
+.notiList {
+  width: 420px;
+  background: #fff;
+  position: relative;
+  margin: 0px;
+  padding: 0 0 4px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+  display:none;
+  right: 87%;
+  top: -35%;
+}
+.notiList:after {
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  bottom: 4px;
+  content: "";
+  background: #f6f6f6;
+  width: 84px;
+  z-index: -1;
+}
+section header {
+  text-align: center;
+  width: 100%;
+}
+section header .user {
+  float: right;
+  width: 335px;
+  padding: 30px 0;
+}
+section header .user .avatar {
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 100%;
+  background-color: #fff;
+}
+section header .user .avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+section header .user h2 {
+  margin: 15px 0 0;
+  color: #000;
+  font: normal 24px/1 "GothamRoundedMedium", sans-serif;
+}
+section header .user p {
+  color: #b0b0b0;
+  font-size: 18px;
+  margin: 15px 0 0;
+}
+section header .user a.follow {
+  display: inline-block;
+  border-radius: 50px;
+  background: #23f3ac;
+  text-decoration: none;
+  width: 180px;
+  height: 50px;
+  margin: 15px 0 0;
+  color: #fff;
+  font: normal 18px/50px "GothamRoundedBold", sans-serif;
+  -webkit-transition: all ease 0.2s;
+          transition: all ease 0.2s;
+}
+section header .user a.follow span {
+  font-size: 20px;
+  margin-right: 5px;
+}
+section header .user a.follow:hover {
+  opacity: 0.7;
+}
+section header .liks {
+  padding: 15px 0;
+  float: left;
+  width: 85px;
+}
+section header .liks .icon {
+  background: #fff url(http://i.imgur.com/p6pVEjp.png) no-repeat center;
+  width: 55px;
+  height: 55px;
+  border-radius: 100%;
+  display: inline-block;
+}
+section header .liks span {
+  display: inline-block;
+  background: #fff;
+  border-radius: 20px;
+  width: 40px;
+  height: 20px;
+  font: normal 13px/20px "GothamRoundedBold", sans-serif;
+}
+section .menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+section .menu a {
+  display: block;
+  text-decoration: none;
+  padding: 30px 0 30px 120px;
+  font-size: 20px;
+  color: #b2b2b2;
+  border-left: 3px solid #fff;
+  background: rgba(232, 232, 232, 0.4) url(http://i.imgur.com/bdUSt1u.png) no-repeat 26px center;
+  -webkit-transition: all ease 0.2s;
+          transition: all ease 0.2s;
+}
+section .menu a:hover {
+  padding-left: 130px;
+  color: #787878;
+  border-color: #545454;
+}
+section .menu a.active {
+  border-color: #f67878;
+  color: #787878;
+  font-family: "GothamRoundedMedium", sans-serif;
+}
+section .menu a.timeline {
+  background-image: url(http://i.imgur.com/5eFnzAS.png);
+  background-color: transparent;
+}
+section .menu a.podcast {
+  background-image: url(company.png);
+}
+
+.copyrights {
+  text-align: center;
+  text-transform: capitalize;
+  margin: 50px;
+}
+.copyrights a {
+  text-decoration: none;
+  color: #f67878;
+}
+.notistyle::-webkit-scrollbar-track{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  background-color: #F5F5F5;
+}
+
+.notistyle::-webkit-scrollbar{
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+.notistyle::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  background-color: #555;
+}
+.notistyle{
+  height: 25em;
+  overflow: scroll;
+  overflow-x: hidden;
+}
