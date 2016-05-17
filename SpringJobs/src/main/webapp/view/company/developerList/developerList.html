@@ -207,6 +207,10 @@
 					var list = data.result;
 					if(list.length==0){
 						callModal('알림','검색결과가 없습니다.');
+	                	$.get('/view/company/developerList/Exception.html', function(data){
+	                		var Exception = $(data);
+	                    	$("#list-div").append(Exception);
+	                	});
 					}
 					$.each(list,function(i,developerInfo){
 						$.get("developerTemplate.html",function(data){

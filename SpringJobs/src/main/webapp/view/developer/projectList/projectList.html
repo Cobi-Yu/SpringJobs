@@ -331,6 +331,11 @@ strong{
                 });
                 if(cpjt.length==0){
                 	callModal('알림','검색조건이 없습니다.');
+                	$('.picture').hide();
+                	$.get('/view/developer/projectList/Exception.html', function(data){
+                		var Exception = $(data);
+                    	$("#cpjt-list").append(Exception);
+                	});
                 }
             }
         });
