@@ -204,7 +204,11 @@
                 	
                 	for(var i =0; i<6; i++){
 					    var projectTemplate = $(data);
-					    
+                		
+                		if(i==list.length) {
+                			break;
+                		}
+                		
                 		var cpjred = list[i].cpjred;
                         var cpjrdGap = parseInt( ( new Date(cpjred).getTime() - new Date().getTime())/1000/60/60/24 );
                         var cpjmAvg = (list[i].cpjmap+list[i].cpjmnp)/2;
@@ -227,10 +231,7 @@
                 		} else{
                 			redirect($('.jumbotron:eq('+i+')'),'/view/company/getProjectView/getProjectView.html?cpjno='+list[i].cpjno);
                 		}
-                		
-                		if(i==list.length) {
-                			break;
-                		}
+
          			}
                 });
                } 
