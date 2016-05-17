@@ -189,6 +189,7 @@
 			},
             data : JSON.stringify(search),
             success:function(data){
+            	
                 console.log(data.cpjt);
                 $('#cpjt-list').empty();
                 var list=data.cpjt;
