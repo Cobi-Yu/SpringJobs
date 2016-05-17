@@ -85,3 +85,18 @@ function getUrlParams() {
     return params;
 } 
 //query string 파싱 끝
+
+
+//알림추가
+var addNotifyList = function(image,title,description,url){
+  var title = $('<strong class="title">').html(title);
+  var description = $('<div class="description">').html(description);
+  var atag = $('<a class="podcast">').css('background-image','url('+image+')');
+  atag.append(title);
+  atag.append(description);
+  var litag = $('<li>').append(atag).css('cursor','pointer').click(function(){
+    window.open(url);
+  });
+  $('.notistyle').append(litag);
+}
+//알림추가 끝

@@ -118,7 +118,7 @@ section .menu {
 section .menu a {
   display: block;
   text-decoration: none;
-  padding: 30px 0 30px 120px;
+  padding: 20px 0 20px 120px;
   font-size: 20px;
   color: #b2b2b2;
   border-left: 3px solid #fff;
@@ -141,7 +141,7 @@ section .menu a.timeline {
   background-color: transparent;
 }
 section .menu a.podcast {
-  background-image: url(company.png);
+	border-bottom: 1px solid #E3E5E7;
 }
 
 .copyrights {
@@ -174,3 +174,19 @@ section .menu a.podcast {
   overflow: scroll;
   overflow-x: hidden;
 }
+
+.description{
+  padding-top: 3px;
+  font-size: 14px;
+  word-break: break-all;
+}
+.notiContainerTitle{
+    font-weight: bold;
+    font-size: 13px;
+    background-color: #F1F1F1;
+    border-bottom: 1px solid #E3E5E7;
+    border-left: 3px solid #787878;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    }

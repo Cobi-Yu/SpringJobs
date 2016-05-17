@@ -283,3 +283,7 @@ $("#notiBtn").click(function(){
 	  $("#notification_count").fadeOut("slow");
 	  return false;
 	});
+
+addNotifyList('/view/common/login/image/company.png','test','this test','http://www.naver.com');
+addNotifyList('/view/common/login/image/company.png','test','this test','http://www.naver.com');
+addNotifyList('/view/common/login/image/company.png','test','this test','http://www.naver.com');
