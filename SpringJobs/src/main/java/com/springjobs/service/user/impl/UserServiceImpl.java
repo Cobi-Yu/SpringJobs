@@ -104,7 +104,14 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public List<Unotify> getNotifyList(Users user) {
-		return userDao.getNotifyList(user);
+		List<Unotify> list = userDao.getNotifyList(user);
+		userDao.readNotify(user);
+		return list;
+	}
+
+	@Override
+	public List<Unotify> getNotifyCount(Users user) {
+		return userDao.getNotifyCount(user);
 	}
 	
 }

@@ -100,8 +100,16 @@ var socket;
 				    $(document).trigger('notiUpdate');
 			      });
 				//socketio끝
-			      notiCount=user.unotify.length;
-			      $(document).trigger('notiUpdate');
+			      if(user.unotify){
+			    	  notiCount=user.unotify.length;
+				      console.log("noticount have : "+notiCount);
+				      $(document).trigger('notiUpdate');
+			      }else{
+			    	  console.log("noticount not have : "+notiCount);
+			    	  notiCount=0;
+			    	  $(document).trigger('notiUpdate');
+			      }
+			      
 			}else{
 				user=null;
 			}
@@ -299,6 +307,7 @@ $("#notiBtn").click(function(){
 		beforeSend : addLoading,
 		complete : removeLoading,
 		success : function(data, status) {
+			$('.notistyle').empty();
 			for(var i =0; i<data.result.length;i++){
 				var notify = data.result[i];
 				console.log(notify);
@@ -310,6 +319,7 @@ $("#notiBtn").click(function(){
 				}
 				addNotifyList(img,notify.title,notify.description,notify.url);
 			}
+			user.unotify=null;
 		}
 	});
 	//notify 목록 가져오기 끝

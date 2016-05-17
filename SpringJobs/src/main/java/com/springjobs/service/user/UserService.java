@@ -41,4 +41,6 @@ public interface UserService {
 	public Users getUserInfo(int uno);
 	
 	public List<Unotify> getNotifyList(Users user);
+	
+	public List<Unotify> getNotifyCount(Users user);
 }

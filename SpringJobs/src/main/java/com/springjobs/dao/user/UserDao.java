@@ -41,4 +41,8 @@ public interface UserDao {
 	public Users getUserInfo(int uno);
 	
 	public List<Unotify> getNotifyList(Users user);
+	
+	public int readNotify(Users user);
+	
+	public List<Unotify> getNotifyCount(Users user);
 }

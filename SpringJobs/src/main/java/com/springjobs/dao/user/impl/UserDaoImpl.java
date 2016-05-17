@@ -108,5 +108,15 @@ public class UserDaoImpl implements UserDao{
 	public List<Unotify> getNotifyList(Users user) {
 		return sqlSession.selectList("UserMapper.getNotifyList",user);
 	}
+
+	@Override
+	public int readNotify(Users user) {
+		return sqlSession.update("UserMapper.readNotify",user);
+	}
+
+	@Override
+	public List<Unotify> getNotifyCount(Users user) {
+		return sqlSession.selectList("UserMapper.getNotifyCount",user);
+	}
 	
 }

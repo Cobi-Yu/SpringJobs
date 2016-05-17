@@ -329,4 +329,16 @@
 	    and regdate>= date_add(now(), interval -7 day) 
 	    order by regdate asc;
 	</select>
+	
+	<select id="getNotifyCount" parameterType="com.springjobs.domain.Users" resultType="com.springjobs.domain.Unotify">
+	    select *
+		from UNOTIFY noti
+		where noti.uno=#{uno} and noti.CHECK='0'
+	</select>
+	
+	<update id="readNotify" parameterType="com.springjobs.domain.Users">
+	    update UNOTIFY noti
+		set noti.check='1'
+		where uno=#{uno};
+	</update>
 </mapper>
