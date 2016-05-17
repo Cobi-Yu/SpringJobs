@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.springjobs.domain.UPhotos;
+import com.springjobs.domain.Unotify;
 import com.springjobs.domain.Upfurl;
 import com.springjobs.domain.Users;
 import com.springjobs.service.user.UserService;
@@ -76,6 +77,11 @@ public class UserController {
 			e.printStackTrace();
 		}
 		Users loginUser = (Users) session.getAttribute("user");
+		if(loginUser!=null){
+			List<Unotify> notiList = userService.getNotifyCount(loginUser);
+			loginUser.setUnotify(notiList);
+			System.out.println("update된 list : "+loginUser);
+		}
 		model.addAttribute("user", loginUser);
 	}
 	
@@ -163,7 +169,9 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/user/getNotifyList", method=RequestMethod.POST)
-	public void getNotifyList(@RequestBody Users user,  Model model) {
+	public void getNotifyList(@RequestBody Users user,  HttpSession session, Model model) {
+		Users temp = (Users) session.getAttribute("user");
+		temp.setUnotify(null);
 		model.addAttribute("result", userService.getNotifyList(user));
 	}
 }
