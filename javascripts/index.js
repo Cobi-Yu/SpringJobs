@@ -18,6 +18,7 @@
           markdownToHtml(decoded); // #4
         }).fail(function(data){
           alert('fail');
+          markdownToHtml(decoded); // #4
         });
     };
 
