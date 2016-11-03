@@ -18,6 +18,7 @@
           markdownToHtml(decoded); // #4
         }).fail(function(data){
           console.log(data);
+          var decode = data.responseText;
           alert('fail');
           markdownToHtml(decoded); // #4
         });
