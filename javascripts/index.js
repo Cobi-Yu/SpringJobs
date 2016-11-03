@@ -17,6 +17,7 @@
           var decoded = atob(data.content); // #3
           markdownToHtml(decoded); // #4
         }).fail(function(data){
+          console.log(data);
           alert('fail');
           markdownToHtml(decoded); // #4
         });
