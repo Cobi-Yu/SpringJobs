@@ -6,17 +6,19 @@
     // Gets the README.md.
     var getReadme = function() {
       alert('getReadme');
-        var url = "https://raw.githubusercontent.com/justinyoo/ThreeSixNine/master/README.md"; // #2
+        var url = "https://raw.githubusercontent.com/Cobi-Yu/SpringJobs/master/README.md"; // #2
         $.ajax({
-                type: "GET",
-                url: url,
-                dataType: "json"
-            })
-            .done(function(data) {
-              console.log(data);
-                var decoded = atob(data.content); // #3
-                markdownToHtml(decoded); // #4
-            });
+            type: "GET",
+            url: url,
+            dataType: "json"
+        })
+        .done(function(data) {
+          console.log(data);
+          // var decoded = atob(data.content); // #3
+          markdownToHtml(decoded); // #4
+        }).fail(function(data){
+          alert('fail');
+        });
     };
 
     // Converts the README.md markdown to HTML and put them into the HTML element.
